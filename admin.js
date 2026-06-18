@@ -20,6 +20,16 @@
 
   function $(id) { return document.getElementById(id); }
 
+  function showToast(msg, type, title) {
+    const el = document.getElementById('admin-error');
+    if (!el) return;
+    el.textContent = (title ? '[' + title + '] ' : '') + msg;
+    el.style.display = 'block';
+    el.className = 'card' + (type === 'bad' ? ' error' : '');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.style.display = 'none'; }, 6000);
+  }
+
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -121,6 +131,7 @@
       streak: Number(data.streak) || Number(data.stats && data.stats.streakDays) || 0,
       hearts: (typeof data.hearts !== 'undefined') ? Number(data.hearts) : 5,
       lastActiveDate: data.lastActiveDate || '—',
+      lastLanguage: data.lastLanguage || (data.profile && data.profile.lastLanguage) || 'greek',
 
       // Admin flag
       isAdmin: data.isAdmin === true,
@@ -252,6 +263,7 @@
           </div>
         </td>
         <td class="student-email">${escapeHtml(s.email || '—')}</td>
+        <td>${escapeHtml((s.lastLanguage || 'greek').charAt(0).toUpperCase() + (s.lastLanguage || 'greek').slice(1))}</td>
         <td>${escapeHtml(String(s.level || 1))}</td>
         <td>${escapeHtml(String(s.xp || 0))} XP</td>
         <td>Lesson ${escapeHtml(String(s.currentLesson || 1))}</td>
@@ -265,8 +277,11 @@
               <option value="">Actions...</option>
               <option value="view">View Full Profile</option>
               <option value="message">Send Message</option>
+              <option value="makeAdmin">Make Admin</option>
+              <option value="removeAdmin">Remove Admin</option>
               <option value="resetHearts">Reset Hearts</option>
               <option value="flag">Flag as At-Risk</option>
+              <option value="deleteUser">Delete User</option>
             </select>
           </div>
         </td>
@@ -321,6 +336,25 @@
         if (window.confirm(`Flag ${studentData.displayName} as at-risk?`)) {
           await flagAtRisk(studentId);
           renderStudentsTable();
+        }
+        return;
+      case 'makeAdmin':
+        if (window.confirm(`Promote ${studentData.displayName} to admin?`)) {
+          await setAdminStatus(studentId, true);
+          renderStudentsTable();
+        }
+        return;
+      case 'removeAdmin':
+        if (window.confirm(`Remove admin privileges from ${studentData.displayName}?`)) {
+          await setAdminStatus(studentId, false);
+          renderStudentsTable();
+        }
+        return;
+      case 'deleteUser':
+        if (window.confirm(`⚠️ PERMANENTLY DELETE ${studentData.displayName} (${studentData.email})? This cannot be undone.`)) {
+          if (window.confirm(`FINAL confirmation: remove ${studentData.displayName} from the app entirely?`)) {
+            await deleteUserComplete(studentId);
+          }
         }
         return;
       default:
@@ -399,6 +433,44 @@
       await firebase.firestore().collection('users').doc(uid).set({ adminFlagAtRisk: true }, { merge: true });
     } catch (e) {
       console.warn(e);
+    }
+  }
+
+  async function deleteUserComplete(uid) {
+    // Deletes Firestore user document and subcollections.
+    // NOTE: Auth account deletion requires Firebase Admin SDK or a cloud function.
+    const userRef = firebase.firestore().collection('users').doc(uid);
+    // Delete subcollections (notifications, activity, private)
+    const subcollections = ['notifications', 'activity', 'private'];
+    for (const sub of subcollections) {
+      try {
+        const snap = await userRef.collection(sub).get();
+        const batch = firebase.firestore().batch();
+        snap.docs.forEach(d => batch.delete(d.ref));
+        if (snap.docs.length) await batch.commit();
+      } catch (_) {}
+    }
+    // Delete main document
+    try {
+      await userRef.delete();
+      state.students = state.students.filter(s => s.id !== uid);
+      renderStudentsTable();
+      renderOverview();
+      showToast(`User document deleted. Auth account (Firebase Auth) must be removed manually via Firebase Console → Authentication → Users, or via Admin SDK.`);
+    } catch (e) {
+      showToast(`Failed to delete user: ${e.message}`, 'bad', 'Error');
+    }
+  }
+
+  async function setAdminStatus(uid, makeAdmin) {
+    try {
+      await firebase.firestore().collection('users').doc(uid).set({ isAdmin: makeAdmin }, { merge: true });
+      showToast(`${makeAdmin ? 'Promoted' : 'Demoted'} successfully. Firestore rules updated.`, 'good', 'Admin');
+      // Update local state
+      const student = state.students.find(s => s.id === uid);
+      if (student) student.isAdmin = makeAdmin;
+    } catch (e) {
+      showToast(`Failed to ${makeAdmin ? 'promote' : 'demote'}: ${e.message}`, 'bad', 'Error');
     }
   }
 

@@ -925,13 +925,69 @@ REAL BIBLICAL SENTENCES
     11, 3,
     'Lesson 11 — Review of Lessons 1–10',
     'Review the first half of the course with a complete survey of letters, vowels, gender, agreement and simple sentence patterns.',
-    `Lesson 11 is a complete review lesson designed to bring together every building block learned so far.
+     `LESSON 11: YOUR FIRST MAJOR CHECKPOINT
 
-You have already studied the Hebrew alphabet, the seven vowel marks, the special final forms, the definite article הַ, the conjunction וְ, adjectives that agree with nouns, and the first important pronouns. This lesson guides you through those concepts in a way that makes the next half of the course much easier.
+You've made it to the halfway point of this course! Before you dive into the world of Hebrew verbs, this lesson helps you bring together EVERYTHING you've learned so far. Think of it as assembling all the pieces of a puzzle to see the full picture.
 
-The main goal is to do more than memorize lists: you will see how letters, roots, vowels, gender, and agreement work together in actual Hebrew phrases and short sentences. That includes reading simple definite and indefinite expressions, matching adjectives to nouns, and recognizing the pronouns that appear in real text.
+WHAT YOU'VE ALREADY MASTERED:
 
-After this lesson, you should be able to identify the letter names, read pointed words, and understand the structure of phrases such as הַמֶּלֶךְ גָּדוֹל and הִיא יָפָה without guessing.`,
+1. THE ALPHABET (22 letters):
+   • All 22 consonant letters — names, sounds, and shapes
+   • The 5 special FINAL forms (Kaf, Mem, Nun, Pe, Tsade)
+   • The DAGESH — a tiny dot that changes a letter's sound
+   • The four GUTTURALS (Aleph, He, Khet, Ayin) and their throat sounds
+
+2. THE VOWEL SYSTEM (7 vowel marks):
+   • PATACH (ַ) = short "A"
+   • QAMATS (ָ) = long "AH"
+   • HIRIQ (ִ) = short "I"
+   • TSER-E (ֵ) = short "E"
+   • TSURE (ּ) = long "OO"
+   • CHOLEM (ֹ) = long "O"
+   • SHEVA (ְ) = the special heartbeat vowel (silent or mobile)
+
+3. GRAMMAR BASICS:
+   • GENDER: Every noun is either masculine or feminine
+   • THE ARTICLE: הַ (ha-) means "the" and attaches to the noun
+   • THE CONJUNCTION: וְ (ve-) means "and" and also attaches
+   • ADJECTIVES: They come AFTER the noun and must match in gender and definiteness
+   • PRONOUNS: הוּא (hu) = he, הִיא (hi) = she, אַתָּה (atah) = you (masc.), אֲנִי (ani) = I
+
+THE MOST IMPORTANT PATTERNS TO REMEMBER:
+
+Pattern 1: Simple Noun Phrase (indefinite — without "the")
+• מֶלֶךְ טוֹב (melekh tov) = "a good king"
+• מַלְכָּה טוֹבָה (malka tovah) = "a good queen"
+• The adjective AGREES with the noun in gender!
+
+Pattern 2: Definite Noun Phrase (with "the")
+• הַמֶּלֶךְ הַטּוֹב (ha-melekh ha-tov) = "the good king"
+• הַמַּלְכָּה הַטּוֹבָה (ha-malka ha-tovah) = "the good queen"
+• BOTH words need the article!
+
+Pattern 3: Sentence Without "To Be"
+• הַמֶּלֶךְ גָּדוֹל (ha-melekh gadol) = "The king IS great" (no "is" needed!)
+• הִיא יָפָה (hi yafah) = "She IS beautiful"
+
+SELF-TEST: CAN YOU READ THESE?
+
+Try reading these phrases:
+1. סֵפֶר טוֹב — "a good book" (indefinite)
+2. הַסֵּפֶר הַטּוֹב — "the good book" (definite)
+3. הוּא מֶלֶךְ — "He is a king"
+4. הִיא מַלְכָּה יָפָה — "She is a beautiful queen"
+
+If you can read these, you're ready for verbs!
+
+WHY THIS REVIEW MATTERS:
+
+Hebrew verbs are the most powerful (and most complex) part of the language. They change based on:
+• Who is doing the action (I, you, he, she, we, they)
+• When the action happens (past, present, future)
+• The gender of the subject
+• The type of action (complete vs. ongoing)
+
+WITHOUT a solid foundation in the basics, verbs will feel impossible. BUT with this review, everything will click into place because you'll recognize the building blocks that verbs are made from.`,
     [
       v('שֹׁרֶשׁ', 'shoresh', 'root', 'Roots are central to Hebrew vocabulary.'),
       v('הַ', 'ha-', 'the', 'The article appears constantly in reading.'),
@@ -951,13 +1007,57 @@ After this lesson, you should be able to identify the letter names, read pointed
     12, 3,
     'Lesson 12 — Hebrew Verbs: Roots and Patterns',
     'Identify the root letters that carry verb meaning and learn how Hebrew verb forms are built from patterns.',
-    `Lesson 12 begins the verb section by teaching the single most important skill for reading Hebrew verbs: identify the root letters first.
+     `LESSON 12: WELCOME TO HEBREW VERBS — ROOTS AND PATTERNS
 
-Hebrew verbs are built from a consonantal root, usually three letters. That root carries the basic meaning. The other letters and vowels around that root show tense, person, number, and sometimes voice.
+Get ready! You're about to unlock the most exciting part of Hebrew: VERBS. Hebrew verbs are like a secret code — once you learn the system, you can decode thousands of words from just a few basic pieces.
 
-This lesson explains how the same root appears in different verb forms. For example, כתב appears in כָּתַב (he wrote) and יִכְתֹּב (he will write). The root is the clue, and the pattern around it is the grammar.
+THE BIG IDEA: EVERY VERB HAS A ROOT
 
-Once you know how to recognize roots, Hebrew verbs become much less intimidating. You start reading them as a system instead of a collection of separate words.`,
+In English, verbs change in messy ways: "write" becomes "wrote" and "written." Hebrew is much more organized. Almost every Hebrew verb starts with a THREE-CONSONANT ROOT (called a שֹׁרֶשׁ — shoresh). This root carries the CORE MEANING.
+
+Think of the root as the ENGINE of the verb. The other letters and vowels are like the body panels, wheels, and paint — they tell you WHO did it and WHEN, but the engine tells you WHAT happened.
+
+MEET YOUR FIRST VERB ROOT: כ-ת-ב (k-t-v = "write")
+
+The root כ-ת-ב means "write." Watch how it appears in different forms:
+
+• כָּתַב (katav) = "he wrote" (past tense)
+• יִכְתֹּב (yikhtov) = "he will write" (future tense)
+• כּוֹתֵב (kotev) = "he writes / is writing" (present tense)
+
+The root letters (כ-ת-ב) stay the SAME. The vowels and extra letters around them change to show the tense.
+
+MORE ROOTS TO KNOW:
+
+Root ל-מ-ד (l-m-d = "learn"):
+• לָמַד (lamad) = "he learned"
+• לוֹמֵד (lomed) = "he learns / is learning"
+
+Root ש-מ-ר (sh-m-r = "guard/keep"):
+• שָׁמַר (shamar) = "he guarded"
+• שׁוֹמֵר (shomer) = "he guards / is guarding"
+
+HOW TO SPOT A ROOT:
+
+When you see a Hebrew verb, follow these steps:
+1. Ignore the small prefixes (like יִ, תִ, נִ)
+2. Ignore the suffixes (like ־תִי, ־נוּ)
+3. Find the three main consonants
+4. Those three letters are your ROOT!
+
+Example: יִכְתֹּב (yikhtov = "he will write")
+• Ignore the prefix יִ (yi-)
+• You're left with כ-ת-ב (k-t-v)
+• The root means "write"
+
+WHY THIS MATTERS:
+
+Hebrew has about 2,000 verb roots. From each root, you can build upwards of 20 different words! That means:
+• Learn one root = unlock many words
+• Spot the root = understand the meaning, even if you don't know the exact form
+• Reading Hebrew becomes a puzzle you can solve, not a list you must memorize
+
+Think of roots as the DNA of Hebrew. Every verb carries the genetic code of its meaning. Once you know how to read that code, you can unlock the entire language!`,
     [
       v('כָּתַב', 'katav', 'he wrote', 'A common verb root for writing.'),
       v('לָמַד', 'lamad', 'he learned', 'A common verb root for learning.'),
@@ -977,13 +1077,68 @@ Once you know how to recognize roots, Hebrew verbs become much less intimidating
     13, 3,
     'Lesson 13 — Present Tense and Gender Agreement',
     'Learn present tense forms and see how gender continues to control agreement in Hebrew.',
-    `Lesson 13 introduces the Hebrew present tense and shows that gender is still part of every sentence.
+     `LESSON 13: PRESENT TENSE AND GENDER AGREEMENT
 
-In Hebrew, present-tense verbs change depending on whether the subject is masculine or feminine. For example, כּוֹתֵב is the masculine form and כּוֹתֶבֶת is the feminine form of "writes." This reflects the same agreement system you already used with adjectives.
+You already know that Hebrew nouns have gender and that adjectives must match them. Now get ready: verbs do the same thing! In the present tense, Hebrew verbs change their form depending on whether the subject is masculine or feminine.
 
-The lesson also shows how adjectives change when the subject is feminine. If the subject is a queen, the adjective must also be feminine. That means the present tense is not just about verbs—it is about agreement across the phrase.
+THE PRESENT TENSE: A SPECIAL VERB FORM
 
-By the end of this lesson you will be able to read and understand full present-tense phrases like הוּא כּוֹתֵב and הִיא כּוֹתֶבֶת, as well as recognize that adjectives must agree with their nouns.`,
+In English, the present tense is simple: "I write," "you write," "he writes." Just one little -s change.
+
+In Hebrew, the present tense is actually a PARTICIPLE — a word that acts like both a verb and an adjective. That's why it changes for gender! It's like the verb becomes a description: "a writing man" or "a writing woman."
+
+MASCULINE vs. FEMININE PRESENT
+
+Let's use the root כ-ת-ב (write) as our example.
+
+Masculine singular: כּוֹתֵב (kotev) = "he writes" or "writing"
+Feminine singular: כּוֹתֶבֶת (kotevet) = "she writes" or "writing"
+
+See the pattern?
+• Masculine: long pattern with holem (וֹ) — כּוֹתֵב
+• Feminine: adds ת (tav) at the end — כּוֹתֶבֶת
+
+MORE EXAMPLES:
+
+Root ל-מ-ד (learn):
+• Masculine: לוֹמֵד (lomed) = "he learns"
+• Feminine: לוֹמֶדֶת (lomedet) = "she learns"
+
+Root ש-מ-ר (guard):
+• Masculine: שׁוֹמֵר (shomer) = "he guards"
+• Feminine: שׁוֹמֶרֶת (shomeret) = "she guards"
+
+PUTTING IT ALL TOGETHER:
+
+Because the present tense verb agrees with the subject in gender, you can build sentences like these:
+
+• הוּא כּוֹתֵב (hu kotev) = "He writes" (masculine subject + masculine verb)
+• הִיא כּוֹתֶבֶת (hi kotevet) = "She writes" (feminine subject + feminine verb)
+• אַתָּה לוֹמֵד (atah lomed) = "You (masc.) learn"
+• אַתְּ לוֹמֶדֶת (at lomedet) = "You (fem.) learn"
+
+ADJECTIVES STILL AGREE TOO!
+
+Remember that adjectives also match the noun. So in a sentence with both an adjective and a present-tense verb, everything must agree:
+
+• הַמֶּלֶךְ הַטּוֹב כּוֹתֵב (ha-melekh ha-tov kotev) = "The good king writes"
+• הַמַּלְכָּה הַטּוֹבָה כּוֹתֶבֶת (ha-malka ha-tovah kotevet) = "The good queen writes"
+
+Notice: The adjective טוֹב changes to טוֹבָה, and the verb changes from כּוֹתֵב to כּוֹתֶבֶת — all because the subject changed from masculine to feminine!
+
+PLURAL PRESENT TENSE:
+
+When the subject is plural, the verb changes too:
+
+Masculine plural: כּוֹתְבִים (kotvim) = "they (masc.) write"
+Feminine plural: כּוֹתְבוֹת (kotvot) = "they (fem.) write"
+
+• הֵם כּוֹתְבִים (hem kotvim) = "They (masc.) write"
+• הֵן כּוֹתְבוֹת (hen kotvot) = "They (fem.) write"
+
+KEY TAKEAWAY:
+
+Hebrew present tense is like a dance where every word has to be in sync. The subject's gender controls the verb form AND any adjectives. When you read a sentence, check the gender first — it will tell you what forms to expect!`,
     [
       v('כּוֹתֵב', 'kotev', 'writing / he writes', 'Masculine present form.'),
       v('כּוֹתֶבֶת', 'kotevet', 'writing / she writes', 'Feminine present form.'),
@@ -1009,13 +1164,65 @@ By the end of this lesson you will be able to read and understand full present-t
     14, 3,
     'Lesson 14 — Verb Patterns and Meaning',
     'Deepen your understanding of Hebrew verb stems and how meaning remains attached to the root.',
-    `Lesson 14 takes the next step in Hebrew verb study. You already know the root is the heart of a verb; now you learn how different verb forms are made from that same root.
+     `LESSON 14: VERB PATTERNS AND MEANING
 
-Some verbs look very different in different tenses, but the consonant root stays the same. That is the key to recognizing meaning quickly. This lesson gives more examples so you can see the root clearly even when the vowels and prefixes change.
+In Lesson 12, you learned that every Hebrew verb starts with a three-consonant root. Now it's time to go deeper and see how the SAME root can appear in different PATTERNS — and how recognizing those patterns helps you read faster.
 
-The lesson also emphasizes that Hebrew verbs are not random: they are patterns with a system. Once you can identify the pattern, you can begin to read verbs even before you have memorized every form.
+THE ROOT IS YOUR ANCHOR
 
-This is a practical lesson that prepares you to move from short phrases into real reading.`,
+No matter how a verb changes — past, present, future — the root consonants stay. The vowels and extra letters are like clothing that the root wears. The outfit changes, but the person inside is the same.
+
+Let's watch the root ש-מ-ר (sh-m-r = "guard") in different outfits:
+
+Past tense: שָׁמַר (shamar) = "he guarded"
+Present tense: שׁוֹמֵר (shomer) = "he guards"
+Future tense: יִשְׁמֹר (yishmor) = "he will guard"
+
+Notice how the root ש-מ-ר is always there? The vowels change, and future adds a prefix (יִ). But the three core consonants never disappear.
+
+NEW VERB ROOTS TO KNOW:
+
+Root א-מ-ר (a-m-r = "say"):
+• אָמַר (amar) = "he said"
+• אוֹמֵר (omer) = "he says"
+• יֹאמַר (yomar) = "he will say"
+
+Root ה-ל-ך (h-l-kh = "walk/go"):
+• הָלַךְ (halakh) = "he walked"
+• הוֹלֵךְ (holekh) = "he goes"
+• יֵלֵךְ (yelekh) = "he will go"
+
+Root ב-נ-ה (b-n-h = "build"):
+• בָּנָה (banah) = "he built"
+• בּוֹנֶה (boneh) = "he builds"
+• יִבְנֶה (yivneh) = "he will build"
+
+Root ע-נ-ה (a-n-h = "answer"):
+• עָנָה (anah) = "he answered"
+• עוֹנֶה (oneh) = "he answers"
+• יַעֲנֶה (ya'aneh) = "he will answer"
+
+WHAT TO LOOK FOR:
+
+When you encounter a new Hebrew verb, ask yourself:
+1. What are the three root consonants? (Find them by removing prefixes/suffixes)
+2. What do those three consonants mean? (Use your vocabulary knowledge)
+3. What pattern is the verb wearing? (Past, present, or future?)
+4. Who is doing the action? (Look at the prefixes/suffixes for clues)
+
+REAL BIBLICAL VERBS:
+
+Here are some verbs you'll see again and again in the Hebrew Bible:
+
+• וַיֹּאמֶר (vayomer) = "and he said" — appears over 2,000 times!
+• וַיֵּלֶךְ (vayelekh) = "and he went" — very common in narratives
+• וַיִּבֶן (vayiven) = "and he built" — used in building stories
+
+Each of these is built from a root + a pattern. The more you practice, the faster you'll recognize them!
+
+KEY INSIGHT:
+
+Once you can spot the root, you know the CORE meaning of the verb — even if you don't recognize every detail about the form. This is the most important skill for reading Biblical Hebrew. The root is your best friend. Never forget it!`,
     [
       v('אָמַר', 'amar', 'he said', 'A highly common biblical verb.'),
       v('בָּנָה', 'banah', 'he built', 'A simple and useful root.'),
@@ -1041,13 +1248,64 @@ This is a practical lesson that prepares you to move from short phrases into rea
     15, 3,
     'Lesson 15 — Demonstratives and Descriptive Phrases',
     'Learn how Hebrew uses this, that, these, and those alongside nouns and adjectives.',
-    `Lesson 15 introduces demonstratives and shows how they work with nouns and adjectives in Hebrew.
+     `LESSON 15: DEMONSTRATIVES — THIS, THAT, THESE, THOSE
 
-Demonstrative pronouns allow you to point to something in the sentence: this, that, these, those. Hebrew uses different forms for masculine, feminine, and plural, and these words appear often in narrative and instruction.
+Imagine you're pointing to things around you. "THIS book is great." "THAT house is big." "THESE cookies are delicious!" The words "this," "that," "these," and "those" are called DEMONSTRATIVES — they point to specific things.
 
-This lesson teaches the forms זֶה, זֹאת, and אֵלֶּה and explains how they fit into the sentence structure. You will also practice the way they combine with nouns and adjectives, so you can read phrases such as זֶה סֵפֶר טוֹב and אֵלֶּה הַבָּתִּים הַגְּדוֹלִים.
+In Hebrew, demonstratives change based on gender and number, just like adjectives do.
 
-Understanding demonstratives is important because they are a common part of Hebrew grammar and help you recognize relationships between words in a phrase.`,
+THE THREE MAIN DEMONSTRATIVES:
+
+1. זֶה (zeh) = "this" (masculine singular)
+   Use this when pointing to one masculine thing:
+   • זֶה סֵפֶר (zeh sefer) = "This is a book"
+   • זֶה מֶלֶךְ (zeh melekh) = "This is a king"
+
+2. זֹאת (zot) = "this" (feminine singular)
+   Use this when pointing to one feminine thing:
+   • זֹאת מַלְכָּה (zot malkah) = "This is a queen"
+   • זֹאת עִיר (zot ir) = "This is a city"
+
+3. אֵלֶּה (elleh) = "these" (plural — both genders)
+   Use this when pointing to multiple things:
+   • אֵלֶּה סְפָרִים (elleh sfarim) = "These are books"
+   • אֵלֶּה מְלָכִים (elleh melakhim) = "These are kings"
+
+TWO WAYS TO USE DEMONSTRATIVES:
+
+Way 1: As a STATEMENT (like saying "this IS a book")
+• זֶה סֵפֶר טוֹב (zeh sefer tov) = "This is a good book"
+• זֹאת מַלְכָּה יָפָה (zot malka yafah) = "This is a beautiful queen"
+• אֵלֶּה בָּתִּים גְּדוֹלִים (elleh batim gedolim) = "These are big houses"
+
+In this pattern, the demonstrative comes FIRST, followed by the noun and adjective. No "is" or "are" needed!
+
+Way 2: As a DESCRIPTION (like saying "THIS book is good")
+• הַסֵּפֶר הַזֶּה טוֹב (ha-sefer ha-zeh tov) = "This book is good"
+• הַמַּלְכָּה הַזֹּאת יָפָה (ha-malka ha-zot yafah) = "This queen is beautiful"
+• הַסְּפָרִים הָאֵלֶּה טוֹבִים (ha-sfarim ha-elleh tovim) = "These books are good"
+
+In this pattern, the noun gets the article, and the demonstrative comes AFTER the noun with its own article too!
+
+COMPARING THE TWO PATTERNS:
+
+Statement pattern: זֶה + noun + adjective
+• זֶה סֵפֶר טוֹב = "This is a good book"
+
+Description pattern: הַ + noun + הַ + demonstrative + adjective
+• הַסֵּפֶר הַזֶּה טוֹב = "This book is good"
+
+The difference is subtle but important. The first says "This IS a good book" (introducing it). The second says "THIS book (the one right here) is good" (pointing out a specific one).
+
+PRACTICE READING:
+
+Try these:
+1. זֶה מֶלֶךְ גָּדוֹל = "This is a great king"
+2. הַמֶּלֶךְ הַזֶּה גָּדוֹל = "This king is great"
+3. אֵלֶּה בָּתִּים = "These are houses"
+4. הַבָּתִּים הָאֵלֶּה גְּדוֹלִים = "These houses are big"
+
+Demonstratives are everywhere in biblical narratives. Characters point to things, identify people, and describe scenes using these words. Master them, and you'll follow the story much more easily!`,
     [
       v('זֶה', 'zeh', 'this / this one', 'Masculine singular demonstrative.'),
       v('זֹאת', 'zot', 'this / this one', 'Feminine singular demonstrative.'),
@@ -1073,13 +1331,63 @@ Understanding demonstratives is important because they are a common part of Hebr
     16, 4,
     'Lesson 16 — Prepositions and Prefixed Particles',
     'Learn the most common Hebrew prepositions and how they attach to words in the sentence.',
-    `Lesson 16 explains how many Hebrew prepositions are written as prefixes attached to the noun or verb that follows.
+     `LESSON 16: PREPOSITIONS — THE GLUE THAT HOLDS SENTENCES TOGETHER
 
-Hebrew prepositions like בְּ, לְ, כְּ, עַל, and מִן appear in almost every phrase. This lesson teaches how they are formed, how they affect meaning, and how they change the relationship between words.
+Prepositions are little words like "in," "to," "from," and "like." In English, they're separate words. But in Hebrew, many prepositions ATTACH directly to the word that follows! They become PREFIXES.
 
-You will read examples such as בְּבַיִת (in the house), לְמֶלֶךְ (to the king), and כְּדָבָר (like a word). These particles are the glue that connects nouns, verbs, and ideas in Hebrew text.
+Think of Hebrew prepositions as tiny stickers that glue themselves to the next word. Once you learn to spot them, you'll understand how all the parts of a sentence connect.
 
-The goal is to build confidence in recognizing prepositions so that you can read longer phrases without losing the link between the parts.`,
+THE FIVE MOST COMMON PREPOSITIONS:
+
+1. בְּ (be-) = "in" or "with"
+   • בְּבַיִת (be-vayit) = "in a house"
+   • בַּמֶּלֶךְ (ba-melekh) = "in the king" (בְּ + הַ → בַּ)
+   
+   When בְּ meets the definite article הַ, they combine! The ה disappears, and the vowel becomes a (patach): בְּ + הַ = בַּ
+
+2. לְ (le-) = "to" or "for"
+   • לְמֶלֶךְ (le-melekh) = "to a king"
+   • לַמֶּלֶךְ (la-melekh) = "to the king" (לְ + הַ → לַ)
+   
+   Same rule: לְ + הַ = לַ
+
+3. כְּ (ke-) = "like" or "as"
+   • כְּמֶלֶךְ (ke-melekh) = "like a king"
+   • כַּמֶּלֶךְ (ka-melekh) = "like the king" (כְּ + הַ → כַּ)
+
+4. עַל (al) = "on" or "upon"
+   • עַל הַבַּיִת (al ha-bayit) = "on the house"
+   • This one is a SEPARATE word (not a prefix)
+
+5. מִן (min) = "from"
+   • מִמֶּלֶךְ (mi-melekh) = "from a king"
+   • מֵהַבַּיִת (me-ha-bayit) = "from the house"
+   • This one is often shortened to מִ (mi-)
+
+THE IMPORTANT RULE: PREPOSITION + ARTICLE COMBINATIONS
+
+When בְּ, לְ, or כְּ come before a word with the definite article הַ:
+1. The ה disappears
+2. The preposition gets a patach (ַ) vowel
+3. The word keeps its meaning as "the"
+
+Example breakdown:
+• בְּ (in) + הַמֶּלֶךְ (the king) → בַּמֶּלֶךְ (ba-melekh) = "in the king"
+• לְ (to) + הַמֶּלֶךְ (the king) → לַמֶּלֶךְ (la-melekh) = "to the king"
+
+READING REAL PHRASES:
+
+• בְּבַיִת (be-vayit) = "in a house"
+• לְסֵפֶר (le-sefer) = "to a book"
+• כְּמֶלֶךְ (ke-melekh) = "like a king"
+• עַל הַבַּיִת (al ha-bayit) = "on the house"
+• מִן הָעִיר (min ha-ir) = "from the city"
+
+WHY THIS MATTERS:
+
+Prepositions appear in almost every Hebrew sentence. They connect ideas and show relationships between words. If you don't recognize them, you might misread the entire sentence. But once you know them, you'll see how they tie everything together!
+
+Think of prepositions as the GLUE of Hebrew. Without glue, words just sit there. With glue, they form meaningful sentences that tell stories, give commands, and ask questions.`,
     [
       v('בְּ', 'be-', 'in / with', 'A common prefixed preposition.'),
       v('לְ', 'le-', 'to / for', 'Another very common prefix.'),
@@ -1105,13 +1413,67 @@ The goal is to build confidence in recognizing prepositions so that you can read
     17, 4,
     'Lesson 17 — Relative Clauses and the Direct Object Marker',
     'Identify the word that links clauses and the marker that marks a definite direct object.',
-    `Lesson 17 shows how Hebrew links two ideas together with a relative pronoun and how it marks a definite direct object with את.
+     `LESSON 17: RELATIVE CLAUSES AND THE DIRECT OBJECT MARKER
 
-The relative pronoun אֲשֶׁר appears in sentences that describe or identify something: "the book that..." or "the man who..." Recognizing it helps you see where a clause begins and ends.
+In this lesson, you'll learn two powerful tools that make Hebrew sentences more precise and interesting. First, how to say "the book THAT I wrote" (a relative clause). Second, how to mark the DIRECT OBJECT of a verb.
 
-The particle אֶת is a special helper that marks a definite direct object. It does not translate into English but it tells you exactly which noun is receiving the action.
+PART 1: THE RELATIVE PRONOUN אֲשֶׁר (ASHER)
 
-This lesson makes reading Hebrew smoother because you will know when a phrase is a relative clause and when a noun is the definite object of a verb.`,
+אֲשֶׁר (asher) means "who," "that," or "which." It connects two ideas together:
+
+• הַמֶּלֶךְ אֲשֶׁר שָׁמַר (ha-melekh asher shamar) = "the king who guarded"
+• הַסֵּפֶר אֲשֶׁר כָּתַב (ha-sefer asher katav) = "the book that he wrote"
+• הָעִיר אֲשֶׁר בָּנָה (ha-ir asher banah) = "the city which he built"
+
+Think of אֲשֶׁר as a BRIDGE between two parts of a sentence. The first part introduces a person or thing. The second part tells you something about them.
+
+Full sentence examples:
+• רָאִיתִי אֶת הַמֶּלֶךְ אֲשֶׁר שָׁמַר הָעִיר (ra'iti et ha-melekh asher shamar ha-ir) = "I saw the king who guarded the city"
+• זֶה הַסֵּפֶר אֲשֶׁר כָּתַב הַמֶּלֶךְ (zeh ha-sefer asher katav ha-melekh) = "This is the book that the king wrote"
+
+PART 2: THE DIRECT OBJECT MARKer אֶת (ET)
+
+In English, we know which noun is the direct object (receiving the action) from word order: "The king guards THE CITY." The city comes after the verb, so it's the object.
+
+In Hebrew, word order can be flexible. That's why Hebrew uses a special word, אֶת (et), to mark the DIRECT OBJECT — but ONLY when it's DEFINITE (has "the").
+
+• הַמֶּלֶךְ שָׁמַר אֶת הָעִיר (ha-melekh shamar et ha-ir) = "The king guarded the city"
+• He guarded WHAT? The city (עִיר with הַ = definite)
+
+Without אֶת, you'd have to guess which word is the object. With אֶת, it's crystal clear.
+
+When is אֶת used?
+• Only before DEFINITE objects (with הַ, or proper names)
+• NOT before indefinite objects (without "the")
+
+Examples:
+• שָׁמַר אֶת הַמֶּלֶךְ (shamar et ha-melekh) = "He guarded THE king" (definite)
+• שָׁמַר מֶלֶךְ (shamar melekh) = "He guarded a king" (indefinite — no אֶת)
+
+ANOTHER IMPORTANT WORD: כִּי (KI)
+
+כִּי (ki) means "that" or "because." It's different from אֲשֶׁר:
+• אֲשֶׁר = "who/that/which" (describes a noun)
+• כִּי = "that" (introduces a whole idea) or "because" (gives a reason)
+
+Examples:
+• יָדַעְתִּי כִּי הַמֶּלֶךְ טוֹב (yadati ki ha-melekh tov) = "I knew THAT the king is good"
+• שָׂמַח כִּי רָאָה אֶת הַמֶּלֶךְ (samakh ki ra'ah et ha-melekh) = "He rejoiced BECAUSE he saw the king"
+
+PUTTING IT ALL TOGETHER:
+
+Try reading this sentence:
+רָאִיתִי אֶת הַסֵּפֶר אֲשֶׁר כָּתַב הַמֶּלֶךְ
+(ra'iti et ha-sefer asher katav ha-melekh)
+= "I saw the book THAT the king wrote"
+
+Breakdown:
+• רָאִיתִי = "I saw"
+• אֶת הַסֵּפֶר = direct object marker + "the book"
+• אֲשֶׁר = "that/which"
+• כָּתַב הַמֶּלֶךְ = "the king wrote"
+
+With אֲשֶׁר and אֶת in your toolbox, you can read much more complex and interesting Hebrew sentences!`,
     [
       v('אֲשֶׁר', 'asher', 'who / that / which', 'A common relative pronoun.'),
       v('אֶת', 'et', 'direct-object marker', 'Marks the definite direct object.'),
@@ -1137,13 +1499,75 @@ This lesson makes reading Hebrew smoother because you will know when a phrase is
     18, 4,
     'Lesson 18 — Mid-Course Review of Verbs and Syntax',
     'Review verb patterns, demonstratives, prepositions, and clause markers before continuing to more advanced grammar.',
-    `Lesson 18 is a mid-course checkpoint designed to reinforce the grammar from lessons 12 through 17.
+     `LESSON 18: MID-COURSE REVIEW — VERBS AND SYNTAX
 
-This lesson revisits core verb roots, present-tense agreement, demonstratives, prefixed prepositions, and the relative pronoun. The purpose is to build fluency so that you can move forward confidently.
+You've covered a LOT of ground. Let's pause and bring everything together before moving forward. This lesson reviews the key grammar from lessons 12 through 17 — verbs, demonstratives, prepositions, relative clauses, and more.
 
-You will practice reading and understanding phrases that blend the grammar you have learned. These review exercises help you see patterns, remember forms, and avoid common beginner mistakes.
+REVIEW 1: VERB ROOTS AND PRESENT TENSE
 
-By working through this lesson, you are training your eye to recognize how Hebrew grammar holds sentences together. That becomes essential for reading real biblical material.`,
+Every Hebrew verb starts with a three-consonant root. The present tense changes for gender:
+
+Root כ-ת-ב (write):
+• He writes: כּוֹתֵב (kotev)
+• She writes: כּוֹתֶבֶת (kotevet)
+• They (masc.) write: כּוֹתְבִים (kotvim)
+• They (fem.) write: כּוֹתְבוֹת (kotvot)
+
+Root ש-מ-ר (guard):
+• He guards: שׁוֹמֵר (shomer)
+• She guards: שׁוֹמֶרֶת (shomeret)
+• They (masc.) guard: שׁוֹמְרִים (shomrim)
+• They (fem.) guard: שׁוֹמְרוֹת (shomrot)
+
+REVIEW 2: DEMONSTRATIVES
+
+Pointing words that change for gender and number:
+• זֶה (zeh) = "this" (masculine singular)
+• זֹאת (zot) = "this" (feminine singular)
+• אֵלֶּה (elleh) = "these" (plural)
+
+Two patterns:
+• זֶה סֵפֶר טוֹב = "This is a good book" (statement)
+• הַסֵּפֶר הַזֶּה טוֹב = "This book is good" (description)
+
+REVIEW 3: PREFIXED PREPOSITIONS
+
+Little words that attach to the next word:
+• בְּ (be-) = "in" — בַּבַּיִת = "in the house"
+• לְ (le-) = "to/for" — לַמֶּלֶךְ = "to the king"
+• כְּ (ke-) = "like/as" — כַּמֶּלֶךְ = "like the king"
+• עַל (al) = "on/upon" (separate word)
+• מִן (min) = "from" (often shortened to מִ)
+
+Remember: בְּ + הַ = בַּ | לְ + הַ = לַ | כְּ + הַ = כַּ
+
+REVIEW 4: RELATIVE CLAUSES AND DIRECT OBJECTS
+
+• אֲשֶׁר (asher) = "who/that/which" — connects a description to a noun
+• אֶת (et) = direct object marker — shows which noun receives the action (definite only)
+• כִּי (ki) = "that/because" — introduces a whole idea or gives a reason
+
+SENTENCE BREAKDOWN PRACTICE:
+
+Let's analyze a full sentence:
+
+הַמֶּלֶךְ הַטּוֹב שׁוֹמֵר אֶת הָעִיר אֲשֶׁר בָּנָה
+
+(ha-melekh ha-tov shomer et ha-ir asher banah)
+
+Translation: "The good king guards the city that he built."
+
+Breakdown:
+• הַמֶּלֶךְ הַטּוֹב = "the good king" (definite noun + definite adjective)
+• שׁוֹמֵר = "guards" (present tense, masculine)
+• אֶת הָעִיר = direct object marker + "the city"
+• אֲשֶׁר בָּנָה = "that he built" (relative clause describing the city)
+
+Every part of this sentence follows rules you've learned. You can read this!
+
+WHY THIS REVIEW MATTERS:
+
+You've now learned the core building blocks of Hebrew sentences. With roots, patterns, gender agreement, demonstratives, prepositions, and clause markers, you can read and understand real biblical-style Hebrew. The next lessons will add more advanced features, but you already have a SOLID foundation. Take a moment to appreciate how far you've come!`,
     [
       v('כָּתַב', 'katav', 'he wrote', 'Review of the verb root.'),
       v('זֶה', 'zeh', 'this', 'Review of demonstratives.'),
@@ -1169,13 +1593,89 @@ By working through this lesson, you are training your eye to recognize how Hebre
     19, 4,
     'Lesson 19 — Review Test and Confidence Check',
     'Check your grasp of the course so far before moving into more advanced grammar and reading practice.',
-    `Lesson 19 is a formal review test that confirms your ability to recognize the essential Hebrew forms learned so far.
+     `LESSON 19: REVIEW TEST AND CONFIDENCE CHECK
 
-This lesson is not about introducing new grammar. It is about proving that you can still identify letters, vowel marks, gender, articles, adjectives, pronouns, verb roots, particles, and clause markers after several lessons.
+This is it — your big review test! No new grammar here. Just a chance to prove to yourself that you've mastered everything so far. Think of it as the final exam before the advanced material.
 
-The review test helps you discover which areas are secure and which require additional practice. That way you enter the final quarter of the course with confidence rather than uncertainty.
+WHAT YOU NEED TO KNOW FOR THIS TEST:
 
-You will revisit key concepts in structured examples, and the lesson shows how many of the same ideas appear again and again in real Hebrew reading.`,
+ALPHABET AND VOWELS:
+• All 22 letter names and sounds
+• The 5 final forms (ך, ם, ן, ף, ץ)
+• The 7 vowel marks and their sounds
+• Silent vs. mobile sheva
+• The dagesh and how it changes pronunciation
+• Guttural letters (א, ה, ח, ע) and their special behavior
+
+NOUNS AND GENDER:
+• Every noun is either masculine or feminine
+• Feminine nouns often end in ה or ת
+• Masculine plurals end in ים, feminine plurals end in ות
+
+DEFINITE ARTICLE:
+• הַ (ha-) = "the" — attaches to the noun
+• When an adjective describes a definite noun, it also gets הַ
+
+CONJUNCTION:
+• וְ (ve-) = "and" — attaches to the next word
+• Changes form depending on the following sound
+
+ADJECTIVES:
+• Come AFTER the noun
+• Must match the noun in gender (masculine/feminine)
+• Must match the noun in definiteness (with/without הַ)
+• Must match the noun in number (singular/plural)
+
+PRONOUNS:
+• הוּא (hu) = "he"
+• הִיא (hi) = "she"
+• אַתָּה (atah) = "you" (masculine)
+• אֲנִי (ani) = "I"
+• Hebrew often skips "is" and "are": הוּא מֶלֶךְ = "He is a king"
+
+VERB ROOTS AND PATTERNS:
+• Every verb has a three-consonant root
+• The root carries the core meaning
+• Vowels and prefixes/suffixes show tense and person
+• Present tense changes for gender: כּוֹתֵב (masc.) / כּוֹתֶבֶת (fem.)
+
+DEMONSTRATIVES:
+• זֶה = this (masc.), זֹאת = this (fem.), אֵלֶּה = these (plural)
+
+PREPOSITIONS:
+• בְּ = in, לְ = to/for, כְּ = like/as, עַל = on/upon, מִן = from
+• בְּ + הַ = בַּ, לְ + הַ = לַ, כְּ + הַ = כַּ
+
+CLAUSE MARKERS:
+• אֲשֶׁר = who/that/which (relative pronoun)
+• אֶת = direct object marker (before definite objects)
+• כִּי = that/because (conjunction)
+
+SAMPLE TEST PHRASES — CAN YOU READ THESE?
+
+Try reading these aloud and translating:
+1. הַמֶּלֶךְ הַגָּדוֹל
+   (ha-melekh ha-gadol) = "The great king"
+
+2. הִיא מַלְכָּה יָפָה
+   (hi malkah yafah) = "She is a beautiful queen"
+
+3. אֵלֶּה הַסְּפָרִים הַטּוֹבִים
+   (elleh ha-sfarim ha-tovim) = "These are the good books"
+
+4. הַמֶּלֶךְ שׁוֹמֵר אֶת הָעִיר
+   (ha-melekh shomer et ha-ir) = "The king guards the city"
+
+5. זֶה הַסֵּפֶר אֲשֶׁר כָּתַב הַמֶּלֶךְ
+   (zeh ha-sefer asher katav ha-melekh) = "This is the book that the king wrote"
+
+HOW DID YOU DO?
+
+• If you got all 5 = You're ready for the advanced lessons!
+• If you got 3-4 = Review the specific areas you missed
+• If you got 0-2 = Go back and review lessons 1-18 before moving forward
+
+This checkpoint ensures you enter the final section with CONFIDENCE. You've worked hard — now prove it to yourself!`,
     [
       v('הַ', 'ha-', 'the', 'Review of the definite article.'),
       v('כּוֹתֵב', 'kotev', 'writing / he writes', 'Review of present forms.'),
@@ -1201,13 +1701,64 @@ You will revisit key concepts in structured examples, and the lesson shows how m
     20, 4,
     'Lesson 20 — Guttural Verb Roots and Gender',
     'Learn how guttural letters affect verb patterns and continue to practice gender agreement in verbs and adjectives.',
-    `Lesson 20 explores verbs whose roots include guttural consonants such as ע, ח, and א.
+     `LESSON 20: GUTTURAL VERB ROOTS AND GENDER
 
-Guttural letters are special in Hebrew because they can influence vowel sounds and the way forms are pronounced. This lesson explains those changes and gives you practice recognizing verbs that contain guttrals.
+Remember the four guttural letters from Lesson 3? א (Aleph), ה (He), ח (Khet), and ע (Ayin)? These special throat letters don't just change how words sound — they also affect how verbs behave!
 
-The lesson also revisits gender because Hebrew verbs and adjectives still agree with the subject. Understanding guttural roots and gender together is essential for accurate reading.
+GUTTURALS: THE REBEL LETTERS
 
-You will read examples such as רוּחַ, עַם, and חָזָק and see how gutturals appear in both nouns and verbs.`,
+Guttural letters are like rule-breakers. They don't like certain vowels and they change the patterns you've learned. But once you understand their quirks, you can handle any guttural verb.
+
+GOLDEN RULE #1: GUTTURALS LOVE THE "A" SOUND
+
+When a guttural letter is in a verb root, nearby vowels often shift to an "A" sound (patach or qamats). This is because "A" vowels are easier to pronounce from the throat.
+
+Example: The root שׁ-מ-ע (sh-m-a = "hear/hear")
+The letter ע (Ayin) is guttural. Watch how the vowel changes:
+
+• Normal verb (שָׁמַר — shamar, "he guarded"): Patach under second letter
+• Guttural verb (שָׁמַע — shama, "he heard"): Same pattern — but look closely at the vowel under the guttural
+
+In the present tense:
+• שׁוֹמֵר (shomer) = "he guards" (normal)
+• שׁוֹמֵעַ (shomea) = "he hears" (guttural forces the last vowel to shift)
+
+GOLDEN RULE #2: GUTTURALS DON'T LIKE THE SHEVA
+
+Regular verbs can take a silent sheva (ְ) under any letter. But gutturals HATE the sheva. Instead, they take a COMPOSITE SHEVA — a sheva combined with a vowel sound.
+
+There are three composite shevas:
+• ֲ (chatef-patach) = "a" sound + sheva — most common with gutturals
+• ֱ (chatef-segol) = "e" sound + sheva
+• ֳ (chatef-qamats) = "o" sound + sheva — rare
+
+Example: Root ע-ל-ה (a-l-h = "go up")
+• Past tense: עָלָה (alah) = "he went up"
+• The guttural ע takes the main vowel, not a sheva
+
+GUTTURAL NOUNS AND ADJECTIVES:
+
+Gutturals also affect nouns and adjectives:
+
+• רוּחַ (ruach) = "spirit/wind" — the ח at the end affects the vowel
+• עַם (am) = "people" — the ע makes the word short
+• חָזָק (chazaq) = "strong" — the ח takes a long vowel
+• חָכָם (chakham) = "wise" — both letters are guttural!
+
+GENDER STILL MATTERS:
+
+Even with gutturals, gender agreement still applies!
+
+• הוּא שָׁמַע (hu shama) = "He heard" (masculine)
+• הִיא שָׁמְעָה (hi sham'ah) = "She heard" (feminine — adds ה)
+• הוּא עָלָה (hu alah) = "He went up" (masculine)
+• הִיא עָלְתָה (hi altah) = "She went up" (feminine — adds ת)
+
+WHY THIS MATTERS:
+
+Guttural verbs are very common in the Hebrew Bible. Words like "hear" (שָׁמַע), "answer" (עָנָה), "stand" (עָמַד), and "do/make" (עָשָׂה) all contain gutturals. Once you know how gutturals behave, you won't be confused when a verb looks slightly different from what you expected.
+
+Remember: Gutturals are rebels, but they're predictable rebels. Learn their rules, and they'll follow them every time!`,
     [
       v('רוּחַ', 'ruach', 'spirit / wind', 'A common noun containing a guttural.'),
       v('עַם', 'am', 'people', 'A short noun with a guttural.'),
@@ -1233,13 +1784,77 @@ You will read examples such as רוּחַ, עַם, and חָזָק and see how gu
     21, 5,
     'Lesson 21 — Negation and Singular Noun Patterns',
     'Form simple negative Hebrew sentences and learn how singular nouns are used in basic statements.',
-    `Lesson 21 teaches the two most important negative tools in Hebrew: לֹא and אֵין.
+     `LESSON 21: NEGATION — SAYING "NO" IN HEBREW
 
-לֹא is the standard negative particle used to deny a verb or statement. אֵין means "there is not" or "there is no" and is used in sentences about existence or absence.
+So far, you've learned how to say what things ARE. Now it's time to learn how to say what things ARE NOT. Hebrew uses two main words to express negation: לֹא (lo) and אֵין (ein). Each has a different job.
 
-This lesson also reviews singular noun forms so you can understand the structure behind negative sentences and basic declarations. You will practice reading sentences like לֹא הַמֶּלֶךְ אֵין and אֵין סֵפֶר.
+NEGATION TOOL #1: לֹא (LO) — "NOT"
 
-These negative sentences are common in narrative and instruction, and mastering them is essential for reading real Hebrew text.`,
+לֹא is the standard negative particle. It's like the word "not" in English. It NEGATES a verb or a statement.
+
+Where does לֹא go? Directly BEFORE the word it negates.
+
+Examples with verbs:
+• הוּא כָּתַב (hu katav) = "He wrote"
+• הוּא לֹא כָּתַב (hu lo katav) = "He did NOT write"
+• הַמֶּלֶךְ שׁוֹמֵר (ha-melekh shomer) = "The king guards"
+• הַמֶּלֶךְ לֹא שׁוֹמֵר (ha-melekh lo shomer) = "The king does NOT guard"
+
+Examples with adjectives:
+• הַמֶּלֶךְ טוֹב (ha-melekh tov) = "The king is good"
+• הַמֶּלֶךְ לֹא טוֹב (ha-melekh lo tov) = "The king is NOT good"
+• הִיא יָפָה (hi yafah) = "She is beautiful"
+• הִיא לֹא יָפָה (hi lo yafah) = "She is NOT beautiful"
+
+NEGATION TOOL #2: אֵין (EIN) — "THERE IS NOT"
+
+אֵין is different from לֹא. It means "there is not" or "there is no." It's used when something DOESN'T EXIST or ISN'T PRESENT.
+
+Examples:
+• סֵפֶר (sefer) = "a book"
+• אֵין סֵפֶר (ein sefer) = "There is no book" / "There isn't a book"
+• מֶלֶךְ (melekh) = "a king"
+• אֵין מֶלֶךְ (ein melekh) = "There is no king"
+
+אֵין can also negate a definite noun:
+• אֵין הַמֶּלֶךְ (ein ha-melekh) = "The king is not here" / "There is no king"
+
+When you want to say "there IS" something, use יֵשׁ (yesh):
+• יֵשׁ סֵפֶר (yesh sefer) = "There is a book"
+• אֵין סֵפֶר (ein sefer) = "There is no book"
+
+COMPARING לֹא AND אֵין:
+
+Think of it this way:
+• לֹא = "not" — negates an action or description
+• אֵין = "there is not" — says something doesn't exist
+
+Example comparison:
+• הַמֶּלֶךְ לֹא בַּבַּיִת (ha-melekh lo ba-bayit) = "The king is NOT in the house" (negating the location)
+• אֵין מֶלֶךְ בַּבַּיִת (ein melekh ba-bayit) = "There is NO king in the house" (denying existence)
+
+SINGULAR NOUN PATTERNS REVIEW:
+
+Since we're talking about what exists and what doesn't, let's review singular noun patterns:
+
+Indefinite (without "the"):
+• מֶלֶךְ (melekh) = "a king"
+• סֵפֶר (sefer) = "a book"
+• מַלְכָּה (malkah) = "a queen"
+
+Definite (with "the"):
+• הַמֶּלֶךְ (ha-melekh) = "the king"
+• הַסֵּפֶר (ha-sefer) = "the book"
+• הַמַּלְכָּה (ha-malkah) = "the queen"
+
+With יֵשׁ and אֵין:
+• יֵשׁ סֵפֶר = "There is a book"
+• אֵין סֵפֶר = "There is no book"
+• יֵשׁ הַמֶּלֶךְ = "The king is here/exists"
+
+KEY TAKEAWAY:
+
+Negation in Hebrew is simple once you know which tool to use. Use לֹא to say something "is not" or "does not." Use אֵין to say something "there is not" or "does not exist." Master these two, and you can say anything in the negative!`,
     [
       v('לֹא', 'lo', 'not', 'The simplest negative particle.'),
       v('אֵין', 'ein', 'there is not / there is no', 'A common negative expression.'),
@@ -1265,11 +1880,63 @@ These negative sentences are common in narrative and instruction, and mastering 
     22, 5,
     'Lesson 22 — The Dual Number',
     'Recognize the Hebrew dual form used for natural pairs such as hands, eyes, and feet.',
-    `Lesson 22 introduces the Hebrew dual number, a special plural form used for natural pairs.
+     `LESSON 22: THE DUAL NUMBER — THINGS THAT COME IN PAIRS
 
-Hebrew uses dual forms for words that naturally come in twos, such as hands, feet, and eyes. The dual often ends in -ַיִם or -תַיִם.
+Most languages have two ways to count: singular (one) and plural (more than one). But Hebrew has a THIRD way: the DUAL. The dual is used for things that naturally come in PAIRS.
 
-This lesson shows you how to read dual nouns and how they differ from ordinary singular and plural forms. That means when you see יָדַיִם or רַגְלַיִם, you immediately know you are reading "two hands" or "two feet."`,
+THINK ABOUT IT:
+
+What body parts do you have two of? Hands, feet, eyes, ears. In Hebrew, these words use a special form to show they come in pairs.
+
+THE DUAL ENDING: ־ַיִם (-AYIM)
+
+The dual is formed by adding the ending ־ַיִם (-ayim) to the singular noun.
+
+SINGULAR vs. DUAL:
+
+• יָד (yad) = "hand" → יָדַיִם (yadayim) = "two hands"
+• רֶגֶל (regel) = "foot" → רַגְלַיִם (raglayim) = "two feet"
+• עַיִן (ayin) = "eye" → עֵינַיִם (einaim) = "two eyes"
+• אֹזֶן (ozen) = "ear" → אָזְנַיִם (oznayim) = "two ears"
+
+See the pattern? The singular changes its vowels, and the dual ending ־ַיִם is added.
+
+SOME WORDS ARE ALMOST ALWAYS DUAL:
+
+Because these body parts naturally come in pairs, you'll almost always see them in the dual form in biblical texts:
+• יָדַיִם = "hands" (always two — because people have two hands)
+• רַגְלַיִם = "feet" (always two)
+• עֵינַיִם = "eyes" (always two)
+• אָזְנַיִם = "ears" (always two)
+
+EXCEPTIONS THAT PROVE THE RULE:
+
+Sometimes the dual is used for words that aren't body parts. These words still suggest a pair or double nature:
+• שְׁנַיִם (shnayim) = "two" (the number two itself!)
+• מַיִם (mayim) = "water" (looks dual but means a mass of water)
+• שָׁמַיִם (shamayim) = "heavens/sky" (the vast expanse above)
+
+Wait — מַיִם and שָׁמַיִם end in ־ַיִם but they aren't literally "two waters" or "two heavens." Sometimes Hebrew just uses the dual form for words that seem like they should have a dual quality (water flows as a pair or the sky is expansive).
+
+DUAL vs. REGULAR PLURAL:
+
+Not all plurals are dual! Regular plurals use ים (im) for masculine and ות (ot) for feminine.
+
+Compare:
+• מְלָכִים (melakhim) = "kings" (regular plural — any number more than one)
+• יָדַיִם (yadayim) = "two hands" (dual — specifically a pair)
+
+If you want to say "many hands" (more than two), you'd use the regular plural:
+• יָדוֹת (yadot) = "hands" (more than two — regular feminine plural)
+
+DUAL IN SENTENCES:
+
+• בְּיָדַיִם (be-yadayim) = "with (two) hands"
+• לְעֵינַיִם (le-einaim) = "before (the) eyes" / "in the sight of"
+
+WHY THIS MATTERS:
+
+The dual appears frequently in biblical Hebrew, especially when describing the human body, animals, and pairs. When you see a word ending in ־ַיִם, you know immediately you're dealing with something that comes in twos. It's like a secret signal that says "PAIR ALERT!"`,
     [
       v('יָדַיִם', 'yadayim', 'two hands', 'A classic dual form.'),
       v('רַגְלַיִם', 'raglayim', 'two feet', 'Another common dual form.'),
@@ -1295,11 +1962,77 @@ This lesson shows you how to read dual nouns and how they differ from ordinary s
     23, 5,
     'Lesson 23 — The Imperfect Tense',
     'Read imperfect forms and understand how Hebrew expresses incomplete, ongoing, or future action.',
-    `Lesson 23 introduces the imperfect tense, which often expresses incomplete, ongoing, or future action in Hebrew.
+     `LESSON 23: THE IMPERFECT TENSE — THE UNFINISHED STORY
 
-The imperfect is a powerful aspectual form. It is not always a simple future. It can mean "he will write," "he is writing," or "he does not write," depending on context.
+So far, you've learned two main verb forms: the PAST (perfect) and the PRESENT (participle). Now it's time to learn the IMPERFECT — a verb form that expresses INCOMPLETE, ONGOING, or FUTURE action.
 
-This lesson helps you recognize imperfect verb forms and understand the sense they convey in narrative and poetry. It prepares you to read sentences that describe continuing or future action.`,
+WHAT IS THE IMPERFECT?
+
+In English, we have separate tenses for past ("he wrote"), present ("he writes"), and future ("he will write"). Hebrew thinks differently. Instead of focusing on TIME, Hebrew focuses on ASPECT — whether an action is COMPLETE or INCOMPLETE.
+
+The IMPERFECT aspect describes actions that are:
+• Not yet finished
+• Still happening
+• About to happen
+• Repeated or habitual
+
+This is why the imperfect can translate in multiple ways depending on context!
+
+IMPERFECT VERB PATTERN
+
+The imperfect is formed by adding PREFIXES to the verb root. Different prefixes show different persons (who is doing the action).
+
+Using root כ-ת-ב (k-t-v = "write"):
+
+• יִכְתֹּב (yikhtov) = "he will write" / "he is writing" / "he used to write"
+• תִּכְתֹּב (tikhtov) = "you will write" (masc. singular)
+• אֶכְתֹּב (ekhtov) = "I will write"
+• נִכְתֹּב (nikhtov) = "we will write"
+• יִכְתְּבוּ (yikhtevu) = "they will write" (masc.)
+• תִּכְתֹּבְנָה (tikhtovnah) = "they will write" (fem.)
+
+IMPERFECT PREFIXES — THE SUBJECT CODE:
+
+The prefix tells you who is acting:
+• אֶ (e-) = I (first person singular)
+• נִ (ni-) = We (first person plural)
+• תִּ (ti-) = You (second person masculine singular)
+• תִּ...ִי (ti...i) = You (second person feminine singular)
+• יִ (yi-) = He (third person masculine singular)
+• תִּ (ti-) = She (third person feminine singular)
+• יִ...וּ (yi...u) = They (third person masculine plural)
+• תִּ...נָה (ti...nah) = They (third person feminine plural)
+
+MORE IMPERFECT EXAMPLES:
+
+Root שָׁמַר (shamar = "guard"):
+• יִשְׁמֹר (yishmor) = "he will guard"
+• תִּשְׁמֹר (tishmor) = "you will guard"
+• אֶשְׁמֹר (eshmor) = "I will guard"
+
+Root לָמַד (lamad = "learn"):
+• יִלְמַד (yilmad) = "he will learn"
+• נִלְמַד (nilmad) = "we will learn"
+• תִּלְמַד (tilmad) = "you will learn"
+
+COMMON IMPERFECT FORMS IN THE BIBLE:
+
+These verbs appear constantly in biblical narratives:
+
+• יֹאמַר (yomar) = "he will say" (root א-מ-ר)
+• יֵלֵךְ (yelekh) = "he will go" (root ה-ל-ך)
+• יִרְאֶה (yireh) = "he will see" (root ר-א-ה)
+• יִשְׁמַע (yishma) = "he will hear" (root שׁ-מ-ע)
+
+CONTEXT IS KEY:
+
+How do you know whether יִכְתֹּב means "he will write," "he is writing," or "he used to write"? The answer is CONTEXT. Look at the other verbs and clues in the sentence:
+
+• If there's a future time word (like "tomorrow") → future
+• If there's a past time word (like "yesterday") → ongoing past
+• If surrounded by present tense verbs → present
+
+The imperfect is flexible, and that's what makes Hebrew storytelling so rich. Actions aren't locked into a single time — they flow and connect in ways that English can't easily capture!`,
     [
       v('יִכְתֹּב', 'yikhtov', 'he will write', 'A common imperfect form.'),
       v('תִּלְמַד', 'tilmad', 'you will learn', 'A second-person imperfect form.'),
@@ -1325,11 +2058,115 @@ This lesson helps you recognize imperfect verb forms and understand the sense th
     24, 5,
     'Lesson 24 — Vocabulary Review and Mastery',
     'Review the most important vocabulary from the entire course and close with a confidence-building final challenge.',
-    `Lesson 24 closes the course by reviewing the most important vocabulary you have learned.
+     `LESSON 24: VOCABULARY REVIEW AND MASTERY — THE FINAL CHALLENGE
 
-This lesson brings the highest-frequency words back into one final practice session so you can test whether the forms are familiar enough to support continued reading.
+Congratulations! You've reached the final lesson of this Hebrew course. This lesson brings together the most important vocabulary you've learned — the words that appear again and again in the Hebrew Bible. Master these, and you'll be ready to start reading real biblical texts!
 
-You will review essential nouns, verbs, particles, and pronouns from the entire course. The lesson ends with a final challenge that asks you to read and recognize the vocabulary in real Hebrew phrases.`,
+ESSENTIAL NOUNS (THE BUILDING BLOCKS):
+
+These nouns appear hundreds or even thousands of times in the Bible:
+
+People and titles:
+• מֶלֶךְ (melekh) = "king"
+• מַלְכָּה (malkah) = "queen"
+• בֵּן (ben) = "son"
+• אֱלֹהִים (elohim) = "God / gods"
+• אִישׁ (ish) = "man"
+• אִשָּׁה (ishah) = "woman"
+
+Important concepts:
+• דָּבָר (davar) = "word / thing"
+• סֵפֶר (sefer) = "book"
+• בַּיִת (bayit) = "house"
+• עִיר (ir) = "city"
+• שָׁלוֹם (shalom) = "peace"
+• תּוֹרָה (torah) = "instruction / law"
+• חֶסֶד (chesed) = "steadfast love / kindness"
+
+ESSENTIAL VERBS (THE ACTION WORDS):
+
+These verbs drive biblical narratives forward:
+
+Writing and speaking:
+• כָּתַב (katav) = "he wrote"
+• אָמַר (amar) = "he said" (one of the most frequent verbs in the Bible!)
+• קָרָא (kara) = "he called / he read"
+• עָנָה (anah) = "he answered"
+
+Movement and action:
+• הָלַךְ (halakh) = "he walked / went"
+• בָּנָה (banah) = "he built"
+• נָתַן (natan) = "he gave"
+• שָׁמַר (shamar) = "he guarded / kept"
+• עָשָׂה (asah) = "he made / did"
+
+GUMMAR WORDS (THE GRAMMAR GLUE):
+
+These small words hold sentences together:
+
+• הַ (ha-) = "the" (definite article)
+• וְ (ve-) = "and" (conjunction)
+• לֹא (lo) = "not" (negation)
+• אֵין (ein) = "there is not"
+• אֲשֶׁר (asher) = "who / that / which"
+• אֶת (et) = direct object marker
+• כִּי (ki) = "that / because"
+• זֶה (zeh) = "this" (masculine)
+• זֹאת (zot) = "this" (feminine)
+• אֵלֶּה (elleh) = "these"
+
+PRONOUNS (THE NAME REPLACERS):
+
+• הוּא (hu) = "he"
+• הִיא (hi) = "she"
+• אַתָּה (atah) = "you" (masculine)
+• אֲנִי (ani) = "I"
+
+PREPOSITIONS (THE CONNECTORS):
+
+• בְּ (be-) = "in / with"
+• לְ (le-) = "to / for"
+• כְּ (ke-) = "like / as"
+• עַל (al) = "on / upon"
+• מִן (min) = "from"
+
+THE FINAL READING CHALLENGE:
+
+Try reading this short Hebrew story using everything you've learned:
+
+הַמֶּלֶךְ הַטּוֹב כָּתַב סֵפֶר. הַסֵּפֶר אֲשֶׁר כָּתַב עַל שָׁלוֹם וְחֶסֶד.
+
+Translation: "The good king wrote a book. The book that he wrote was about peace and steadfast love."
+
+Breakdown:
+• הַמֶּלֶךְ הַטּוֹב = "The good king" (definite noun + definite adjective)
+• כָּתַב = "wrote" (past tense, 3rd masculine singular)
+• סֵפֶר = "a book" (indefinite object — no אֶת needed)
+• הַסֵּפֶר = "The book" (now definite)
+
+• אֲשֶׁר = "that/which" (relative pronoun)
+• כָּתַב = "he wrote"
+• עַל = "about/upon"
+• שָׁלוֹם = "peace"
+• וְ = "and"
+• חֶסֶד = "steadfast love"
+
+You just read a real Hebrew sentence! This is what you've been working toward.
+
+WHERE TO GO FROM HERE:
+
+You've completed the foundations of Biblical Hebrew. With what you know:
+• The alphabet and vowel system
+• Gender and noun-adjective agreement
+• The definite article and conjunction
+• Verb roots and patterns
+• Present, past, and imperfect tenses
+• Prepositions, relative clauses, and negation
+• Demonstratives and the dual number
+
+You are ready to begin reading real biblical texts with the help of a dictionary and grammar guide. The world of ancient Hebrew literature — the stories of Abraham, Moses, David, and the prophets — is now open to you.
+
+Keep practicing, keep reading, and remember: every word in the Hebrew Bible starts with a root, and you know how to find it!`,
     [
       v('שָׁלוֹם', 'shalom', 'peace', 'A high-frequency biblical word.'),
       v('חֶסֶד', 'chesed', 'steadfast love / kindness', 'An important theological term.'),

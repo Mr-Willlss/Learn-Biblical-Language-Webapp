@@ -9,9 +9,11 @@ service cloud.firestore {
     }
 
     // Users can read social data when signed in, but can only write their own user doc + subcollections.
+    // Admins may update any user doc (for admin promotion/demotion and user management).
     match /users/{uid} {
       allow read: if signedIn();
-      allow create, update: if isOwner(uid);
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid) || isAdmin();
       allow delete: if false;
 
       match /progress/{lessonId} {

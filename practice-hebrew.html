@@ -77,6 +77,7 @@
     .tabBtn{padding:10px 12px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,0.02);color:rgba(226,232,240,0.9);font-weight:900;transition:transform var(--t1), border-color var(--t1), background var(--t1)}
     .tabBtn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.14);background:rgba(255,255,255,0.04)}
     .tabBtn.active{border-color:rgba(124,92,252,0.35);background:rgba(124,92,252,0.10);color:var(--tw)}
+    .hebrew-vocab-card{font-family:'Arial Hebrew','SBL Hebrew',sans-serif;font-size:42px;color:var(--tw);font-weight:700;direction:rtl;unicode-bidi:embed}
 
     .panel{margin-top:12px;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));border-radius:22px;padding:14px;box-shadow:0 18px 50px rgba(0,0,0,0.25);overflow:hidden}
     .h1{margin:0;color:var(--tw);font-weight:900;letter-spacing:-0.02em;font-size:18px}
@@ -363,15 +364,11 @@
     }
 
     async function loadLessonData() {
-      if (window.__LESSON_DATA) return window.__LESSON_DATA;
       if (window.getLessonDataMap) {
-        window.__LESSON_DATA = window.getLessonDataMap();
-        return window.__LESSON_DATA;
+        return window.getLessonDataMap();
       }
-      if (window.LESSON_DATA) {
-        window.__LESSON_DATA = window.LESSON_DATA;
-        return window.__LESSON_DATA;
-      }
+      if (window.HEBREW_LESSON_DATA) return window.HEBREW_LESSON_DATA;
+      if (window.LESSON_DATA) return window.LESSON_DATA;
       throw new Error("Lesson data not found — ensure game-data.js or hebrew-lesson-data.js is loaded.");
     }
 
@@ -419,7 +416,22 @@
       return out;
     }
 
-    function wordText(v){ return (v.greek || v.hebrew || '').trim(); }
+    function wordText(v, preferHebrew){
+      if (preferHebrew && v.hebrew) return v.hebrew.trim();
+      return (v.greek || v.hebrew || '').trim();
+    }
+
+    let _isHebrew = false;
+    function detectLanguage(){
+      const urlParams = new URLSearchParams(window.location.search);
+      const langFromUrl = urlParams.get('lang');
+      if (langFromUrl === 'hebrew') { _isHebrew = true; return true; }
+      if (langFromUrl === 'greek') { _isHebrew = false; return false; }
+      const activeLang = window.getActiveLanguage ? window.getActiveLanguage() : '';
+      if (activeLang === 'hebrew') { _isHebrew = true; return true; }
+      _isHebrew = window.location.pathname.includes('-hebrew.');
+      return _isHebrew;
+    }
 
     function renderLocked(msg) {
       document.getElementById('panelBody').innerHTML = `
@@ -436,7 +448,8 @@
 
     function renderFlashcards(state) {
       setModeTab('tabFlash');
-      setHeader("Flashcards", "Flip cards with Greek on the front and English on the back.");
+      const langLabel = _isHebrew ? 'Hebrew' : 'Greek';
+      setHeader("Flashcards", `Flip cards with ${langLabel} on the front and English on the back.`);
       const body = document.getElementById('panelBody');
       if (!state.vocab.length) return renderLocked("Complete at least 1 lesson to unlock practice.");
       let i = 0;
@@ -447,11 +460,12 @@
       function draw() {
         setDeckProgress(i, deck.length);
         const v = deck[i];
+        const frontClass = _isHebrew ? 'hebrew-vocab-card' : 'gr';
         body.innerHTML = `
           <div class="card">
             <button class="smallBtn flip" id="flipBtn" type="button">${flipped ? 'Front' : 'Flip'}</button>
             <div class="${flipped ? 'back' : 'front'}">
-              ${flipped ? `<div><b>${v.english}</b></div><div class="ex">${v.example || ''}</div><div class="hint">Lesson ${v.lessonId}</div>` : `<div class="gr">${wordText(v)}</div><div class="hint">Tap Flip to reveal</div>`}
+              ${flipped ? `<div><b>${v.english}</b></div><div class="ex">${v.example || ''}</div><div class="hint">Lesson ${v.lessonId}</div>` : `<div class="${frontClass}">${wordText(v, _isHebrew)}</div><div class="hint">Tap Flip to reveal</div>`}
             </div>
           </div>
           <div class="actions">
@@ -495,7 +509,6 @@
       setHeader("Speed Round", "10 questions • 20 seconds each • speed bonus.");
       const body = document.getElementById('panelBody');
       if (!state.exercises.length) return renderLocked("Complete at least 1 lesson to unlock speed rounds.");
-
       const pool = shuffle(state.exercises.filter(x => (x.type === 'multiple_choice' || x.type === 'translate_to_english'))).slice(0, 10);
       let idx = 0;
       let score = 0;
@@ -524,7 +537,7 @@
             <div class="pill"><span>🏁</span><b>${idx+1}</b><span style="color:var(--tm)">/10</span></div>
             <div class="pill"><span>⭐</span><b>${score}</b></div>
           </div>
-          <div class="q">${q.type === 'translate_to_english' ? `<span style="font-family:'Times New Roman',Georgia,serif;font-size:22px">${q.question}</span>` : q.question}</div>
+          <div class="q">${q.type === 'translate_to_english' ? `<span class="${_isHebrew ? 'hebrew-vocab-card' : ''}" style="font-family:'Times New Roman',Georgia,serif;font-size:22px;${_isHebrew ? 'font-size:28px;direction:rtl' : ''}">${q.question}</span>` : q.question}</div>
           <div class="opts" id="opts"></div>
           <div class="hint">Correct earns points + speed bonus. No hearts lost in practice.</div>
         `;
@@ -596,8 +609,9 @@
 
     function renderTyper(state) {
       setModeTab('tabTyper');
-      setHeader("Greek Typer", "Type the English meaning of the displayed Greek word.");
       const body = document.getElementById('panelBody');
+      if (_isHebrew) return renderHebrewTyper(state, body);
+      setHeader("Greek Typer", "Type the English meaning of the displayed Greek word.");
       if (!state.vocab.length) return renderLocked("Complete at least 1 lesson to unlock the typer.");
       const deck = shuffle(state.vocab);
       let i = 0;
@@ -646,10 +660,103 @@
       draw();
     }
 
+    function renderHebrewTyper(state, body) {
+      setHeader("Hebrew Typer", "See the English sound, type or select the matching Hebrew letter.");
+      const hebrewAlphabet = [
+        { letter:'א', name:'Aleph', sound:'silent (glottal stop)' },
+        { letter:'ב', name:'Bet', sound:'B (or V without dagesh)' },
+        { letter:'ג', name:'Gimel', sound:'G (like "get")' },
+        { letter:'ד', name:'Dalet', sound:'D' },
+        { letter:'ה', name:'He', sound:'H' },
+        { letter:'ו', name:'Vav', sound:'V / W' },
+        { letter:'ז', name:'Zayin', sound:'Z' },
+        { letter:'ח', name:'Khet', sound:'guttural KH (like "Bach")' },
+        { letter:'ט', name:'Tet', sound:'T (emphatic)' },
+        { letter:'י', name:'Yod', sound:'Y (like "yes")' },
+        { letter:'כ', name:'Kaf', sound:'K (or KH without dagesh)' },
+        { letter:'ל', name:'Lamed', sound:'L' },
+        { letter:'מ', name:'Mem', sound:'M' },
+        { letter:'נ', name:'Nun', sound:'N' },
+        { letter:'ס', name:'Samekh', sound:'S' },
+        { letter:'ע', name:'Ayin', sound:'guttural catch' },
+        { letter:'פ', name:'Pe', sound:'P (or F without dagesh)' },
+        { letter:'צ', name:'Tsade', sound:'TS' },
+        { letter:'ק', name:'Qof', sound:'Q (hard K)' },
+        { letter:'ר', name:'Resh', sound:'R' },
+        { letter:'ש', name:'Shin', sound:'SH (or S with right dot)' },
+        { letter:'ת', name:'Tav', sound:'T' }
+      ];
+      const deck = shuffle(hebrewAlphabet);
+      let i = 0;
+      let correct = 0;
+      function draw(){
+        setDeckProgress(i, deck.length);
+        const item = deck[i];
+        body.innerHTML = `
+          <div class="card">
+            <div class="front">
+              <div style="font-size:24px;color:var(--tw);font-weight:900">"${item.sound}"</div>
+              <div class="hint">Type or select the matching Hebrew letter.</div>
+            </div>
+          </div>
+          <div class="row">
+            <input class="input" id="answer" placeholder="Type letter name or paste letter…" autocomplete="off" />
+            <button class="btn btnPrimary" id="checkBtn" type="button">Check</button>
+          </div>
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px" id="letterOpts"></div>
+          <div class="hint" id="result">Progress: ${i}/${deck.length} • Correct: ${correct}</div>
+        `;
+        const optsContainer = document.getElementById('letterOpts');
+        shuffle(hebrewAlphabet).slice(0, 8).forEach(a => {
+          const b = document.createElement('button');
+          b.className = 'pill';
+          b.style.fontSize = '20px';
+          b.style.fontFamily = "'Arial Hebrew','SBL Hebrew',sans-serif";
+          b.style.direction = 'rtl';
+          b.textContent = a.letter;
+          b.addEventListener('click', () => {
+            const ok = a.letter === item.letter;
+            const res = document.getElementById('result');
+            if (ok) { correct++; res.textContent = `✅ Correct — ${item.letter} (${item.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
+            else { res.textContent = `❌ That's ${a.letter} (${a.name}) — want ${item.letter} (${item.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
+            setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 1000);
+          });
+          optsContainer.appendChild(b);
+        });
+        document.getElementById('checkBtn').addEventListener('click', check);
+        const input = document.getElementById('answer');
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') check(); });
+      }
+      const check = () => {
+        const input = document.getElementById('answer');
+        if (!input) return;
+        const got = (input.value || '').trim().toLowerCase();
+        const cur = deck[i];
+        const ok = got === cur.letter || got === cur.name.toLowerCase();
+        const res = document.getElementById('result');
+        if (ok) { correct++; res.textContent = `✅ Correct — ${cur.letter} (${cur.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
+        else { res.textContent = `❌ That's "${got}" — want ${cur.letter} (${cur.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
+        setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 1000);
+      };
+      function done(){
+        setDeckProgress(deck.length, deck.length);
+        body.innerHTML = `
+          <div class="locked">
+            <div class="h1">Hebrew Typer complete 🎉</div>
+            <div class="sub">Correct: ${correct}/${deck.length}</div>
+            <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Play again</button></div>
+          </div>
+        `;
+        document.getElementById('againBtn').addEventListener('click', () => renderHebrewTyper(state, body));
+      }
+      draw();
+    }
+
     function renderConjugation(state) {
       setModeTab('tabConj');
-      setHeader("Conjugation Drill", "Pick the correct form from a list.");
       const body = document.getElementById('panelBody');
+      if (_isHebrew) return renderHebrewVerbDrill(state, body);
+      setHeader("Conjugation Drill", "Pick the correct form from a list.");
       if (state.lessonsCompleted < 6) return renderLocked("Unlock Lesson 6 (verbs) to access conjugation drills.");
 
       const drills = [
@@ -702,6 +809,64 @@
       draw();
     }
 
+    function renderHebrewVerbDrill(state, body) {
+      setHeader("Verb Drill", "Match the Hebrew verb form to its description.");
+      const drills = [
+        { q:"Qal PERFECT 3ms — he wrote", options:["כָּתַב","כָּתְבָה","כָּתַבְתָּ","יִכְתֹּב"], a:"כָּתַב" },
+        { q:"Qal PERFECT 3fs — she wrote", options:["כָּתְבָה","כָּתַב","כָּתַבְתָּ","יִכְתְּבוּ"], a:"כָּתְבָה" },
+        { q:"Qal PERFECT 2ms — you (m.) wrote", options:["כָּתַבְתָּ","כָּתַב","כָּתַבְתְּ","כָּתְבָה"], a:"כָּתַבְתָּ" },
+        { q:"Qal PERFECT 1cs — I wrote", options:["כָּתַבְתִּי","כָּתַבְתָּ","כָּתַב","נִכְתֹּב"], a:"כָּתַבְתִּי" },
+        { q:"Qal PERFECT 3mp — they (m.) wrote", options:["כָּתְבוּ","כָּתַב","כָּתַבְתָּ","תִּכְתֹּב"], a:"כָּתְבוּ" },
+        { q:"Qal IMPERFECT 3ms — he will write", options:["יִכְתֹּב","כָּתַב","כּוֹתֵב","יִכְתְּבוּ"], a:"יִכְתֹּב" },
+        { q:"Qal PRESENT PARTICIPLE ms — writing (m.)", options:["כּוֹתֵב","כּוֹתֶבֶת","יִכְתֹּב","כָּתַב"], a:"כּוֹתֵב" },
+        { q:"Qal PRESENT PARTICIPLE fs — writing (f.)", options:["כּוֹתֶבֶת","כּוֹתֵב","כָּתְבָה","תִּכְתֹּב"], a:"כּוֹתֶבֶת" },
+        { q:"Root of כָּתַב, יִכְתֹּב, כּוֹתֵב", options:["כתב","כתב","כתב","כתב"], a:"כתב" },
+        { q:"Qal INFINITIVE CONSTRUCT — to write", options:["כְּתֹב","כָּתַב","יִכְתֹּב","כּוֹתֵב"], a:"כְּתֹב" },
+      ];
+      const deck = shuffle(drills);
+      let i = 0;
+      let correct = 0;
+      function draw(){
+        setDeckProgress(i, deck.length);
+        if (i >= deck.length) return done();
+        const d = deck[i];
+        body.innerHTML = `
+          <div class="q">${d.q}</div>
+          <div class="opts" id="opts"></div>
+          <div class="hint">2 XP per correct answer. No hearts lost.</div>
+        `;
+        const opts = document.getElementById('opts');
+        d.options.forEach(opt => {
+          const b = document.createElement('button');
+          b.className = 'opt';
+          b.type = 'button';
+          b.style.fontFamily = "'Arial Hebrew','SBL Hebrew','Times New Roman',serif";
+          b.style.fontSize = '18px';
+          b.textContent = opt;
+          b.addEventListener('click', async () => {
+            [...opts.children].forEach(x => x.disabled = true);
+            const ok = opt === d.a;
+            if (ok) { correct++; b.classList.add('good'); await awardPracticeXp(state, 2); }
+            else { b.classList.add('bad'); [...opts.children].forEach(x => { if (x.textContent === d.a) x.classList.add('good'); }); }
+            setTimeout(() => { i++; draw(); }, 650);
+          });
+          opts.appendChild(b);
+        });
+      }
+      function done(){
+        setDeckProgress(deck.length, deck.length);
+        body.innerHTML = `
+          <div class="locked">
+            <div class="h1">Verb Drill complete 🧠</div>
+            <div class="sub">Correct: ${correct}/${deck.length}</div>
+            <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Again</button></div>
+          </div>
+        `;
+        document.getElementById('againBtn').addEventListener('click', () => renderConjugation(state));
+      }
+      draw();
+    }
+
     async function awardPracticeXp(state, amount) {
       if (!state.user) return;
       try{
@@ -710,6 +875,7 @@
     }
 
     async function initPage(user) {
+      detectLanguage();
       const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
       const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
       document.title = `Practice • ${langLabel}`;
@@ -719,6 +885,14 @@
       if (brandTitle) brandTitle.textContent = langLabel;
       if (brandSub) brandSub.textContent = langLabel;
       if (brandLink) brandLink.href = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
+      // Dynamic tab labels
+      const typerLabel = _isHebrew ? 'Hebrew Typer' : 'Greek Typer';
+      const conjLabel = _isHebrew ? 'Verb Drill' : 'Conjugation Drill';
+      const subDesc = _isHebrew ? 'Flashcards • Speed • Hebrew Typer • Verb Drill' : 'Flashcards • Speed • Typer • Conjugation';
+      document.getElementById('tabTyper').textContent = typerLabel;
+      document.getElementById('tabConj').textContent = conjLabel;
+      document.querySelector('.tbSub').textContent = subDesc;
+
       wireSignOut(user);
       if (window.applyLanguageScope) {
         try { window.applyLanguageScope(); } catch(_) {}

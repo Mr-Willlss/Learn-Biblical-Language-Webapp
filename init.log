@@ -1,0 +1,23 @@
+[35m,-----.        ,--.  ,--.  ,--.[39m
+[35m|  |) /_,--.,--|  |-.|  |-.|  |,---.,--.   ,--,--.--.,--,--.,---.[39m
+[35m|  .-.  |  ||  | .-. | .-. |  | .-. |  |.'.|  |  .--' ,-.  | .-. |[39m
+[35m|  '--' '  ''  | `-' | `-' |  \   --|   .'.   |  |  \ '-'  | '-' '[39m
+[35m`------' `----' `---' `---'`--'`----'--'   '--`--'   `--`--|  |-'[39m
+[35m                                                           `--'    [39m
+? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) (Y/n) [57D[57C[2K[1A[2K[G? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) (Y/n) n[58D[58C[2K[1A[2K[G? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) No[53D[53C
+? Path to your existing JDK 17: [32D[32Cnode:internal/readline/interface:564
+      throw new ERR_USE_AFTER_CLOSE('readline');
+      ^
+
+Error [ERR_USE_AFTER_CLOSE]: readline was closed
+    at Interface.pause (node:internal/readline/interface:564:13)
+    at PromptUI.close (C:\Users\Samuel Williams\Downloads\Learn-koine-Greek-main\node_modules\inquirer\lib\ui\baseUI.js:56:13)
+    at PromptUI.onForceClose (C:\Users\Samuel Williams\Downloads\Learn-koine-Greek-main\node_modules\inquirer\lib\ui\baseUI.js:34:10)
+    at process.emit (node:events:509:28) {
+  code: 'ERR_USE_AFTER_CLOSE'
+}
+
+Node.js v24.16.0

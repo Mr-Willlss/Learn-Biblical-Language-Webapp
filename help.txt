@@ -1,0 +1,11 @@
+[35m,-----.        ,--.  ,--.  ,--.[39m
+[35m|  |) /_,--.,--|  |-.|  |-.|  |,---.,--.   ,--,--.--.,--,--.,---.[39m
+[35m|  .-.  |  ||  | .-. | .-. |  | .-. |  |.'.|  |  .--' ,-.  | .-. |[39m
+[35m|  '--' '  ''  | `-' | `-' |  \   --|   .'.   |  |  \ '-'  | '-' '[39m
+[35m`------' `----' `---' `---'`--'`----'--'   '--`--'   `--`--|  |-'[39m
+[35m                                                           `--'    [39m
+? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) (Y/n) [57D[57C[2K[1A[2K[G? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) (Y/n) n[58D[58C[2K[1A[2K[G? Do you want Bubblewrap to install the JDK (recommended)?
+  (Enter "No" to use your own JDK 17 installation) No[53D[53C
+? Path to your existing JDK 17: [32D[32C

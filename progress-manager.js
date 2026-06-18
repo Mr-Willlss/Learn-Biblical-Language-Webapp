@@ -394,6 +394,7 @@
   function setLanguageScope(language) {
     currentLanguage = normalizeLanguage(language);
     try { localStorage.setItem('activeLanguage', currentLanguage); } catch (_) {}
+    window.WORLD_STRUCTURE = getWorldStructure();
     return currentLanguage;
   }
 

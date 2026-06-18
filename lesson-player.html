@@ -1115,23 +1115,6 @@
         lfo.start();
         return { tremGain, lfo, lfoGain };
       }
-      function playSectionCompleteSound() {
-        if (isMuted()) return;
-        const ctx = getAudioContext();
-        const master = ctx.createGain();
-        master.gain.value = 0.50;
-        const trem = withTremolo(ctx, ctx.destination, 0.08, 5.5);
-        master.connect(trem.tremGain);
-        pluckNote(ctx, master, 293.66, 0.00, 0.30);
-        pluckNote(ctx, master, 369.99, 0.18, 0.30);
-        pluckNote(ctx, master, 440.00, 0.36, 0.30);
-        chordSwell(ctx, master, [293.66, 369.99, 440.00], 0.60, 1.0, 0.80);
-        pluckNote(ctx, master, 440.00, 1.60, 0.25);
-        pluckNote(ctx, master, 493.88, 1.80, 0.25);
-        pluckNote(ctx, master, 587.33, 2.00, 0.80);
-        shimmerLayer(ctx, master, 880.00, 0.0, 2.8, 0.12);
-        setTimeout(() => { try { trem.lfo.stop(); } catch(_) {} }, 3200);
-      }
       function initMuteToggle() {
         const btn = document.getElementById('muteBtn');
         if (!btn) return;
@@ -1411,7 +1394,6 @@
         setCard(lesson.title, "Phase 1/3 • Theory", theoryHtml);
         loadLessonVideo(lessonId);
         document.getElementById('gotItBtn').addEventListener('click', () => {
-          playSectionCompleteSound();
           showExercise();
         });
       }
@@ -1678,6 +1660,7 @@
         const userRef = db.collection('users').doc(user.uid);
         const progRef = userRef.collection('progress').doc(`${lang}_${lessonId}`);
 
+        let transactionOk = false;
         try {
           await db.runTransaction(async (tx) => {
             const [uSnap, pSnap] = await Promise.all([tx.get(userRef), tx.get(progRef)]);
@@ -1764,6 +1747,7 @@
               }, { merge:true });
             }
           });
+          transactionOk = true;
 
           // Award achievements (outside transaction for simplicity)
           const uSnap2 = await userRef.get();
@@ -1779,8 +1763,12 @@
             }
           }
         } catch (e) {
-          console.error(e);
-          showToast("Could not save lesson completion. Try again later.", "bad", "Save failed");
+          if (transactionOk) {
+            console.warn('Transaction succeeded but post-save step failed:', e);
+          } else {
+            console.error(e);
+            showToast("Could not save lesson completion. Try again later.", "bad", "Save failed");
+          }
         }
       }
 

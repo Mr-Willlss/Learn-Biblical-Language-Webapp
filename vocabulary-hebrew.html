@@ -84,6 +84,10 @@
     .tabBtn{padding:10px 12px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,0.02);color:rgba(226,232,240,0.9);font-weight:900;transition:transform var(--t1), border-color var(--t1), background var(--t1)}
     .tabBtn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.14);background:rgba(255,255,255,0.04)}
     .tabBtn.active{border-color:rgba(124,92,252,0.35);background:rgba(124,92,252,0.10);color:var(--tw)}
+    .hebrew-vocab-card{font-family:'Arial Hebrew','SBL Hebrew',sans-serif;font-size:26px;color:var(--tw);font-weight:700;direction:rtl;unicode-bidi:embed}
+    .mixed-card{display:flex;align-items:center;gap:12px}
+    .mixed-card .vocab-english{font-weight:800;color:rgba(226,232,240,0.92)}
+    .mixed-card .vocab-trans{font-size:12px;color:var(--tm);margin-top:2px}
     .stats{margin-top:10px;color:var(--tm);font-size:12px}
 
     .grid{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -299,6 +303,18 @@
       if (bad.some(b => a.getAttribute('href') === b)) { e.preventDefault(); e.stopPropagation(); }
     }, true);
 
+    let _isHebrew = false;
+    function detectLanguage(){
+      const urlParams = new URLSearchParams(window.location.search);
+      const langFromUrl = urlParams.get('lang');
+      if (langFromUrl === 'hebrew') { _isHebrew = true; return true; }
+      if (langFromUrl === 'greek') { _isHebrew = false; return false; }
+      const activeLang = window.getActiveLanguage ? window.getActiveLanguage() : '';
+      if (activeLang === 'hebrew') { _isHebrew = true; return true; }
+      _isHebrew = window.location.pathname.includes('-hebrew.');
+      return _isHebrew;
+    }
+
     function showToast(msg, type='info', title='Notice') {
       const el = document.getElementById('toast');
       const dot = document.getElementById('toastDot');
@@ -359,8 +375,9 @@
 
     async function loadLessonData() {
       if (window.getLessonDataMap) return window.getLessonDataMap();
+      if (window.HEBREW_LESSON_DATA) return window.HEBREW_LESSON_DATA;
       if (window.LESSON_DATA) return window.LESSON_DATA;
-      throw new Error("Lesson data missing. Ensure game-data.js or hebrew-lesson-data.js is loaded.");
+      throw new Error("Lesson data not found — ensure game-data.js or hebrew-lesson-data.js is loaded.");
     }
 
     function vocabFromLessons(LESSON_DATA, lessonsMax) {
@@ -418,7 +435,10 @@
       document.getElementById('tabFav').classList.toggle('active', active === 'fav');
     }
 
+    function wordText(v){ return (v.hebrew || v.greek || '').trim(); }
+
     async function initPage(user){
+      detectLanguage();
       const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
       const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
       document.title = `Vocabulary • ${langLabel}`;
@@ -428,6 +448,12 @@
       if (brandTitle) brandTitle.textContent = langLabel;
       if (brandSub) brandSub.textContent = langLabel;
       if (brandLink) brandLink.href = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
+      // Fix search placeholder
+      document.getElementById('search').placeholder = _isHebrew ? 'Search Hebrew / English…' : 'Search Greek / English…';
+      // Fix flashcard mode link
+      document.getElementById('flashBtn').addEventListener('click', () => {
+        location.href = _isHebrew ? 'practice-hebrew.html?lang=hebrew' : 'practice.html';
+      });
       wireSignOut(user);
       if (window.applyLanguageScope) {
         try { window.applyLanguageScope(); } catch(_) {}
@@ -449,7 +475,8 @@
         setTopUser(user, state.userData);
       } else {
         setTopUser(null, { hearts:5, streak:0 });
-        state.favorites = new Set(JSON.parse(sessionStorage.getItem('gk_fav') || '[]'));
+        const favKey = _isHebrew ? 'heb_fav' : 'gk_fav';
+        state.favorites = new Set(JSON.parse(sessionStorage.getItem(favKey) || '[]'));
       }
 
       const prog = (window.Progress && Progress.getProgress) ? Progress.getProgress() : { completedLessons: [] };
@@ -460,11 +487,26 @@
       let LESSON_DATA = null;
       try { LESSON_DATA = await loadLessonData(); }
       catch(e){ console.error(e); showToast("Could not load lesson content.", "bad", "Data error"); }
-      if (LESSON_DATA) state.vocab = vocabFromLessons(LESSON_DATA, maxUnlocked);
+      if (LESSON_DATA) state.vocab = vocabFromLessons(LESSON_DATA, window.getLessonMax ? window.getLessonMax() : maxUnlocked);
 
       // Populate lesson filter
       const lf = document.getElementById('lessonFilter');
-      lf.innerHTML = `<option value="all">All lessons</option>` + Array.from({length:maxUnlocked},(_,i)=>`<option value="${i+1}">Lesson ${i+1}</option>`).join('');
+      if (_isHebrew) {
+        const total = window.getLessonMax ? window.getLessonMax() : 24;
+        const titles = {};
+        if (window.HEBREW_LESSON_DATA) {
+          Object.values(window.HEBREW_LESSON_DATA).forEach(l => { titles[l.id] = l.title; });
+        }
+        lf.innerHTML = `<option value="all">All lessons</option>` +
+          Array.from({length:total}, (_,i) => {
+            const id = i+1;
+            const t = titles[id] || '';
+            return `<option value="${id}">Lesson ${id}${t ? ' · ' + t : ''}</option>`;
+          }).join('');
+      } else {
+        lf.innerHTML = `<option value="all">All lessons</option>` +
+          Array.from({length:maxUnlocked},(_,i)=>`<option value="${i+1}">Lesson ${i+1}</option>`).join('');
+      }
 
       function filtered() {
         const q = (document.getElementById('search').value || '').trim().toLowerCase();
@@ -477,11 +519,11 @@
           if (lesson !== 'all' && String(v.lessonId) !== lesson) return false;
           if (type !== 'all' && guessType(v) !== type) return false;
           if (!q) return true;
-          const g = (v.greek || '').toLowerCase();
+          const g = (v.hebrew || v.greek || '').toLowerCase();
           const e = (v.english || '').toLowerCase();
           const ex = (v.example || '').toLowerCase();
           const ln = String(v.lessonId || '');
-          const r = romanizeGreek(v.greek || '');
+          const r = _isHebrew ? '' : romanizeGreek(v.greek || '');
           return g.includes(q) || e.includes(q) || ex.includes(q) || r.includes(q) || ln.includes(q);
         });
       }
@@ -492,12 +534,33 @@
         const total = state.vocab.length;
         const favCount = [...state.favorites].length;
         document.getElementById('stats').textContent =
-          total ? `Showing ${list.length} of ${total} words • Favorites: ${favCount}` :
-            "Complete Lesson 1 to unlock vocabulary.";
+          total
+            ? (_isHebrew
+              ? `Showing ${list.length} of ${total} words (Hebrew) • Favorites: ${favCount}`
+              : `Showing ${list.length} of ${total} words • Favorites: ${favCount}`)
+            : "Complete Lesson 1 to unlock vocabulary.";
         grid.innerHTML = '';
         if (!total || state.completedLessons.length === 0) {
           // Preview of Lesson 1 for brand new users.
-          if (window.LESSON_DATA && window.LESSON_DATA[1] && Array.isArray(window.LESSON_DATA[1].vocabulary)) {
+          const previewData = _isHebrew
+            ? (window.HEBREW_LESSON_DATA && window.HEBREW_LESSON_DATA[1] && window.HEBREW_LESSON_DATA[1].vocabulary)
+            : (window.LESSON_DATA && window.LESSON_DATA[1] && Array.isArray(window.LESSON_DATA[1].vocabulary) && window.LESSON_DATA[1].vocabulary);
+          if (previewData && previewData.length) {
+            const sample = previewData.slice(0,5);
+            grid.innerHTML = `
+              <div class="card" style="grid-column:1/-1">
+                <div class="en">Preview words from Lesson 1</div>
+                <div class="ex">Complete Lesson 1 (60%+) to unlock full vocabulary browsing.</div>
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
+                  ${sample.map(v => {
+                    const script = _isHebrew ? `<span class="hebrew-vocab-card" style="font-size:18px">${wordText(v)}</span>` : `<span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span>`;
+                    return `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px">${script} — ${v.english}</span>`;
+                  }).join('')}
+                </div>
+                <div style="margin-top:12px"><a class="btn" href="lesson-hebrew.html?lesson=1&lang=hebrew">Start Lesson 1 →</a></div>
+              </div>
+            `;
+          } else if (window.LESSON_DATA && window.LESSON_DATA[1] && Array.isArray(window.LESSON_DATA[1].vocabulary)) {
             const sample = window.LESSON_DATA[1].vocabulary.slice(0,5);
             grid.innerHTML = `
               <div class="card" style="grid-column:1/-1">
@@ -506,7 +569,7 @@
                 <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
                   ${sample.map(v => `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px"><span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span> — ${v.english}</span>`).join('')}
                 </div>
-                <div style="margin-top:12px"><a class="btn" href="${window.getActiveLanguage && window.getActiveLanguage() === 'hebrew' ? 'lesson-hebrew.html' : 'lesson-player.html'}?lesson=1${window.getActiveLanguage && window.getActiveLanguage() === 'hebrew' ? '&lang=hebrew' : ''}">Start Lesson 1 →</a></div>
+                <div style="margin-top:12px"><a class="btn" href="lesson-player.html?lesson=1">Start Lesson 1 →</a></div>
               </div>
             `;
           }
@@ -529,7 +592,14 @@
           const header = document.createElement('div');
           header.className = 'card';
           header.style.gridColumn = '1/-1';
-          header.innerHTML = `<div class="en">Lesson ${lid} • ${(window.LESSON_DATA && window.LESSON_DATA[lid] ? window.LESSON_DATA[lid].title : '')}</div><div class="ex">${lessonDone ? 'Unlocked' : lessonUnlocked ? 'In progress (words locked until completion)' : 'Locked'}</div>`;
+          let lessonTitle = '';
+          if (_isHebrew && window.HEBREW_LESSON_DATA) {
+            const l = window.HEBREW_LESSON_DATA[lid];
+            if (l) lessonTitle = l.title || '';
+          } else if (window.LESSON_DATA && window.LESSON_DATA[lid]) {
+            lessonTitle = window.LESSON_DATA[lid].title || '';
+          }
+          header.innerHTML = `<div class="en">Lesson ${lid}${lessonTitle ? ' · ' + lessonTitle : ''}</div><div class="ex">${lessonDone ? 'Unlocked' : lessonUnlocked ? 'In progress (words locked until completion)' : 'Locked'}</div>`;
           grid.appendChild(header);
 
           (byLesson.get(lid) || []).forEach(v => {
@@ -540,13 +610,28 @@
             const locked = !lessonDone;
             card.style.filter = locked ? 'blur(0.3px)' : '';
             card.style.opacity = locked ? '0.65' : '';
-            card.innerHTML = `
-              <button class="star ${fav ? 'on':''}" type="button" title="${fav ? 'Unstar' : 'Star'}">${fav ? '★' : '☆'}</button>
-              <div class="gr">${wordText(v)}</div>
-              <div class="en">${v.english} ${locked ? '<span style=\"margin-left:6px\">🔒</span>' : ''}</div>
-              <div class="ex">${v.example || ''}</div>
-              <div class="meta">Lesson ${v.lessonId}</div>
-            `;
+            if (_isHebrew) {
+              card.innerHTML = `
+                <button class="star ${fav ? 'on':''}" type="button" title="${fav ? 'Unstar' : 'Star'}">${fav ? '★' : '☆'}</button>
+                <div class="mixed-card">
+                  <span class="hebrew-vocab-card">${wordText(v)}</span>
+                  <div>
+                    <div class="vocab-english">${v.english}</div>
+                    <div class="vocab-trans">${v.transliteration || ''}</div>
+                  </div>
+                </div>
+                <div class="ex">${v.example || ''}</div>
+                <div class="meta">Lesson ${v.lessonId}</div>
+              `;
+            } else {
+              card.innerHTML = `
+                <button class="star ${fav ? 'on':''}" type="button" title="${fav ? 'Unstar' : 'Star'}">${fav ? '★' : '☆'}</button>
+                <div class="gr">${wordText(v)}</div>
+                <div class="en">${v.english} ${locked ? '<span style=\"margin-left:6px\">🔒</span>' : ''}</div>
+                <div class="ex">${v.example || ''}</div>
+                <div class="meta">Lesson ${v.lessonId}</div>
+              `;
+            }
             card.querySelector('button.star').addEventListener('click', async (e) => {
               e.stopPropagation();
               if (fav) state.favorites.delete(k); else state.favorites.add(k);
@@ -558,7 +643,8 @@
                   showToast("Could not save favorite.", "bad", "Save failed");
                 }
               } else {
-                sessionStorage.setItem('gk_fav', JSON.stringify([...state.favorites]));
+                const favKey = _isHebrew ? 'heb_fav' : 'gk_fav';
+                sessionStorage.setItem(favKey, JSON.stringify([...state.favorites]));
               }
               render();
             });
@@ -573,7 +659,6 @@
       document.getElementById('typeFilter').addEventListener('change', render);
       document.getElementById('tabBrowse').addEventListener('click', () => { state.tab='browse'; setTab('browse'); render(); });
       document.getElementById('tabFav').addEventListener('click', () => { state.tab='fav'; setTab('fav'); render(); });
-      document.getElementById('flashBtn').addEventListener('click', () => { location.href = 'practice.html'; });
 
       setTab('browse');
       render();
