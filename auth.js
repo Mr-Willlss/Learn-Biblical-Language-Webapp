@@ -92,9 +92,10 @@ function signInWithGoogle(options = {}) {
   }
 
   const provider = new firebase.auth.GoogleAuthProvider();
+  provider.setCustomParameters({
+    prompt: "select_account"
+  });
   auth.useDeviceLanguage();
-  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  const isOpera = /OPR\//i.test(navigator.userAgent) || /Opera/i.test(navigator.userAgent);
 
   const doRedirect = () =>
     auth
@@ -117,7 +118,8 @@ function signInWithGoogle(options = {}) {
         if (
           error.code === "auth/operation-not-supported-in-this-environment" ||
           error.code === "auth/popup-blocked" ||
-          error.code === "auth/popup-closed-by-user"
+          error.code === "auth/popup-closed-by-user" ||
+          error.code === "auth/cancelled-popup-request"
         ) {
           return doRedirect();
         } else {
@@ -126,7 +128,7 @@ function signInWithGoogle(options = {}) {
         }
       });
 
-  if (options.forceRedirect || isMobile || isOpera) {
+  if (options.forceRedirect) {
     return doRedirect();
   }
 
