@@ -227,6 +227,17 @@
       #content{padding-bottom:90px}
       .bottomTabs{display:block}
       .toastWrap{bottom:92px}
+      .hScroll{gap:6px;padding:0 4px 6px 4px}
+      .lessonChip{min-width:140px;padding:8px}
+      .lcTitle{font-size:11px}
+      .worldCard{padding:12px}
+      .wTitle{font-size:14px}
+      .wBtn{padding:8px 10px;font-size:13px}
+    }
+    @media (max-width: 480px){
+      .lessonChip{min-width:120px;padding:6px 8px}
+      .lcNum{font-size:13px}
+      .lcTitle{font-size:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
     }
     @media (prefers-reduced-motion: reduce){
       .wBtn,.lessonChip,.toast,.bar>div{transition:none}
@@ -244,10 +255,10 @@
   <div id="app-content" style="display:none">
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
-      <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Hebrew home">
+      <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Languages home">
         <div class="sbLogo" aria-hidden="true"><span>אב</span></div>
         <div>
-          <div class="sbTitle">Biblical Hebrew</div>
+          <div class="sbTitle">Biblical Languages</div>
 
         </div>
       </a>

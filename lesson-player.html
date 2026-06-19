@@ -6,8 +6,8 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Learn Koine Greek">
-  <title>Lesson • Learn Koine Greek</title>
+  <meta name="apple-mobile-web-app-title" content="Learn Biblical Languages">
+  <title>Lesson • Learn Biblical Languages</title>
   <script src="progress-manager.js"></script>
   <script src="hebrew-lesson-data.js"></script>
   <style>
@@ -429,8 +429,8 @@
       <a class="sbBrand" id="brandLink" href="dashboard.html" aria-label="Dashboard home">
         <div class="sbLogo" id="brandLogo" aria-hidden="true"><span>Ω</span></div>
         <div>
-          <div class="sbTitle" id="brandTitle">Koine Greek</div>
-          <div class="sbSub" id="brandSub">Learn Koine Greek</div>
+          <div class="sbTitle" id="brandTitle">Biblical Languages</div>
+          <div class="sbSub" id="brandSub">Learn Biblical Languages</div>
         </div>
       </a>
       <div class="sbGroup">
@@ -902,7 +902,7 @@
       const lessonId = parseInt(qs('lesson') || '1', 10);
       const dataMap = getLessonDataMap();
       const lang = getActiveLanguage();
-      const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Koine Greek');
+      const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Languages');
       const maxLesson = lang === 'hebrew' ? 24 : 25;
       if (window.setLanguageScope) {
         try { window.setLanguageScope(lang); } catch(_) {}
@@ -1780,8 +1780,8 @@
     function applyEarlyBranding() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get('lang') || (window.getActiveLanguage && window.getActiveLanguage()) || 'greek';
-      const langLabel = lang === 'hebrew' ? 'Biblical Hebrew' : 'Learn Koine Greek';
-      const pageTitle = lang === 'hebrew' ? 'Biblical Hebrew' : 'Learn Koine Greek';
+      const langLabel = lang === 'hebrew' ? 'Biblical Hebrew' : 'Learn Biblical Languages';
+      const pageTitle = lang === 'hebrew' ? 'Biblical Hebrew' : 'Learn Biblical Languages';
       const linkHref = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
       const logoChar = lang === 'hebrew' ? 'אב' : 'Ω';
       const brandTitle = document.getElementById('brandTitle');
