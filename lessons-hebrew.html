@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,12 +7,13 @@
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Biblical Hebrew">
-  <title>Lessons • Biblical Hebrew</title>
+  <title>Lessons â€¢ Biblical Hebrew</title>
   <script src="progress-manager.js"></script>
   <script src="game-data.js"></script>
   <script src="hebrew-lesson-data.js"></script>
   <script>try { localStorage.setItem('activeLanguage', 'hebrew'); } catch (_) {}</script>
   <script src="language-support.js"></script>
+  <script src="learning-enhancements.js"></script>
   <style>
     :root{
       --bg-base:#0f1117;--bg-sidebar:#13151e;--bg-card:#181c27;--bg-card2:#1d2235;--bg-input:#1a1f2e;--bg-hover:rgba(255,255,255,0.04);
@@ -256,7 +257,7 @@
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Languages home">
-        <div class="sbLogo" aria-hidden="true"><span>אב</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>××‘</span></div>
         <div>
           <div class="sbTitle">Biblical Languages</div>
 
@@ -265,33 +266,33 @@
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard-hebrew.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
-          <a href="practice-hebrew.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
-          <a href="lessons-hebrew.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
-          <a href="quests-hebrew.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
+          <a href="dashboard-hebrew.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
+          <a href="practice-hebrew.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
+          <a href="lessons-hebrew.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
+          <a href="quests-hebrew.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary-hebrew.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard-hebrew.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards-hebrew.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary-hebrew.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard-hebrew.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards-hebrew.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends-hebrew.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
-          <a href="study-room-hebrew.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
+          <a href="friends-hebrew.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
+          <a href="study-room-hebrew.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="profile.html?lang=hebrew"><span class="ic">👤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
+          <a href="profile.html?lang=hebrew"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -303,14 +304,14 @@
           <div class="tbSub" id="pageSub">Pick a world, then follow the path</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span>🔥</span><b id="streakVal">—</b></div>
-          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span>ðŸ”¥</span><b id="streakVal">â€”</b></div>
+          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>👤</span></div>
+            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level —</div>
+              <div class="l" id="userLevel">Level â€”</div>
             </div>
           </div>
         </div>
@@ -329,11 +330,11 @@
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard-hebrew.html"><div>🏠</div><div>Home</div></a>
-      <a class="tab" href="practice-hebrew.html"><div>🎯</div><div>Practice</div></a>
-      <a class="tab" href="lessons-hebrew.html"><div>📚</div><div>Lessons</div></a>
-      <a class="tab" href="friends-hebrew.html"><div>👥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html?lang=hebrew"><div>👤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard-hebrew.html"><div>ðŸ </div><div>Home</div></a>
+      <a class="tab" href="practice-hebrew.html"><div>ðŸŽ¯</div><div>Practice</div></a>
+      <a class="tab" href="lessons-hebrew.html"><div>ðŸ“š</div><div>Lessons</div></a>
+      <a class="tab" href="friends-hebrew.html"><div>ðŸ‘¥</div><div>Friends</div></a>
+      <a class="tab" href="profile.html?lang=hebrew"><div>ðŸ‘¤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -412,11 +413,11 @@
     function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
 
     const WORLDS = [
-      { n:1, icon:"🏛️", title:"The Alphabet Temple", range:[1,5], color:"var(--purple)" },
-      { n:2, icon:"📖", title:"First Words & Sentences", range:[6,10], color:"var(--blue)" },
-      { n:3, icon:"🏗️", title:"Grammar Foundations", range:[11,15], color:"var(--green)" },
-      { n:4, icon:"📜", title:"Expanding Grammar", range:[16,20], color:"var(--orange)" },
-      { n:5, icon:"🌟", title:"Advanced Structures", range:[21,24], color:"var(--gold)" }
+      { n:1, icon:"ðŸ›ï¸", title:"The Alphabet Temple", range:[1,5], color:"var(--purple)" },
+      { n:2, icon:"ðŸ“–", title:"First Words & Sentences", range:[6,10], color:"var(--blue)" },
+      { n:3, icon:"ðŸ—ï¸", title:"Grammar Foundations", range:[11,15], color:"var(--green)" },
+      { n:4, icon:"ðŸ“œ", title:"Expanding Grammar", range:[16,20], color:"var(--orange)" },
+      { n:5, icon:"ðŸŒŸ", title:"Advanced Structures", range:[21,24], color:"var(--gold)" }
     ];
 
     if (window.applyLanguageScope) {
@@ -564,7 +565,7 @@
         if (state.friendReqs.length) {
           const wrap = document.createElement('div');
           wrap.className = 'nItem';
-          wrap.innerHTML = `<div class="left"><div class="nTag">👥 Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
+          wrap.innerHTML = `<div class="left"><div class="nTag">ðŸ‘¥ Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
           body.appendChild(wrap);
 
           state.friendReqs.forEach(uid => {
@@ -587,7 +588,7 @@
 
         if (state.notifs.length) {
           state.notifs.forEach(n => {
-            const icon = n.type === 'challenge' ? '🏆' : (n.type === 'system' ? '✨' : '🔔');
+            const icon = n.type === 'challenge' ? 'ðŸ†' : (n.type === 'system' ? 'âœ¨' : 'ðŸ””');
             const row = document.createElement('div');
             row.className = 'nItem';
             row.innerHTML = `
@@ -701,7 +702,7 @@
       const xp = Number.isFinite(data?.xp) ? data.xp : 0;
       const lvl = calcLevel(xp);
       document.getElementById('userName').textContent = (data?.displayName || user?.displayName || user?.email || (user?.email || 'User'));
-      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} • ${lvl.title}` : 'Level';
+      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} â€¢ ${lvl.title}` : 'Level';
       document.getElementById('streakVal').textContent = String(Number.isFinite(data?.streak) ? data.streak : 0);
       document.getElementById('heartsVal').textContent = String(Number.isFinite(data?.hearts) ? data.hearts : 5);
       const av = document.getElementById('avatar');
@@ -741,11 +742,11 @@
           <div class="wTop">
             <div>
               <div class="wTitle">${w.icon} World ${w.n}: ${w.title}</div>
-              <div class="wMeta">Lessons ${start}–${end} • ${done}/${total} completed</div>
+              <div class="wMeta">Lessons ${start}â€“${end} â€¢ ${done}/${total} completed</div>
             </div>
             <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
               <span class="wBadge" style="border-color:${worldUnlocked ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'}">${status}</span>
-              <a class="wBtn" ${status === "LOCKED" ? 'aria-disabled="true"' : ''} href="${btnHref}" style="border-color:${worldUnlocked ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'};background:rgba(255,255,255,0.02)">${btnLabel} →</a>
+              <a class="wBtn" ${status === "LOCKED" ? 'aria-disabled="true"' : ''} href="${btnHref}" style="border-color:${worldUnlocked ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'};background:rgba(255,255,255,0.02)">${btnLabel} â†’</a>
             </div>
           </div>
           <div class="bar" aria-label="World progress"><div style="background:linear-gradient(90deg, ${w.color}, rgba(255,255,255,0.15));width:${Math.round((done/total)*100)}%"></div></div>
@@ -771,7 +772,7 @@
         chip.innerHTML = `
           <div class="lcTop">
             <div class="lcNum">Lesson ${i}</div>
-            <div class="lcStat">${done ? '✅' : locked ? '🔒' : '➡️'}</div>
+            <div class="lcStat">${done ? 'âœ…' : locked ? 'ðŸ”’' : 'âž¡ï¸'}</div>
           </div>
           <div class="lcTitle">${LESSON_META[i-1].title}</div>
         `;
@@ -783,7 +784,7 @@
     async function initPage(user) {
       const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
       const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
-      document.title = `Lessons • ${langLabel}`;
+      document.title = `Lessons â€¢ ${langLabel}`;
       const brandTitle = document.querySelector('.sbTitle');
       const brandSub = document.querySelector('.sbSub');
       const brandLink = document.querySelector('.sbBrand');
@@ -857,3 +858,5 @@
   <script src="app.js"></script>
 </body>
 </html>
+
+

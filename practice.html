@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,10 +7,12 @@
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Learn Koine Greek">
-  <title>Practice • Learn Koine Greek</title>
+  <title>Practice â€¢ Learn Koine Greek</title>
   <script src="progress-manager.js"></script>
   <script src="game-data.js"></script>
   <script src="language-support.js"></script>
+  <script src="spacedRepetition.js"></script>
+  <script src="learning-enhancements.js"></script>
   <style>
     :root{
       --bg-base:#0f1117;--bg-sidebar:#13151e;--bg-card:#181c27;--bg-card2:#1d2235;--bg-input:#1a1f2e;--bg-hover:rgba(255,255,255,0.04);
@@ -172,7 +174,7 @@
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard.html" aria-label="Learn Koine Greek home">
-        <div class="sbLogo" aria-hidden="true"><span>Ω</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>Î©</span></div>
         <div>
           <div class="sbTitle">Koine Greek</div>
 
@@ -181,34 +183,34 @@
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
-          <a href="practice.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
-          <a href="lessons.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
-          <a href="quests.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
+          <a href="dashboard.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
+          <a href="practice.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
+          <a href="lessons.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
+          <a href="quests.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
-          <a href="study-room.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
+          <a href="friends.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
+          <a href="study-room.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="language-home.html"><span class="ic">🌐</span><span class="tx">Switch Language</span></a>
-          <a href="profile.html"><span class="ic">👤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
+          <a href="language-home.html"><span class="ic">ðŸŒ</span><span class="tx">Switch Language</span></a>
+          <a href="profile.html"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -217,17 +219,17 @@
       <header id="top-bar">
         <div class="tbLeft">
           <div class="tbTitle">Practice</div>
-          <div class="tbSub">Flashcards • Speed • Typer • Conjugation</div>
+          <div class="tbSub">Flashcards â€¢ Speed â€¢ Typer â€¢ Conjugation</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span>🔥</span><b id="streakVal">—</b></div>
-          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span>ðŸ”¥</span><b id="streakVal">â€”</b></div>
+          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>👤</span></div>
+            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level —</div>
+              <div class="l" id="userLevel">Level â€”</div>
             </div>
           </div>
         </div>
@@ -252,11 +254,11 @@
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard.html"><div>🏠</div><div>Home</div></a>
-      <a class="tab" href="practice.html"><div>🎯</div><div>Practice</div></a>
-      <a class="tab" href="lessons.html"><div>📚</div><div>Lessons</div></a>
-      <a class="tab" href="friends.html"><div>👥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html"><div>👤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard.html"><div>ðŸ </div><div>Home</div></a>
+      <a class="tab" href="practice.html"><div>ðŸŽ¯</div><div>Practice</div></a>
+      <a class="tab" href="lessons.html"><div>ðŸ“š</div><div>Lessons</div></a>
+      <a class="tab" href="friends.html"><div>ðŸ‘¥</div><div>Friends</div></a>
+      <a class="tab" href="profile.html"><div>ðŸ‘¤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -371,14 +373,14 @@
         window.__LESSON_DATA = window.LESSON_DATA;
         return window.__LESSON_DATA;
       }
-      throw new Error("Lesson data not found — ensure game-data.js or hebrew-lesson-data.js is loaded.");
+      throw new Error("Lesson data not found â€” ensure game-data.js or hebrew-lesson-data.js is loaded.");
     }
 
     function setTopUser(user, data) {
       const xp = Number.isFinite(data?.xp) ? data.xp : 0;
       const lvl = calcLevel(xp);
       document.getElementById('userName').textContent = (data?.displayName || user?.displayName || user?.email || (user?.email || 'User'));
-      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} • ${lvl.title}` : 'Level';
+      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} â€¢ ${lvl.title}` : 'Level';
       document.getElementById('streakVal').textContent = String(Number.isFinite(data?.streak) ? data.streak : 0);
       document.getElementById('heartsVal').textContent = String(Number.isFinite(data?.hearts) ? data.hearts : 5);
       const av = document.getElementById('avatar');
@@ -423,7 +425,7 @@
     function renderLocked(msg) {
       document.getElementById('panelBody').innerHTML = `
         <div class="locked">
-          <div class="h1">Locked 🔒</div>
+          <div class="h1">Locked ðŸ”’</div>
           <div class="sub">${msg}</div>
           <div class="actions" style="margin-top:12px">
             <a class="btn btnPrimary" href="lessons.html">Go to Lessons</a>
@@ -441,10 +443,13 @@
       let i = 0;
       let known = 0;
       let flipped = false;
-      const deck = shuffle(state.vocab);
+      if (typeof initSpacedRepetition === 'function') initSpacedRepetition(state.vocab);
+      const reviewSource = typeof getReviewItems === 'function' ? getReviewItems(state.vocab) : state.vocab;
+      const deck = shuffle(reviewSource.length ? reviewSource : state.vocab);
 
       function draw() {
         setDeckProgress(i, deck.length);
+        const reviewStats = typeof getSpacedRepetitionStats === 'function' ? getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
         const v = deck[i];
         body.innerHTML = `
           <div class="card">
@@ -454,10 +459,10 @@
             </div>
           </div>
           <div class="actions">
-            <button class="btn btnPrimary" id="knowBtn" type="button">✓ Know it</button>
-            <button class="btn" id="learnBtn" type="button">↺ Still learning</button>
+            <button class="btn btnPrimary" id="knowBtn" type="button">âœ“ Know it</button>
+            <button class="btn" id="learnBtn" type="button">â†º Still learning</button>
           </div>
-          <div class="hint">Progress: ${i}/${deck.length} • Known: ${known}</div>
+          <div class="hint">Progress: ${i}/${deck.length} - Known: ${known} - Due: ${reviewStats.due} - Learning: ${reviewStats.learning} - Mature: ${reviewStats.mature}</div>
         `;
         document.getElementById('flipBtn').addEventListener('click', () => { flipped = !flipped; draw(); });
         document.getElementById('knowBtn').addEventListener('click', async () => { known++; await next(false, true); });
@@ -466,15 +471,17 @@
 
       async function next(requeue=false, awardXp=false) {
         flipped = false;
+        const currentCard = deck[i];
+        if (typeof updateSpacedRepetition === 'function') updateSpacedRepetition(currentCard, !!awardXp);
         if (awardXp) await awardPracticeXp(state, 2);
-        if (requeue) deck.push(deck[i]);
+        if (requeue) deck.push(currentCard);
         i++;
         if (i >= deck.length) {
           setDeckProgress(deck.length, deck.length);
           body.innerHTML = `
             <div class="locked">
-              <div class="h1">Deck complete 🎉</div>
-              <div class="sub">Known: ${known} • Total reviewed: ${deck.length}</div>
+              <div class="h1">Deck complete ðŸŽ‰</div>
+              <div class="sub">Known: ${known} â€¢ Total reviewed: ${deck.length}</div>
               <div class="actions" style="margin-top:12px">
                 <button class="btn btnPrimary" id="againBtn" type="button">Review again</button>
               </div>
@@ -491,7 +498,7 @@
 
     function renderSpeedRound(state) {
       setModeTab('tabSpeed');
-      setHeader("Speed Round", "10 questions • 20 seconds each • speed bonus.");
+      setHeader("Speed Round", "10 questions â€¢ 20 seconds each â€¢ speed bonus.");
       const body = document.getElementById('panelBody');
       if (!state.exercises.length) return renderLocked("Complete at least 1 lesson to unlock speed rounds.");
 
@@ -519,9 +526,9 @@
         const q = pool[idx];
         body.innerHTML = `
           <div class="row">
-            <div class="pill"><span>⏱</span><b class="timer" id="timer">20</b><span style="color:var(--tm)">s</span></div>
-            <div class="pill"><span>🏁</span><b>${idx+1}</b><span style="color:var(--tm)">/10</span></div>
-            <div class="pill"><span>⭐</span><b>${score}</b></div>
+            <div class="pill"><span>â±</span><b class="timer" id="timer">20</b><span style="color:var(--tm)">s</span></div>
+            <div class="pill"><span>ðŸ</span><b>${idx+1}</b><span style="color:var(--tm)">/10</span></div>
+            <div class="pill"><span>â­</span><b>${score}</b></div>
           </div>
           <div class="q">${q.type === 'translate_to_english' ? `<span style="font-family:'Times New Roman',Georgia,serif;font-size:22px">${q.question}</span>` : q.question}</div>
           <div class="opts" id="opts"></div>
@@ -558,11 +565,11 @@
         setDeckProgress(1,1);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Speed Round Complete ⚡</div>
+            <div class="h1">Speed Round Complete âš¡</div>
             <div class="sub">Score: <b style="color:var(--tw)">${score}</b></div>
             <div class="actions" style="margin-top:12px">
               <button class="btn btnPrimary" id="againBtn" type="button">Play again</button>
-              <button class="btn" id="saveBtn" type="button">Save today’s score</button>
+              <button class="btn" id="saveBtn" type="button">Save todayâ€™s score</button>
             </div>
             <div class="hint">Saving requires sign-in. Top scores show on Leaderboard (Practice section).</div>
           </div>
@@ -581,7 +588,7 @@
               score,
               updatedAt: firebase.firestore.Timestamp.now()
             }, { merge:true });
-            showToast("Saved today’s score!", "good", "Saved");
+            showToast("Saved todayâ€™s score!", "good", "Saved");
           }catch(e){
             console.error(e);
             showToast("Could not save score.", "bad", "Save failed");
@@ -598,7 +605,10 @@
       setHeader("Greek Typer", "Type the English meaning of the displayed Greek word.");
       const body = document.getElementById('panelBody');
       if (!state.vocab.length) return renderLocked("Complete at least 1 lesson to unlock the typer.");
-      const deck = shuffle(state.vocab);
+      if (typeof initSpacedRepetition === 'function') initSpacedRepetition(state.vocab);
+      const reviewStats = typeof getSpacedRepetitionStats === 'function' ? getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
+      const reviewSource = typeof getReviewItems === 'function' ? getReviewItems(state.vocab) : state.vocab;
+      const deck = shuffle(reviewSource.length ? reviewSource : state.vocab);
       let i = 0;
       let correct = 0;
       function draw(){
@@ -612,10 +622,10 @@
             </div>
           </div>
           <div class="row">
-            <input class="input" id="answer" placeholder="Type English…" autocomplete="off" />
+            <input class="input" id="answer" placeholder="Type Englishâ€¦" autocomplete="off" />
             <button class="btn btnPrimary" id="checkBtn" type="button">Check</button>
           </div>
-          <div class="hint" id="result">Progress: ${i}/${deck.length} • Correct: ${correct}</div>
+          <div class="hint" id="result">Progress: ${i}/${deck.length} â€¢ Correct: ${correct}</div>
         `;
         const input = document.getElementById('answer');
         input.focus();
@@ -624,8 +634,8 @@
           const want = (v.english || '').trim().toLowerCase();
           const ok = got && (want.includes(got) || got === want);
           const res = document.getElementById('result');
-          if (ok) { correct++; res.textContent = `✅ Correct — ${v.english}`; res.style.color = 'rgba(34,197,94,0.95)'; await awardPracticeXp(state, 2); }
-          else { res.textContent = `❌ ${v.english}`; res.style.color = 'rgba(239,68,68,0.95)'; }
+          if (ok) { correct++; res.textContent = `âœ… Correct â€” ${v.english}`; res.style.color = 'rgba(34,197,94,0.95)'; await awardPracticeXp(state, 2); }
+          else { res.textContent = `âŒ ${v.english}`; res.style.color = 'rgba(239,68,68,0.95)'; }
           setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 800);
         }
         document.getElementById('checkBtn').addEventListener('click', check);
@@ -635,7 +645,7 @@
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Typer complete ✅</div>
+            <div class="h1">Typer complete âœ…</div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Play again</button></div>
           </div>
@@ -652,11 +662,11 @@
       if (state.lessonsCompleted < 6) return renderLocked("Unlock Lesson 6 (verbs) to access conjugation drills.");
 
       const drills = [
-        { q:"Present Active Indicative — πιστεύω — 3rd plural", options:["πιστεύουσι","πιστεύετε","πιστεύομεν","πιστεύει"], a:"πιστεύουσι" },
-        { q:"Present Active Indicative — πιστεύω — 2nd singular", options:["πιστεύεις","πιστεύω","πιστεύει","πιστεύετε"], a:"πιστεύεις" },
-        { q:"Deponent — ἔρχομαι — 3rd singular", options:["ἔρχεται","ἔρχῃ","ἔρχονται","ἔρχομαι"], a:"ἔρχεται" },
-        { q:"First Aorist — πιστεύω — 1st singular", options:["ἐπίστευσα","πιστεύσω","πεπίστευκα","πιστεύει"], a:"ἐπίστευσα" },
-        { q:"Perfect — πιστεύω — 1st singular", options:["πεπίστευκα","ἐπίστευσα","πιστεύσω","πιστεύω"], a:"πεπίστευκα" },
+        { q:"Present Active Indicative â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 3rd plural", options:["Ï€Î¹ÏƒÏ„ÎµÏÎ¿Ï…ÏƒÎ¹","Ï€Î¹ÏƒÏ„ÎµÏÎµÏ„Îµ","Ï€Î¹ÏƒÏ„ÎµÏÎ¿Î¼ÎµÎ½","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹"], a:"Ï€Î¹ÏƒÏ„ÎµÏÎ¿Ï…ÏƒÎ¹" },
+        { q:"Present Active Indicative â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 2nd singular", options:["Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹Ï‚","Ï€Î¹ÏƒÏ„ÎµÏÏ‰","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹","Ï€Î¹ÏƒÏ„ÎµÏÎµÏ„Îµ"], a:"Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹Ï‚" },
+        { q:"Deponent â€” á¼”ÏÏ‡Î¿Î¼Î±Î¹ â€” 3rd singular", options:["á¼”ÏÏ‡ÎµÏ„Î±Î¹","á¼”ÏÏ‡á¿ƒ","á¼”ÏÏ‡Î¿Î½Ï„Î±Î¹","á¼”ÏÏ‡Î¿Î¼Î±Î¹"], a:"á¼”ÏÏ‡ÎµÏ„Î±Î¹" },
+        { q:"First Aorist â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 1st singular", options:["á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±","Ï€Î¹ÏƒÏ„ÎµÏÏƒÏ‰","Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹"], a:"á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±" },
+        { q:"Perfect â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 1st singular", options:["Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±","á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±","Ï€Î¹ÏƒÏ„ÎµÏÏƒÏ‰","Ï€Î¹ÏƒÏ„ÎµÏÏ‰"], a:"Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±" },
       ];
 
       const deck = shuffle(drills).slice(0, 10);
@@ -691,7 +701,7 @@
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Drill complete 🧠</div>
+            <div class="h1">Drill complete ðŸ§ </div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Again</button></div>
           </div>
@@ -711,7 +721,7 @@
     async function initPage(user) {
       const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
       const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Koine Greek');
-      document.title = `Practice • ${langLabel}`;
+      document.title = `Practice â€¢ ${langLabel}`;
       const brandTitle = document.querySelector('.sbTitle');
       const brandSub = document.querySelector('.sbSub');
       const brandLink = document.querySelector('.sbBrand');
@@ -772,3 +782,8 @@
   <script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+

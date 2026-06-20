@@ -52,9 +52,51 @@
     .miniName .l{color:var(--tm);font-size:11px}
     #content{padding:14px;max-width:980px;width:100%;margin:0 auto}
     .page{min-height:100%;position:relative;display:grid;place-items:center;padding:28px 18px;overflow:hidden}
+    .page::before,
+    .page::after{
+      content:"";
+      position:absolute;
+      inset:auto;
+      width:42vw;
+      height:42vw;
+      border-radius:50%;
+      filter:blur(12px);
+      opacity:.65;
+      pointer-events:none;
+      z-index:0;
+    }
+    .page::before{
+      top:-10vw;
+      left:-8vw;
+      background:radial-gradient(circle, rgba(124,92,252,.18), transparent 65%);
+    }
+    .page::after{
+      bottom:-12vw;
+      right:-8vw;
+      background:radial-gradient(circle, rgba(59,130,246,.14), transparent 65%);
+    }
     .hero{border:1px solid var(--border);border-radius:28px;background:linear-gradient(180deg, rgba(24,28,39,0.84), rgba(17,20,30,0.78));backdrop-filter:blur(18px);box-shadow:0 28px 70px rgba(0,0,0,0.48);padding:26px;position:relative;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:-1px;background:linear-gradient(125deg, rgba(124,92,252,0.14), transparent 30%, rgba(59,130,246,0.10) 68%, transparent);opacity:0.9;pointer-events:none}
     .hero > *{position:relative;z-index:1}
+    .heroTop{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:14px;
+    }
+    .heroMark{
+      width:66px;
+      height:66px;
+      border-radius:22px;
+      border:1px solid rgba(124,92,252,0.32);
+      background:linear-gradient(180deg, rgba(124,92,252,0.14), rgba(59,130,246,0.08));
+      display:grid;
+      place-items:center;
+      box-shadow:0 18px 36px rgba(0,0,0,0.26);
+      flex:0 0 auto;
+    }
+    .heroMark img{width:44px;height:44px;display:block}
+    .heroCopy{min-width:0}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--rp);border:1px solid rgba(124,92,252,0.22);background:rgba(124,92,252,0.10);color:#d9d0ff;font-size:12px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
     .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg, var(--purple), var(--blue));box-shadow:0 0 0 6px rgba(124,92,252,0.12)}
     .title{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(32px, 4vw, 54px);line-height:0.96;letter-spacing:-0.05em;color:var(--tw);max-width:14ch}
@@ -82,15 +124,50 @@
     .cta:hover{transform:translateY(-2px)}
     .footer-note{margin-top:8px;font-size:12px;color:rgba(226,232,240,0.5);text-align:center}
     .auth-loader{position:absolute;inset:0;display:grid;place-items:center;color:rgba(226,232,240,0.8);font-weight:700;letter-spacing:0.02em;background:linear-gradient(180deg, rgba(15,17,23,0.96), rgba(11,14,22,0.98));z-index:20}
+    .loaderStack{
+      display:grid;
+      place-items:center;
+      gap:14px;
+      text-align:center;
+      max-width:240px;
+      padding:24px;
+    }
+    .loaderMark{
+      width:96px;
+      height:96px;
+      border-radius:28px;
+      border:1px solid rgba(124,92,252,0.22);
+      background:linear-gradient(180deg, rgba(124,92,252,0.12), rgba(59,130,246,0.06));
+      display:grid;
+      place-items:center;
+      box-shadow:0 18px 42px rgba(0,0,0,0.28);
+    }
+    .loaderMark img{width:64px;height:64px;display:block}
+    .loaderText{font-size:14px;color:rgba(226,232,240,0.78);line-height:1.5}
+    .loaderSub{font-size:12px;color:rgba(148,163,184,0.8)}
     .spinner{width:42px;height:42px;border-radius:50%;border:3px solid rgba(255,255,255,0.12);border-top-color:var(--purple);animation:spin 0.9s linear infinite;margin:0 auto 12px}
     @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    @media (max-width: 700px){
+      #content{padding:12px}
+      .page{padding:16px 8px}
+      .hero{padding:20px}
+      .heroTop{align-items:flex-start}
+      .heroMark{width:58px;height:58px;border-radius:20px}
+      .heroMark img{width:38px;height:38px}
+      .cards{grid-template-columns:1fr}
+      .cta{flex-basis:100%}
+      .title{max-width:10ch}
+    }
   </style>
 </head>
 <body data-page="dashboard">
   <div id="auth-loader" class="auth-loader">
-    <div>
-      <div class="spinner"></div>
-      Loading your language workspace...
+    <div class="loaderStack">
+      <div class="loaderMark">
+        <img src="assets/images/icon-scroll.svg" alt="" aria-hidden="true" />
+      </div>
+      <div class="loaderText">Loading your language workspace...</div>
+      <div class="loaderSub">Preparing your Greek and Hebrew tracks</div>
     </div>
   </div>
   <div id="app-content" style="display:none">
@@ -139,8 +216,15 @@
         <main id="content">
           <div class="page">
             <div class="hero">
+              <div class="heroTop">
+                <div class="heroMark" aria-hidden="true">
+                  <img src="assets/images/icon-scroll.svg" alt="" />
+                </div>
+                <div class="heroCopy">
               <div class="eyebrow"><span class="dot"></span>Track selector</div>
               <h1 class="title">Biblical Languages</h1>
+                </div>
+              </div>
               <p class="subtitle">Choose your study path below. Greek is the default track, and Hebrew is available as a full course experience with its own dashboard, lessons, and exercises.</p>
               <div class="cards">
                 <article class="card greek selected" id="greekCard">
