@@ -272,6 +272,16 @@
       const continueBtn = document.getElementById('continueBtn');
       const switchBtn = document.getElementById('switchBtn');
       const statUser = document.getElementById('statUser');
+      const authLoader = document.getElementById('auth-loader');
+      const appContent = document.getElementById('app-content');
+      let authReadySeen = false;
+
+      const fallbackTimer = setTimeout(() => {
+        if (!authReadySeen) {
+          if (authLoader) authLoader.style.display = 'none';
+          if (appContent) appContent.style.display = 'grid';
+        }
+      }, 1500);
 
       function selectLanguage(lang) {
         const isGreek = lang === 'greek';
@@ -294,9 +304,11 @@
       });
 
       document.addEventListener('authReady', function (ev) {
+        authReadySeen = true;
+        clearTimeout(fallbackTimer);
         const user = ev && ev.detail ? ev.detail : null;
-        document.getElementById('auth-loader').style.display = 'none';
-        document.getElementById('app-content').style.display = 'grid';
+        if (authLoader) authLoader.style.display = 'none';
+        if (appContent) appContent.style.display = 'grid';
         if (user) {
           const name = user.displayName || (user.email ? user.email.split('@')[0] : 'friend');
           statUser.textContent = name;
