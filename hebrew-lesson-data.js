@@ -2192,8 +2192,8 @@ Keep practicing, keep reading, and remember: every word in the Hebrew Bible star
 
 window.HEBREW_LESSON_DATA = HEBREW_LESSON_DATA;
 const HEBREW_VIDEO_URLS = {
-  1: 'https://www.youtube.com/watch?v=dz7ggYv-Sio', // Ancient Language Institute: Hebrew 101 Introduction
-  2: 'https://www.youtube.com/watch?v=_VZA0-_vBak', // Learn Biblical Hebrew: The Hebrew Alphabet Part 1
+  1: 'https://youtu.be/Q2Rx5eI8wOg?si=MIuPugMnZbB_lz73', // Hebrew Lesson 1
+  2: 'https://youtu.be/OdC8FS2KRQI?si=RF0J5mTLg60rZsFr', // Hebrew Lesson 2
   3: 'https://www.youtube.com/watch?v=MQmIaVsQT4k', // Hebrew Phonology and Guttural Sounds
   4: 'https://www.youtube.com/watch?v=zKrh87nOl0g', // History of Hebrew Script: Phoenician to Square Script
   5: 'https://www.youtube.com/watch?v=OKPfEeHdkqk', // Hebrew Vowel System and Shewa Mechanics
