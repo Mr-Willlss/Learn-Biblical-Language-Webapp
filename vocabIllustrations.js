@@ -81,7 +81,7 @@ const VOCAB_ILLUSTRATIONS = [
 function normalizeMeaningForIllustration(value) {
   return String(value || "")
     .toLowerCase()
-    .replace(/[()[\].;:!?]/g, " ")
+    .replace(/[()[\].;:!]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -96,7 +96,7 @@ function matchIllustrationKeyword(normalizedMeaning, keyword) {
 }
 
 function findVocabIllustration(vocab) {
-  const meaning = normalizeMeaningForIllustration(vocab?.meaning || vocab?.english || "");
+  const meaning = normalizeMeaningForIllustration(vocab.meaning || vocab.english || "");
   if (!meaning) return null;
 
   return VOCAB_ILLUSTRATIONS.find((entry) => entry.keywords.some((keyword) => matchIllustrationKeyword(meaning, keyword))) || null;

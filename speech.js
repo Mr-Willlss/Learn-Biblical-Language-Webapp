@@ -248,7 +248,7 @@ function speakLatin(text) {
 
 
 function buildPronunciationTargets(expected) {
-  const values = Array.isArray(expected) ? expected : [expected];
+  const values = Array.isArray(expected)  expected : [expected];
   const targets = new Set();
 
   values.forEach((value) => {
@@ -275,8 +275,8 @@ function buildPronunciationTargets(expected) {
 }
 
 function chooseRecognitionLanguage(expected) {
-  const values = Array.isArray(expected) ? expected : [expected];
-  return values.some((value) => !containsGreek(value)) ? "en-US" : "el-GR";
+  const values = Array.isArray(expected)  expected : [expected];
+  return values.some((value) => !containsGreek(value))  "en-US" : "el-GR";
 }
 
 function listenForGreek(expected, callback) {
@@ -305,7 +305,7 @@ function listenForGreek(expected, callback) {
     const best = alts.reduce(
       (acc, t) => {
         const s = scorePronunciation(expectedTargets, t);
-        return s > acc.score ? { score: s, transcript: t } : acc;
+        return s > acc.score  { score: s, transcript: t } : acc;
       },
       { score: 0, transcript: "" }
     );
@@ -315,7 +315,7 @@ function listenForGreek(expected, callback) {
     callback({ score: 0, transcript: "", error: "no-match" });
   };
   recognition.onerror = (event) => {
-    const error = event?.error || "recognition-error";
+    const error = event.error || "recognition-error";
     if (error !== "no-speech" && error !== "aborted") {
       toast("Speech recognition failed. You can type the pronunciation instead.");
     }
@@ -331,7 +331,7 @@ function scorePronunciation(expected, actual) {
 
   const normalizedActual = normalizeGreek(actual);
   const actualSkeleton = getPronunciationSkeleton(actual);
-  const expectedValues = Array.isArray(expected) ? expected : [expected];
+  const expectedValues = Array.isArray(expected)  expected : [expected];
   const normalizedExpectedValues = expectedValues
     .map((value) => normalizeGreek(value))
     .filter(Boolean);
@@ -400,7 +400,7 @@ function getPronunciationSkeleton(text) {
 }
 
 function normalizeGreek(text) {
-  const latinText = containsGreek(text) ? transliterateGreekText(text) : (text || "");
+  const latinText = containsGreek(text)  transliterateGreekText(text) : (text || "");
   const speechText = romanizedGreekToSpeechText(latinText);
 
   return speechText
@@ -441,7 +441,7 @@ function levenshtein(a, b) {
   for (let j = 0; j <= b.length; j += 1) dp[0][j] = j;
   for (let i = 1; i <= a.length; i += 1) {
     for (let j = 1; j <= b.length; j += 1) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      const cost = a[i - 1] === b[j - 1]  0 : 1;
       dp[i][j] = Math.min(
         dp[i - 1][j] + 1,
         dp[i][j - 1] + 1,

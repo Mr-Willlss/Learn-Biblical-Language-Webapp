@@ -47,7 +47,7 @@ function initFirebase() {
     }
     auth = firebase.auth();
     db = firebase.firestore();
-    functions = firebase.functions ? firebase.functions() : null;
+    functions = firebase.functions  firebase.functions() : null;
     firebaseState.configured = true;
     firebaseState.reason = "";
   } catch (e) {

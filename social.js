@@ -51,7 +51,7 @@ function getCurrentSocialUser() {
 }
 
 function escapeHtml(value) {
-  return String(value ?? "")
+  return String(value  "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -65,9 +65,9 @@ function totalLessonCount() {
 }
 
 function buildUsernameSeed(user) {
-  const raw = user?.displayName || user?.email?.split("@")[0] || "learner";
+  const raw = user.displayName || user.email.split("@")[0] || "learner";
   const slug = raw.toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 16);
-  const suffix = (user?.uid || "user").slice(0, 4).toLowerCase();
+  const suffix = (user.uid || "user").slice(0, 4).toLowerCase();
   return `${slug || "learner"}${suffix}`;
 }
 
@@ -91,7 +91,7 @@ function asDate(value) {
   if (!value) return null;
   if (typeof value.toDate === "function") return value.toDate();
   const parsed = new Date(value);
-  return Number.isNaN(parsed.getTime()) ? null : parsed;
+  return Number.isNaN(parsed.getTime())  null : parsed;
 }
 
 function formatActivityDate(value) {
@@ -106,18 +106,18 @@ function formatActivityDate(value) {
 }
 
 function createFallbackProfile(user = getCurrentSocialUser()) {
-  const totalXp = progressState?.xp || 0;
-  const completed = progressState?.completedLessons?.length || 0;
-  const progressPercent = totalLessonCount() ? Math.round((completed / totalLessonCount()) * 100) : 0;
+  const totalXp = progressState.xp || 0;
+  const completed = progressState.completedLessons.length || 0;
+  const progressPercent = totalLessonCount()  Math.round((completed / totalLessonCount()) * 100) : 0;
   const weeklyXp = 0;
   return {
-    uid: user?.uid || "local",
+    uid: user.uid || "local",
     profile: {
-      displayName: user?.displayName || "Greek learner",
+      displayName: user.displayName || "Greek learner",
       username: buildUsernameSeed(user),
       usernameLower: buildUsernameSeed(user),
       bio: "Learning Koine Greek one lesson at a time.",
-      photoURL: user?.photoURL || "",
+      photoURL: user.photoURL || "",
       gender: "",
       isProfilePublic: true
     },
@@ -145,18 +145,18 @@ function createFallbackProfile(user = getCurrentSocialUser()) {
 
 function createDefaultPrivateDetails(user = getCurrentSocialUser()) {
   return {
-    phoneNumber: user?.phoneNumber || ""
+    phoneNumber: user.phoneNumber || ""
   };
 }
 
 function normalizeSocialDocData(uid, data) {
   const fallback = createFallbackProfile({ uid });
-  const profile = data?.profile || {};
-  const stats = data?.stats || {};
-  const social = data?.social || {};
-  const rewards = data?.rewards || {};
-  const totalXp = Number.isFinite(stats.totalXp) ? stats.totalXp : fallback.stats.totalXp;
-  const weeklyXp = Number.isFinite(social.weeklyXp) ? social.weeklyXp : 0;
+  const profile = data.profile || {};
+  const stats = data.stats || {};
+  const social = data.social || {};
+  const rewards = data.rewards || {};
+  const totalXp = Number.isFinite(stats.totalXp)  stats.totalXp : fallback.stats.totalXp;
+  const weeklyXp = Number.isFinite(social.weeklyXp)  social.weeklyXp : 0;
 
   return {
     uid,
@@ -171,11 +171,11 @@ function normalizeSocialDocData(uid, data) {
     },
     stats: {
       totalXp,
-      level: Number.isFinite(stats.level) ? stats.level : Math.max(1, Math.floor(totalXp / 50) + 1),
-      totalLessonsCompleted: Number.isFinite(stats.totalLessonsCompleted) ? stats.totalLessonsCompleted : fallback.stats.totalLessonsCompleted,
-      progressPercent: Number.isFinite(stats.progressPercent) ? stats.progressPercent : fallback.stats.progressPercent,
-      streakDays: Number.isFinite(stats.streakDays) ? stats.streakDays : 0,
-      totalFriends: Number.isFinite(stats.totalFriends) ? stats.totalFriends : socialState.friendships.length
+      level: Number.isFinite(stats.level)  stats.level : Math.max(1, Math.floor(totalXp / 50) + 1),
+      totalLessonsCompleted: Number.isFinite(stats.totalLessonsCompleted)  stats.totalLessonsCompleted : fallback.stats.totalLessonsCompleted,
+      progressPercent: Number.isFinite(stats.progressPercent)  stats.progressPercent : fallback.stats.progressPercent,
+      streakDays: Number.isFinite(stats.streakDays)  stats.streakDays : 0,
+      totalFriends: Number.isFinite(stats.totalFriends)  stats.totalFriends : socialState.friendships.length
     },
     social: {
       weeklyXp,
@@ -184,9 +184,9 @@ function normalizeSocialDocData(uid, data) {
       lastLessonCompletedAt: social.lastLessonCompletedAt || null
     },
     rewards: {
-      gems: Number.isFinite(rewards.gems) ? rewards.gems : 0,
-      heartPasses: Number.isFinite(rewards.heartPasses) ? rewards.heartPasses : 0,
-      crowns: Number.isFinite(rewards.crowns) ? rewards.crowns : 0
+      gems: Number.isFinite(rewards.gems)  rewards.gems : 0,
+      heartPasses: Number.isFinite(rewards.heartPasses)  rewards.heartPasses : 0,
+      crowns: Number.isFinite(rewards.crowns)  rewards.crowns : 0
     }
   };
 }
@@ -194,7 +194,7 @@ function normalizeSocialDocData(uid, data) {
 function normalizePrivateProfileDetails(data = {}, user = getCurrentSocialUser()) {
   const fallback = createDefaultPrivateDetails(user);
   return {
-    phoneNumber: String(data?.phoneNumber || fallback.phoneNumber || "").trim().slice(0, 24)
+    phoneNumber: String(data.phoneNumber || fallback.phoneNumber || "").trim().slice(0, 24)
   };
 }
 
@@ -218,9 +218,9 @@ function applyRewardSummaryToChrome(rewardSummary) {
   const profile = {
     ...baseProfile,
     rewards: {
-      gems: (baseProfile.rewards?.gems || 0) + (rewardSummary.gems || 0),
-      heartPasses: (baseProfile.rewards?.heartPasses || 0) + (rewardSummary.heartPasses || 0),
-      crowns: (baseProfile.rewards?.crowns || 0) + (rewardSummary.crowns || 0)
+      gems: (baseProfile.rewards.gems || 0) + (rewardSummary.gems || 0),
+      heartPasses: (baseProfile.rewards.heartPasses || 0) + (rewardSummary.heartPasses || 0),
+      crowns: (baseProfile.rewards.crowns || 0) + (rewardSummary.crowns || 0)
     }
   };
   socialState.profile = profile;
@@ -246,7 +246,7 @@ function updateSocialChrome() {
   const rewardLastHome = document.getElementById("reward-last-home");
   const studyCircleCount = document.getElementById("study-circle-count");
   const studyCircleNote = document.getElementById("study-circle-note");
-  const friendCount = Array.isArray(socialState.friendships) ? socialState.friendships.length : 0;
+  const friendCount = Array.isArray(socialState.friendships)  socialState.friendships.length : 0;
 
   if (rankEl) rankEl.textContent = `Rank ${profile.social.rankTitle}`;
   if (leagueEl) leagueEl.textContent = `League ${profile.social.league}`;
@@ -254,28 +254,28 @@ function updateSocialChrome() {
   if (heroRankBadge) heroRankBadge.textContent = profile.social.rankTitle;
   if (focusStreak) focusStreak.textContent = `${profile.stats.streakDays || 0} days`;
   if (focusLeagueNote) focusLeagueNote.textContent = `${profile.social.league} League`;
-  if (rewardGems) rewardGems.textContent = String(profile.rewards?.gems || 0);
-  if (rewardHearts) rewardHearts.textContent = String(profile.rewards?.heartPasses || 0);
-  if (rewardCrowns) rewardCrowns.textContent = String(profile.rewards?.crowns || 0);
-  if (sideRewardGems) sideRewardGems.textContent = String(profile.rewards?.gems || 0);
-  if (sideRewardHearts) sideRewardHearts.textContent = String(profile.rewards?.heartPasses || 0);
-  if (sideRewardCrowns) sideRewardCrowns.textContent = String(profile.rewards?.crowns || 0);
+  if (rewardGems) rewardGems.textContent = String(profile.rewards.gems || 0);
+  if (rewardHearts) rewardHearts.textContent = String(profile.rewards.heartPasses || 0);
+  if (rewardCrowns) rewardCrowns.textContent = String(profile.rewards.crowns || 0);
+  if (sideRewardGems) sideRewardGems.textContent = String(profile.rewards.gems || 0);
+  if (sideRewardHearts) sideRewardHearts.textContent = String(profile.rewards.heartPasses || 0);
+  if (sideRewardCrowns) sideRewardCrowns.textContent = String(profile.rewards.crowns || 0);
   if (rewardLast) {
     rewardLast.textContent = getCurrentSocialUser()
-      ? `${profile.rewards?.gems || 0} gems, ${profile.rewards?.heartPasses || 0} heart gifts, ${profile.rewards?.crowns || 0} crowns ready to use`
+       `${profile.rewards.gems || 0} gems, ${profile.rewards.heartPasses || 0} heart gifts, ${profile.rewards.crowns || 0} crowns ready to use`
       : "Sign in to start collecting rewards";
   }
   if (rewardLastHome) {
     rewardLastHome.textContent = getCurrentSocialUser()
-      ? `${profile.rewards?.gems || 0} gems, ${profile.rewards?.heartPasses || 0} heart gifts, ${profile.rewards?.crowns || 0} crowns ready to use`
+       `${profile.rewards.gems || 0} gems, ${profile.rewards.heartPasses || 0} heart gifts, ${profile.rewards.crowns || 0} crowns ready to use`
       : "Sign in to start collecting rewards";
   }
   if (studyCircleCount) {
-    studyCircleCount.textContent = `${friendCount} friend${friendCount === 1 ? "" : "s"}`;
+    studyCircleCount.textContent = `${friendCount} friend${friendCount === 1  "" : "s"}`;
   }
   if (studyCircleNote) {
     studyCircleNote.textContent = friendCount
-      ? `Your study circle is live. Learners with at least one shared streak are more likely to finish their daily lesson, so keep nudging each other forward.`
+       `Your study circle is live. Learners with at least one shared streak are more likely to finish their daily lesson, so keep nudging each other forward.`
       : "Invite one friend so your study circle can add social accountability to the path.";
   }
 
@@ -305,19 +305,19 @@ function clearWideModal() {
 }
 
 function getFieldValue() {
-  return window.firebase?.firestore?.FieldValue || null;
+  return window.firebase.firestore.FieldValue || null;
 }
 
 function serverTimestamp() {
-  return getFieldValue()?.serverTimestamp?.() || new Date();
+  return getFieldValue().serverTimestamp.() || new Date();
 }
 
 function arrayUnion(...values) {
-  return getFieldValue()?.arrayUnion?.(...values);
+  return getFieldValue().arrayUnion.(...values);
 }
 
 function arrayRemove(...values) {
-  return getFieldValue()?.arrayRemove?.(...values);
+  return getFieldValue().arrayRemove.(...values);
 }
 
 function friendshipIdFor(a, b) {
@@ -329,7 +329,7 @@ function friendRequestIdFor(fromUid, toUid) {
 }
 
 function getLessonMeta(lessonId) {
-  if (!window.lessonData?.worlds) return null;
+  if (!window.lessonData.worlds) return null;
   for (const world of lessonData.worlds) {
     const lesson = world.lessons.find((item) => item.id === lessonId);
     if (lesson) {
@@ -344,7 +344,7 @@ async function ensureFallbackUserDocument(user = getCurrentSocialUser()) {
   const userRef = db.collection("users").doc(user.uid);
   return db.runTransaction(async (transaction) => {
     const userDoc = await transaction.get(userRef);
-    const existing = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+    const existing = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
     const username = existing.profile.username || buildUsernameSeed(user);
     const usernameRef = db.collection("usernames").doc(username.toLowerCase());
     const usernameDoc = await transaction.get(usernameRef);
@@ -362,28 +362,28 @@ async function ensureFallbackUserDocument(user = getCurrentSocialUser()) {
       },
       stats: {
         ...existing.stats,
-        totalXp: progressState?.xp ?? existing.stats.totalXp,
-        level: progressState?.level ?? existing.stats.level,
-        totalLessonsCompleted: progressState?.completedLessons?.length ?? existing.stats.totalLessonsCompleted,
+        totalXp: progressState.xp  existing.stats.totalXp,
+        level: progressState.level  existing.stats.level,
+        totalLessonsCompleted: progressState.completedLessons.length  existing.stats.totalLessonsCompleted,
         progressPercent: totalLessonCount()
-          ? Math.round(((progressState?.completedLessons?.length ?? existing.stats.totalLessonsCompleted) / totalLessonCount()) * 100)
+           Math.round(((progressState.completedLessons.length  existing.stats.totalLessonsCompleted) / totalLessonCount()) * 100)
           : existing.stats.progressPercent
       },
       social: {
         ...existing.social,
-        rankTitle: getRankLabel(progressState?.xp ?? existing.stats.totalXp),
+        rankTitle: getRankLabel(progressState.xp  existing.stats.totalXp),
         league: existing.social.league || getLeagueLabel(existing.social.weeklyXp || 0)
       },
       rewards: {
-        gems: existing.rewards?.gems || 0,
-        heartPasses: existing.rewards?.heartPasses || 0,
-        crowns: existing.rewards?.crowns || 0
+        gems: existing.rewards.gems || 0,
+        heartPasses: existing.rewards.heartPasses || 0,
+        crowns: existing.rewards.crowns || 0
       },
       updatedAt: serverTimestamp()
     };
 
     transaction.set(userRef, merged, { merge: true });
-    if (!usernameDoc.exists || usernameDoc.data()?.uid === user.uid) {
+    if (!usernameDoc.exists || usernameDoc.data().uid === user.uid) {
       transaction.set(usernameRef, { uid: user.uid, username, updatedAt: serverTimestamp() }, { merge: true });
     }
     return merged;
@@ -399,7 +399,7 @@ async function loadPrivateProfileDetails() {
   }
 
   const doc = await db.collection("users").doc(user.uid).collection("private").doc("profileDetails").get();
-  const details = doc.exists ? normalizePrivateProfileDetails(doc.data(), user) : createDefaultPrivateDetails(user);
+  const details = doc.exists  normalizePrivateProfileDetails(doc.data(), user) : createDefaultPrivateDetails(user);
   applyPrivateProfileDetails(details);
   return details;
 }
@@ -431,7 +431,7 @@ async function resetSocialGameState() {
     activitiesQuery.get()
   ]);
 
-  const current = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+  const current = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
   const resetProfile = {
     ...current,
     stats: {
@@ -502,13 +502,13 @@ async function fallbackUpdateUserProfile(payload = {}) {
 
   const merged = await db.runTransaction(async (transaction) => {
     const userDoc = await transaction.get(userRef);
-    const current = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+    const current = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
     const desiredUsername = (payload.username || current.profile.username || buildUsernameSeed(user)).trim().toLowerCase();
     const nextUsername = desiredUsername.replace(/[^a-z0-9]+/g, "").slice(0, 20) || current.profile.username;
     const currentUsername = current.profile.usernameLower || current.profile.username.toLowerCase();
     const newUsernameRef = db.collection("usernames").doc(nextUsername);
     const newUsernameDoc = await transaction.get(newUsernameRef);
-    if (newUsernameDoc.exists && newUsernameDoc.data()?.uid !== user.uid) {
+    if (newUsernameDoc.exists && newUsernameDoc.data().uid !== user.uid) {
       throw new Error("That username is already taken.");
     }
 
@@ -521,7 +521,7 @@ async function fallbackUpdateUserProfile(payload = {}) {
         usernameLower: nextUsername,
         bio: (payload.bio || "").trim().slice(0, 180),
         gender: String(payload.gender || current.profile.gender || "").trim().slice(0, 24),
-        isProfilePublic: typeof payload.isProfilePublic === "boolean" ? payload.isProfilePublic : current.profile.isProfilePublic,
+        isProfilePublic: typeof payload.isProfilePublic === "boolean"  payload.isProfilePublic : current.profile.isProfilePublic,
         photoURL: String(payload.photoURL || current.profile.photoURL || user.photoURL || "").trim().slice(0, 500)
       },
       updatedAt: serverTimestamp()
@@ -556,9 +556,9 @@ async function fallbackSendFriendRequest(payload = {}) {
       transaction.get(db.collection("users").doc(targetUid))
     ]);
     if (friendshipDoc.exists) return;
-    if (reverseDoc.exists && reverseDoc.data()?.status === "pending") {
-      const selfUser = selfUserDoc.exists ? normalizeSocialDocData(user.uid, selfUserDoc.data()) : createFallbackProfile(user);
-      const targetUser = targetUserDoc.exists ? normalizeSocialDocData(targetUid, targetUserDoc.data()) : createFallbackProfile({ uid: targetUid });
+    if (reverseDoc.exists && reverseDoc.data().status === "pending") {
+      const selfUser = selfUserDoc.exists  normalizeSocialDocData(user.uid, selfUserDoc.data()) : createFallbackProfile(user);
+      const targetUser = targetUserDoc.exists  normalizeSocialDocData(targetUid, targetUserDoc.data()) : createFallbackProfile({ uid: targetUid });
       transaction.delete(reverseRef);
       transaction.set(friendshipRef, {
         members: [user.uid, targetUid].sort(),
@@ -597,8 +597,8 @@ async function fallbackRespondToFriendRequest(payload = {}) {
         transaction.get(db.collection("users").doc(request.toUid)),
         transaction.get(db.collection("users").doc(request.fromUid))
       ]);
-      const selfUser = selfUserDoc.exists ? normalizeSocialDocData(request.toUid, selfUserDoc.data()) : createFallbackProfile({ uid: request.toUid });
-      const otherUser = otherUserDoc.exists ? normalizeSocialDocData(request.fromUid, otherUserDoc.data()) : createFallbackProfile({ uid: request.fromUid });
+      const selfUser = selfUserDoc.exists  normalizeSocialDocData(request.toUid, selfUserDoc.data()) : createFallbackProfile({ uid: request.toUid });
+      const otherUser = otherUserDoc.exists  normalizeSocialDocData(request.fromUid, otherUserDoc.data()) : createFallbackProfile({ uid: request.fromUid });
       transaction.set(friendshipRef, {
         members: [request.fromUid, request.toUid].sort(),
         createdAt: serverTimestamp()
@@ -626,8 +626,8 @@ async function fallbackRemoveFriend(payload = {}) {
       transaction.get(db.collection("users").doc(targetUid))
     ]);
     if (!friendshipDoc.exists) return;
-    const selfUser = selfUserDoc.exists ? normalizeSocialDocData(user.uid, selfUserDoc.data()) : createFallbackProfile(user);
-    const targetUser = targetUserDoc.exists ? normalizeSocialDocData(targetUid, targetUserDoc.data()) : createFallbackProfile({ uid: targetUid });
+    const selfUser = selfUserDoc.exists  normalizeSocialDocData(user.uid, selfUserDoc.data()) : createFallbackProfile(user);
+    const targetUser = targetUserDoc.exists  normalizeSocialDocData(targetUid, targetUserDoc.data()) : createFallbackProfile({ uid: targetUid });
     transaction.delete(friendshipRef);
     transaction.set(db.collection("users").doc(user.uid), { "stats.totalFriends": Math.max(0, (selfUser.stats.totalFriends || 1) - 1) }, { merge: true });
     transaction.set(db.collection("users").doc(targetUid), { "stats.totalFriends": Math.max(0, (targetUser.stats.totalFriends || 1) - 1) }, { merge: true });
@@ -650,21 +650,21 @@ async function fallbackSendGift(payload = {}) {
       transaction.get(db.collection("users").doc(targetUid))
     ]);
     if (!friendshipDoc.exists) throw new Error("Add this learner as a friend first.");
-    const sender = senderDoc.exists ? normalizeSocialDocData(user.uid, senderDoc.data()) : createFallbackProfile(user);
-    const recipient = recipientDoc.exists ? normalizeSocialDocData(targetUid, recipientDoc.data()) : createFallbackProfile({ uid: targetUid });
+    const sender = senderDoc.exists  normalizeSocialDocData(user.uid, senderDoc.data()) : createFallbackProfile(user);
+    const recipient = recipientDoc.exists  normalizeSocialDocData(targetUid, recipientDoc.data()) : createFallbackProfile({ uid: targetUid });
     const nextSenderRewards = { ...sender.rewards };
     const nextRecipientRewards = { ...recipient.rewards };
     let giftLabel = "Gem Pack";
     let message = `${sender.profile.displayName} sent you a study boost.`;
 
     if (giftType === "heart") {
-      if ((sender.rewards?.gems || 0) < SOCIAL_HEART_GEM_COST) throw new Error(`You need ${SOCIAL_HEART_GEM_COST} gems to send a heart gift.`);
+      if ((sender.rewards.gems || 0) < SOCIAL_HEART_GEM_COST) throw new Error(`You need ${SOCIAL_HEART_GEM_COST} gems to send a heart gift.`);
       nextSenderRewards.gems -= SOCIAL_HEART_GEM_COST;
       nextRecipientRewards.heartPasses += 1;
       giftLabel = "Heart Gift";
       message = `${sender.profile.displayName} sent you a heart refill gift.`;
     } else {
-      if ((sender.rewards?.gems || 0) < SOCIAL_HEART_GEM_COST) throw new Error(`You need ${SOCIAL_HEART_GEM_COST} gems to send a gem pack.`);
+      if ((sender.rewards.gems || 0) < SOCIAL_HEART_GEM_COST) throw new Error(`You need ${SOCIAL_HEART_GEM_COST} gems to send a gem pack.`);
       nextSenderRewards.gems -= SOCIAL_HEART_GEM_COST;
       nextRecipientRewards.gems += SOCIAL_HEART_GEM_COST;
       message = `${sender.profile.displayName} sent you ${SOCIAL_HEART_GEM_COST} gems.`;
@@ -694,9 +694,9 @@ async function fallbackRedeemHeartPass() {
   const merged = await db.runTransaction(async (transaction) => {
     const userRef = db.collection("users").doc(user.uid);
     const userDoc = await transaction.get(userRef);
-    const current = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
-    if ((current.rewards?.heartPasses || 0) <= 0) throw new Error("You do not have a heart gift to use.");
-    const nextRewards = { ...current.rewards, heartPasses: Math.max(0, (current.rewards?.heartPasses || 0) - 1) };
+    const current = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+    if ((current.rewards.heartPasses || 0) <= 0) throw new Error("You do not have a heart gift to use.");
+    const nextRewards = { ...current.rewards, heartPasses: Math.max(0, (current.rewards.heartPasses || 0) - 1) };
     const mergedProfile = { ...current, rewards: nextRewards, updatedAt: serverTimestamp() };
     transaction.set(userRef, mergedProfile, { merge: true });
     return mergedProfile;
@@ -711,10 +711,10 @@ async function fallbackBuyHeartsWithGems(payload = {}) {
   const merged = await db.runTransaction(async (transaction) => {
     const userRef = db.collection("users").doc(user.uid);
     const userDoc = await transaction.get(userRef);
-    const current = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+    const current = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
     const gemCost = heartCount * SOCIAL_HEART_GEM_COST;
-    if ((current.rewards?.gems || 0) < gemCost) throw new Error(`You need ${gemCost} gems for ${heartCount} heart${heartCount === 1 ? "" : "s"}.`);
-    const nextRewards = { ...current.rewards, gems: (current.rewards?.gems || 0) - gemCost };
+    if ((current.rewards.gems || 0) < gemCost) throw new Error(`You need ${gemCost} gems for ${heartCount} heart${heartCount === 1  "" : "s"}.`);
+    const nextRewards = { ...current.rewards, gems: (current.rewards.gems || 0) - gemCost };
     const mergedProfile = { ...current, rewards: nextRewards, updatedAt: serverTimestamp() };
     transaction.set(userRef, mergedProfile, { merge: true });
     return mergedProfile;
@@ -734,9 +734,9 @@ async function fallbackCreateStudyRoom(payload = {}) {
     hostUid: user.uid,
     hostDisplayName: hostProfile.profile.displayName,
     lessonId,
-    lessonTitle: lessonMeta?.title || lessonId,
+    lessonTitle: lessonMeta.title || lessonId,
     memberUids: [user.uid],
-    invitedUids: invitedUid ? [invitedUid] : [],
+    invitedUids: invitedUid  [invitedUid] : [],
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp()
   });
@@ -797,20 +797,20 @@ async function fallbackSubmitLessonCompletion(payload = {}) {
       transaction.get(userRef),
       transaction.get(completionRef)
     ]);
-    const current = userDoc.exists ? normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
+    const current = userDoc.exists  normalizeSocialDocData(user.uid, userDoc.data()) : createFallbackProfile(user);
     if (completionDoc.exists) {
       return { alreadyAwarded: true, awardedXp: 0, rewardSummary: null, user: current };
     }
 
     const awardedXp = typeof lessonXpEarned !== "undefined" && Number.isFinite(lessonXpEarned)
-      ? lessonXpEarned
-      : (getLessonMeta(lessonId)?.lesson?.xp || 0);
+       lessonXpEarned
+      : (getLessonMeta(lessonId).lesson.xp || 0);
     const rewardSummary = {
       gems: SOCIAL_LESSON_GEM_REWARD,
       heartPasses: 0,
-      crowns: ((progressState?.completedLessons?.length || 0) + 1) % 5 === 0 ? 1 : 0
+      crowns: ((progressState.completedLessons.length || 0) + 1) % 5 === 0  1 : 0
     };
-    const completedCount = new Set([...(progressState?.completedLessons || []), lessonId]).size;
+    const completedCount = new Set([...(progressState.completedLessons || []), lessonId]).size;
     const totalXp = (current.stats.totalXp || 0) + awardedXp;
     const weeklyXp = (current.social.weeklyXp || 0) + awardedXp;
     const merged = {
@@ -820,7 +820,7 @@ async function fallbackSubmitLessonCompletion(payload = {}) {
         totalXp,
         level: Math.max(1, Math.floor(totalXp / 50) + 1),
         totalLessonsCompleted: completedCount,
-        progressPercent: totalLessonCount() ? Math.round((completedCount / totalLessonCount()) * 100) : 0
+        progressPercent: totalLessonCount()  Math.round((completedCount / totalLessonCount()) * 100) : 0
       },
       social: {
         ...current.social,
@@ -830,9 +830,9 @@ async function fallbackSubmitLessonCompletion(payload = {}) {
         lastLessonCompletedAt: serverTimestamp()
       },
       rewards: {
-        gems: (current.rewards?.gems || 0) + rewardSummary.gems,
-        heartPasses: (current.rewards?.heartPasses || 0) + rewardSummary.heartPasses,
-        crowns: (current.rewards?.crowns || 0) + rewardSummary.crowns
+        gems: (current.rewards.gems || 0) + rewardSummary.gems,
+        heartPasses: (current.rewards.heartPasses || 0) + rewardSummary.heartPasses,
+        crowns: (current.rewards.crowns || 0) + rewardSummary.crowns
       },
       updatedAt: serverTimestamp()
     };
@@ -841,7 +841,7 @@ async function fallbackSubmitLessonCompletion(payload = {}) {
     transaction.set(completionRef, { lessonId, awardedXp, createdAt: serverTimestamp() });
     transaction.set(activityRef, {
       actorUid: user.uid,
-      visibility: merged.profile.isProfilePublic ? "public" : "private",
+      visibility: merged.profile.isProfilePublic  "public" : "private",
       title: `Completed ${lessonId.toUpperCase()}`,
       message: `Earned ${awardedXp} XP, ${rewardSummary.gems} gems, and reached ${merged.social.rankTitle}.`,
       lessonId,
@@ -1081,7 +1081,7 @@ async function loadLeaderboards() {
   socialState.leaderboard.weekly = weeklyRows;
 
   const friendIds = new Set(socialState.friendships.map((friend) => friend.uid));
-  const selfUid = getCurrentSocialUser()?.uid;
+  const selfUid = getCurrentSocialUser().uid;
   if (selfUid) friendIds.add(selfUid);
   socialState.leaderboard.friends = [socialState.profile, ...socialState.friendships.map((friend) => friend.profile)]
     .filter(Boolean)
@@ -1150,7 +1150,7 @@ async function loadSuggestedFriends() {
   ]);
 
   const blockedIds = new Set([
-    user?.uid,
+    user.uid,
     ...socialState.friendships.map((friend) => friend.uid),
     ...socialState.incomingRequests.map((request) => request.fromUid),
     ...socialState.outgoingRequests.map((request) => request.toUid)
@@ -1192,7 +1192,7 @@ async function searchPlayers(term) {
     .get();
 
   return snapshot.docs
-    .filter((doc) => doc.id !== user?.uid)
+    .filter((doc) => doc.id !== user.uid)
     .map((doc) => normalizeSocialDocData(doc.id, doc.data()));
 }
 
@@ -1221,7 +1221,7 @@ function leaderboardRowsMarkup(rows, valueLabel) {
 
   return rows
     .map((row) => `
-      <div class="social-list-row ${row.uid === getCurrentSocialUser()?.uid ? "is-self" : ""}">
+      <div class="social-list-row ${row.uid === getCurrentSocialUser().uid  "is-self" : ""}">
         <div class="social-player">
           <div class="social-rank-pill">#${row.position}</div>
           <div>
@@ -1230,7 +1230,7 @@ function leaderboardRowsMarkup(rows, valueLabel) {
           </div>
         </div>
         <div class="social-score">
-          <strong>${escapeHtml(String(valueLabel === "Weekly XP" ? row.weeklyXp : row.totalXp))}</strong>
+          <strong>${escapeHtml(String(valueLabel === "Weekly XP"  row.weeklyXp : row.totalXp))}</strong>
           <span class="social-meta">${escapeHtml(valueLabel)}</span>
         </div>
       </div>
@@ -1289,12 +1289,12 @@ function requestRowsMarkup(items, kind) {
       <div class="social-list-row">
         <div>
           <strong>${escapeHtml(item.fromDisplayName || item.toDisplayName || "Greek learner")}</strong>
-          <p class="muted">${kind === "incoming" ? "Wants to join your study circle." : "Pending approval."}</p>
+          <p class="muted">${kind === "incoming"  "Wants to join your study circle." : "Pending approval."}</p>
         </div>
         <div class="social-actions">
           ${
             kind === "incoming"
-              ? `<button class="btn" data-accept-request="${escapeHtml(item.id)}" type="button">Accept</button>
+               `<button class="btn" data-accept-request="${escapeHtml(item.id)}" type="button">Accept</button>
                  <button class="btn ghost" data-decline-request="${escapeHtml(item.id)}" type="button">Decline</button>`
               : `<button class="btn ghost" data-cancel-request="${escapeHtml(item.id)}" type="button">Cancel</button>`
           }
@@ -1327,10 +1327,10 @@ function studyRoomCardsMarkup(items) {
     .map((room) => `
       <div class="study-room-card">
         <h5>${escapeHtml(room.lessonTitle || room.lessonId || "Study room")}</h5>
-        <p class="study-room-meta">Host: ${escapeHtml(room.hostDisplayName || "Greek learner")} - ${escapeHtml(room.memberUids?.length || 1)} learners inside</p>
+        <p class="study-room-meta">Host: ${escapeHtml(room.hostDisplayName || "Greek learner")} - ${escapeHtml(room.memberUids.length || 1)} learners inside</p>
         <div class="social-actions">
           <button class="btn ghost" data-open-room="${escapeHtml(room.id)}" type="button">Open room</button>
-          ${room.invitedUids?.includes(getCurrentSocialUser()?.uid) ? `<button class="btn" data-join-room="${escapeHtml(room.id)}" type="button">Join</button>` : ""}
+          ${room.invitedUids.includes(getCurrentSocialUser().uid)  `<button class="btn" data-join-room="${escapeHtml(room.id)}" type="button">Join</button>` : ""}
         </div>
       </div>
     `)
@@ -1575,7 +1575,7 @@ async function openFriendsModal() {
 }
 
 function getFlatLessons() {
-  if (!window.lessonData?.worlds) return [];
+  if (!window.lessonData.worlds) return [];
   const flat = [];
   lessonData.worlds.forEach((world) => {
     world.lessons.forEach((lesson) => {
@@ -1590,7 +1590,7 @@ function getFlatLessons() {
 
 function buildShareUrl() {
   const shareUrl = new URL(location.href);
-  shareUrl.searchParams.set("invite", getCurrentSocialUser()?.uid || "");
+  shareUrl.searchParams.set("invite", getCurrentSocialUser().uid || "");
   return shareUrl.toString();
 }
 
@@ -1675,9 +1675,9 @@ async function openGiftsModal() {
   try {
     await Promise.all([loadOwnSocialProfile(), loadFriendsState(), loadGiftsState()]);
     const profile = socialState.profile || createFallbackProfile();
-    const heartsNow = typeof progressState !== "undefined" ? progressState.hearts : SOCIAL_HEART_MAX;
+    const heartsNow = typeof progressState !== "undefined"  progressState.hearts : SOCIAL_HEART_MAX;
     const missingHearts = Math.max(0, SOCIAL_HEART_MAX - heartsNow);
-    const recommendedHearts = heartsNow <= 3 ? Math.min(2, missingHearts) : 1;
+    const recommendedHearts = heartsNow <= 3  Math.min(2, missingHearts) : 1;
     const fullRefillCost = missingHearts * SOCIAL_HEART_GEM_COST;
     const recommendedCost = recommendedHearts * SOCIAL_HEART_GEM_COST;
     wrap.innerHTML = `
@@ -1698,13 +1698,13 @@ async function openGiftsModal() {
       <div class="social-card-callout">
         <h4>Heart shop</h4>
         <p>${heartsNow <= 3
-          ? `You are down to ${heartsNow} hearts. We recommend buying ${recommendedHearts} heart${recommendedHearts === 1 ? "" : "s"} for ${recommendedCost} gems so you can keep playing.`
+           `You are down to ${heartsNow} hearts. We recommend buying ${recommendedHearts} heart${recommendedHearts === 1  "" : "s"} for ${recommendedCost} gems so you can keep playing.`
           : `Each heart costs ${SOCIAL_HEART_GEM_COST} gems. Every completed lesson adds ${SOCIAL_LESSON_GEM_REWARD} gems to your reward pocket.`}</p>
       </div>
       <div class="social-actions">
-        <button class="btn btn--mint" id="redeem-heart-pass-btn" type="button" ${profile.rewards.heartPasses ? "" : "disabled"}>Use one heart gift</button>
-        <button class="btn btn--sky" id="buy-recommended-hearts-btn" type="button" ${!recommendedHearts || (profile.rewards.gems || 0) < recommendedCost ? "disabled" : ""}>Buy ${recommendedHearts} heart${recommendedHearts === 1 ? "" : "s"} (${recommendedCost} gems)</button>
-        <button class="btn ghost" id="buy-full-hearts-btn" type="button" ${!missingHearts || (profile.rewards.gems || 0) < fullRefillCost ? "disabled" : ""}>Full refill (${fullRefillCost} gems)</button>
+        <button class="btn btn--mint" id="redeem-heart-pass-btn" type="button" ${profile.rewards.heartPasses  "" : "disabled"}>Use one heart gift</button>
+        <button class="btn btn--sky" id="buy-recommended-hearts-btn" type="button" ${!recommendedHearts || (profile.rewards.gems || 0) < recommendedCost  "disabled" : ""}>Buy ${recommendedHearts} heart${recommendedHearts === 1  "" : "s"} (${recommendedCost} gems)</button>
+        <button class="btn ghost" id="buy-full-hearts-btn" type="button" ${!missingHearts || (profile.rewards.gems || 0) < fullRefillCost  "disabled" : ""}>Full refill (${fullRefillCost} gems)</button>
       </div>
       <div class="social-section">
         <div class="social-section__head">
@@ -1772,7 +1772,7 @@ async function openGiftsModal() {
               renderExercise();
             }
           }
-          toast(`Bought ${data.purchasedHearts || recommendedHearts} heart${(data.purchasedHearts || recommendedHearts) === 1 ? "" : "s"} for ${data.spentGems || recommendedCost} gems.`);
+          toast(`Bought ${data.purchasedHearts || recommendedHearts} heart${(data.purchasedHearts || recommendedHearts) === 1  "" : "s"} for ${data.spentGems || recommendedCost} gems.`);
           openGiftsModal();
         } catch (error) {
           console.error(error);
@@ -1864,7 +1864,7 @@ async function openStudyRoomThread(roomId) {
     <div class="study-message-list">
       ${
         messages.length
-          ? messages.map((message) => `
+           messages.map((message) => `
             <div class="study-message">
               <strong>${escapeHtml(message.authorName || "Learner")} - ${escapeHtml(message.kind || "note")}</strong>
               <p>${escapeHtml(message.text || "")}</p>
@@ -1881,7 +1881,7 @@ async function openStudyRoomThread(roomId) {
       </select>
       <textarea id="study-message-text" placeholder="Ask what confused you, or explain a tricky part to your friend."></textarea>
       <div class="social-actions">
-        ${room.invitedUids?.includes(getCurrentSocialUser()?.uid) ? `<button class="btn btn--mint" id="study-join-btn" type="button">Join room</button>` : ""}
+        ${room.invitedUids.includes(getCurrentSocialUser().uid)  `<button class="btn btn--mint" id="study-join-btn" type="button">Join room</button>` : ""}
         <button class="btn btn--berry" id="study-send-btn" type="button">Send</button>
       </div>
     </div>
@@ -1929,7 +1929,7 @@ async function openStudyTogetherModal(lesson) {
   try {
     await Promise.all([loadStudyRoomsState(), loadFriendsState()]);
     const flatLessons = getFlatLessons();
-    const suggestedLesson = lesson?.id || flatLessons[0]?.id || "";
+    const suggestedLesson = lesson.id || flatLessons[0].id || "";
     wrap.innerHTML = `
       <div class="social-card-callout">
         <h4>Shared lesson rooms</h4>
@@ -1942,7 +1942,7 @@ async function openStudyTogetherModal(lesson) {
         </div>
         <div class="study-composer">
           <select id="study-room-lesson">
-            ${flatLessons.map((item) => `<option value="${escapeHtml(item.id)}" ${item.id === suggestedLesson ? "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}
+            ${flatLessons.map((item) => `<option value="${escapeHtml(item.id)}" ${item.id === suggestedLesson  "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}
           </select>
           <select id="study-room-friend">
             <option value="">Invite a friend later</option>
@@ -2004,8 +2004,8 @@ async function openAskLessonQuestionModal(lesson, exercise) {
   const wrap = document.createElement("div");
   wrap.className = "social-modal";
   const flatLessons = getFlatLessons();
-  const selectedLesson = lesson?.id || flatLessons[0]?.id || "";
-  const vocabHint = exercise?.vocab?.greek ? ` about ${exercise.vocab.greek}` : "";
+  const selectedLesson = lesson.id || flatLessons[0].id || "";
+  const vocabHint = exercise.vocab.greek  ` about ${exercise.vocab.greek}` : "";
   wrap.innerHTML = `
     <div class="social-card-callout">
       <h4>Ask for help without losing momentum</h4>
@@ -2013,13 +2013,13 @@ async function openAskLessonQuestionModal(lesson, exercise) {
     </div>
     <div class="study-composer">
       <select id="question-lesson">
-        ${flatLessons.map((item) => `<option value="${escapeHtml(item.id)}" ${item.id === selectedLesson ? "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}
+        ${flatLessons.map((item) => `<option value="${escapeHtml(item.id)}" ${item.id === selectedLesson  "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}
       </select>
       <select id="question-friend">
         <option value="">Post in a new study room</option>
         ${socialState.friendships.map((friend) => `<option value="${escapeHtml(friend.uid)}">${escapeHtml(friend.profile.profile.displayName)}</option>`).join("")}
       </select>
-      <textarea id="question-text" placeholder="For example: I understand the word${escapeHtml(vocabHint)}, but I am confused about why the sentence order works this way.">${escapeHtml(exercise?.prompt ? `I need help with: ${exercise.prompt}` : "")}</textarea>
+      <textarea id="question-text" placeholder="For example: I understand the word${escapeHtml(vocabHint)}, but I am confused about why the sentence order works this way.">${escapeHtml(exercise.prompt  `I need help with: ${exercise.prompt}` : "")}</textarea>
       <button class="btn btn--berry" id="question-send-btn" type="button">Send question</button>
     </div>
   `;
@@ -2058,7 +2058,7 @@ async function shareOwnProgress() {
     return;
   }
 
-  if (navigator.clipboard?.writeText) {
+  if (navigator.clipboard.writeText) {
     await navigator.clipboard.writeText(`${text} ${url}`);
     toast("Progress summary copied to your clipboard.");
     return;
@@ -2133,7 +2133,7 @@ async function openProfileModal() {
       <div class="social-stat-card"><span class="eyebrow">Weekly XP</span><strong>${profile.social.weeklyXp}</strong></div>
       <div class="social-stat-card"><span class="eyebrow">Friends</span><strong>${socialState.friendships.length}</strong></div>
       <div class="social-stat-card"><span class="eyebrow">Streak</span><strong>${profile.stats.streakDays} days</strong></div>
-      <div class="social-stat-card"><span class="eyebrow">Visibility</span><strong>${profile.profile.isProfilePublic ? "Public" : "Private"}</strong></div>
+      <div class="social-stat-card"><span class="eyebrow">Visibility</span><strong>${profile.profile.isProfilePublic  "Public" : "Private"}</strong></div>
       <div class="social-stat-card"><span class="eyebrow">Gems</span><strong>${profile.rewards.gems || 0}</strong></div>
       <div class="social-stat-card"><span class="eyebrow">Heart gifts</span><strong>${profile.rewards.heartPasses || 0}</strong></div>
       <div class="social-stat-card"><span class="eyebrow">Crowns</span><strong>${profile.rewards.crowns || 0}</strong></div>
@@ -2159,10 +2159,10 @@ async function openProfileModal() {
         <label class="social-field">
           <span>Gender</span>
           <select id="profile-gender">
-            <option value="" ${!profile.profile.gender ? "selected" : ""}>Prefer not to say</option>
-            <option value="Male" ${profile.profile.gender === "Male" ? "selected" : ""}>Male</option>
-            <option value="Female" ${profile.profile.gender === "Female" ? "selected" : ""}>Female</option>
-            <option value="Other" ${profile.profile.gender === "Other" ? "selected" : ""}>Other</option>
+            <option value="" ${!profile.profile.gender  "selected" : ""}>Prefer not to say</option>
+            <option value="Male" ${profile.profile.gender === "Male"  "selected" : ""}>Male</option>
+            <option value="Female" ${profile.profile.gender === "Female"  "selected" : ""}>Female</option>
+            <option value="Other" ${profile.profile.gender === "Other"  "selected" : ""}>Other</option>
           </select>
         </label>
         <label class="social-field">
@@ -2176,7 +2176,7 @@ async function openProfileModal() {
         <p class="muted">Your phone number stays private to your account. Your avatar, username, bio, and gender can appear on your public profile.</p>
         <label class="toggle-row">
           <span>Public profile</span>
-          <label class="switch"><input id="profile-public" type="checkbox" ${profile.profile.isProfilePublic ? "checked" : ""}><span class="slider"></span></label>
+          <label class="switch"><input id="profile-public" type="checkbox" ${profile.profile.isProfilePublic  "checked" : ""}><span class="slider"></span></label>
         </label>
         <div class="social-actions">
           <button class="btn ghost" id="profile-use-google-photo" type="button">Use Google photo</button>
@@ -2288,7 +2288,7 @@ window.resetSocialState = resetSocialState;
 window.SOCIAL_EXERCISE_XP = SOCIAL_EXERCISE_XP;
 
 window.addEventListener("gq-auth-changed", (event) => {
-  const user = event.detail?.user;
+  const user = event.detail.user;
   if (!user) {
     resetSocialState();
     return;

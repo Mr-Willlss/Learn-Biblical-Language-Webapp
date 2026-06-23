@@ -17,32 +17,32 @@ function formatDayLabel(date) {
 function readProgress() {
   try {
     const raw = localStorage.getItem("greekQuestProgress");
-    return raw ? JSON.parse(raw) : null;
+    return raw  JSON.parse(raw) : null;
   } catch {
     return null;
   }
 }
 
 function computeLevelFromXp(xp) {
-  const safeXp = Number.isFinite(xp) ? xp : 0;
+  const safeXp = Number.isFinite(xp)  xp : 0;
   return Math.max(1, Math.floor(safeXp / 50) + 1);
 }
 
 function computePersonalization(progress) {
-  const xp = Number.isFinite(progress?.xp) ? progress.xp : 0;
-  const completed = Array.isArray(progress?.completedLessons) ? progress.completedLessons.length : 0;
-  const activeLessonId = progress?.activeLessonId || null;
-  const activeIndex = Number.isFinite(progress?.activeExerciseIndex) ? progress.activeExerciseIndex : 0;
+  const xp = Number.isFinite(progress.xp)  progress.xp : 0;
+  const completed = Array.isArray(progress.completedLessons)  progress.completedLessons.length : 0;
+  const activeLessonId = progress.activeLessonId || null;
+  const activeIndex = Number.isFinite(progress.activeExerciseIndex)  progress.activeExerciseIndex : 0;
 
   const message = activeLessonId
-    ? `Continue where you left off: ${activeLessonId} (step ${activeIndex + 1}).`
+     `Continue where you left off: ${activeLessonId} (step ${activeIndex + 1}).`
     : completed
-      ? "You have momentum. Continue your next unlocked lesson."
+       "You have momentum. Continue your next unlocked lesson."
       : "Start with Level 1. Small wins first.";
 
   // Simulated recommendation: if learner has low completion, bias to basics; else suggest practice.
   const recommend = completed < 3
-    ? { kind: "lesson", title: "Continue path", subtitle: "Build your foundation with short lessons." }
+     { kind: "lesson", title: "Continue path", subtitle: "Build your foundation with short lessons." }
     : { kind: "practice", title: "Practice weak words", subtitle: "A quick drill to lock in vocabulary." };
 
   // Daily goal: 1 lesson, show progress based on completion count mod 1.
@@ -57,8 +57,8 @@ function BentoCard({ title, eyebrow, children, className = "", onClick, ariaLabe
   return (
     <motion.section
       layout
-      role={clickable ? "button" : undefined}
-      tabIndex={clickable ? 0 : undefined}
+      role={clickable  "button" : undefined}
+      tabIndex={clickable  0 : undefined}
       aria-label={ariaLabel || title}
       onClick={onClick}
       onKeyDown={(e) => {
@@ -68,18 +68,18 @@ function BentoCard({ title, eyebrow, children, className = "", onClick, ariaLabe
           onClick();
         }
       }}
-      whileHover={clickable ? { y: -2 } : undefined}
-      whileTap={clickable ? { scale: 0.985 } : undefined}
+      whileHover={clickable  { y: -2 } : undefined}
+      whileTap={clickable  { scale: 0.985 } : undefined}
       className={[
         "relative overflow-hidden rounded-xl3 bg-glass shadow-glow ring-1 ring-stroke",
         "p-4 md:p-5",
-        clickable ? "cursor-pointer" : "",
+        clickable  "cursor-pointer" : "",
         className
       ].join(" ")}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          {eyebrow ? <p className="text-[11px] uppercase tracking-[0.18em] text-white/60">{eyebrow}</p> : null}
+          {eyebrow  <p className="text-[11px] uppercase tracking-[0.18em] text-white/60">{eyebrow}</p> : null}
           <h2 className="mt-1 text-base font-semibold text-white">{title}</h2>
         </div>
       </div>
@@ -109,8 +109,8 @@ function Flame({ active }) {
   return (
     <motion.div
       aria-hidden="true"
-      animate={active ? { scale: [1, 1.06, 1] } : { scale: 1 }}
-      transition={{ duration: 1.2, repeat: active ? Infinity : 0 }}
+      animate={active  { scale: [1, 1.06, 1] } : { scale: 1 }}
+      transition={{ duration: 1.2, repeat: active  Infinity : 0 }}
       className="grid h-9 w-9 place-items-center rounded-xl2 bg-[rgba(255,209,102,0.15)] ring-1 ring-[rgba(255,209,102,0.22)]"
     >
       <span className="text-lg">🔥</span>
@@ -129,9 +129,9 @@ function StreakCard({ streakDays, missedRecently }) {
   const filled = clamp(streakDays, 0, 7);
 
   const message = missedRecently
-    ? "You missed a day. Do one lesson today to restart."
+     "You missed a day. Do one lesson today to restart."
     : streakDays
-      ? "Keep it alive. One lesson today protects the streak."
+       "Keep it alive. One lesson today protects the streak."
       : "Start your streak today. One lesson is enough.";
 
   return (
@@ -140,8 +140,8 @@ function StreakCard({ streakDays, missedRecently }) {
         <div className="flex items-center gap-3">
           <Flame active={!missedRecently && streakDays > 0} />
           <div>
-            <p className="text-2xl font-bold leading-none">{streakDays} day{streakDays === 1 ? "" : "s"}</p>
-            <p className={`mt-1 text-sm ${missedRecently ? "text-accent-berry" : "text-white/70"}`}>{message}</p>
+            <p className="text-2xl font-bold leading-none">{streakDays} day{streakDays === 1  "" : "s"}</p>
+            <p className={`mt-1 text-sm ${missedRecently  "text-accent-berry" : "text-white/70"}`}>{message}</p>
           </div>
         </div>
       </div>
@@ -155,10 +155,10 @@ function StreakCard({ streakDays, missedRecently }) {
               <motion.div
                 className={[
                   "mx-auto mt-2 h-3.5 w-3.5 rounded-full ring-1",
-                  on ? "bg-accent-mint ring-[rgba(6,214,160,0.35)]" : "bg-white/10 ring-white/12",
-                  isToday ? "shadow-[0_0_0_3px_rgba(255,255,255,0.10)]" : ""
+                  on  "bg-accent-mint ring-[rgba(6,214,160,0.35)]" : "bg-white/10 ring-white/12",
+                  isToday  "shadow-[0_0_0_3px_rgba(255,255,255,0.10)]" : ""
                 ].join(" ")}
-                animate={isToday && on ? { scale: [1, 1.25, 1] } : { scale: 1 }}
+                animate={isToday && on  { scale: [1, 1.25, 1] } : { scale: 1 }}
                 transition={{ duration: 0.5 }}
               />
             </div>
@@ -212,10 +212,10 @@ function RewardChestCard({ gems, onOpen, opened }) {
         </div>
         <motion.div
           className="grid h-14 w-14 place-items-center rounded-xl2 bg-[rgba(255,209,102,0.16)] ring-1 ring-[rgba(255,209,102,0.24)]"
-          animate={opened ? { rotate: [0, -6, 6, 0], scale: [1, 1.08, 1] } : { rotate: 0, scale: 1 }}
+          animate={opened  { rotate: [0, -6, 6, 0], scale: [1, 1.08, 1] } : { rotate: 0, scale: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-2xl">{opened ? "🎁" : "🧰"}</span>
+          <span className="text-2xl">{opened  "🎁" : "🧰"}</span>
         </motion.div>
       </div>
     </BentoCard>
@@ -277,7 +277,7 @@ function NotificationsCard({ items }) {
   return (
     <BentoCard title="Notifications" eyebrow="Updates" ariaLabel="Notifications">
       <div className="space-y-2">
-        {items.length ? items.slice(0, 2).map((n) => (
+        {items.length  items.slice(0, 2).map((n) => (
           <div key={n.id} className="rounded-xl2 bg-white/6 p-3 ring-1 ring-white/10">
             <p className="text-sm font-semibold">{n.title}</p>
             <p className="mt-1 text-xs text-white/70">{n.body}</p>
@@ -309,7 +309,7 @@ function BottomNav({ tab, setTab }) {
               className={[
                 "rounded-xl2 px-3 py-2 text-xs font-semibold",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold/70",
-                active ? "bg-white/10 text-white" : "text-white/70 hover:bg-white/6"
+                active  "bg-white/10 text-white" : "text-white/70 hover:bg-white/6"
               ].join(" ")}
               onClick={() => setTab(item.id)}
             >
@@ -326,7 +326,7 @@ function BottomNav({ tab, setTab }) {
 function Modal({ open, title, children, onClose }) {
   return (
     <AnimatePresence>
-      {open ? (
+      {open  (
         <motion.div
           className="fixed inset-0 z-40 grid place-items-center bg-black/60 p-4"
           initial={{ opacity: 0 }}
@@ -364,13 +364,13 @@ function App() {
   const [progress, setProgress] = useState(() => readProgress());
   const [chestOpened, setChestOpened] = useState(false);
   const [levelUp, setLevelUp] = useState(null);
-  const prevLevelRef = useRef(computeLevelFromXp(progress?.xp || 0));
+  const prevLevelRef = useRef(computeLevelFromXp(progress.xp || 0));
 
   const personalization = useMemo(() => computePersonalization(progress), [progress]);
   const level = computeLevelFromXp(personalization.xp);
 
   useEffect(() => {
-    const onAuth = (e) => setAuthUser(e?.detail?.user || null);
+    const onAuth = (e) => setAuthUser(e.detail.user || null);
     window.addEventListener("gq-auth-changed", onAuth);
     return () => window.removeEventListener("gq-auth-changed", onAuth);
   }, []);
@@ -395,21 +395,21 @@ function App() {
     } else {
       items.push({ id: "sync", title: "Cloud sync on", body: "Your progress will follow you to another device." });
     }
-    if ((progress?.hearts ?? 5) <= 2) {
+    if ((progress.hearts  5) <= 2) {
       items.push({ id: "hearts", title: "Low hearts", body: "Slow down and focus on accuracy, or come back after a refill." });
     }
     return items;
   }, [authUser, progress]);
 
   const onContinue = () => {
-    window.location.href = `${APP.lessonUrl}?from=dashboard`;
+    window.location.href = `${APP.lessonUrl}from=dashboard`;
   };
 
   const onPractice = (kind) => {
     // Practice runs inside the lesson page today; dashboard stays light/fast.
     const map = { review: "mixed", listen: "listening", speak: "speaking" };
     const mode = map[kind] || "mixed";
-    window.location.href = `${APP.lessonUrl}?practice=${encodeURIComponent(mode)}&from=dashboard`;
+    window.location.href = `${APP.lessonUrl}practice=${encodeURIComponent(mode)}&from=dashboard`;
   };
 
   const openChest = () => {
@@ -417,7 +417,7 @@ function App() {
     // Demo: add gems locally; when you later switch to Functions, server can validate.
     setProgress((prev) => {
       const next = { ...(prev || {}) };
-      next.xp = Number.isFinite(next.xp) ? next.xp : 0;
+      next.xp = Number.isFinite(next.xp)  next.xp : 0;
       next.updatedAt = Date.now();
       localStorage.setItem("greekQuestProgress", JSON.stringify({ ...readProgress(), ...next }));
       return readProgress();
@@ -450,8 +450,8 @@ function App() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Pill tone={authUser ? "mint" : "muted"}>{authUser ? "Cloud sync on" : "Device only"}</Pill>
-            {authUser ? (
+            <Pill tone={authUser  "mint" : "muted"}>{authUser  "Cloud sync on" : "Device only"}</Pill>
+            {authUser  (
               <button className="rounded-xl2 bg-white/6 px-3 py-2 text-xs font-semibold text-white/85 ring-1 ring-white/10" onClick={signOut}>
                 Log out
               </button>
@@ -488,10 +488,10 @@ function App() {
               />
             </div>
             <div className="md:col-span-5 md:row-span-2">
-              <StreakCard streakDays={Number.isFinite(progress?.streakDays) ? progress.streakDays : 0} missedRecently={!!progress?.streakMissed} />
+              <StreakCard streakDays={Number.isFinite(progress.streakDays)  progress.streakDays : 0} missedRecently={!!progress.streakMissed} />
             </div>
             <div className="md:col-span-4">
-              <RewardChestCard gems={Number.isFinite(progress?.gems) ? progress.gems : 0} onOpen={openChest} opened={chestOpened} />
+              <RewardChestCard gems={Number.isFinite(progress.gems)  progress.gems : 0} onOpen={openChest} opened={chestOpened} />
             </div>
             <div className="md:col-span-4">
               <ProgressCard xp={personalization.xp} completedLessons={personalization.completed} />
@@ -510,7 +510,7 @@ function App() {
 
       <Modal
         open={!!levelUp}
-        title={levelUp ? `Level up: ${levelUp.from} → ${levelUp.to}` : ""}
+        title={levelUp  `Level up: ${levelUp.from} → ${levelUp.to}` : ""}
         onClose={() => setLevelUp(null)}
       >
         <p className="text-sm text-white/80">Nice work. Keep going for another quick win.</p>

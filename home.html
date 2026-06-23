@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.5" />
   <title>Learn Koine Greek</title>
   <style>
@@ -52,7 +52,7 @@
       --sw: 200px;
     }
 
-    /* â”€â”€ RESET & BASE â”€â”€ */
+    /* ── RESET & BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       width: 100%;
@@ -79,10 +79,10 @@
     input:focus, textarea:focus, select:focus { border-color: var(--purple); }
     a { color: inherit; text-decoration: none; }
 
-    /* â”€â”€ APP SHELL â”€â”€ */
+    /* ── APP SHELL ── */
     #app { display: flex; height: 100vh; overflow: hidden; }
 
-    /* â”€â”€ SIDEBAR â”€â”€ */
+    /* ── SIDEBAR ── */
     #sidebar {
       width: var(--sw);
       min-width: var(--sw);
@@ -164,10 +164,10 @@
     }
     .sb-signout:hover { color: var(--red); }
 
-    /* â”€â”€ MAIN WRAPPER â”€â”€ */
+    /* ── MAIN WRAPPER ── */
     #main-wrapper { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
 
-    /* â”€â”€ TOP BAR â”€â”€ */
+    /* ── TOP BAR ── */
     #top-bar {
       height: 56px;
       background: var(--bg-sidebar);
@@ -273,7 +273,7 @@
     .tb-user-level { font-size: 11px; color: var(--tm); }
     .tb-chevron { font-size: 10px; color: var(--tm); }
 
-    /* â”€â”€ CONTENT / VIEWS â”€â”€ */
+    /* ── CONTENT / VIEWS ── */
     #content {
       flex: 1;
       overflow-y: auto;
@@ -284,7 +284,7 @@
     .view { display: none; }
     .view.active { display: block; }
 
-    /* â”€â”€ SECTION HEADING â”€â”€ */
+    /* ── SECTION HEADING ── */
     .section-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 10px; }
     .section-h h2 { font-size: 17px; font-weight: 700; color: var(--tw); display: flex; align-items: center; gap: 8px; }
     .view-all-btn {
@@ -303,7 +303,7 @@
     }
     .view-all-btn:hover { color: var(--ts); border-color: var(--border2); }
 
-    /* â”€â”€ PROFILE VIEW â”€â”€ */
+    /* ── PROFILE VIEW ── */
     .profile-header-card {
       background: linear-gradient(135deg, #1a1f35 0%, #1d1540 60%, #1a2035 100%);
       border: 1px solid var(--border);
@@ -801,33 +801,33 @@
   <div id="app">
     <aside id="sidebar" aria-label="Primary navigation">
       <div class="sb-logo">
-        <div class="sb-logo-icon" aria-hidden="true">Î©</div>
+        <div class="sb-logo-icon" aria-hidden="true">Ω</div>
         <div class="sb-logo-text">Learn<span>Koine Greek</span></div>
       </div>
 
       <div class="sb-section">
         <div class="sb-section-label">Main</div>
-        <div class="sb-item active" data-view="dashboard"><span class="sb-icon">ðŸ </span><span>Dashboard</span></div>
-        <div class="sb-item" data-view="practice"><span class="sb-icon">ðŸŽ¯</span><span>Practice</span></div>
-        <div class="sb-item" data-view="lessons"><span class="sb-icon">ðŸ“š</span><span>Lessons</span></div>
-        <div class="sb-item" data-view="quests"><span class="sb-icon">âš”ï¸</span><span>Quests</span></div>
+        <div class="sb-item active" data-view="dashboard"><span class="sb-icon">🏠</span><span>Dashboard</span></div>
+        <div class="sb-item" data-view="practice"><span class="sb-icon">🎯</span><span>Practice</span></div>
+        <div class="sb-item" data-view="lessons"><span class="sb-icon">📚</span><span>Lessons</span></div>
+        <div class="sb-item" data-view="quests"><span class="sb-icon">⚔️</span><span>Quests</span></div>
       </div>
 
       <div class="sb-section">
         <div class="sb-section-label">Learn</div>
-        <div class="sb-item" data-view="vocab"><span class="sb-icon">ðŸ”¤</span><span>Vocabulary</span></div>
-        <div class="sb-item" data-view="leaderboard"><span class="sb-icon">ðŸ†</span><span>Leaderboard</span></div>
-        <div class="sb-item" data-view="rewards"><span class="sb-icon">ðŸŽ</span><span>Rewards</span></div>
+        <div class="sb-item" data-view="vocab"><span class="sb-icon">🔤</span><span>Vocabulary</span></div>
+        <div class="sb-item" data-view="leaderboard"><span class="sb-icon">🏆</span><span>Leaderboard</span></div>
+        <div class="sb-item" data-view="rewards"><span class="sb-icon">🎁</span><span>Rewards</span></div>
       </div>
 
       <div class="sb-section">
         <div class="sb-section-label">Account</div>
-        <div class="sb-item" data-view="profile"><span class="sb-icon">ðŸ‘¤</span><span>Profile</span></div>
-        <div class="sb-item" data-view="settings"><span class="sb-icon">âš™ï¸</span><span>Settings</span></div>
+        <div class="sb-item" data-view="profile"><span class="sb-icon">👤</span><span>Profile</span></div>
+        <div class="sb-item" data-view="settings"><span class="sb-icon">⚙️</span><span>Settings</span></div>
       </div>
 
       <div class="sb-signout" data-private data-action="signout" role="button" tabindex="0" aria-label="Log out">
-        <span aria-hidden="true">â†©</span><span>Sign Out</span>
+        <span aria-hidden="true">↩</span><span>Sign Out</span>
       </div>
     </aside>
 
@@ -843,12 +843,12 @@
             <button class="btn-auth" id="logout-btn" type="button" style="display:none">Log out</button>
           </div>
           <div class="tb-streak" data-private aria-label="Streak">
-            <span aria-hidden="true">ðŸ”¥</span>
+            <span aria-hidden="true">🔥</span>
             <span class="tb-streak-num" id="tb-streak-num">0</span>
             <span class="tb-streak-lbl">Day Streak</span>
           </div>
           <div class="tb-bell" data-private id="tb-bell" role="button" tabindex="0" aria-label="Notifications">
-            ðŸ””
+            🔔
             <div class="tb-bell-dot" aria-hidden="true"></div>
           </div>
           <div class="tb-user" data-private id="tb-user" role="button" tabindex="0" aria-label="User menu">
@@ -857,7 +857,7 @@
               <div class="tb-user-name" id="tb-user-name">Samuel Williams</div>
               <div class="tb-user-level" id="tb-user-level">Level 1</div>
             </div>
-            <div class="tb-chevron" aria-hidden="true">â–¼</div>
+            <div class="tb-chevron" aria-hidden="true">▼</div>
           </div>
         </div>
       </header>
@@ -878,19 +878,19 @@
                 <img id="ph-avatar-img" alt="Profile photo" />
                 <span id="ph-avatar-text">SW</span>
               </div>
-              <div class="ph-cam-btn" id="ph-cam-btn" role="button" tabindex="0" aria-label="Change photo">ðŸ“·</div>
+              <div class="ph-cam-btn" id="ph-cam-btn" role="button" tabindex="0" aria-label="Change photo">📷</div>
             </div>
 
             <div class="ph-info">
               <div class="ph-name-row">
                 <span class="ph-name" id="ph-name">Samuel Williams</span>
-                <button class="btn-edit-profile" id="btn-edit-profile" type="button">âœ Edit Profile</button>
+                <button class="btn-edit-profile" id="btn-edit-profile" type="button">✏ Edit Profile</button>
               </div>
               <div class="ph-handle"><span class="dot" aria-hidden="true"></span><span id="ph-handle">@samuelw</span></div>
               <div class="ph-meta-row">
-                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">âœ‰</span><span id="ph-email">samiduvimo@gmail.com</span></div>
-                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">ðŸ“…</span><span id="ph-joined">Joined May 12, 2024</span></div>
-                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">â¤</span><span id="ph-bio">Loves learning Koine Greek and ancient languages.</span></div>
+                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">✉</span><span id="ph-email">samiduvimo@gmail.com</span></div>
+                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">📅</span><span id="ph-joined">Joined May 12, 2024</span></div>
+                <div class="ph-meta-item"><span class="ph-meta-icon" aria-hidden="true">❤</span><span id="ph-bio">Loves learning Koine Greek and ancient languages.</span></div>
               </div>
             </div>
 
@@ -903,32 +903,32 @@
 
           <section class="stats-row" data-private aria-label="Stats">
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">â­</span><span class="stat-name">XP</span></div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">⭐</span><span class="stat-name">XP</span></div>
               <div class="stat-value" id="stat-xp">0</div>
               <div class="stat-sub">Total XP</div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">ðŸ”¥</span><span class="stat-name">Streak</span></div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">🔥</span><span class="stat-name">Streak</span></div>
               <div class="stat-value" id="stat-streak">0</div>
               <div class="stat-sub">Days</div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">â¤ï¸</span><span class="stat-name">Hearts</span></div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">❤️</span><span class="stat-name">Hearts</span></div>
               <div class="stat-value" id="stat-hearts">5</div>
               <div class="stat-sub">/5 Full</div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">ðŸ†</span><span class="stat-name">Rank</span></div>
-              <div class="stat-value" id="stat-rank">â€”</div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">🏆</span><span class="stat-name">Rank</span></div>
+              <div class="stat-value" id="stat-rank">—</div>
               <div class="stat-sub">League</div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">ðŸ“–</span><span class="stat-name">Lessons</span></div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">📖</span><span class="stat-name">Lessons</span></div>
               <div class="stat-value" id="stat-lessons">0</div>
               <div class="stat-sub">Completed</div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">ðŸŽ¯</span><span class="stat-name">Accuracy</span></div>
+              <div class="stat-icon-row"><span class="stat-icon" aria-hidden="true">🎯</span><span class="stat-name">Accuracy</span></div>
               <div class="stat-value" id="stat-accuracy">0%</div>
               <div class="stat-sub">Overall</div>
             </div>
@@ -936,7 +936,7 @@
 
           <section class="level-progress-card" data-private aria-label="Level progress">
             <div class="lp-header">
-              <div class="lp-title">â­ <span id="lp-title-text">Level 1 Progress</span></div>
+              <div class="lp-title">⭐ <span id="lp-title-text">Level 1 Progress</span></div>
               <span class="lp-xp-label" id="lp-xp-label">0 / 50 XP</span>
             </div>
             <div class="lp-bar-wrap" aria-label="Progress bar">
@@ -946,7 +946,7 @@
               <div class="lp-away">You're <span id="lp-away">50 XP</span> away from <span id="lp-next-level">Level 2</span></div>
               <div class="lp-right">
                 <div class="lp-next-reward" aria-label="Next reward">
-                  <span class="lp-reward-icon" aria-hidden="true">ðŸ’Ž</span>
+                  <span class="lp-reward-icon" aria-hidden="true">💎</span>
                   <div>
                     <div class="lp-reward-title" id="lp-reward-title">50 Gems</div>
                     <div class="lp-reward-sub" id="lp-reward-sub">At next level</div>
@@ -972,11 +972,11 @@
           <section class="two-col" data-private aria-label="Activity and achievements">
             <section class="content-card" aria-label="Learning activity">
               <div class="section-h">
-                <h2>ðŸ“… Learning Activity</h2>
-                <div class="view-all-btn" id="btn-activity-viewall">View All â–¾</div>
+                <h2>📅 Learning Activity</h2>
+                <div class="view-all-btn" id="btn-activity-viewall">View All ▾</div>
               </div>
               <div class="activity-item">
-                <div class="ai-icon" style="background: rgba(59,130,246,.15)">ðŸ“–</div>
+                <div class="ai-icon" style="background: rgba(59,130,246,.15)">📖</div>
                 <div class="ai-info">
                   <div class="ai-title">Current Lesson</div>
                   <div class="ai-sub" id="activity-current-lesson">Open a lesson to keep your streak alive.</div>
@@ -986,7 +986,7 @@
                 </div>
               </div>
               <div class="activity-item">
-                <div class="ai-icon" style="background: rgba(34,197,94,.15)">âœ…</div>
+                <div class="ai-icon" style="background: rgba(34,197,94,.15)">✅</div>
                 <div class="ai-info">
                   <div class="ai-title">Lessons Completed</div>
                   <div class="ai-sub" id="activity-lessons-sub">0 lessons</div>
@@ -994,7 +994,7 @@
                 <div class="ai-right"><div class="ai-value" style="color:#22c55e" id="activity-lessons-delta">+0 this week</div></div>
               </div>
               <div class="activity-item">
-                <div class="ai-icon" style="background: rgba(124,92,252,.15)">âœï¸</div>
+                <div class="ai-icon" style="background: rgba(124,92,252,.15)">✏️</div>
                 <div class="ai-info">
                   <div class="ai-title">Practice Sessions</div>
                   <div class="ai-sub">7 sessions</div>
@@ -1002,26 +1002,26 @@
                 <div class="ai-right"><div class="ai-value" style="color:#22c55e">+2 this week</div></div>
               </div>
               <div class="activity-item">
-                <div class="ai-icon" style="background: rgba(249,115,22,.15)">ðŸŽ¯</div>
+                <div class="ai-icon" style="background: rgba(249,115,22,.15)">🎯</div>
                 <div class="ai-info">
                   <div class="ai-title">Accuracy</div>
-                  <div class="ai-sub" id="activity-accuracy-sub">â€”</div>
+                  <div class="ai-sub" id="activity-accuracy-sub">—</div>
                 </div>
                 <div class="ai-right"><div class="ai-value" style="color:#22c55e">+5% improved</div></div>
               </div>
               <div class="activity-item">
-                <div class="ai-icon" style="background: rgba(148,163,184,.1)">ðŸ•</div>
+                <div class="ai-icon" style="background: rgba(148,163,184,.1)">🕐</div>
                 <div class="ai-info">
                   <div class="ai-title">Last Active</div>
-                  <div class="ai-sub" id="activity-last-active">â€”</div>
+                  <div class="ai-sub" id="activity-last-active">—</div>
                 </div>
-                <div class="ai-right"><div class="ai-value" style="color: var(--tm)">â€”</div></div>
+                <div class="ai-right"><div class="ai-value" style="color: var(--tm)">—</div></div>
               </div>
             </section>
 
             <section class="content-card" aria-label="Achievements">
               <div class="section-h">
-                <h2>â­ Achievements</h2>
+                <h2>⭐ Achievements</h2>
                 <div class="view-all-btn" id="btn-achievements-viewall">View All</div>
               </div>
               <div class="achieve-grid" id="achieve-grid"></div>
@@ -1031,113 +1031,113 @@
           <section class="two-col" data-private aria-label="Recent activity and settings">
             <section class="content-card" aria-label="Recent activity">
               <div class="section-h">
-                <h2>ðŸ“… Recent Activity</h2>
-                <div class="view-all-btn" id="btn-recent-viewall">View All â–¾</div>
+                <h2>📅 Recent Activity</h2>
+                <div class="view-all-btn" id="btn-recent-viewall">View All ▾</div>
               </div>
               <div id="recent-list"></div>
             </section>
 
             <section class="content-card" aria-label="Account settings">
               <div class="section-h">
-                <h2>âš™ï¸ Account Settings</h2>
+                <h2>⚙️ Account Settings</h2>
               </div>
               <div class="settings-item" id="settings-personal">
-                <div class="si-icon">ðŸ‘¤</div>
+                <div class="si-icon">👤</div>
                 <div class="si-info">
                   <div class="si-title">Personal Information</div>
                   <div class="si-sub">Update your name, email and profile picture</div>
                 </div>
-                <div class="si-arrow" aria-hidden="true">â†’</div>
+                <div class="si-arrow" aria-hidden="true">→</div>
               </div>
               <div class="settings-item">
-                <div class="si-icon">ðŸ”’</div>
+                <div class="si-icon">🔒</div>
                 <div class="si-info">
                   <div class="si-title">Change Password</div>
                   <div class="si-sub">Update your password</div>
                 </div>
-                <div class="si-arrow" aria-hidden="true">â†’</div>
+                <div class="si-arrow" aria-hidden="true">→</div>
               </div>
               <div class="settings-item">
-                <div class="si-icon">ðŸ””</div>
+                <div class="si-icon">🔔</div>
                 <div class="si-info">
                   <div class="si-title">Notification Preferences</div>
                   <div class="si-sub">Manage your email and app notifications</div>
                 </div>
-                <div class="si-arrow" aria-hidden="true">â†’</div>
+                <div class="si-arrow" aria-hidden="true">→</div>
               </div>
               <div class="settings-item">
-                <div class="si-icon">ðŸ›¡</div>
+                <div class="si-icon">🛡</div>
                 <div class="si-info">
                   <div class="si-title">Privacy Settings</div>
                   <div class="si-sub">Manage your privacy and data</div>
                 </div>
-                <div class="si-arrow" aria-hidden="true">â†’</div>
+                <div class="si-arrow" aria-hidden="true">→</div>
               </div>
-              <button class="btn-signout-red" id="btn-signout-red" type="button">â†© Sign Out</button>
+              <button class="btn-signout-red" id="btn-signout-red" type="button">↩ Sign Out</button>
             </section>
           </section>
 
           <section class="quote-footer" data-private aria-label="Motivational quote">
-            <div class="quote-mark" aria-hidden="true">â</div>
+            <div class="quote-mark" aria-hidden="true">❝</div>
             <div class="quote-text">Well done! Every lesson brings you closer to mastery.</div>
             <div class="quote-sub">Keep the momentum and make it a daily habit.</div>
-            <div class="quote-deco" aria-hidden="true">ðŸ›</div>
+            <div class="quote-deco" aria-hidden="true">🏛</div>
           </section>
         </div>
         <div id="view-practice" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">ðŸŽ¯</div>
+            <div class="placeholder-icon">🎯</div>
             <div class="placeholder-title">Practice</div>
             <div class="placeholder-sub">Coming soon! Your practice content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-lessons" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">ðŸ“š</div>
+            <div class="placeholder-icon">📚</div>
             <div class="placeholder-title">Lessons</div>
             <div class="placeholder-sub">Open lessons in the lesson page for now.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-quests" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">âš”ï¸</div>
+            <div class="placeholder-icon">⚔️</div>
             <div class="placeholder-title">Quests</div>
             <div class="placeholder-sub">Coming soon! Your quests content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-vocab" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">ðŸ”¤</div>
+            <div class="placeholder-icon">🔤</div>
             <div class="placeholder-title">Vocabulary</div>
             <div class="placeholder-sub">Coming soon! Your vocabulary content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-leaderboard" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">ðŸ†</div>
+            <div class="placeholder-icon">🏆</div>
             <div class="placeholder-title">Leaderboard</div>
             <div class="placeholder-sub">Coming soon! Your leaderboard content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-rewards" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">ðŸŽ</div>
+            <div class="placeholder-icon">🎁</div>
             <div class="placeholder-title">Rewards</div>
             <div class="placeholder-sub">Coming soon! Your rewards content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
         <div id="view-settings" class="view">
           <div class="placeholder-view">
-            <div class="placeholder-icon">âš™ï¸</div>
+            <div class="placeholder-icon">⚙️</div>
             <div class="placeholder-title">Settings</div>
             <div class="placeholder-sub">Coming soon! Your settings content will appear here.</div>
-            <button class="btn-go-profile" type="button" data-go="profile">â† Back to Profile</button>
+            <button class="btn-go-profile" type="button" data-go="profile">← Back to Profile</button>
           </div>
         </div>
       </main>
@@ -1194,13 +1194,13 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-  <script src="firebase.js?v=202604222"></script>
+  <script src="firebase.js?v=202606222"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Cache-busting / auto-update:
       // Keep this inlined (no external deps) so GitHub Pages always loads the latest UI without hard refresh.
-      const APP_VERSION = "2026.04.22.1";
+      const APP_VERSION = "2026.06.22.2";
       const STORAGE_KEY = "gq_app_version";
       const RELOAD_KEY = "gq_version_reload_pending";
 
@@ -1232,7 +1232,7 @@
 
       // Prevent legacy navigation bugs: ignore any accidental links to legacy pages.
       document.addEventListener("click", (e) => {
-        const a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+        const a = e.target && e.target.closest  e.target.closest("a[href]") : null;
         if (!a) return;
         const href = String(a.getAttribute("href") || "");
         if (href.includes("lesson.html") || href.includes("home.html")) {
@@ -1277,7 +1277,7 @@
         { key: "pf_name", label: "Full Name", type: "text", def: "Samuel Williams" },
         { key: "pf_user", label: "Username", type: "text", def: "samuelw" },
         { key: "pf_email", label: "Email", type: "email", def: "samiduvimo@gmail.com" },
-        { key: "pf_loc", label: "Location", type: "text", def: "â€” not set â€”" },
+        { key: "pf_loc", label: "Location", type: "text", def: "— not set —" },
         { key: "pf_bio", label: "Bio", type: "textarea", def: "Loves learning Koine Greek and ancient languages." },
         { key: "pf_goal", label: "Daily Goal", type: "select", opts: ["3 min/day", "10 min/day", "15 min/day", "30 min/day"], def: "10 min/day" },
         { key: "pf_since", label: "Learning Since", type: "text", def: "May 12, 2024" }
@@ -1974,7 +1974,7 @@
       }
 
       function getWeekKey(date) {
-        const d = date ? new Date(date) : new Date();
+        const d = date  new Date(date) : new Date();
         const copy = new Date(d);
         const day = copy.getDay();
         const diff = (day + 6) % 7;
@@ -1992,15 +1992,15 @@
         return {
           today,
           week,
-          lessonsToday: parsed.today === today ? Number(parsed.lessonsToday || 0) : 0,
-          lessonsWeek: parsed.week === week ? Number(parsed.lessonsWeek || 0) : 0,
-          practiceToday: parsed.today === today ? Number(parsed.practiceToday || 0) : 0,
+          lessonsToday: parsed.today === today  Number(parsed.lessonsToday || 0) : 0,
+          lessonsWeek: parsed.week === week  Number(parsed.lessonsWeek || 0) : 0,
+          practiceToday: parsed.today === today  Number(parsed.practiceToday || 0) : 0,
           lastAccuracy: Number(parsed.lastAccuracy || 0)
         };
       }
 
       function computeLevelFromXp(xp) {
-        const n = Number.isFinite(xp) ? xp : 0;
+        const n = Number.isFinite(xp)  xp : 0;
         return Math.max(1, Math.floor(n / XP_PER_LEVEL) + 1);
       }
 
@@ -2013,7 +2013,7 @@
       }
 
       function rankFromXp(xp) {
-        const n = Number.isFinite(xp) ? xp : 0;
+        const n = Number.isFinite(xp)  xp : 0;
         if (n >= 1500) return "Master Grammarian";
         if (n >= 800) return "Letter Keeper";
         if (n >= 300) return "Novice Scribe";
@@ -2022,13 +2022,13 @@
 
       function getProfileState() {
         const p = safeJsonParse(localStorage.getItem("gq_profile")) || {};
-        const name = (p.displayName && String(p.displayName).trim()) ? p.displayName : gf(PF[0]);
-        const username = (p.username && String(p.username).trim()) ? p.username : gf(PF[1]);
-        const email = (p.email && String(p.email).trim()) ? p.email : gf(PF[2]);
-        const loc = (p.location && String(p.location).trim()) ? p.location : gf(PF[3]);
-        const bio = (p.bio && String(p.bio).trim()) ? p.bio : gf(PF[4]);
-        const goal = (p.dailyGoal && String(p.dailyGoal).trim()) ? p.dailyGoal : gf(PF[5]);
-        const since = (p.learningSince && String(p.learningSince).trim()) ? p.learningSince : gf(PF[6]);
+        const name = (p.displayName && String(p.displayName).trim())  p.displayName : gf(PF[0]);
+        const username = (p.username && String(p.username).trim())  p.username : gf(PF[1]);
+        const email = (p.email && String(p.email).trim())  p.email : gf(PF[2]);
+        const loc = (p.location && String(p.location).trim())  p.location : gf(PF[3]);
+        const bio = (p.bio && String(p.bio).trim())  p.bio : gf(PF[4]);
+        const goal = (p.dailyGoal && String(p.dailyGoal).trim())  p.dailyGoal : gf(PF[5]);
+        const since = (p.learningSince && String(p.learningSince).trim())  p.learningSince : gf(PF[6]);
         const photo = p.photoDataUrl || p.photoURL || "";
         return { ...p, displayName: name, username, email, location: loc, bio, dailyGoal: goal, learningSince: since, photo };
       }
@@ -2074,26 +2074,26 @@
       }
 
       function loadProfile() {
-        const user = (typeof auth !== "undefined" && auth) ? auth.currentUser : null;
+        const user = (typeof auth !== "undefined" && auth)  auth.currentUser : null;
         if (!user) return;
 
         const baseProfile = getProfileState();
-        const displayName = (user.displayName && String(user.displayName).trim()) ? user.displayName : baseProfile.displayName;
-        const email = (user.email && String(user.email).trim()) ? user.email : baseProfile.email;
+        const displayName = (user.displayName && String(user.displayName).trim())  user.displayName : baseProfile.displayName;
+        const email = (user.email && String(user.email).trim())  user.email : baseProfile.email;
         const photo = user.photoURL || baseProfile.photo || "";
-        const usernameFallback = (email && String(email).includes("@")) ? ("@" + String(email).split("@")[0]) : baseProfile.username;
+        const usernameFallback = (email && String(email).includes("@"))  ("@" + String(email).split("@")[0]) : baseProfile.username;
         const profile = { ...baseProfile, displayName, email, photo, username: baseProfile.username || usernameFallback };
         const progress = readProgress();
 
-        const xp = Number.isFinite(progress.xp) ? progress.xp : 0;
-        const storedLevel = Number.isFinite(progress.level) ? progress.level : null;
+        const xp = Number.isFinite(progress.xp)  progress.xp : 0;
+        const storedLevel = Number.isFinite(progress.level)  progress.level : null;
         const lvl = storedLevel || computeLevelFromXp(xp);
-        const hearts = Number.isFinite(progress.hearts) ? progress.hearts : 5;
+        const hearts = Number.isFinite(progress.hearts)  progress.hearts : 5;
         const habit = readHabitStats();
         const daily = readDailyQuest();
         const storedStreak = Number(localStorage.getItem("gq_streak_days") || "0");
-        const streak = storedStreak || (daily.completed ? 1 : 0);
-        const lessonsCompleted = Array.isArray(progress.completedLessons) ? progress.completedLessons.length : 0;
+        const streak = storedStreak || (daily.completed  1 : 0);
+        const lessonsCompleted = Array.isArray(progress.completedLessons)  progress.completedLessons.length : 0;
         const accuracy = computeAccuracy(progress);
         const rank = rankFromXp(xp);
 
@@ -2102,14 +2102,14 @@
         const pct = Math.round((within / XP_PER_LEVEL) * 100);
         const away = Math.max(0, XP_PER_LEVEL - within);
 
-        document.getElementById("ph-name").textContent = profile.displayName || "â€”";
+        document.getElementById("ph-name").textContent = profile.displayName || "—";
         const handle = String(profile.username || "user");
-        document.getElementById("ph-handle").textContent = handle.startsWith("@") ? handle : ("@" + handle);
-        document.getElementById("ph-email").textContent = profile.email || "â€”";
-        const created = user?.metadata?.creationTime ? new Date(user.metadata.creationTime) : null;
-        const joined = created ? created.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : (profile.learningSince || "â€”");
+        document.getElementById("ph-handle").textContent = handle.startsWith("@")  handle : ("@" + handle);
+        document.getElementById("ph-email").textContent = profile.email || "—";
+        const created = user.metadata.creationTime  new Date(user.metadata.creationTime) : null;
+        const joined = created  created.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : (profile.learningSince || "—");
         document.getElementById("ph-joined").textContent = "Joined " + joined;
-        document.getElementById("ph-bio").textContent = profile.bio || "â€”";
+        document.getElementById("ph-bio").textContent = profile.bio || "—";
 
         document.getElementById("tb-user-name").textContent = profile.displayName || "Profile";
         document.getElementById("tb-user-level").textContent = "Level " + String(lvl);
@@ -2135,10 +2135,10 @@
         document.getElementById("activity-accuracy-sub").textContent = String(accuracy) + "% average";
 
         const updatedAt = Number(progress.updatedAt || 0);
-        document.getElementById("activity-last-active").textContent = updatedAt ? new Date(updatedAt).toLocaleString() : "â€”";
+        document.getElementById("activity-last-active").textContent = updatedAt  new Date(updatedAt).toLocaleString() : "—";
 
         // Recent activity uses the active lesson XP earned when available.
-        const lastXp = Number.isFinite(progress.activeLessonXpEarned) ? progress.activeLessonXpEarned : 0;
+        const lastXp = Number.isFinite(progress.activeLessonXpEarned)  progress.activeLessonXpEarned : 0;
         document.getElementById("recent-lesson-xp").textContent = "+" + String(lastXp) + " XP";
 
         const questsSummary = document.getElementById("quests-summary");
@@ -2147,7 +2147,7 @@
             <div class="qa-item" style="background:var(--bg-card);">
               <div class="qa-body" style="padding:14px">
                 <div style="display:flex;gap:14px;flex-wrap:wrap">
-                  <div><div class="qa-meta">Daily lesson</div><div class="qa-q">${daily.completed ? "Complete" : "Not yet"}</div></div>
+                  <div><div class="qa-meta">Daily lesson</div><div class="qa-q">${daily.completed  "Complete" : "Not yet"}</div></div>
                   <div><div class="qa-meta">Lessons today</div><div class="qa-q">${Math.max(0, habit.lessonsToday || 0)}</div></div>
                   <div><div class="qa-meta">Lessons this week</div><div class="qa-q">${Math.max(0, habit.lessonsWeek || 0)}</div></div>
                   <div><div class="qa-meta">Practice today</div><div class="qa-q">${Math.max(0, habit.practiceToday || 0)}</div></div>
@@ -2160,14 +2160,14 @@
 
         const lessonsContinueNote = document.getElementById("lessons-continue-note");
         if (lessonsContinueNote) {
-          const next = Array.isArray(progress.completedLessons) ? (progress.completedLessons.length + 1) : 1;
+          const next = Array.isArray(progress.completedLessons)  (progress.completedLessons.length + 1) : 1;
           lessonsContinueNote.textContent = lessonsCompleted
-            ? `You have completed ${lessonsCompleted} lessons. Next suggested lesson: Level ${Math.min(25, next)}.`
+             `You have completed ${lessonsCompleted} lessons. Next suggested lesson: Level ${Math.min(25, next)}.`
             : "You have not completed any lessons yet. Start with Level 1.";
         }
         const continueLink = document.getElementById("lessons-continue-link");
         if (continueLink) {
-          const next = Array.isArray(progress.completedLessons) ? (progress.completedLessons.length + 1) : 1;
+          const next = Array.isArray(progress.completedLessons)  (progress.completedLessons.length + 1) : 1;
           const n = clamp(next, 1, 25);
           continueLink.href = lessonPath(n);
         }
@@ -2429,7 +2429,7 @@
         setHeading('section[aria-label="Achievements"] .section-h h2', "\u2B50 Achievements");
         setHeading('section[aria-label="Recent activity"] .section-h h2', "\u{1F4C5} Recent Activity");
         setHeading('section[aria-label="Account settings"] .section-h h2', "\u2699\uFE0F Account Settings");
-        setHeading('section[aria-label="Level progress"] .lp-title', "\u2B50 " + (document.getElementById("lp-title-text")?.textContent || "Level Progress"));
+        setHeading('section[aria-label="Level progress"] .lp-title', "\u2B50 " + (document.getElementById("lp-title-text").textContent || "Level Progress"));
       }
 
       function renderPracticeAndQuestBank() {
@@ -2506,9 +2506,9 @@
         const worlds = [
           { title: "World 1: The Alphabet Temple", range: [1, 5] },
           { title: "World 2: First Words & Basic Sentences", range: [6, 10] },
-          { title: "World 3: Grammar Foundations - Nouns & Verbs", range: [11, 15] },
-          { title: "World 4: Expanding Grammar - Cases, Tenses & Articles", range: [16, 20] },
-          { title: "World 5: Advanced Structures - Pronouns & Moods", range: [21, 25] }
+          { title: "World 3: Grammar Foundations — Nouns & Verbs", range: [11, 15] },
+          { title: "World 4: Expanding Grammar — Cases, Tenses & Articles", range: [16, 20] },
+          { title: "World 5: Advanced Structures — Pronouns & Moods", range: [21, 25] }
         ];
         grid.innerHTML = worlds.map((w) => {
           const href = lessonPath(w.range[0]);
@@ -2620,7 +2620,7 @@
 
       // Modal logic
       const modal = document.getElementById("edit-modal");
-      const modalBox = modal ? modal.querySelector(".modal-box") : null;
+      const modalBox = modal  modal.querySelector(".modal-box") : null;
       function openEditModal() {
         const p = getProfileState();
         document.getElementById("mf_name").value = p.displayName || "";
@@ -2710,13 +2710,13 @@
 
         if (signBtn) {
           signBtn.disabled = !ok;
-          signBtn.title = ok ? "" : (st?.reason || "Firebase not configured.");
-          signBtn.style.display = signedIn() ? "none" : "";
+          signBtn.title = ok  "" : (st.reason || "Firebase not configured.");
+          signBtn.style.display = signedIn()  "none" : "";
         }
         if (outBtn) {
           outBtn.disabled = !ok;
-          outBtn.title = ok ? "" : (st?.reason || "Firebase not configured.");
-          outBtn.style.display = signedIn() ? "" : "none";
+          outBtn.title = ok  "" : (st.reason || "Firebase not configured.");
+          outBtn.style.display = signedIn()  "" : "none";
         }
 
         document.body.classList.toggle("signed-in", signedIn());
@@ -2726,7 +2726,7 @@
       function signInWithGoogle() {
         const st = window.GreekQuestFirebaseState;
         if (!firebaseReady()) {
-          showToast(st?.reason || "Sign-in is not available here.", "warning");
+          showToast(st.reason || "Sign-in is not available here.", "warning");
           return;
         }
 
@@ -2752,13 +2752,13 @@
             .then(() => auth.signInWithPopup(provider))
             .catch((error) => {
               if (
-                error?.code === "auth/operation-not-supported-in-this-environment" ||
-                error?.code === "auth/popup-blocked" ||
-                error?.code === "auth/popup-closed-by-user"
+                error.code === "auth/operation-not-supported-in-this-environment" ||
+                error.code === "auth/popup-blocked" ||
+                error.code === "auth/popup-closed-by-user"
               ) {
                 return doRedirect();
               }
-              showToast(error?.message || "Sign-in failed.", "error");
+              showToast(error.message || "Sign-in failed.", "error");
             });
 
         showToast("Opening Google sign-in…", "info");
@@ -2806,7 +2806,7 @@
       renderPracticeAndQuestBank();
       const initialView = new URLSearchParams(window.location.search || "").get("view");
       const allowed = new Set(["profile","dashboard","practice","lessons","quests","vocab","leaderboard","rewards","settings"]);
-      showView(allowed.has(initialView) ? initialView : "dashboard");
+      showView(allowed.has(initialView)  initialView : "dashboard");
     });
   </script>
 </body>

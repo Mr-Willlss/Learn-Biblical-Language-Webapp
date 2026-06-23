@@ -9,7 +9,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0f1a" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -20,9 +20,9 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
   <meta name="apple-mobile-web-app-title" content="Learn Koine Greek" />
   <title>Learn Koine Greek</title>
 
-  <link rel="manifest" href="manifest.json?v=202604181" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png?v=202604181" />
-  <link rel="apple-touch-icon" href="assets/images/icon-192.png?v=202604181" />
+  <link rel="manifest" href="manifest.json?v=202606222" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png?v=202606222" />
+  <link rel="apple-touch-icon" href="assets/images/icon-192.png?v=202606222" />
 
   <style>
     :root{
@@ -334,7 +334,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
   <div class="shell" role="application" aria-label="Learn Koine Greek dashboard">
     <header class="topbar">
       <div class="brand" aria-label="App title">
-        <div class="brandMark" aria-hidden="true">ðŸŒ€</div>
+        <div class="brandMark" aria-hidden="true">🌀</div>
         <div style="min-width:0">
           <div class="brandTitle">Learn Koine Greek</div>
           <div class="brandSub" id="subline">Bite-sized lessons. Big momentum.</div>
@@ -392,7 +392,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
               <div class="eyebrow">Daily momentum</div>
               <div class="cardTitle">Streak</div>
             </div>
-            <div class="flame" id="flame" aria-hidden="true">ðŸ”¥</div>
+            <div class="flame" id="flame" aria-hidden="true">🔥</div>
           </div>
           <div class="cardBody">
             <p class="bigTitle" id="streakCount">0 days</p>
@@ -413,12 +413,12 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
               <div>
                 <div class="muted">Daily chest</div>
                 <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap">
-                  <span class="pill pillGold" id="gemsPill">ðŸ’Ž 0 gems</span>
-                  <span class="pill pillMint">âœ¨ bonus</span>
+                  <span class="pill pillGold" id="gemsPill">💎 0 gems</span>
+                  <span class="pill pillMint">✨ bonus</span>
                 </div>
                 <div class="muted" style="margin-top:6px">Tap to open and collect.</div>
               </div>
-              <div class="chest" id="chest" aria-hidden="true">ðŸ§°</div>
+              <div class="chest" id="chest" aria-hidden="true">🧰</div>
             </div>
           </div>
         </div>
@@ -477,10 +477,10 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
     </main>
 
     <nav class="nav" aria-label="Bottom navigation">
-      <button class="navBtn navBtnActive" data-tab="home" type="button" aria-label="Home tab">ðŸ <small>Home</small></button>
-      <button class="navBtn" data-tab="practice" type="button" aria-label="Practice tab">âš¡<small>Practice</small></button>
-      <button class="navBtn" data-tab="profile" type="button" aria-label="Profile tab">ðŸ‘¤<small>Profile</small></button>
-      <button class="navBtn" data-tab="rewards" type="button" aria-label="Rewards tab">ðŸŽ’<small>Rewards</small></button>
+      <button class="navBtn navBtnActive" data-tab="home" type="button" aria-label="Home tab">🏠<small>Home</small></button>
+      <button class="navBtn" data-tab="practice" type="button" aria-label="Practice tab">⚡<small>Practice</small></button>
+      <button class="navBtn" data-tab="profile" type="button" aria-label="Profile tab">👤<small>Profile</small></button>
+      <button class="navBtn" data-tab="rewards" type="button" aria-label="Rewards tab">🎒<small>Rewards</small></button>
     </nav>
   </div>
 
@@ -505,7 +505,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
   <script>
     (function () {
       "use strict";
-      const APP_VERSION = "2026.04.18.1";
+      const APP_VERSION = "2026.06.22.2";
       const VERSION_KEY = "gq_dash_version";
       const RELOAD_KEY = "gq_dash_reload_once";
       function $(id){ return document.getElementById(id); }
@@ -530,13 +530,13 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
         o.setAttribute("aria-hidden","true");
       }
       function safeJsonParse(raw){
-        try { return raw ? JSON.parse(raw) : null; } catch { return null; }
+        try { return raw  JSON.parse(raw) : null; } catch { return null; }
       }
       function readProgress(){
         return safeJsonParse(localStorage.getItem("greekQuestProgress"));
       }
       function levelFromXp(xp){
-        const v = Number.isFinite(xp) ? xp : 0;
+        const v = Number.isFinite(xp)  xp : 0;
         return Math.max(1, Math.floor(v / 50) + 1);
       }
       function dayLabel(d){
@@ -571,7 +571,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
       sessionStorage.removeItem(RELOAD_KEY);
       if ("serviceWorker" in navigator){
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw.js?v=" + encodeURIComponent(APP_VERSION))
+            navigator.serviceWorker.register("./sw.jsv=" + encodeURIComponent(APP_VERSION))
             .then((reg)=>reg.update().catch(()=>{}))
             .catch(()=>{});
         });
@@ -585,11 +585,11 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
         if (tab === "rewards") toast("Rewards chest is on Home. Tap the Rewards card.");
       }
       function updateUI(progress){
-        const xp = Number.isFinite(progress?.xp) ? progress.xp : 0;
-        const completed = Array.isArray(progress?.completedLessons) ? progress.completedLessons.length : 0;
-        const hearts = Number.isFinite(progress?.hearts) ? progress.hearts : 5;
-        const activeLessonId = progress?.activeLessonId || null;
-        const activeIdx = Number.isFinite(progress?.activeExerciseIndex) ? progress.activeExerciseIndex : 0;
+        const xp = Number.isFinite(progress.xp)  progress.xp : 0;
+        const completed = Array.isArray(progress.completedLessons)  progress.completedLessons.length : 0;
+        const hearts = Number.isFinite(progress.hearts)  progress.hearts : 5;
+        const activeLessonId = progress.activeLessonId || null;
+        const activeIdx = Number.isFinite(progress.activeExerciseIndex)  progress.activeExerciseIndex : 0;
         const lvl = levelFromXp(xp);
         const within = xp % 50;
         const pct = Math.round((within / 50) * 100);
@@ -600,19 +600,19 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
         $("lessonMini").textContent = completed + " lessons";
         $("progressNote").textContent = "Next level in " + (50 - within) + " XP";
         $("levelBar").style.width = pct + "%";
-        $("nextPill").textContent = activeLessonId ? ("Next: " + activeLessonId) : ("Next: Level " + (completed + 1));
+        $("nextPill").textContent = activeLessonId  ("Next: " + activeLessonId) : ("Next: Level " + (completed + 1));
         $("coachMsg").textContent = activeLessonId
-          ? ("Continue where you left off: " + activeLessonId + " (step " + (activeIdx + 1) + ").")
-          : (completed ? "You have momentum. Continue your next unlocked lesson." : "Start with Level 1. Small wins first.");
-        $("coachTitle").textContent = activeLessonId ? "Welcome back" : "Ready to learn";
-        $("continueTitle").textContent = completed < 3 ? "Continue path" : "Keep your momentum";
-        $("continueSub").textContent = activeLessonId ? "We will open the exact activity you stopped on." : "One clean lesson keeps streak and progress moving.";
-        $("ctaTag").textContent = hearts <= 2 ? "Low hearts" : "Ready";
-        $("ctaTag").className = "pill " + (hearts <= 2 ? "pillBerry" : "pillGold");
+           ("Continue where you left off: " + activeLessonId + " (step " + (activeIdx + 1) + ").")
+          : (completed  "You have momentum. Continue your next unlocked lesson." : "Start with Level 1. Small wins first.");
+        $("coachTitle").textContent = activeLessonId  "Welcome back" : "Ready to learn";
+        $("continueTitle").textContent = completed < 3  "Continue path" : "Keep your momentum";
+        $("continueSub").textContent = activeLessonId  "We will open the exact activity you stopped on." : "One clean lesson keeps streak and progress moving.";
+        $("ctaTag").textContent = hearts <= 2  "Low hearts" : "Ready";
+        $("ctaTag").className = "pill " + (hearts <= 2  "pillBerry" : "pillGold");
         $("goalText").textContent = "0 / 1 lesson today";
         $("goalBar").style.width = "0%";
-        const gems = Number.isFinite(progress?.gems) ? progress.gems : 0;
-        $("gemsPill").textContent = "ðŸ’Ž " + gems + " gems";
+        const gems = Number.isFinite(progress.gems)  progress.gems : 0;
+        $("gemsPill").textContent = "💎 " + gems + " gems";
         const notes = [];
         notes.push({t:"Sign in to sync", b:"Use Google sign-in in the lesson page to keep progress across devices."});
         if (hearts <= 2) notes.push({t:"Low hearts", b:"Slow down and focus on accuracy, or return after a refill."});
@@ -631,10 +631,10 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
         const today = new Date();
         const streak = Number(localStorage.getItem("gq_streak_days") || "0");
         const missed = localStorage.getItem("gq_streak_missed") === "1";
-        $("streakCount").textContent = streak + " day" + (streak === 1 ? "" : "s");
+        $("streakCount").textContent = streak + " day" + (streak === 1  "" : "s");
         $("streakMsg").textContent = missed
-          ? "You missed a day. Do one lesson today to restart."
-          : (streak ? "Keep it alive. One lesson today protects the streak." : "Start your streak today. One lesson is enough.");
+           "You missed a day. Do one lesson today to restart."
+          : (streak  "Keep it alive. One lesson today protects the streak." : "Start your streak today. One lesson is enough.");
         $("flame").classList.toggle("flamePulse", !missed && streak > 0);
         const row = $("streakRow");
         row.innerHTML = "";
@@ -650,7 +650,7 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
           lbl.className = "streakLbl";
           lbl.textContent = dayLabel(d);
           const dot = document.createElement("div");
-          dot.className = "dot" + (on ? " dotOn" : "") + (isToday ? " dotToday" : "");
+          dot.className = "dot" + (on  " dotOn" : "") + (isToday  " dotToday" : "");
           wrap.appendChild(lbl);
           wrap.appendChild(dot);
           row.appendChild(wrap);
@@ -666,27 +666,27 @@ Top 5 2024-2025 UI/UX insights applied (sources Jan 2024+):
         });
       }
       $("signInBtn").addEventListener("click", () => {
-        toast("Opening lessonsâ€¦ sign in is available inside the lesson page.");
-        window.location.href = "home.html?from=dashboard";
+        toast("Opening lessons sign in is available inside the lesson page.");
+        window.location.href = "home.htmlfrom=dashboard";
       });
       $("signOutBtn").addEventListener("click", () => {
         toast("Log out is available inside the lesson page.");
-        window.location.href = "home.html?from=dashboard";
+        window.location.href = "home.htmlfrom=dashboard";
       });
       function goLesson(url){ window.location.href = url; }
-      $("continueBtn").addEventListener("click", () => goLesson("home.html?from=dashboard"));
-      wireCardActivate($("continueCard"), () => goLesson("home.html?from=dashboard"));
-      $("practiceReview").addEventListener("click", () => goLesson("home.html?practice=mixed&from=dashboard"));
-      $("practiceListen").addEventListener("click", () => goLesson("home.html?practice=listening&from=dashboard"));
-      $("practiceSpeak").addEventListener("click", () => goLesson("home.html?practice=speaking&from=dashboard"));
+      $("continueBtn").addEventListener("click", () => goLesson("home.htmlfrom=dashboard"));
+      wireCardActivate($("continueCard"), () => goLesson("home.htmlfrom=dashboard"));
+      $("practiceReview").addEventListener("click", () => goLesson("home.htmlpractice=mixed&from=dashboard"));
+      $("practiceListen").addEventListener("click", () => goLesson("home.htmlpractice=listening&from=dashboard"));
+      $("practiceSpeak").addEventListener("click", () => goLesson("home.htmlpractice=speaking&from=dashboard"));
       wireCardActivate($("practiceCard"), () => toast("Pick a practice mode: Review, Listen, or Speak."));
       function openChest(){
         const chest = $("chest");
         chest.classList.add("chestOpen");
-        chest.textContent = "ðŸŽ";
+        chest.textContent = "🎁";
         window.setTimeout(() => {
           chest.classList.remove("chestOpen");
-          chest.textContent = "ðŸ§°";
+          chest.textContent = "🧰";
         }, 900);
         toast("Chest opened. Rewards are tracked in the lesson app.");
       }

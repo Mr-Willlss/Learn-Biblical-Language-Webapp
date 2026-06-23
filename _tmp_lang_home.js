@@ -20,8 +20,8 @@
         const isGreek = lang === 'greek';
         greekCard.classList.toggle('selected', isGreek);
         hebrewCard.classList.toggle('selected', !isGreek);
-        continueBtn.textContent = isGreek ? 'Continue to Greek' : 'Continue to Hebrew';
-        switchBtn.textContent = isGreek ? 'Save Greek as active language' : 'Save Hebrew as active language';
+        continueBtn.textContent = isGreek  'Continue to Greek' : 'Continue to Hebrew';
+        switchBtn.textContent = isGreek  'Save Greek as active language' : 'Save Hebrew as active language';
         try { localStorage.setItem('activeLanguage', lang); } catch (_) {}
       }
 
@@ -29,21 +29,21 @@
       hebrewCard.addEventListener('click', () => selectLanguage('hebrew'));
       continueBtn.addEventListener('click', () => {
         const active = localStorage.getItem('activeLanguage') || 'greek';
-        window.location.href = active === 'hebrew' ? 'dashboard-hebrew.html' : 'dashboard.html';
+        window.location.href = active === 'hebrew'  'dashboard-hebrew.html' : 'dashboard.html';
       });
       switchBtn.addEventListener('click', () => {
         const active = localStorage.getItem('activeLanguage') || 'greek';
-        window.location.href = active === 'hebrew' ? 'dashboard-hebrew.html' : 'dashboard.html';
+        window.location.href = active === 'hebrew'  'dashboard-hebrew.html' : 'dashboard.html';
       });
 
       document.addEventListener('authReady', function (ev) {
         authReadySeen = true;
         clearTimeout(fallbackTimer);
-        const user = ev && ev.detail ? ev.detail : null;
+        const user = ev && ev.detail  ev.detail : null;
         if (authLoader) authLoader.style.display = 'none';
         if (appContent) appContent.style.display = 'grid';
         if (user) {
-          const name = user.displayName || (user.email ? user.email.split('@')[0] : 'friend');
+          const name = user.displayName || (user.email  user.email.split('@')[0] : 'friend');
           statUser.textContent = name;
         } else {
           statUser.textContent = 'Guest';

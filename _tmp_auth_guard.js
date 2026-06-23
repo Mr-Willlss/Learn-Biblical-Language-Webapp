@@ -18,13 +18,13 @@
 
   function getProgressPayload() {
     return (typeof window.getProgressPayload === "function")
-      ? window.getProgressPayload()
+       window.getProgressPayload()
       : {};
   }
 
   function getRemoteProgressPayload() {
     return (typeof window.getRemoteProgressPayload === "function")
-      ? window.getRemoteProgressPayload()
+       window.getRemoteProgressPayload()
       : getProgressPayload();
   }
 
@@ -93,7 +93,7 @@
       try {
         auth = window.firebase.auth();
       } catch (errAuth) {
-        var authMsg = (errAuth && errAuth.message) ? errAuth.message : "firebase.auth() failed.";
+        var authMsg = (errAuth && errAuth.message)  errAuth.message : "firebase.auth() failed.";
         window.GreekQuestFirebaseState = { configured: false, reason: authMsg };
         clearTimeout(timeoutId);
         finish(null, authMsg);
@@ -124,14 +124,14 @@
         },
         function (err) {
           clearTimeout(timeoutId);
-          var msg = (err && err.message) ? err.message : "onAuthStateChanged error.";
+          var msg = (err && err.message)  err.message : "onAuthStateChanged error.";
           window.GreekQuestFirebaseState = { configured: false, reason: msg };
           finish(null, msg);
         }
       );
     } catch (errOuter) {
       clearTimeout(timeoutId);
-      var outerMsg = (errOuter && errOuter.message) ? errOuter.message : "Unknown auth guard error.";
+      var outerMsg = (errOuter && errOuter.message)  errOuter.message : "Unknown auth guard error.";
       window.GreekQuestFirebaseState = { configured: false, reason: outerMsg };
       finish(null, outerMsg);
     }

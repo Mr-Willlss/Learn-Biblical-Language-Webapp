@@ -15,7 +15,7 @@ function setTeacherMood(mood) {
     return;
   }
   teacher.element.dataset.mood = mood;
-  teacher.element.style.filter = mood === "sad" ? "grayscale(0.5)" : "none";
+  teacher.element.style.filter = mood === "sad"  "grayscale(0.5)" : "none";
 }
 
 function teacherSpeak(message) {

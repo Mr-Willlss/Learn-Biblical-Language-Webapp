@@ -1,124 +1,84 @@
-// language-support.js
-(function(){
+(function () {
+  const STORAGE_KEY = "activeLanguage";
+  const ROUTES = {
+    dashboard: { greek: "dashboard.html", hebrew: "dashboard-hebrew.html" },
+    practice: { greek: "practice.html", hebrew: "practice-hebrew.html" },
+    lessons: { greek: "lessons.html", hebrew: "lessons-hebrew.html" },
+    vocabulary: { greek: "vocabulary.html", hebrew: "vocabulary-hebrew.html" },
+    friends: { greek: "friends.html", hebrew: "friends-hebrew.html" },
+    leaderboard: { greek: "leaderboard.html", hebrew: "leaderboard-hebrew.html" },
+    rewards: { greek: "rewards.html", hebrew: "rewards-hebrew.html" },
+    studyRoom: { greek: "study-room.html", hebrew: "study-room-hebrew.html" },
+    quests: { greek: "quests.html", hebrew: "quests-hebrew.html" },
+    lessonPlayer: { greek: "lesson-player.html", hebrew: "lesson-hebrew.html" },
+    languageHome: { greek: "language-home.html", hebrew: "language-home.html" },
+    profile: { greek: "profile.html", hebrew: "profile.htmllang=hebrew" },
+    index: { greek: "index.html", hebrew: "index.htmllang=hebrew" }
+  };
+
   function getActiveLanguage() {
     try {
-      const params = new URLSearchParams(window.location.search);
-      const lang = params.get('lang') || localStorage.getItem('activeLanguage') || 'greek';
-      return String(lang).trim().toLowerCase() === 'hebrew' ? 'hebrew' : 'greek';
-    } catch (_) {
-      return 'greek';
-    }
+      const stored = String(localStorage.getItem(STORAGE_KEY) || "").toLowerCase();
+      if (stored === "hebrew" || stored === "greek") return stored;
+    } catch (_) {}
+    return location.pathname.toLowerCase().includes("-hebrew.") || new URLSearchParams(location.search).get("lang") === "hebrew"
+       "hebrew"
+      : "greek";
   }
 
-  function getLanguageLabel(lang) {
-    return String(lang || getActiveLanguage()).toLowerCase() === 'hebrew' ? 'Biblical Hebrew' : 'Koine Greek';
-  }
-
-  function getLessonDataMap() {
-    const lang = getActiveLanguage();
-    if (lang === 'hebrew' && window.HEBREW_LESSON_DATA) return window.HEBREW_LESSON_DATA;
-    if (window.LESSON_DATA) return window.LESSON_DATA;
-    return window.GREEK_LESSON_DATA || {};
-  }
-
-  function getLessonMax() {
-    return getActiveLanguage() === 'hebrew' ? 24 : 25;
+  function setLanguageScope(lang) {
+    const next = String(lang || "greek").toLowerCase() === "hebrew"  "hebrew" : "greek";
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (_) {}
+    document.documentElement.lang = next === "hebrew"  "he" : "en";
+    document.documentElement.dir = next === "hebrew"  "rtl" : "ltr";
+    document.body.setAttribute("data-language", next);
+    return next;
   }
 
   function applyLanguageScope() {
-    const lang = getActiveLanguage();
-    if (typeof window.setLanguageScope === 'function') {
-      try { window.setLanguageScope(lang); } catch (_) {}
-    }
-    try { localStorage.setItem('activeLanguage', lang); } catch (_) {}
-    return lang;
+    return setLanguageScope(getActiveLanguage());
   }
 
-  function applyLanguageLinks(root) {
-    const lang = getActiveLanguage();
-    const scope = root || document;
-    if (!scope || typeof scope.querySelectorAll !== 'function') return lang;
+  function getLanguageLabel(lang) {
+    return String(lang || getActiveLanguage()) === "hebrew"  "Biblical Hebrew" : "Koine Greek";
+  }
 
-    const pageMap = {
-      'dashboard.html': 'dashboard-hebrew.html',
-      'lessons.html': 'lessons-hebrew.html',
-      'practice.html': 'practice-hebrew.html',
-      'vocabulary.html': 'vocabulary-hebrew.html',
-      'quests.html': 'quests-hebrew.html',
-      'leaderboard.html': 'leaderboard-hebrew.html',
-      'rewards.html': 'rewards-hebrew.html',
-      'friends.html': 'friends-hebrew.html',
-      'study-room.html': 'study-room-hebrew.html',
-      'lesson-player.html': 'lesson-hebrew.html',
-      'profile.html': 'profile.html'
+  function mapHref(href, lang) {
+    const next = String(lang || getActiveLanguage()) === "hebrew"  "hebrew" : "greek";
+    const clean = href.split("#")[0].split("")[0];
+    const suffix = href.includes("#")  `#${href.split("#")[1]}` : "";
+    const query = href.includes("")  `${href.split("")[1].split("#")[0]}` : "";
+    const mappings = {
+      "dashboard.html": ROUTES.dashboard[next],
+      "practice.html": ROUTES.practice[next],
+      "lessons.html": ROUTES.lessons[next],
+      "vocabulary.html": ROUTES.vocabulary[next],
+      "friends.html": ROUTES.friends[next],
+      "leaderboard.html": ROUTES.leaderboard[next],
+      "rewards.html": ROUTES.rewards[next],
+      "study-room.html": ROUTES.studyRoom[next],
+      "quests.html": ROUTES.quests[next],
+      "lesson-player.html": ROUTES.lessonPlayer[next],
+      "language-home.html": ROUTES.languageHome[next],
+      "profile.html": ROUTES.profile[next],
+      "index.html": ROUTES.index[next]
     };
+    return mappings[clean]  mappings[clean] + suffix + (query && !mappings[clean].includes("")  query : "") : href;
+  }
 
-    const reverseMap = Object.fromEntries(Object.entries(pageMap).map(([key, value]) => [value, key]));
-
-    function buildHref(href) {
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return null;
-      try {
-        const url = new URL(href, location.href);
-        if (url.origin !== location.origin) return null;
-        const filename = url.pathname.split('/').pop();
-        const params = new URLSearchParams(url.search);
-
-        if (lang === 'hebrew') {
-          if (filename === 'lesson-player.html') {
-            url.pathname = url.pathname.replace(/[^/]*$/, 'lesson-hebrew.html');
-            params.set('lang', 'hebrew');
-            url.search = params.toString() ? `?${params.toString()}` : '';
-            return url.pathname + url.search + url.hash;
-          }
-          if (filename === 'profile.html') {
-            params.set('lang', 'hebrew');
-            url.search = `?${params.toString()}`;
-            return url.pathname + url.search + url.hash;
-          }
-          if (filename in pageMap) {
-            url.pathname = url.pathname.replace(/[^/]*$/, pageMap[filename]);
-            params.set('lang', 'hebrew');
-            url.search = `?${params.toString()}`;
-            return url.pathname + url.search + url.hash;
-          }
-        } else {
-          if (filename === 'lesson-hebrew.html') {
-            url.pathname = url.pathname.replace(/[^/]*$/, 'lesson-player.html');
-            params.delete('lang');
-            url.search = params.toString() ? `?${params.toString()}` : '';
-            return url.pathname + url.search + url.hash;
-          }
-          if (filename === 'profile.html') {
-            params.delete('lang');
-            url.search = params.toString() ? `?${params.toString()}` : '';
-            return url.pathname + url.search + url.hash;
-          }
-          if (filename in reverseMap) {
-            url.pathname = url.pathname.replace(/[^/]*$/, reverseMap[filename]);
-            params.delete('lang');
-            url.search = params.toString() ? `?${params.toString()}` : '';
-            return url.pathname + url.search + url.hash;
-          }
-        }
-      } catch (_) {
-        return null;
-      }
-      return null;
-    }
-
-    scope.querySelectorAll('a[href]').forEach((a) => {
-      const href = a.getAttribute('href');
-      const target = buildHref(href);
-      if (target) a.setAttribute('href', target);
+  function applyLanguageLinks() {
+    const lang = getActiveLanguage();
+    document.querySelectorAll("a[href]").forEach((anchor) => {
+      const href = anchor.getAttribute("href") || "";
+      if (/^(https:|mailto:|tel:|#|data:)/i.test(href)) return;
+      anchor.setAttribute("href", mapHref(href, lang));
     });
-
-    return lang;
   }
 
   window.getActiveLanguage = getActiveLanguage;
-  window.getLanguageLabel = getLanguageLabel;
-  window.getLessonDataMap = getLessonDataMap;
-  window.getLessonMax = getLessonMax;
+  window.setLanguageScope = setLanguageScope;
   window.applyLanguageScope = applyLanguageScope;
   window.applyLanguageLinks = applyLanguageLinks;
+  window.getLanguageLabel = getLanguageLabel;
+  applyLanguageScope();
 })();

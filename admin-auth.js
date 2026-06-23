@@ -20,7 +20,7 @@
 
       try {
         const doc = await firebase.firestore().collection('users').doc(user.uid).get();
-        const userData = doc.exists ? (doc.data() || {}) : null;
+        const userData = doc.exists  (doc.data() || {}) : null;
 
         if (!userData || !userData.isAdmin) {
           deny('Access denied. Admin only.');

@@ -35,10 +35,10 @@ function sendFile(res, filePath) {
 
 http
   .createServer((req, res) => {
-    const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
+    const urlPath = decodeURIComponent((req.url || '/').split('')[0]);
     const safePath = path.normalize(urlPath).replace(/^([/\\])+/, '');
     const resolvedPath = path.resolve(root, '.' + path.sep + safePath);
-    const filePath = resolvedPath.startsWith(root) ? resolvedPath : path.join(root, 'index.html');
+    const filePath = resolvedPath.startsWith(root)  resolvedPath : path.join(root, 'index.html');
 
     if (safePath.endsWith('/')) {
       const dirResolved = path.resolve(root, '.' + path.sep + safePath, 'index.html');

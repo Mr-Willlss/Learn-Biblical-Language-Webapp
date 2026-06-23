@@ -146,7 +146,7 @@ function updateStats() {
     const missingHearts = Math.max(0, HEART_MAX - progressState.hearts);
     const recommendedHearts = Math.min(2, missingHearts);
     rewardLast.textContent = recommendedHearts
-      ? `Low hearts. ${recommendedHearts} heart${recommendedHearts === 1 ? "" : "s"} cost ${recommendedHearts * HEART_GEM_COST} gems.`
+       `Low hearts. ${recommendedHearts} heart${recommendedHearts === 1  "" : "s"} cost ${recommendedHearts * HEART_GEM_COST} gems.`
       : `Low hearts. Full refill costs ${missingHearts * HEART_GEM_COST} gems.`;
   }
   const lessonEarned = document.getElementById("lesson-earned-xp");
@@ -226,7 +226,7 @@ function showOutOfHeartsState() {
   `;
   const openHeartShopBtn = document.getElementById("open-heart-shop-btn");
   if (openHeartShopBtn) {
-    openHeartShopBtn.addEventListener("click", () => window.openGiftsModal?.());
+    openHeartShopBtn.addEventListener("click", () => window.openGiftsModal.());
   }
   setLessonActionState(true);
 }
@@ -234,7 +234,7 @@ function showOutOfHeartsState() {
 function updateProgressBar() {
   const total = lessonData.worlds.reduce((sum, w) => sum + w.lessons.length, 0);
   const completed = progressState.completedLessons.length;
-  const pct = total ? Math.floor((completed / total) * 100) : 0;
+  const pct = total  Math.floor((completed / total) * 100) : 0;
   const progressBar = document.getElementById("progress-bar");
   const progressText = document.getElementById("progress-text");
   if (progressBar) progressBar.style.width = `${pct}%`;
@@ -256,7 +256,7 @@ function findNextUnlockedLesson() {
 }
 
 function updateFocusStrip() {
-  const totalLessons = window.lessonData?.worlds?.reduce((sum, world) => sum + world.lessons.length, 0) || 0;
+  const totalLessons = window.lessonData.worlds.reduce((sum, world) => sum + world.lessons.length, 0) || 0;
   const completedCount = progressState.completedLessons.length;
   const nextLesson = findNextUnlockedLesson();
   const progressValue = document.getElementById("focus-progress-value");
@@ -267,19 +267,19 @@ function updateFocusStrip() {
 
   if (progressValue) progressValue.textContent = `${completedCount} / ${totalLessons || 25}`;
   if (progressNote) {
-    const pct = totalLessons ? Math.round((completedCount / totalLessons) * 100) : 0;
-    progressNote.textContent = completedCount ? `${pct}% of the path completed.` : "Your path starts at Level 1.";
+    const pct = totalLessons  Math.round((completedCount / totalLessons) * 100) : 0;
+    progressNote.textContent = completedCount  `${pct}% of the path completed.` : "Your path starts at Level 1.";
   }
   if (nextValue) {
-    nextValue.textContent = nextLesson ? nextLesson.lesson.title : "All lessons cleared";
+    nextValue.textContent = nextLesson  nextLesson.lesson.title : "All lessons cleared";
   }
   if (nextNote) {
     nextNote.textContent = nextLesson
-      ? `${nextLesson.world.title}`
+       `${nextLesson.world.title}`
       : "Replay any lesson to sharpen your memory.";
   }
   if (syncBadge) {
-    syncBadge.textContent = isSignedIn() ? "Cloud sync on" : "Device only";
+    syncBadge.textContent = isSignedIn()  "Cloud sync on" : "Device only";
   }
 }
 
@@ -293,7 +293,7 @@ function getDailyQuestState() {
   if (!raw) return { day: today, completed: false };
   try {
     const parsed = JSON.parse(raw);
-    if (parsed?.day === today) return { day: today, completed: !!parsed.completed };
+    if (parsed.day === today) return { day: today, completed: !!parsed.completed };
   } catch (error) {
     console.error("Could not parse daily quest state", error);
   }
@@ -350,10 +350,10 @@ function getHabitStats() {
     return {
       today,
       week,
-      lessonsToday: parsed?.today === today ? Number(parsed.lessonsToday || 0) : 0,
-      lessonsWeek: parsed?.week === week ? Number(parsed.lessonsWeek || 0) : 0,
-      practiceToday: parsed?.today === today ? Number(parsed.practiceToday || 0) : 0,
-      lastAccuracy: Number(parsed?.lastAccuracy || 0)
+      lessonsToday: parsed.today === today  Number(parsed.lessonsToday || 0) : 0,
+      lessonsWeek: parsed.week === week  Number(parsed.lessonsWeek || 0) : 0,
+      practiceToday: parsed.today === today  Number(parsed.practiceToday || 0) : 0,
+      lastAccuracy: Number(parsed.lastAccuracy || 0)
     };
   } catch (error) {
     console.error("Could not parse habit stats", error);
@@ -375,12 +375,12 @@ function recordLessonOutcome({ accuracy = 0, practice = false } = {}) {
 }
 
 function getPracticeInsights() {
-  const dueItems = Array.isArray(vocabDatabase) ? getReviewItems(vocabDatabase).slice(0, 6) : [];
+  const dueItems = Array.isArray(vocabDatabase)  getReviewItems(vocabDatabase).slice(0, 6) : [];
   const weakItems = Array.isArray(vocabDatabase)
-    ? [...vocabDatabase]
+     [...vocabDatabase]
         .map((item) => ({
           item,
-          record: spacedRepetition.items?.[item.id] || { reviewInterval: 1, successCount: 0, nextReviewTime: Date.now() }
+          record: spacedRepetition.items.[item.id] || { reviewInterval: 1, successCount: 0, nextReviewTime: Date.now() }
         }))
         .sort((a, b) => {
           const aScore = (a.record.successCount || 0) * (a.record.reviewInterval || 1);
@@ -403,15 +403,15 @@ function updateQuestDeck() {
   const daily = getDailyQuestState();
   const habit = getHabitStats();
   const practice = getPracticeInsights();
-  const socialProfile = typeof socialState !== "undefined" && socialState?.profile ? socialState.profile : null;
-  const socialFriends = typeof socialState !== "undefined" && Array.isArray(socialState?.friendships) ? socialState.friendships.length : 0;
+  const socialProfile = typeof socialState !== "undefined" && socialState.profile  socialState.profile : null;
+  const socialFriends = typeof socialState !== "undefined" && Array.isArray(socialState.friendships)  socialState.friendships.length : 0;
 
   const quests = [
     {
       icon: "1",
       title: "Daily lesson",
-      note: daily.completed ? "Daily lesson complete. Your streak is protected today." : "Finish one lesson today to keep the habit alive.",
-      status: daily.completed ? "Complete" : `${Math.min(habit.lessonsToday, 1)}/1`,
+      note: daily.completed  "Daily lesson complete. Your streak is protected today." : "Finish one lesson today to keep the habit alive.",
+      status: daily.completed  "Complete" : `${Math.min(habit.lessonsToday, 1)}/1`,
       done: daily.completed
     },
     {
@@ -431,14 +431,14 @@ function updateQuestDeck() {
     {
       icon: "+",
       title: "Study circle",
-      note: socialFriends ? "Your friends board is active. Keep the accountability loop alive." : "Invite one friend so social pressure starts helping your consistency.",
-      status: socialFriends ? `${socialFriends} friend${socialFriends === 1 ? "" : "s"}` : "Invite",
+      note: socialFriends  "Your friends board is active. Keep the accountability loop alive." : "Invite one friend so social pressure starts helping your consistency.",
+      status: socialFriends  `${socialFriends} friend${socialFriends === 1  "" : "s"}` : "Invite",
       done: socialFriends > 0
     }
   ];
 
   questList.innerHTML = quests.map((quest) => `
-    <div class="quest-row ${quest.done ? "is-complete" : ""}">
+    <div class="quest-row ${quest.done  "is-complete" : ""}">
       <span class="quest-row__icon">${quest.icon}</span>
       <div class="quest-row__body">
         <strong>${quest.title}</strong>
@@ -448,8 +448,8 @@ function updateQuestDeck() {
     </div>
   `).join("");
 
-  streakChip.textContent = socialProfile?.stats?.streakDays
-    ? `${socialProfile.stats.streakDays} day streak`
+  streakChip.textContent = socialProfile.stats.streakDays
+     `${socialProfile.stats.streakDays} day streak`
     : "Build a 7-day streak";
 
   practiceChip.textContent = `${practice.dueItems.length} due now`;
@@ -466,7 +466,7 @@ function updateQuestDeck() {
 
 function buildQuestRows(quests) {
   return quests.map((quest) => `
-    <div class="quest-row ${quest.done ? "is-complete" : ""}">
+    <div class="quest-row ${quest.done  "is-complete" : ""}">
       <span class="quest-row__icon">${quest.icon}</span>
       <div class="quest-row__body">
         <strong>${quest.title}</strong>
@@ -478,10 +478,10 @@ function buildQuestRows(quests) {
 }
 
 function openRewardPocketModal() {
-  const profile = (typeof socialState !== "undefined" && socialState?.profile)
-    ? socialState.profile
-    : (typeof createFallbackProfile === "function" ? createFallbackProfile() : null);
-  const rewardSummary = profile?.rewards || { gems: 0, heartPasses: 0, crowns: 0 };
+  const profile = (typeof socialState !== "undefined" && socialState.profile)
+     socialState.profile
+    : (typeof createFallbackProfile === "function"  createFallbackProfile() : null);
+  const rewardSummary = profile.rewards || { gems: 0, heartPasses: 0, crowns: 0 };
   const wrap = document.createElement("div");
   wrap.className = "social-modal";
   wrap.innerHTML = `
@@ -509,22 +509,22 @@ function openRewardPocketModal() {
     </div>
   `;
   showModal("Reward Pocket", wrap);
-  wrap.querySelector("#reward-pocket-open-gifts").addEventListener("click", () => window.openGiftsModal?.());
-  wrap.querySelector("#reward-pocket-open-profile").addEventListener("click", () => window.openProfileModal?.());
+  wrap.querySelector("#reward-pocket-open-gifts").addEventListener("click", () => window.openGiftsModal.());
+  wrap.querySelector("#reward-pocket-open-profile").addEventListener("click", () => window.openProfileModal.());
 }
 
 function openQuestBoardModal() {
   const daily = getDailyQuestState();
   const habit = getHabitStats();
   const practice = getPracticeInsights();
-  const socialProfile = typeof socialState !== "undefined" && socialState?.profile ? socialState.profile : null;
-  const socialFriends = typeof socialState !== "undefined" && Array.isArray(socialState?.friendships) ? socialState.friendships.length : 0;
+  const socialProfile = typeof socialState !== "undefined" && socialState.profile  socialState.profile : null;
+  const socialFriends = typeof socialState !== "undefined" && Array.isArray(socialState.friendships)  socialState.friendships.length : 0;
   const quests = [
     {
       icon: "1",
       title: "Daily lesson",
-      note: daily.completed ? "Daily lesson complete. Your streak is protected today." : "Finish one lesson today to keep the habit alive.",
-      status: daily.completed ? "Complete" : `${Math.min(habit.lessonsToday, 1)}/1`,
+      note: daily.completed  "Daily lesson complete. Your streak is protected today." : "Finish one lesson today to keep the habit alive.",
+      status: daily.completed  "Complete" : `${Math.min(habit.lessonsToday, 1)}/1`,
       done: daily.completed
     },
     {
@@ -544,8 +544,8 @@ function openQuestBoardModal() {
     {
       icon: "+",
       title: "Study circle",
-      note: socialFriends ? "Your friends board is active. Keep the accountability loop alive." : "Invite one friend so social pressure starts helping your consistency.",
-      status: socialFriends ? `${socialFriends} friend${socialFriends === 1 ? "" : "s"}` : "Invite",
+      note: socialFriends  "Your friends board is active. Keep the accountability loop alive." : "Invite one friend so social pressure starts helping your consistency.",
+      status: socialFriends  `${socialFriends} friend${socialFriends === 1  "" : "s"}` : "Invite",
       done: socialFriends > 0
     }
   ];
@@ -558,7 +558,7 @@ function openQuestBoardModal() {
       <div class="social-section">
         <div class="social-section__head">
           <h4>Quest board</h4>
-          <span class="social-meta">${socialProfile?.stats?.streakDays || 0} day streak</span>
+          <span class="social-meta">${socialProfile.stats.streakDays || 0} day streak</span>
         </div>
         <div class="quest-list">
           ${buildQuestRows(quests)}
@@ -587,7 +587,7 @@ function openQuestBoardModal() {
 function setLessonFeedback(mode, message) {
   const wrap = document.getElementById("lesson-feedback");
   const text = document.getElementById("lesson-feedback-text");
-  const badge = wrap?.querySelector(".lesson-feedback__badge");
+  const badge = wrap.querySelector(".lesson-feedback__badge");
   if (!wrap || !text || !badge) return;
 
   wrap.classList.remove("is-success", "is-warning", "is-info");
@@ -621,7 +621,7 @@ function pulseLessonPanel(kind = "success") {
   const panel = document.getElementById("lesson-panel");
   if (!panel) return;
   panel.classList.remove("lesson-panel--success", "lesson-panel--warning");
-  panel.classList.add(kind === "warning" ? "lesson-panel--warning" : "lesson-panel--success");
+  panel.classList.add(kind === "warning"  "lesson-panel--warning" : "lesson-panel--success");
   setTimeout(() => {
     panel.classList.remove("lesson-panel--success", "lesson-panel--warning");
   }, 520);
@@ -631,14 +631,14 @@ function cheerMascot(kind = "success") {
   const mascot = document.querySelector(".mascot-cheer");
   if (!mascot) return;
   mascot.classList.remove("is-cheering", "is-concerned");
-  mascot.classList.add(kind === "warning" ? "is-concerned" : "is-cheering");
+  mascot.classList.add(kind === "warning"  "is-concerned" : "is-cheering");
   setTimeout(() => {
     mascot.classList.remove("is-cheering", "is-concerned");
   }, 900);
   const heroCoach = document.querySelector(".hero-coach");
   if (heroCoach) {
     heroCoach.classList.remove("is-cheering", "is-concerned");
-    heroCoach.classList.add(kind === "warning" ? "is-concerned" : "is-cheering");
+    heroCoach.classList.add(kind === "warning"  "is-concerned" : "is-cheering");
     setTimeout(() => {
       heroCoach.classList.remove("is-cheering", "is-concerned");
     }, 900);
@@ -708,21 +708,21 @@ function getRemoteProgressPayload() {
 
 function applyProgress(payload) {
   if (!payload) return;
-  progressState.xp = Number.isFinite(payload.xp) ? payload.xp : progressState.xp;
-  progressState.level = Number.isFinite(payload.level) ? payload.level : progressState.level;
-  progressState.hearts = Number.isFinite(payload.hearts) ? payload.hearts : HEART_MAX;
-  progressState.heartsUpdatedAt = Number.isFinite(payload.heartsUpdatedAt) ? payload.heartsUpdatedAt : Date.now();
+  progressState.xp = Number.isFinite(payload.xp)  payload.xp : progressState.xp;
+  progressState.level = Number.isFinite(payload.level)  payload.level : progressState.level;
+  progressState.hearts = Number.isFinite(payload.hearts)  payload.hearts : HEART_MAX;
+  progressState.heartsUpdatedAt = Number.isFinite(payload.heartsUpdatedAt)  payload.heartsUpdatedAt : Date.now();
   progressState.exhaustedHeartTimes = Array.isArray(payload.exhaustedHeartTimes)
-    ? payload.exhaustedHeartTimes.filter((t) => Number.isFinite(t))
+     payload.exhaustedHeartTimes.filter((t) => Number.isFinite(t))
     : [];
   progressState.completedLessons = payload.completedLessons || [];
   progressState.vocabProgress = payload.vocabProgress || {};
   progressState.activeLessonId = payload.activeLessonId || null;
   progressState.activeWorldId = payload.activeWorldId || null;
-  progressState.activeExerciseIndex = Number.isFinite(payload.activeExerciseIndex) ? payload.activeExerciseIndex : 0;
-  progressState.activeLessonCorrectCount = Number.isFinite(payload.activeLessonCorrectCount) ? payload.activeLessonCorrectCount : 0;
-  progressState.activeLessonWrongCount = Number.isFinite(payload.activeLessonWrongCount) ? payload.activeLessonWrongCount : 0;
-  progressState.activeLessonXpEarned = Number.isFinite(payload.activeLessonXpEarned) ? payload.activeLessonXpEarned : 0;
+  progressState.activeExerciseIndex = Number.isFinite(payload.activeExerciseIndex)  payload.activeExerciseIndex : 0;
+  progressState.activeLessonCorrectCount = Number.isFinite(payload.activeLessonCorrectCount)  payload.activeLessonCorrectCount : 0;
+  progressState.activeLessonWrongCount = Number.isFinite(payload.activeLessonWrongCount)  payload.activeLessonWrongCount : 0;
+  progressState.activeLessonXpEarned = Number.isFinite(payload.activeLessonXpEarned)  payload.activeLessonXpEarned : 0;
   spacedRepetition.items = payload.spacedRepetition || spacedRepetition.items;
   hydrateHeartRefillState();
   updateStats();
@@ -731,8 +731,8 @@ function applyProgress(payload) {
 }
 
 function syncActiveLessonState() {
-  progressState.activeLessonId = currentLesson?.id || null;
-  progressState.activeWorldId = currentLesson?.worldId || null;
+  progressState.activeLessonId = currentLesson.id || null;
+  progressState.activeWorldId = currentLesson.worldId || null;
   progressState.activeExerciseIndex = currentExerciseIndex || 0;
   progressState.activeLessonCorrectCount = lessonCorrectCount || 0;
   progressState.activeLessonWrongCount = lessonWrongCount || 0;
@@ -792,12 +792,12 @@ function normalizeDictionaryToken(value) {
   return String(value || "")
     .trim()
     .toLowerCase()
-    .replace(/[.,;:!?()[\]{}"']/g, "");
+    .replace(/[.,;:!()[\]{}"']/g, "");
 }
 
 function escapeDictionaryHtml(value) {
   if (typeof escapeHtml === "function") return escapeHtml(value);
-  return String(value ?? "")
+  return String(value  "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -844,10 +844,10 @@ function usageScenarioForEntry(entry) {
 
 function getAcceptedMeanings(vocab) {
   const rawValues = [
-    vocab?.acceptedMeanings,
-    vocab?.meanings,
-    vocab?.english,
-    vocab?.meaning
+    vocab.acceptedMeanings,
+    vocab.meanings,
+    vocab.english,
+    vocab.meaning
   ].flat().filter(Boolean);
 
   const accepted = new Set();
@@ -863,7 +863,7 @@ function getAcceptedMeanings(vocab) {
 
 function getPrimaryMeaning(vocab) {
   const accepted = getAcceptedMeanings(vocab);
-  return accepted[0] || normalizeDictionaryToken(vocab?.english || vocab?.meaning || "");
+  return accepted[0] || normalizeDictionaryToken(vocab.english || vocab.meaning || "");
 }
 
 function isMeaningMatch(selection, vocab) {
@@ -871,7 +871,7 @@ function isMeaningMatch(selection, vocab) {
   if (!chosen) return false;
   const accepted = getAcceptedMeanings(vocab);
   if (!accepted.length) {
-    return chosen === normalizeDictionaryToken(vocab?.english || vocab?.meaning || "");
+    return chosen === normalizeDictionaryToken(vocab.english || vocab.meaning || "");
   }
   return accepted.includes(chosen);
 }
@@ -912,7 +912,7 @@ function buildInteractivePrompt(text) {
   if (!value) return wrap;
 
   value.split(/\s+/).forEach((token, index) => {
-    const spacer = index > 0 ? document.createTextNode(" ") : null;
+    const spacer = index > 0  document.createTextNode(" ") : null;
     if (spacer) wrap.appendChild(spacer);
     const button = buildGreekWordChip(token, token);
     button.classList.add("prompt-token");
@@ -950,7 +950,7 @@ function buildDictionaryQuickActions(exercise) {
     // Sentence builder should not reveal the correct sentence arrangement automatically.
     // "Hint" is the only control that reveals the full answer sentence.
     if (exercise.type === "sentence-builder") {
-      const fallback = selectedWord || exercise.tokens?.[0] || terms[0];
+      const fallback = selectedWord || exercise.tokens.[0] || terms[0];
       renderInlineDictionary(fallback);
       return;
     }
@@ -969,14 +969,14 @@ function openDictionaryModal(query, options = {}) {
 
   const wrap = document.createElement("div");
   wrap.className = "dictionary-modal";
-  const terms = (options.preferTokens ? value.split(/\s+/) : [value])
+  const terms = (options.preferTokens  value.split(/\s+/) : [value])
     .map((term) => term.trim())
     .filter(Boolean);
   const entries = terms.flatMap((term) => findDictionaryEntries(term));
   const uniqueEntries = [];
   const seen = new Set();
   entries.forEach((entry) => {
-    if (!entry?.id || seen.has(entry.id)) return;
+    if (!entry.id || seen.has(entry.id)) return;
     seen.add(entry.id);
     uniqueEntries.push(entry);
   });
@@ -1044,20 +1044,20 @@ function renderInlineDictionary(query, options = {}) {
     return;
   }
 
-  const terms = (options.preferTokens ? value.split(/\s+/) : [value])
+  const terms = (options.preferTokens  value.split(/\s+/) : [value])
     .map((term) => term.trim())
     .filter(Boolean);
   const entries = terms.flatMap((term) => findDictionaryEntries(term));
   const uniqueEntries = [];
   const seen = new Set();
   entries.forEach((entry) => {
-    if (!entry?.id || seen.has(entry.id)) return;
+    if (!entry.id || seen.has(entry.id)) return;
     seen.add(entry.id);
     uniqueEntries.push(entry);
   });
 
   const chipsMarkup = terms.length > 1
-    ? `<div class="hero-status-card__chips">${terms.map((term) => `<button class="hero-status-chip" type="button" data-inline-dict="${escapeDictionaryHtml(term)}">${escapeDictionaryHtml(term)}</button>`).join("")}</div>`
+     `<div class="hero-status-card__chips">${terms.map((term) => `<button class="hero-status-chip" type="button" data-inline-dict="${escapeDictionaryHtml(term)}">${escapeDictionaryHtml(term)}</button>`).join("")}</div>`
     : "";
 
   if (!uniqueEntries.length) {
@@ -1111,10 +1111,10 @@ function startLesson(lesson, world, options = {}) {
   if (!requireSignIn()) return;
   if (!consumeHeartIfNeeded()) return;
   currentLesson = { ...lesson, worldId: world.id };
-  currentExerciseIndex = Number.isFinite(options.resumeExerciseIndex) ? options.resumeExerciseIndex : 0;
-  lessonXpEarned = Number.isFinite(options.resumeLessonXpEarned) ? options.resumeLessonXpEarned : 0;
-  lessonCorrectCount = Number.isFinite(options.resumeCorrectCount) ? options.resumeCorrectCount : 0;
-  lessonWrongCount = Number.isFinite(options.resumeWrongCount) ? options.resumeWrongCount : 0;
+  currentExerciseIndex = Number.isFinite(options.resumeExerciseIndex)  options.resumeExerciseIndex : 0;
+  lessonXpEarned = Number.isFinite(options.resumeLessonXpEarned)  options.resumeLessonXpEarned : 0;
+  lessonCorrectCount = Number.isFinite(options.resumeCorrectCount)  options.resumeCorrectCount : 0;
+  lessonWrongCount = Number.isFinite(options.resumeWrongCount)  options.resumeWrongCount : 0;
 
   currentLesson.exercises = buildLessonExercises(lesson, vocabDatabase, lesson.id);
   currentExerciseIndex = Math.max(0, Math.min(currentExerciseIndex, Math.max((currentLesson.exercises.length || 1) - 1, 0)));
@@ -1124,7 +1124,7 @@ function startLesson(lesson, world, options = {}) {
   document.getElementById("lesson-xp").textContent = `+${lesson.xp} XP`;
   setLessonActionState(false);
   setLessonFeedback("info", options.resuming
-    ? `Welcome back. You resumed ${lesson.title} from your last saved state.`
+     `Welcome back. You resumed ${lesson.title} from your last saved state.`
     : `Lesson live. ${lesson.title} has ${currentLesson.exercises.length} short activities.`);
   syncActiveLessonState();
   updateLessonProgress();
@@ -1169,8 +1169,8 @@ function startPracticeLesson(mode = "mixed") {
   if (!requireSignIn()) return;
   const insights = getPracticeInsights();
   const pool = (mode === "listening" || mode === "speaking")
-    ? (insights.dueItems.length ? insights.dueItems : insights.weakItems)
-    : (insights.dueItems.length ? insights.dueItems : insights.weakItems);
+     (insights.dueItems.length  insights.dueItems : insights.weakItems)
+    : (insights.dueItems.length  insights.dueItems : insights.weakItems);
   const items = pool.slice(0, 3);
   if (!items.length) {
     toast("Finish a few lessons first so the practice hub has words to review.");
@@ -1179,7 +1179,7 @@ function startPracticeLesson(mode = "mixed") {
 
   currentLesson = {
     id: `practice-${mode}`,
-    title: mode === "listening" ? "Listening drill" : mode === "speaking" ? "Speaking drill" : "Practice review",
+    title: mode === "listening"  "Listening drill" : mode === "speaking"  "Speaking drill" : "Practice review",
     worldId: "practice",
     xp: items.length * 10,
     practiceMode: true,
@@ -1193,7 +1193,7 @@ function startPracticeLesson(mode = "mixed") {
   document.getElementById("lesson-title").textContent = `Practice Lab · ${currentLesson.title}`;
   document.getElementById("lesson-type").textContent = "Practice";
   document.getElementById("lesson-xp").textContent = `+${currentLesson.xp} XP`;
-  setLessonFeedback("info", `Practice lab ready. ${items.length} vocab item${items.length === 1 ? "" : "s"} queued for review.`);
+  setLessonFeedback("info", `Practice lab ready. ${items.length} vocab item${items.length === 1  "" : "s"} queued for review.`);
   syncActiveLessonState();
   updateLessonProgress();
   setTeacherMood("idle");
@@ -1321,7 +1321,7 @@ function renderExercise() {
     const help = document.createElement("p");
     help.className = "muted";
     help.textContent = supportsSpeechRecognition()
-      ? "Say the pronunciation clearly, or type it below if the microphone mishears you."
+       "Say the pronunciation clearly, or type it below if the microphone mishears you."
       : "This browser does not support speech recognition. Type the pronunciation below or use Chrome.";
     wrapper.appendChild(help);
     const refBtn = document.createElement("button");
@@ -1414,7 +1414,7 @@ function renderExercise() {
     input.type = "text";
     const acceptedPreview = getAcceptedMeanings(vocab).slice(0, 2);
     input.placeholder = acceptedPreview.length > 1
-      ? `Type a correct meaning, for example ${acceptedPreview.join(" or ")}`
+       `Type a correct meaning, for example ${acceptedPreview.join(" or ")}`
       : "Type the translation";
     input.addEventListener("input", () => {
       currentSelection = input.value.trim();
@@ -1517,7 +1517,7 @@ function checkAnswer() {
     lessonCorrectCount += 1;
     setTeacherMood("happy");
     teacherSpeak("Great job!");
-    updateSpacedRepetition(exercise.vocab?.id, true);
+    updateSpacedRepetition(exercise.vocab.id, true);
     playCorrectSound();
     pulseLessonPanel("success");
     cheerMascot("success");
@@ -1527,7 +1527,7 @@ function checkAnswer() {
     loseHeart();
     setTeacherMood("sad");
     teacherSpeak("Try again!");
-    updateSpacedRepetition(exercise.vocab?.id, false);
+    updateSpacedRepetition(exercise.vocab.id, false);
     playIncorrectSound();
     pulseLessonPanel("warning");
     cheerMascot("warning");
@@ -1570,7 +1570,7 @@ function hydrateHeartRefillState() {
     return;
   }
 
-  const savedHearts = Number.isFinite(progressState.hearts) ? progressState.hearts : HEART_MAX;
+  const savedHearts = Number.isFinite(progressState.hearts)  progressState.hearts : HEART_MAX;
   const missingHearts = Math.max(0, HEART_MAX - savedHearts);
   if (!missingHearts) {
     progressState.hearts = HEART_MAX;
@@ -1642,8 +1642,8 @@ async function finishLesson() {
   const completedLesson = currentLesson;
   if (!completedLesson) return;
   const isPracticeLesson = !!completedLesson.practiceMode;
-  const next = isPracticeLesson ? findNextUnlockedLesson() : getNextLesson(completedLesson.id);
-  const firstLocalCompletion = isPracticeLesson ? true : !progressState.completedLessons.includes(completedLesson.id);
+  const next = isPracticeLesson  findNextUnlockedLesson() : getNextLesson(completedLesson.id);
+  const firstLocalCompletion = isPracticeLesson  true : !progressState.completedLessons.includes(completedLesson.id);
   if (firstLocalCompletion) {
     lessonXpEarned += completedLesson.xp;
   }
@@ -1663,13 +1663,13 @@ async function finishLesson() {
       if (secureResult && Number.isFinite(secureResult.awardedXp)) {
         awardedXp = secureResult.awardedXp;
       }
-      rewardSummary = secureResult?.alreadyAwarded
-        ? null
-        : (secureResult?.rewardSummary || null);
-      if (secureResult?.alreadyAwarded) {
+      rewardSummary = secureResult.alreadyAwarded
+         null
+        : (secureResult.rewardSummary || null);
+      if (secureResult.alreadyAwarded) {
         toast("Lesson progress saved. XP was already counted for this lesson.");
       }
-      secureProfileApplied = !!secureResult?.user;
+      secureProfileApplied = !!secureResult.user;
       completionConfirmed = !!secureResult;
     } catch (error) {
       console.error(error);
@@ -1683,7 +1683,7 @@ async function finishLesson() {
     }
     markDailyQuestComplete();
     const answered = lessonCorrectCount + lessonWrongCount;
-    const accuracy = answered ? Math.round((lessonCorrectCount / answered) * 100) : 0;
+    const accuracy = answered  Math.round((lessonCorrectCount / answered) * 100) : 0;
     recordLessonOutcome({ accuracy, practice: isPracticeLesson });
     if (!secureProfileApplied) {
       progressState.xp += awardedXp;
@@ -1704,7 +1704,7 @@ async function finishLesson() {
 
   if (rewardSummary) {
     if (!secureProfileApplied) {
-      window.applyRewardSummaryToChrome?.(rewardSummary);
+      window.applyRewardSummaryToChrome.(rewardSummary);
     }
     flashRewardPocket(rewardSummary);
     const rewardLast = document.getElementById("reward-last");
@@ -1741,8 +1741,8 @@ function showLessonCompleteModal(xpEarned, onContinue, rewardSummary) {
   const xpText = modal.querySelector(".modal-xp");
   const summaryText = modal.querySelector(".modal-summary");
   const answered = lessonCorrectCount + lessonWrongCount;
-  const accuracy = answered ? Math.round((lessonCorrectCount / answered) * 100) : 0;
-  const next = currentLesson ? getNextLesson(currentLesson.id) : null;
+  const accuracy = answered  Math.round((lessonCorrectCount / answered) * 100) : 0;
+  const next = currentLesson  getNextLesson(currentLesson.id) : null;
   if (lessonAdvanceTimer) {
     clearTimeout(lessonAdvanceTimer);
     lessonAdvanceTimer = null;
@@ -1750,10 +1750,10 @@ function showLessonCompleteModal(xpEarned, onContinue, rewardSummary) {
   xpText.textContent = `You earned ${xpEarned} XP in this lesson.`;
   if (summaryText) {
     const rewardText = rewardSummary
-      ? ` You also collected ${rewardSummary.gems || 0} gems, ${rewardSummary.heartPasses || 0} heart gifts, and ${rewardSummary.crowns || 0} crowns.`
+       ` You also collected ${rewardSummary.gems || 0} gems, ${rewardSummary.heartPasses || 0} heart gifts, and ${rewardSummary.crowns || 0} crowns.`
       : "";
     summaryText.textContent = next
-      ? `${lessonCorrectCount} correct, ${lessonWrongCount} missed, ${accuracy}% accuracy.${rewardText} Continue will move you straight to ${next.lesson.title}.`
+       `${lessonCorrectCount} correct, ${lessonWrongCount} missed, ${accuracy}% accuracy.${rewardText} Continue will move you straight to ${next.lesson.title}.`
       : `${lessonCorrectCount} correct, ${lessonWrongCount} missed, ${accuracy}% accuracy.${rewardText}`;
   }
   const btn = modal.querySelector("button");
@@ -1781,7 +1781,7 @@ function showLessonCompleteModal(xpEarned, onContinue, rewardSummary) {
     `;
     modal.querySelector(".modal-card").insertBefore(burst, btn);
   }
-  btn.textContent = typeof onContinue === "function" ? "Continue to next lesson" : "Close";
+  btn.textContent = typeof onContinue === "function"  "Continue to next lesson" : "Close";
   let handled = false;
   const advance = () => {
     if (handled) return;
@@ -1849,9 +1849,9 @@ function registerEvents() {
   const homeRewardsBtn = document.getElementById("home-rewards-btn");
   if (homeRewardsBtn) homeRewardsBtn.addEventListener("click", openRewardPocketModal);
   const homeInviteBtn = document.getElementById("home-invite-btn");
-  if (homeInviteBtn) homeInviteBtn.addEventListener("click", () => window.openInviteModal?.());
+  if (homeInviteBtn) homeInviteBtn.addEventListener("click", () => window.openInviteModal.());
   const homeGiftsBtn = document.getElementById("home-gifts-btn");
-  if (homeGiftsBtn) homeGiftsBtn.addEventListener("click", () => window.openGiftsModal?.());
+  if (homeGiftsBtn) homeGiftsBtn.addEventListener("click", () => window.openGiftsModal.());
   const homeQuestsBtn = document.getElementById("home-quests-btn");
   if (homeQuestsBtn) homeQuestsBtn.addEventListener("click", openQuestBoardModal);
   const practiceReviewBtn = document.getElementById("practice-review-btn");
@@ -1865,11 +1865,11 @@ function registerEvents() {
   const studyCircleLeaderboardBtn = document.getElementById("study-circle-leaderboard-btn");
   if (studyCircleLeaderboardBtn) studyCircleLeaderboardBtn.addEventListener("click", openLeaderboardModal);
   const giftsBtn = document.getElementById("gifts-btn");
-  if (giftsBtn) giftsBtn.addEventListener("click", () => window.openGiftsModal?.());
+  if (giftsBtn) giftsBtn.addEventListener("click", () => window.openGiftsModal.());
   const studyBtn = document.getElementById("study-btn");
-  if (studyBtn) studyBtn.addEventListener("click", () => window.openStudyTogetherModal?.());
+  if (studyBtn) studyBtn.addEventListener("click", () => window.openStudyTogetherModal.());
   const questionBtn = document.getElementById("question-btn");
-  if (questionBtn) questionBtn.addEventListener("click", () => window.openAskLessonQuestionModal?.(currentLesson, currentLesson?.exercises?.[currentExerciseIndex]));
+  if (questionBtn) questionBtn.addEventListener("click", () => window.openAskLessonQuestionModal.(currentLesson, currentLesson.exercises.[currentExerciseIndex]));
   const lessonDictionaryBtn = document.getElementById("lesson-dictionary-btn");
   if (lessonDictionaryBtn) {
     lessonDictionaryBtn.addEventListener("click", () => {
@@ -1877,11 +1877,11 @@ function registerEvents() {
     });
   }
   const inviteBtn = document.getElementById("invite-btn");
-  if (inviteBtn) inviteBtn.addEventListener("click", () => window.openInviteModal?.());
+  if (inviteBtn) inviteBtn.addEventListener("click", () => window.openInviteModal.());
   const lessonAskBtn = document.getElementById("lesson-ask-btn");
-  if (lessonAskBtn) lessonAskBtn.addEventListener("click", () => window.openAskLessonQuestionModal?.(currentLesson, currentLesson?.exercises?.[currentExerciseIndex]));
+  if (lessonAskBtn) lessonAskBtn.addEventListener("click", () => window.openAskLessonQuestionModal.(currentLesson, currentLesson.exercises.[currentExerciseIndex]));
   const lessonStudyBtn = document.getElementById("lesson-study-btn");
-  if (lessonStudyBtn) lessonStudyBtn.addEventListener("click", () => window.openStudyTogetherModal?.(currentLesson));
+  if (lessonStudyBtn) lessonStudyBtn.addEventListener("click", () => window.openStudyTogetherModal.(currentLesson));
   const sidebarToggle = document.getElementById("sidebar-toggle");
   if (sidebarToggle) sidebarToggle.addEventListener("click", toggleSidebar);
   const sidebarToggleFloating = document.getElementById("sidebar-toggle-floating");
@@ -1902,14 +1902,14 @@ function registerEvents() {
 }
 
 function showHint() {
-  const ex = currentLesson?.exercises?.[currentExerciseIndex];
+  const ex = currentLesson.exercises.[currentExerciseIndex];
   if (!ex) {
     setHeroStatusText("Start a lesson first, then press Hint to see vocabulary help for the active word.", "status");
     toast("Start a lesson first.");
     return;
   }
   if (ex.type === "sentence-builder" && ex.sentence) {
-    const usage = selectedWord ? ` You also selected "${selectedWord}" if you want to inspect it.` : "";
+    const usage = selectedWord  ` You also selected "${selectedWord}" if you want to inspect it.` : "";
     setHeroStatusMarkup(`
       <div class="hero-status-card">
         <strong>Sentence hint</strong>
@@ -1921,7 +1921,7 @@ function showHint() {
     toast("Hint revealed the correct sentence order.");
     return;
   }
-  const targetWord = selectedWord || extractDictionaryTermsFromExercise(ex)[0] || ex.vocab?.greek || ex.vocab?.meaning || "";
+  const targetWord = selectedWord || extractDictionaryTermsFromExercise(ex)[0] || ex.vocab.greek || ex.vocab.meaning || "";
   if (!targetWord) {
     setHeroStatusText("No vocabulary help is attached to this exercise yet.", "status");
     toast("No vocabulary help is attached to this exercise yet.");
@@ -1989,7 +1989,7 @@ function startNextUnlockedLesson() {
 
 function startFromSavedStateOrDefault() {
   const world = lessonData.worlds.find((item) => item.id === progressState.activeWorldId);
-  const savedLesson = world?.lessons.find((item) => item.id === progressState.activeLessonId);
+  const savedLesson = world.lessons.find((item) => item.id === progressState.activeLessonId);
   if (savedLesson && !progressState.completedLessons.includes(savedLesson.id)) {
     startLesson(savedLesson, world, {
       resuming: true,
@@ -2010,7 +2010,7 @@ function startFromSavedStateOrDefault() {
 }
 
 function resumeSavedLessonIfAvailable() {
-  if (!vocabReady || !lessonData?.worlds?.length) return false;
+  if (!vocabReady || !lessonData.worlds.length) return false;
   if (isSignedIn() && window.gqProgressHydrated === false) return false;
   if (currentLesson) return false;
   if (!progressState.activeLessonId && !progressState.completedLessons.length) return false;
@@ -2030,7 +2030,7 @@ function getNextLesson(currentId) {
 
 function confirmStartNew() {
   const body = document.createElement("div");
-  body.innerHTML = `<p>Are you sure you want to proceed? This will reset your progress, rewards, and current lesson state back to Lesson 1.</p>`;
+  body.innerHTML = `<p>Are you sure you want to proceed This will reset your progress, rewards, and current lesson state back to Lesson 1.</p>`;
   const agree = document.createElement("button");
   agree.className = "btn";
   agree.textContent = "Start new game";
@@ -2078,7 +2078,7 @@ function confirmStartNew() {
     const modal = document.getElementById("app-modal");
     if (modal) modal.classList.remove("show");
   });
-  showModal("Reset progress?", wrap);
+  showModal("Reset progress", wrap);
 }
 
 function isSignedIn() {
@@ -2181,7 +2181,7 @@ function openMapModal() {
   lessonData.worlds.forEach((w) => w.lessons.forEach((l) => flat.push({ lesson: l, world: w })));
   flat.forEach((item, idx) => {
     const btn = document.createElement("button");
-    btn.className = "level-chip " + (progressState.completedLessons.includes(item.lesson.id) ? "completed" : "unlocked");
+    btn.className = "level-chip " + (progressState.completedLessons.includes(item.lesson.id)  "completed" : "unlocked");
     btn.style.margin = "4px";
     btn.textContent = `${idx + 1}. ${item.lesson.title}`;
     btn.addEventListener("click", () => {
@@ -2283,7 +2283,7 @@ function loadOptions() {
   if (userOptions.theme === "dark") document.body.classList.add("dark");
   if (userOptions.theme === "system") {
     const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    document.body.classList.add(prefersDark ? "dark" : "light");
+    document.body.classList.add(prefersDark  "dark" : "light");
   }
   applySidebarPreference();
   if (masterGain) masterGain.gain.value = userOptions.volume;
@@ -2323,24 +2323,24 @@ function updateLessonProgress() {
   }
   const total = currentLesson.exercises.length || 1;
   const answered = lessonCorrectCount + lessonWrongCount;
-  const accuracy = answered ? Math.round((lessonCorrectCount / answered) * 100) : 0;
-  const displayPct = answered ? accuracy : Math.min(100, Math.floor((currentExerciseIndex / total) * 100));
+  const accuracy = answered  Math.round((lessonCorrectCount / answered) * 100) : 0;
+  const displayPct = answered  accuracy : Math.min(100, Math.floor((currentExerciseIndex / total) * 100));
   bar.style.width = `${displayPct}%`;
   bar.style.background = accuracy >= 80
-    ? "linear-gradient(90deg, #43d17c, #b9f671)"
+     "linear-gradient(90deg, #43d17c, #b9f671)"
     : accuracy >= 50
-      ? "linear-gradient(90deg, #ffb44d, #ffd45c)"
+       "linear-gradient(90deg, #ffb44d, #ffd45c)"
       : "linear-gradient(90deg, #ff7a59, #ffcf5a, #71d8ff)";
   text.textContent = `Lesson: ${currentLesson.title}`;
   const world = lessonData.worlds.find((w) => w.id === currentLesson.worldId);
-  cat.textContent = `Category: ${world ? world.title.replace(/World\\s\\d+\\:\\s*/i, "") : "Lesson"}`;
+  cat.textContent = `Category: ${world  world.title.replace(/World\\s\\d+\\:\\s*/i, "") : "Lesson"}`;
   if (earnedXpEl) earnedXpEl.textContent = `XP this lesson: ${lessonXpEarned}`;
   if (stepCount) stepCount.textContent = `${Math.min(currentExerciseIndex + 1, total)} / ${total}`;
   if (stepNote) stepNote.textContent = `${Math.max(total - currentExerciseIndex, 0)} quick steps left in this lesson.`;
   if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
   if (accuracyNote) {
     accuracyNote.textContent = answered
-      ? `${lessonCorrectCount} correct, ${lessonWrongCount} missed so far.`
+       `${lessonCorrectCount} correct, ${lessonWrongCount} missed so far.`
       : "Warm up with your first answer.";
   }
 }
@@ -2365,16 +2365,16 @@ function loadAudioMap() {
 
 function loadVocabMapFile() {
   return fetch("assets/audio/vocab-map.json", { cache: "force-cache" })
-    .then((res) => (res.ok ? res.json() : {}))
+    .then((res) => (res.ok  res.json() : {}))
     .catch(() => ({}));
 }
 
 function mergeVocabMaps(localMap, fileMap) {
   const merged = { alphabet: { items: {} }, vocab: { items: {} } };
-  if (fileMap?.alphabet?.items) merged.alphabet.items = { ...fileMap.alphabet.items };
-  if (fileMap?.vocab?.items) merged.vocab.items = { ...fileMap.vocab.items };
-  if (localMap?.alphabet?.items) merged.alphabet.items = { ...merged.alphabet.items, ...localMap.alphabet.items };
-  if (localMap?.vocab?.items) merged.vocab.items = { ...merged.vocab.items, ...localMap.vocab.items };
+  if (fileMap.alphabet.items) merged.alphabet.items = { ...fileMap.alphabet.items };
+  if (fileMap.vocab.items) merged.vocab.items = { ...fileMap.vocab.items };
+  if (localMap.alphabet.items) merged.alphabet.items = { ...merged.alphabet.items, ...localMap.alphabet.items };
+  if (localMap.vocab.items) merged.vocab.items = { ...merged.vocab.items, ...localMap.vocab.items };
   return merged;
 }
 
@@ -2419,14 +2419,14 @@ function openVocabListModal() {
     selectedKey = key;
     list.querySelectorAll(".vocab-list__row").forEach((r) => r.classList.remove("active"));
     rowEl.classList.add("active");
-    const entry = audioMap.vocab?.items?.[key];
-    startInput.value = entry?.start ?? "";
-    endInput.value = entry?.end ?? "";
+    const entry = audioMap.vocab.items.[key];
+    startInput.value = entry.start  "";
+    endInput.value = entry.end  "";
   }
 
   loadVocabMapFile().then((fileMap) => {
     const merged = mergeVocabMaps(audioMap, fileMap);
-    const mappedKeys = new Set(Object.keys(merged.vocab?.items || {}));
+    const mappedKeys = new Set(Object.keys(merged.vocab.items || {}));
     list.innerHTML = "";
     let displayIndex = 0;
     (vocabDatabase || []).forEach((v) => {
@@ -2435,7 +2435,7 @@ function openVocabListModal() {
       displayIndex += 1;
       const row = document.createElement("div");
       row.className = "vocab-list__row";
-      row.innerHTML = `<span class="muted">${displayIndex}.</span> <strong>${v.greek || ""}</strong> <span class="muted">${v.transliteration || ""}</span> — ${v.english || ""}`;
+      row.innerHTML = `<span class="muted">${displayIndex}.</span> <strong>${v.greek || ""}</strong> <span class="muted">${v.transliteration || ""}</span>  ${v.english || ""}`;
       row.addEventListener("click", () => selectRow(key, row));
       list.appendChild(row);
     });

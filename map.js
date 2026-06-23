@@ -25,7 +25,7 @@ function renderMap(progress) {
     const completedCount = completedLessons.length;
     const totalXp = world.lessons.reduce((sum, lesson) => sum + (lesson.xp || 0), 0);
     const earnedXp = completedLessons.reduce((sum, lesson) => sum + (lesson.xp || 0), 0);
-    const pct = world.lessons.length ? Math.round((completedCount / world.lessons.length) * 100) : 0;
+    const pct = world.lessons.length  Math.round((completedCount / world.lessons.length) * 100) : 0;
     const nextLesson = world.lessons.find((lesson) => !progress.completedLessons.includes(lesson.id)) || null;
 
     const card = document.createElement("section");
@@ -46,7 +46,7 @@ function renderMap(progress) {
           <div class="world-card__chips">
             <span class="world-card__chip">${completedCount}/${world.lessons.length} cleared</span>
             <span class="world-card__chip">${earnedXp}/${totalXp} XP banked</span>
-            <span class="world-card__chip">${nextLesson ? `Up next: ${nextLesson.title}` : "World mastered"}</span>
+            <span class="world-card__chip">${nextLesson  `Up next: ${nextLesson.title}` : "World mastered"}</span>
           </div>
         </div>
         <div class="world-card__progress">
@@ -67,14 +67,14 @@ function renderMap(progress) {
       chip.className = "level-node";
       const flatIndex = flatLessons.findIndex((entry) => entry.lesson.id === lesson.id);
       const previous = flatLessons[flatIndex - 1];
-      const unlocked = flatIndex === 0 || progress.completedLessons.includes(previous?.lesson?.id);
+      const unlocked = flatIndex === 0 || progress.completedLessons.includes(previous.lesson.id);
       const completed = progress.completedLessons.includes(lesson.id);
       const isCurrent = unlocked && !completed;
       const laneOffsets = [0, 84, -84, 84, 0];
-      const status = completed ? "Cleared" : isCurrent ? "Play now" : unlocked ? "Ready" : "Locked";
+      const status = completed  "Cleared" : isCurrent  "Play now" : unlocked  "Ready" : "Locked";
       chip.style.setProperty("--lane-offset", `${laneOffsets[lessonIndex % laneOffsets.length]}px`);
 
-      chip.classList.add(unlocked ? "unlocked" : "locked");
+      chip.classList.add(unlocked  "unlocked" : "locked");
       if (completed) chip.classList.add("completed");
       if (isCurrent) chip.classList.add("current");
       chip.setAttribute("type", "button");

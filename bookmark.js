@@ -240,14 +240,14 @@
     try { return JSON.parse(localStorage.getItem(NOTES_KEY) || '[]'); } catch (_) { return []; }
   }
   function saveNotes(notes) {
-    localStorage.setItem(NOTES_KEY, JSON.stringify(Array.isArray(notes) ? notes : []));
+    localStorage.setItem(NOTES_KEY, JSON.stringify(Array.isArray(notes)  notes : []));
   }
 
   function getBookmarks() {
     try { return JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '[]'); } catch (_) { return []; }
   }
   function saveBookmarks(bookmarks) {
-    localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(Array.isArray(bookmarks) ? bookmarks : []));
+    localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(Array.isArray(bookmarks)  bookmarks : []));
   }
 
   function renderNotes() {
@@ -260,7 +260,7 @@
     }
     list.innerHTML = notes.map(note => `
       <div class="bm-item" data-note-id="${String(note.id)}">
-        <div class="bm-item-title">${(note.lesson && note.lesson.name) ? escapeHtml(note.lesson.name) : 'General'}</div>
+        <div class="bm-item-title">${(note.lesson && note.lesson.name)  escapeHtml(note.lesson.name) : 'General'}</div>
         <div class="bm-item-text">${escapeHtml(String(note.text || ''))}</div>
         <div class="bm-item-date">${escapeHtml(String(note.date || ''))}</div>
         <button class="bm-item-delete" type="button" data-del-note="${String(note.id)}">✕</button>
@@ -356,7 +356,7 @@
       const saveNoteBtn = e.target.closest('#bm-save-note');
       if (saveNoteBtn) {
         const input = document.getElementById('bm-note-input');
-        const text = (input && input.value) ? input.value.trim() : '';
+        const text = (input && input.value)  input.value.trim() : '';
         if (!text) return;
         const notes = getNotes();
         notes.unshift({

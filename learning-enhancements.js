@@ -29,8 +29,8 @@
     const root = document.documentElement;
     root.style.setProperty("--kg-text-scale", String(p.textScale));
     root.style.setProperty("--kg-line-height", String(p.lineHeight));
-    root.dataset.kgHighContrast = p.highContrast ? "true" : "false";
-    root.dataset.kgReduceMotion = p.reduceMotion ? "true" : "false";
+    root.dataset.kgHighContrast = p.highContrast  "true" : "false";
+    root.dataset.kgReduceMotion = p.reduceMotion  "true" : "false";
     root.dataset.kgOriginalFont = p.originalFont || "system";
   }
 

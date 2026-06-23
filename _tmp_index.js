@@ -42,7 +42,7 @@
         setErr("Firebase failed to load. Please try again.");
       }
 
-      if (auth && auth.setPersistence && firebase?.auth?.Auth?.Persistence?.LOCAL) {
+      if (auth && auth.setPersistence && firebase.auth.Auth.Persistence.LOCAL) {
         await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
       }
 
@@ -52,7 +52,7 @@
         const snap = await ref.get();
         if (snap.exists) return;
 
-        const display = user.displayName || (user.email ? String(user.email).split('@')[0] : 'Learner') || 'Learner';
+        const display = user.displayName || (user.email  String(user.email).split('@')[0] : 'Learner') || 'Learner';
         const username = '@' + String(display).toLowerCase().replace(/\s/g,'').replace(/[^a-z0-9_]/g,'').slice(0, 18);
         await ref.set({
           displayName: display,
@@ -106,7 +106,7 @@
           window.location.href = 'language-home.html';
         }catch(e){
           console.error(e);
-          setErr(e && e.message ? e.message : "Could not sign in. Please try again.");
+          setErr(e && e.message  e.message : "Could not sign in. Please try again.");
         }finally{
           googleBtn.disabled = false;
         }
@@ -114,7 +114,7 @@
 
       function setEmailErr(msg){ emailErr.textContent = msg || ''; }
       function mapAuthError(e){
-        const code = (e && e.code) ? String(e.code) : '';
+        const code = (e && e.code)  String(e.code) : '';
         const map = {
           'auth/invalid-email': 'That email address looks invalid.',
           'auth/user-disabled': 'This account has been disabled.',
@@ -126,7 +126,7 @@
           'auth/missing-email': 'Enter your email address first.',
           'auth/missing-password': 'Enter your password first.'
         };
-        return map[code] || (e && e.message ? e.message : 'Could not sign in. Please try again.');
+        return map[code] || (e && e.message  e.message : 'Could not sign in. Please try again.');
       }
 
       function updateModeUi(){
@@ -143,7 +143,7 @@
       updateModeUi();
 
       toggleModeBtn.addEventListener('click', function(){
-        mode = (mode === 'signin') ? 'signup' : 'signin';
+        mode = (mode === 'signin')  'signup' : 'signin';
         setEmailErr('');
         updateModeUi();
       });
@@ -152,7 +152,7 @@
         if (!auth) { setEmailErr("Firebase isn't ready yet."); return; }
         setEmailErr('');
         const email = String(emailInput.value || '').trim();
-        if (!email) { setEmailErr('Enter your email first, then click "Forgot Password?".'); return; }
+        if (!email) { setEmailErr('Enter your email first, then click "Forgot Password".'); return; }
         forgotBtn.disabled = true;
         try{
           await auth.sendPasswordResetEmail(email);

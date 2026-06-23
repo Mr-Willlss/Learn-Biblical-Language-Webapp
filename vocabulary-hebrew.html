@@ -1,13 +1,13 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Biblical Hebrew">
-  <title>Vocabulary â€¢ Biblical Hebrew</title>
+  <title>Vocabulary • Biblical Hebrew</title>
   <script src="progress-manager.js"></script>
   <script src="game-data.js"></script>
   <script src="hebrew-lesson-data.js"></script>
@@ -53,7 +53,7 @@
     body[data-page="rewards"] .nav a[href="rewards-hebrew.html"],
     body[data-page="friends"] .nav a[href="friends-hebrew.html"],
     body[data-page="study-room"] .nav a[href="study-room-hebrew.html"],
-    body[data-page="profile"] .nav a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .nav a[href="profile.htmllang=hebrew"]{
       background:linear-gradient(180deg, rgba(124,92,252,0.18), rgba(124,92,252,0.08));
       border-color:rgba(124,92,252,0.3);
       color:var(--tw);
@@ -146,7 +146,7 @@
     body[data-page="lessons"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="lesson"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="friends"] .bottomTabs a[href="friends-hebrew.html"],
-    body[data-page="profile"] .bottomTabs a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .bottomTabs a[href="profile.htmllang=hebrew"]{
       border-color:rgba(124,92,252,0.35);
       background:rgba(124,92,252,0.10);
       color:var(--tw);
@@ -176,7 +176,7 @@
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Hebrew home">
-        <div class="sbLogo" aria-hidden="true"><span>××‘</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>אב</span></div>
         <div>
           <div class="sbTitle">Biblical Hebrew</div>
 
@@ -185,33 +185,33 @@
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard-hebrew.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
-          <a href="practice-hebrew.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
-          <a href="lessons-hebrew.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
-          <a href="quests-hebrew.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
+          <a href="dashboard-hebrew.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
+          <a href="practice-hebrew.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
+          <a href="lessons-hebrew.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
+          <a href="quests-hebrew.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary-hebrew.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard-hebrew.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards-hebrew.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary-hebrew.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard-hebrew.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards-hebrew.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends-hebrew.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
-          <a href="study-room-hebrew.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
+          <a href="friends-hebrew.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
+          <a href="study-room-hebrew.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="profile.html?lang=hebrew"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
+          <a href="profile.htmllang=hebrew"><span class="ic">👤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -220,24 +220,24 @@
       <header id="top-bar">
         <div class="tbLeft">
           <div class="tbTitle">Vocabulary</div>
-          <div class="tbSub">Browse â€¢ Search â€¢ Favorites â€¢ Flashcards</div>
+          <div class="tbSub">Browse • Search • Favorites • Flashcards</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span>ðŸ”¥</span><b id="streakVal">â€”</b></div>
-          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span>🔥</span><b id="streakVal">—</b></div>
+          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
+            <div class="avatar" id="avatar"><span>👤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level â€”</div>
+              <div class="l" id="userLevel">Level —</div>
             </div>
           </div>
         </div>
       </header>
       <main id="content">
         <div class="toolbar" aria-label="Vocabulary toolbar">
-          <input class="input" id="search" placeholder="Search Greek / Englishâ€¦" autocomplete="off" />
+          <input class="input" id="search" placeholder="Search Greek / English…" autocomplete="off" />
           <select class="select" id="lessonFilter" aria-label="Filter by lesson">
             <option value="all">All lessons</option>
           </select>
@@ -248,7 +248,7 @@
             <option value="adjective">Adjective</option>
             <option value="particle">Particle</option>
           </select>
-          <button class="btn" id="flashBtn" type="button">Flashcard mode â†’</button>
+          <button class="btn" id="flashBtn" type="button">Flashcard mode →</button>
         </div>
 
         <div class="tabsBar">
@@ -256,7 +256,7 @@
           <button class="tabBtn" id="tabFav" type="button">My Words</button>
         </div>
 
-        <div class="stats" id="stats">Loadingâ€¦</div>
+        <div class="stats" id="stats">Loading…</div>
         <section class="grid" id="grid" aria-label="Vocabulary cards"></section>
       </main>
     </div>
@@ -264,11 +264,11 @@
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard-hebrew.html"><div>ðŸ </div><div>Home</div></a>
-      <a class="tab" href="practice-hebrew.html"><div>ðŸŽ¯</div><div>Practice</div></a>
-      <a class="tab" href="lessons-hebrew.html"><div>ðŸ“š</div><div>Lessons</div></a>
-      <a class="tab" href="friends-hebrew.html"><div>ðŸ‘¥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html?lang=hebrew"><div>ðŸ‘¤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard-hebrew.html"><div>🏠</div><div>Home</div></a>
+      <a class="tab" href="practice-hebrew.html"><div>🎯</div><div>Practice</div></a>
+      <a class="tab" href="lessons-hebrew.html"><div>📚</div><div>Lessons</div></a>
+      <a class="tab" href="friends-hebrew.html"><div>👥</div><div>Friends</div></a>
+      <a class="tab" href="profile.htmllang=hebrew"><div>👤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -310,7 +310,7 @@
       const langFromUrl = urlParams.get('lang');
       if (langFromUrl === 'hebrew') { _isHebrew = true; return true; }
       if (langFromUrl === 'greek') { _isHebrew = false; return false; }
-      const activeLang = window.getActiveLanguage ? window.getActiveLanguage() : '';
+      const activeLang = window.getActiveLanguage  window.getActiveLanguage() : '';
       if (activeLang === 'hebrew') { _isHebrew = true; return true; }
       _isHebrew = window.location.pathname.includes('-hebrew.');
       return _isHebrew;
@@ -321,7 +321,7 @@
       const dot = document.getElementById('toastDot');
       const t = document.getElementById('toastTitle');
       const m = document.getElementById('toastMsg');
-      dot.className = 'dot ' + (type === 'good' ? 'good' : type === 'bad' ? 'bad' : 'info');
+      dot.className = 'dot ' + (type === 'good'  'good' : type === 'bad'  'bad' : 'info');
       t.textContent = title;
       m.textContent = msg;
       el.classList.add('show');
@@ -378,7 +378,7 @@
       if (window.getLessonDataMap) return window.getLessonDataMap();
       if (window.HEBREW_LESSON_DATA) return window.HEBREW_LESSON_DATA;
       if (window.LESSON_DATA) return window.LESSON_DATA;
-      throw new Error("Lesson data not found â€” ensure game-data.js or hebrew-lesson-data.js is loaded.");
+      throw new Error("Lesson data not found — ensure game-data.js or hebrew-lesson-data.js is loaded.");
     }
 
     function vocabFromLessons(LESSON_DATA, lessonsMax) {
@@ -394,13 +394,13 @@
       const t = (text || '')
         .normalize('NFD')
         .replace(/[\\u0300-\\u036f]/g,'')
-        .replace(/[á¾¿á¿€á¿¾Î‡Â·Î„`Í‚]/g,'');
+        .replace(/[᾿῀῾··΄`͂]/g,'');
       const map = {
-        'Î±':'a','Î²':'b','Î³':'g','Î´':'d','Îµ':'e','Î¶':'z','Î·':'e','Î¸':'th','Î¹':'i','Îº':'k','Î»':'l','Î¼':'m','Î½':'n','Î¾':'x','Î¿':'o','Ï€':'p','Ï':'r','Ïƒ':'s','Ï‚':'s','Ï„':'t','Ï…':'u','Ï†':'ph','Ï‡':'ch','Ïˆ':'ps','Ï‰':'o',
-        'Î‘':'a','Î’':'b','Î“':'g','Î”':'d','Î•':'e','Î–':'z','Î—':'e','Î˜':'th','Î™':'i','Îš':'k','Î›':'l','Îœ':'m','Î':'n','Îž':'x','ÎŸ':'o','Î ':'p','Î¡':'r','Î£':'s','Î¤':'t','Î¥':'u','Î¦':'ph','Î§':'ch','Î¨':'ps','Î©':'o'
+        'α':'a','β':'b','γ':'g','δ':'d','ε':'e','ζ':'z','η':'e','θ':'th','ι':'i','κ':'k','λ':'l','μ':'m','ν':'n','ξ':'x','ο':'o','π':'p','ρ':'r','σ':'s','ς':'s','τ':'t','υ':'u','φ':'ph','χ':'ch','ψ':'ps','ω':'o',
+        'Α':'a','Β':'b','Γ':'g','Δ':'d','Ε':'e','Ζ':'z','Η':'e','Θ':'th','Ι':'i','Κ':'k','Λ':'l','Μ':'m','Ν':'n','Ξ':'x','Ο':'o','Π':'p','Ρ':'r','Σ':'s','Τ':'t','Υ':'u','Φ':'ph','Χ':'ch','Ψ':'ps','Ω':'o'
       };
       let out = '';
-      for (const ch of t) out += (map[ch] != null) ? map[ch] : ch;
+      for (const ch of t) out += (map[ch] != null)  map[ch] : ch;
       return out.toLowerCase();
     }
 
@@ -409,7 +409,7 @@
       if (en.startsWith('i ')) return 'verb';
       const particles = new Set([
         'and / also','and / also / even','but','for / because','that / because','that','because',
-        'now','then','today','tomorrow','yesterday','where?','where','here','there','again','always','no longer'
+        'now','then','today','tomorrow','yesterday','where','where','here','there','again','always','no longer'
       ]);
       if (particles.has(en)) return 'particle';
       const adjectives = new Set(['free','good / beautiful','righteous / just','blessed / happy','bad / evil','small / little',"one's own",'younger','very much / greatly']);
@@ -420,14 +420,14 @@
     function keyOf(v){ return `${v.greek}|${v.english}`; }
 
     function setTopUser(user, data) {
-      const xp = Number.isFinite(data?.xp) ? data.xp : 0;
+      const xp = Number.isFinite(data.xp)  data.xp : 0;
       const lvl = calcLevel(xp);
-      document.getElementById('userName').textContent = (data?.displayName || user?.displayName || user?.email || (user?.email || 'User'));
-      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} â€¢ ${lvl.title}` : 'Level';
-      document.getElementById('streakVal').textContent = String(Number.isFinite(data?.streak) ? data.streak : 0);
-      document.getElementById('heartsVal').textContent = String(Number.isFinite(data?.hearts) ? data.hearts : 5);
+      document.getElementById('userName').textContent = (data.displayName || user.displayName || user.email || (user.email || 'User'));
+      document.getElementById('userLevel').textContent = user  `Level ${lvl.level} • ${lvl.title}` : 'Level';
+      document.getElementById('streakVal').textContent = String(Number.isFinite(data.streak)  data.streak : 0);
+      document.getElementById('heartsVal').textContent = String(Number.isFinite(data.hearts)  data.hearts : 5);
       const av = document.getElementById('avatar');
-      const url = data?.photoURL || user?.photoURL;
+      const url = data.photoURL || user.photoURL;
       if (url) { av.innerHTML=''; const img=document.createElement('img'); img.alt='Avatar'; img.src=url; av.appendChild(img); }
     }
 
@@ -440,20 +440,20 @@
 
     async function initPage(user){
       detectLanguage();
-      const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
-      const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
-      document.title = `Vocabulary â€¢ ${langLabel}`;
+      const lang = window.getActiveLanguage  window.getActiveLanguage() : 'greek';
+      const langLabel = window.getLanguageLabel  window.getLanguageLabel(lang) : (lang === 'hebrew'  'Biblical Hebrew' : 'Biblical Hebrew');
+      document.title = `Vocabulary • ${langLabel}`;
       const brandTitle = document.querySelector('.sbTitle');
       const brandSub = document.querySelector('.sbSub');
       const brandLink = document.querySelector('.sbBrand');
       if (brandTitle) brandTitle.textContent = langLabel;
       if (brandSub) brandSub.textContent = langLabel;
-      if (brandLink) brandLink.href = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
+      if (brandLink) brandLink.href = lang === 'hebrew'  'dashboard-hebrew.htmllang=hebrew' : 'dashboard.html';
       // Fix search placeholder
-      document.getElementById('search').placeholder = _isHebrew ? 'Search Hebrew / Englishâ€¦' : 'Search Greek / Englishâ€¦';
+      document.getElementById('search').placeholder = _isHebrew  'Search Hebrew / English…' : 'Search Greek / English…';
       // Fix flashcard mode link
       document.getElementById('flashBtn').addEventListener('click', () => {
-        location.href = _isHebrew ? 'practice-hebrew.html?lang=hebrew' : 'practice.html';
+        location.href = _isHebrew  'practice-hebrew.htmllang=hebrew' : 'practice.html';
       });
       wireSignOut(user);
       if (window.applyLanguageScope) {
@@ -466,34 +466,34 @@
 
       if (user) {
         const snap = await db.collection('users').doc(user.uid).get();
-        state.userData = snap.exists ? (snap.data() || {}) : {};
+        state.userData = snap.exists  (snap.data() || {}) : {};
         if (window.syncFromFirebase) {
           try { await syncFromFirebase(user.uid); } catch(_) {}
         }
         // Signed-in users still use localStorage progress for unlocking (consistent across pages).
-        const favArr = Array.isArray(state.userData.favorites) ? state.userData.favorites : [];
+        const favArr = Array.isArray(state.userData.favorites)  state.userData.favorites : [];
         state.favorites = new Set(favArr);
         setTopUser(user, state.userData);
       } else {
         setTopUser(null, { hearts:5, streak:0 });
-        const favKey = _isHebrew ? 'heb_fav' : 'gk_fav';
+        const favKey = _isHebrew  'heb_fav' : 'gk_fav';
         state.favorites = new Set(JSON.parse(sessionStorage.getItem(favKey) || '[]'));
       }
 
-      const prog = (window.Progress && Progress.getProgress) ? Progress.getProgress() : { completedLessons: [] };
-      state.unlockedLessons = (window.Progress && Progress.getUnlockedLessons) ? Progress.getUnlockedLessons() : [1];
-      state.completedLessons = Array.isArray(prog.completedLessons) ? prog.completedLessons.slice().sort((a,b)=>a-b) : [];
-      const maxUnlocked = state.unlockedLessons.length ? Math.max(...state.unlockedLessons) : 1;
+      const prog = (window.Progress && Progress.getProgress)  Progress.getProgress() : { completedLessons: [] };
+      state.unlockedLessons = (window.Progress && Progress.getUnlockedLessons)  Progress.getUnlockedLessons() : [1];
+      state.completedLessons = Array.isArray(prog.completedLessons)  prog.completedLessons.slice().sort((a,b)=>a-b) : [];
+      const maxUnlocked = state.unlockedLessons.length  Math.max(...state.unlockedLessons) : 1;
 
       let LESSON_DATA = null;
       try { LESSON_DATA = await loadLessonData(); }
       catch(e){ console.error(e); showToast("Could not load lesson content.", "bad", "Data error"); }
-      if (LESSON_DATA) state.vocab = vocabFromLessons(LESSON_DATA, window.getLessonMax ? window.getLessonMax() : maxUnlocked);
+      if (LESSON_DATA) state.vocab = vocabFromLessons(LESSON_DATA, window.getLessonMax  window.getLessonMax() : maxUnlocked);
 
       // Populate lesson filter
       const lf = document.getElementById('lessonFilter');
       if (_isHebrew) {
-        const total = window.getLessonMax ? window.getLessonMax() : 24;
+        const total = window.getLessonMax  window.getLessonMax() : 24;
         const titles = {};
         if (window.HEBREW_LESSON_DATA) {
           Object.values(window.HEBREW_LESSON_DATA).forEach(l => { titles[l.id] = l.title; });
@@ -502,7 +502,7 @@
           Array.from({length:total}, (_,i) => {
             const id = i+1;
             const t = titles[id] || '';
-            return `<option value="${id}">Lesson ${id}${t ? ' Â· ' + t : ''}</option>`;
+            return `<option value="${id}">Lesson ${id}${t  ' · ' + t : ''}</option>`;
           }).join('');
       } else {
         lf.innerHTML = `<option value="all">All lessons</option>` +
@@ -514,7 +514,7 @@
         const lesson = document.getElementById('lessonFilter').value;
         const type = document.getElementById('typeFilter').value;
         const source = state.tab === 'fav'
-          ? state.vocab.filter(v => state.favorites.has(keyOf(v)))
+           state.vocab.filter(v => state.favorites.has(keyOf(v)))
           : state.vocab;
         return source.filter(v => {
           if (lesson !== 'all' && String(v.lessonId) !== lesson) return false;
@@ -524,7 +524,7 @@
           const e = (v.english || '').toLowerCase();
           const ex = (v.example || '').toLowerCase();
           const ln = String(v.lessonId || '');
-          const r = _isHebrew ? '' : romanizeGreek(v.greek || '');
+          const r = _isHebrew  '' : romanizeGreek(v.greek || '');
           return g.includes(q) || e.includes(q) || ex.includes(q) || r.includes(q) || ln.includes(q);
         });
       }
@@ -536,15 +536,15 @@
         const favCount = [...state.favorites].length;
         document.getElementById('stats').textContent =
           total
-            ? (_isHebrew
-              ? `Showing ${list.length} of ${total} words (Hebrew) â€¢ Favorites: ${favCount}`
-              : `Showing ${list.length} of ${total} words â€¢ Favorites: ${favCount}`)
+             (_isHebrew
+               `Showing ${list.length} of ${total} words (Hebrew) • Favorites: ${favCount}`
+              : `Showing ${list.length} of ${total} words • Favorites: ${favCount}`)
             : "Complete Lesson 1 to unlock vocabulary.";
         grid.innerHTML = '';
         if (!total || state.completedLessons.length === 0) {
           // Preview of Lesson 1 for brand new users.
           const previewData = _isHebrew
-            ? (window.HEBREW_LESSON_DATA && window.HEBREW_LESSON_DATA[1] && window.HEBREW_LESSON_DATA[1].vocabulary)
+             (window.HEBREW_LESSON_DATA && window.HEBREW_LESSON_DATA[1] && window.HEBREW_LESSON_DATA[1].vocabulary)
             : (window.LESSON_DATA && window.LESSON_DATA[1] && Array.isArray(window.LESSON_DATA[1].vocabulary) && window.LESSON_DATA[1].vocabulary);
           if (previewData && previewData.length) {
             const sample = previewData.slice(0,5);
@@ -554,11 +554,11 @@
                 <div class="ex">Complete Lesson 1 (60%+) to unlock full vocabulary browsing.</div>
                 <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
                   ${sample.map(v => {
-                    const script = _isHebrew ? `<span class="hebrew-vocab-card" style="font-size:18px">${wordText(v)}</span>` : `<span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span>`;
-                    return `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px">${script} â€” ${v.english}</span>`;
+                    const script = _isHebrew  `<span class="hebrew-vocab-card" style="font-size:18px">${wordText(v)}</span>` : `<span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span>`;
+                    return `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px">${script} — ${v.english}</span>`;
                   }).join('')}
                 </div>
-                <div style="margin-top:12px"><a class="btn" href="lesson-hebrew.html?lesson=1&lang=hebrew">Start Lesson 1 â†’</a></div>
+                <div style="margin-top:12px"><a class="btn" href="lesson-hebrew.htmllesson=1&lang=hebrew">Start Lesson 1 →</a></div>
               </div>
             `;
           } else if (window.LESSON_DATA && window.LESSON_DATA[1] && Array.isArray(window.LESSON_DATA[1].vocabulary)) {
@@ -568,9 +568,9 @@
                 <div class="en">Preview words from Lesson 1</div>
                 <div class="ex">Complete Lesson 1 (60%+) to unlock full vocabulary browsing.</div>
                 <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
-                  ${sample.map(v => `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px"><span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span> â€” ${v.english}</span>`).join('')}
+                  ${sample.map(v => `<span style="border:1px solid var(--border);background:rgba(255,255,255,0.02);border-radius:999px;padding:6px 10px"><span style="font-family:'Times New Roman',Georgia,serif">${wordText(v)}</span> — ${v.english}</span>`).join('')}
                 </div>
-                <div style="margin-top:12px"><a class="btn" href="lesson-player.html?lesson=1">Start Lesson 1 â†’</a></div>
+                <div style="margin-top:12px"><a class="btn" href="lesson-player.htmllesson=1">Start Lesson 1 →</a></div>
               </div>
             `;
           }
@@ -600,7 +600,7 @@
           } else if (window.LESSON_DATA && window.LESSON_DATA[lid]) {
             lessonTitle = window.LESSON_DATA[lid].title || '';
           }
-          header.innerHTML = `<div class="en">Lesson ${lid}${lessonTitle ? ' Â· ' + lessonTitle : ''}</div><div class="ex">${lessonDone ? 'Unlocked' : lessonUnlocked ? 'In progress (words locked until completion)' : 'Locked'}</div>`;
+          header.innerHTML = `<div class="en">Lesson ${lid}${lessonTitle  ' · ' + lessonTitle : ''}</div><div class="ex">${lessonDone  'Unlocked' : lessonUnlocked  'In progress (words locked until completion)' : 'Locked'}</div>`;
           grid.appendChild(header);
 
           (byLesson.get(lid) || []).forEach(v => {
@@ -609,11 +609,11 @@
             const card = document.createElement('div');
             card.className = 'card';
             const locked = !lessonDone;
-            card.style.filter = locked ? 'blur(0.3px)' : '';
-            card.style.opacity = locked ? '0.65' : '';
+            card.style.filter = locked  'blur(0.3px)' : '';
+            card.style.opacity = locked  '0.65' : '';
             if (_isHebrew) {
               card.innerHTML = `
-                <button class="star ${fav ? 'on':''}" type="button" title="${fav ? 'Unstar' : 'Star'}">${fav ? 'â˜…' : 'â˜†'}</button>
+                <button class="star ${fav  'on':''}" type="button" title="${fav  'Unstar' : 'Star'}">${fav  '★' : '☆'}</button>
                 <div class="mixed-card">
                   <span class="hebrew-vocab-card">${wordText(v)}</span>
                   <div>
@@ -626,9 +626,9 @@
               `;
             } else {
               card.innerHTML = `
-                <button class="star ${fav ? 'on':''}" type="button" title="${fav ? 'Unstar' : 'Star'}">${fav ? 'â˜…' : 'â˜†'}</button>
+                <button class="star ${fav  'on':''}" type="button" title="${fav  'Unstar' : 'Star'}">${fav  '★' : '☆'}</button>
                 <div class="gr">${wordText(v)}</div>
-                <div class="en">${v.english} ${locked ? '<span style=\"margin-left:6px\">ðŸ”’</span>' : ''}</div>
+                <div class="en">${v.english} ${locked  '<span style=\"margin-left:6px\">🔒</span>' : ''}</div>
                 <div class="ex">${v.example || ''}</div>
                 <div class="meta">Lesson ${v.lessonId}</div>
               `;
@@ -644,7 +644,7 @@
                   showToast("Could not save favorite.", "bad", "Save failed");
                 }
               } else {
-                const favKey = _isHebrew ? 'heb_fav' : 'gk_fav';
+                const favKey = _isHebrew  'heb_fav' : 'gk_fav';
                 sessionStorage.setItem(favKey, JSON.stringify([...state.favorites]));
               }
               render();

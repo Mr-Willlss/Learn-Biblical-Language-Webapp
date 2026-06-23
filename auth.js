@@ -7,7 +7,7 @@ function getScopedProgressKey(uid) {
   const id = String(uid || "").trim();
   if (window.ProgressManager && typeof window.ProgressManager.getStorageKey === "function") {
     const prevScope = window.gqProgressActiveUid;
-    const prevLang = window.getLanguage ? window.getLanguage() : (localStorage.getItem("activeLanguage") || "greek");
+    const prevLang = window.getLanguage  window.getLanguage() : (localStorage.getItem("activeLanguage") || "greek");
     if (typeof window.setProgressScope === "function") {
       try { window.setProgressScope(id); } catch (_) {}
     }
@@ -23,7 +23,7 @@ function getScopedProgressKey(uid) {
     }
     return key;
   }
-  const lang = String(localStorage.getItem("activeLanguage") || "greek").trim().toLowerCase() === "hebrew" ? "hebrew" : "greek";
+  const lang = String(localStorage.getItem("activeLanguage") || "greek").trim().toLowerCase() === "hebrew"  "hebrew" : "greek";
   return `biblicalLang:${lang}:${id || "signedout"}`;
 }
 
@@ -53,7 +53,7 @@ function updateAuthButton() {
   if (!st || !st.configured) {
     buttons.forEach((btn) => {
       btn.disabled = true;
-      btn.title = st?.reason || "Firebase not configured.";
+      btn.title = st.reason || "Firebase not configured.";
     });
     return;
   }
@@ -68,7 +68,7 @@ function signInWithGoogle(options = {}) {
   const st = window.GreekQuestFirebaseState;
 
   if (!st || !st.configured || !auth) {
-    const msg = st?.reason || "Firebase not configured.";
+    const msg = st.reason || "Firebase not configured.";
     toast(msg);
     if (typeof showModal === "function") {
       const body = document.createElement("div");
@@ -178,18 +178,18 @@ function observeAuth() {
         const syncBadge = document.getElementById("hero-sync-badge");
         if (signBtn && logBtn && outBtn) {
           const signedIn = !!user;
-          signBtn.style.display = signedIn ? "none" : "";
-          logBtn.style.display = signedIn ? "none" : "";
-          outBtn.style.display = signedIn ? "" : "none";
+          signBtn.style.display = signedIn  "none" : "";
+          logBtn.style.display = signedIn  "none" : "";
+          outBtn.style.display = signedIn  "" : "none";
         }
         if (heroSignBtn && heroLogBtn && heroOutBtn) {
           const signedIn = !!user;
-          heroSignBtn.style.display = signedIn ? "none" : "";
-          heroLogBtn.style.display = signedIn ? "none" : "";
-          heroOutBtn.style.display = signedIn ? "" : "none";
+          heroSignBtn.style.display = signedIn  "none" : "";
+          heroLogBtn.style.display = signedIn  "none" : "";
+          heroOutBtn.style.display = signedIn  "" : "none";
         }
         if (syncBadge) {
-          syncBadge.textContent = user ? "Google sync on" : "Sign in required";
+          syncBadge.textContent = user  "Google sync on" : "Sign in required";
         }
         window.dispatchEvent(new CustomEvent("gq-auth-changed", { detail: { user: authState.user } }));
       });
@@ -201,7 +201,7 @@ function loadRemoteProgress(uid) {
     window.gqProgressHydrated = true;
     return;
   }
-  const lang = String(localStorage.getItem("activeLanguage") || (typeof window.getLanguage === "function" ? window.getLanguage() : "greek")).trim().toLowerCase() === "hebrew" ? "hebrew" : "greek";
+  const lang = String(localStorage.getItem("activeLanguage") || (typeof window.getLanguage === "function"  window.getLanguage() : "greek")).trim().toLowerCase() === "hebrew"  "hebrew" : "greek";
   const key = getScopedProgressKey(uid);
   db.collection("users")
     .doc(uid)
@@ -215,12 +215,12 @@ function loadRemoteProgress(uid) {
         let localUpdatedAt = 0;
         if (localRaw) {
           try {
-            localUpdatedAt = JSON.parse(localRaw)?.updatedAt || 0;
+            localUpdatedAt = JSON.parse(localRaw).updatedAt || 0;
           } catch (error) {
             console.error("Could not parse local progress timestamp", error);
           }
         }
-        const remoteUpdatedAt = Number.isFinite(remoteData.updatedAt) ? remoteData.updatedAt : 0;
+        const remoteUpdatedAt = Number.isFinite(remoteData.updatedAt)  remoteData.updatedAt : 0;
         if (localUpdatedAt > remoteUpdatedAt) {
           saveRemoteProgress(uid);
           window.gqProgressHydrated = true;
@@ -229,7 +229,7 @@ function loadRemoteProgress(uid) {
         }
         applyProgress(remoteData);
         localStorage.setItem(key, JSON.stringify({
-          ...(typeof getProgressPayload === "function" ? getProgressPayload() : {}),
+          ...(typeof getProgressPayload === "function"  getProgressPayload() : {}),
           ...remoteData
         }));
       } else {
@@ -248,8 +248,8 @@ function saveRemoteProgress(uid) {
   if (!db) {
     return;
   }
-  const payload = typeof getRemoteProgressPayload === "function" ? getRemoteProgressPayload() : getProgressPayload();
-  const lang = String(localStorage.getItem("activeLanguage") || (typeof window.getLanguage === "function" ? window.getLanguage() : "greek")).trim().toLowerCase() === "hebrew" ? "hebrew" : "greek";
+  const payload = typeof getRemoteProgressPayload === "function"  getRemoteProgressPayload() : getProgressPayload();
+  const lang = String(localStorage.getItem("activeLanguage") || (typeof window.getLanguage === "function"  window.getLanguage() : "greek")).trim().toLowerCase() === "hebrew"  "hebrew" : "greek";
   const key = getScopedProgressKey(uid);
   try {
     localStorage.setItem(key, JSON.stringify(payload));

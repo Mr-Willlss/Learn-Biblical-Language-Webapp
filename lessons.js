@@ -110,7 +110,7 @@ function seededShuffleTokens(tokens, seedKey) {
 
 function getLessonVocab(lessonNum, vocab, count) {
   const pool = (vocab || []).filter((v) => !lessonNum || v.lesson === lessonNum);
-  const pick = pool.length ? pool : (vocab || []);
+  const pick = pool.length  pool : (vocab || []);
   const shuffled = shuffleItems(pick);
   if (shuffled.length >= count) {
     return shuffled.slice(0, count);
@@ -127,7 +127,7 @@ function getLessonVocab(lessonNum, vocab, count) {
 function buildSentenceExercise(lessonNum, vocab, seedKey = "") {
   const pool = (vocab || []).filter((v) => !lessonNum || v.lesson === lessonNum);
   const reviewPool = (vocab || []).filter((v) => lessonNum > 1 && v.lesson === lessonNum - 1);
-  const pick = pool.length ? pool : (vocab || []);
+  const pick = pool.length  pool : (vocab || []);
   const words = pick
     .map((v) => v.greek || v.transliteration || "")
     .filter((w) => w && w.trim().length > 0);
@@ -155,7 +155,7 @@ function buildSentenceExercise(lessonNum, vocab, seedKey = "") {
     type: "sentence-builder",
     prompt: "Build the sentence (tap the words in order).",
     sentence: sentenceWords.join(" "),
-    tokens: seedKey ? seededShuffleTokens(sentenceWords, `${seedKey}-sentence`) : shuffleTokens(sentenceWords)
+    tokens: seedKey  seededShuffleTokens(sentenceWords, `${seedKey}-sentence`) : shuffleTokens(sentenceWords)
   };
 }
 
@@ -167,17 +167,17 @@ function buildLessonExercises(lesson, vocab, seedKey = "") {
   const exercises = [
     // New material
     { type: "vocab-recognition", prompt: "Listen and choose the correct meaning.", vocab: sample[0] },
-    { type: "listening", prompt: "What did you hear?", vocab: sample[1] },
+    { type: "listening", prompt: "What did you hear", vocab: sample[1] },
     { type: "pronunciation", prompt: "Speak the Greek word.", vocab: sample[2] },
     buildSentenceExercise(lessonNum, vocab, seedKey || lesson.id),
     { type: "translation", prompt: "Translate to English.", vocab: sample[3] },
     // Review from previous lesson (builds on prior words)
     { type: "vocab-recognition", prompt: "Review: choose the meaning.", vocab: reviewSample[0] },
-    { type: "listening", prompt: "Review: what did you hear?", vocab: reviewSample[1] },
+    { type: "listening", prompt: "Review: what did you hear", vocab: reviewSample[1] },
     { type: "translation", prompt: "Review: translate to English.", vocab: reviewSample[2] }
   ];
 
-  return seedKey ? seededShuffleItems(exercises, seedKey) : shuffleItems(exercises);
+  return seedKey  seededShuffleItems(exercises, seedKey) : shuffleItems(exercises);
 }
 
 

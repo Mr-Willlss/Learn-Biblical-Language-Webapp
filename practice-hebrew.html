@@ -1,13 +1,13 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Biblical Hebrew">
-  <title>Practice â€¢ Biblical Hebrew</title>
+  <title>Practice • Biblical Hebrew</title>
   <script src="progress-manager.js"></script>
   <script src="game-data.js"></script>
   <script src="hebrew-lesson-data.js"></script>
@@ -54,7 +54,7 @@
     body[data-page="rewards"] .nav a[href="rewards-hebrew.html"],
     body[data-page="friends"] .nav a[href="friends-hebrew.html"],
     body[data-page="study-room"] .nav a[href="study-room-hebrew.html"],
-    body[data-page="profile"] .nav a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .nav a[href="profile.htmllang=hebrew"]{
       background:linear-gradient(180deg, rgba(124,92,252,0.18), rgba(124,92,252,0.08));
       border-color:rgba(124,92,252,0.3);
       color:var(--tw);
@@ -149,7 +149,7 @@
     body[data-page="lessons"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="lesson"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="friends"] .bottomTabs a[href="friends-hebrew.html"],
-    body[data-page="profile"] .bottomTabs a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .bottomTabs a[href="profile.htmllang=hebrew"]{
       border-color:rgba(124,92,252,0.35);
       background:rgba(124,92,252,0.10);
       color:var(--tw);
@@ -177,7 +177,7 @@
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Hebrew home">
-        <div class="sbLogo" aria-hidden="true"><span>××‘</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>אב</span></div>
         <div>
           <div class="sbTitle">Biblical Hebrew</div>
 
@@ -186,33 +186,33 @@
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard-hebrew.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
-          <a href="practice-hebrew.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
-          <a href="lessons-hebrew.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
-          <a href="quests-hebrew.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
+          <a href="dashboard-hebrew.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
+          <a href="practice-hebrew.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
+          <a href="lessons-hebrew.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
+          <a href="quests-hebrew.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary-hebrew.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard-hebrew.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards-hebrew.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary-hebrew.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard-hebrew.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards-hebrew.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends-hebrew.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
-          <a href="study-room-hebrew.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
+          <a href="friends-hebrew.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
+          <a href="study-room-hebrew.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="profile.html?lang=hebrew"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
+          <a href="profile.htmllang=hebrew"><span class="ic">👤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -221,17 +221,17 @@
       <header id="top-bar">
         <div class="tbLeft">
           <div class="tbTitle">Practice</div>
-          <div class="tbSub">Flashcards â€¢ Speed â€¢ Typer â€¢ Conjugation</div>
+          <div class="tbSub">Flashcards • Speed • Typer • Conjugation</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span>ðŸ”¥</span><b id="streakVal">â€”</b></div>
-          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span>🔥</span><b id="streakVal">—</b></div>
+          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
+            <div class="avatar" id="avatar"><span>👤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level â€”</div>
+              <div class="l" id="userLevel">Level —</div>
             </div>
           </div>
         </div>
@@ -256,11 +256,11 @@
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard-hebrew.html"><div>ðŸ </div><div>Home</div></a>
-      <a class="tab" href="practice-hebrew.html"><div>ðŸŽ¯</div><div>Practice</div></a>
-      <a class="tab" href="lessons-hebrew.html"><div>ðŸ“š</div><div>Lessons</div></a>
-      <a class="tab" href="friends-hebrew.html"><div>ðŸ‘¥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html?lang=hebrew"><div>ðŸ‘¤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard-hebrew.html"><div>🏠</div><div>Home</div></a>
+      <a class="tab" href="practice-hebrew.html"><div>🎯</div><div>Practice</div></a>
+      <a class="tab" href="lessons-hebrew.html"><div>📚</div><div>Lessons</div></a>
+      <a class="tab" href="friends-hebrew.html"><div>👥</div><div>Friends</div></a>
+      <a class="tab" href="profile.htmllang=hebrew"><div>👤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -301,7 +301,7 @@
       const dot = document.getElementById('toastDot');
       const t = document.getElementById('toastTitle');
       const m = document.getElementById('toastMsg');
-      dot.className = 'dot ' + (type === 'good' ? 'good' : type === 'bad' ? 'bad' : 'info');
+      dot.className = 'dot ' + (type === 'good'  'good' : type === 'bad'  'bad' : 'info');
       t.textContent = title;
       m.textContent = msg;
       el.classList.add('show');
@@ -327,7 +327,7 @@
         level, title: titles[level-1],
         currentThreshold: thresholds[level-1],
         nextThreshold: thresholds[level] || 99999,
-        progress: level >= thresholds.length ? 100 :
+        progress: level >= thresholds.length  100 :
           Math.round((xp - thresholds[level-1]) / (thresholds[level] - thresholds[level-1]) * 100)
       };
     }
@@ -371,18 +371,18 @@
       }
       if (window.HEBREW_LESSON_DATA) return window.HEBREW_LESSON_DATA;
       if (window.LESSON_DATA) return window.LESSON_DATA;
-      throw new Error("Lesson data not found â€” ensure game-data.js or hebrew-lesson-data.js is loaded.");
+      throw new Error("Lesson data not found — ensure game-data.js or hebrew-lesson-data.js is loaded.");
     }
 
     function setTopUser(user, data) {
-      const xp = Number.isFinite(data?.xp) ? data.xp : 0;
+      const xp = Number.isFinite(data.xp)  data.xp : 0;
       const lvl = calcLevel(xp);
-      document.getElementById('userName').textContent = (data?.displayName || user?.displayName || user?.email || (user?.email || 'User'));
-      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} â€¢ ${lvl.title}` : 'Level';
-      document.getElementById('streakVal').textContent = String(Number.isFinite(data?.streak) ? data.streak : 0);
-      document.getElementById('heartsVal').textContent = String(Number.isFinite(data?.hearts) ? data.hearts : 5);
+      document.getElementById('userName').textContent = (data.displayName || user.displayName || user.email || (user.email || 'User'));
+      document.getElementById('userLevel').textContent = user  `Level ${lvl.level} • ${lvl.title}` : 'Level';
+      document.getElementById('streakVal').textContent = String(Number.isFinite(data.streak)  data.streak : 0);
+      document.getElementById('heartsVal').textContent = String(Number.isFinite(data.hearts)  data.hearts : 5);
       const av = document.getElementById('avatar');
-      const url = data?.photoURL || user?.photoURL;
+      const url = data.photoURL || user.photoURL;
       if (url) { av.innerHTML=''; const img=document.createElement('img'); img.alt='Avatar'; img.src=url; av.appendChild(img); }
     }
 
@@ -396,7 +396,7 @@
     }
 
     function setDeckProgress(done, total) {
-      const pct = total ? Math.round((done/total)*100) : 0;
+      const pct = total  Math.round((done/total)*100) : 0;
       document.getElementById('deckBar').style.width = pct + '%';
     }
 
@@ -429,7 +429,7 @@
       const langFromUrl = urlParams.get('lang');
       if (langFromUrl === 'hebrew') { _isHebrew = true; return true; }
       if (langFromUrl === 'greek') { _isHebrew = false; return false; }
-      const activeLang = window.getActiveLanguage ? window.getActiveLanguage() : '';
+      const activeLang = window.getActiveLanguage  window.getActiveLanguage() : '';
       if (activeLang === 'hebrew') { _isHebrew = true; return true; }
       _isHebrew = window.location.pathname.includes('-hebrew.');
       return _isHebrew;
@@ -438,7 +438,7 @@
     function renderLocked(msg) {
       document.getElementById('panelBody').innerHTML = `
         <div class="locked">
-          <div class="h1">Locked ðŸ”’</div>
+          <div class="h1">Locked 🔒</div>
           <div class="sub">${msg}</div>
           <div class="actions" style="margin-top:12px">
             <a class="btn btnPrimary" href="lessons-hebrew.html">Go to Lessons</a>
@@ -450,7 +450,7 @@
 
     function renderFlashcards(state) {
       setModeTab('tabFlash');
-      const langLabel = _isHebrew ? 'Hebrew' : 'Greek';
+      const langLabel = _isHebrew  'Hebrew' : 'Greek';
       setHeader("Flashcards", `Flip cards with ${langLabel} on the front and English on the back.`);
       const body = document.getElementById('panelBody');
       if (!state.vocab.length) return renderLocked("Complete at least 1 lesson to unlock practice.");
@@ -458,24 +458,24 @@
       let known = 0;
       let flipped = false;
       if (typeof initSpacedRepetition === 'function') initSpacedRepetition(state.vocab);
-      const reviewSource = typeof getReviewItems === 'function' ? getReviewItems(state.vocab) : state.vocab;
-      const deck = shuffle(reviewSource.length ? reviewSource : state.vocab);
+      const reviewSource = typeof getReviewItems === 'function'  getReviewItems(state.vocab) : state.vocab;
+      const deck = shuffle(reviewSource.length  reviewSource : state.vocab);
 
       function draw() {
         setDeckProgress(i, deck.length);
-        const reviewStats = typeof getSpacedRepetitionStats === 'function' ? getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
+        const reviewStats = typeof getSpacedRepetitionStats === 'function'  getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
         const v = deck[i];
-        const frontClass = _isHebrew ? 'hebrew-vocab-card' : 'gr';
+        const frontClass = _isHebrew  'hebrew-vocab-card' : 'gr';
         body.innerHTML = `
           <div class="card">
-            <button class="smallBtn flip" id="flipBtn" type="button">${flipped ? 'Front' : 'Flip'}</button>
-            <div class="${flipped ? 'back' : 'front'}">
-              ${flipped ? `<div><b>${v.english}</b></div><div class="ex">${v.example || ''}</div><div class="hint">Lesson ${v.lessonId}</div>` : `<div class="${frontClass}">${wordText(v, _isHebrew)}</div><div class="hint">Tap Flip to reveal</div>`}
+            <button class="smallBtn flip" id="flipBtn" type="button">${flipped  'Front' : 'Flip'}</button>
+            <div class="${flipped  'back' : 'front'}">
+              ${flipped  `<div><b>${v.english}</b></div><div class="ex">${v.example || ''}</div><div class="hint">Lesson ${v.lessonId}</div>` : `<div class="${frontClass}">${wordText(v, _isHebrew)}</div><div class="hint">Tap Flip to reveal</div>`}
             </div>
           </div>
           <div class="actions">
-            <button class="btn btnPrimary" id="knowBtn" type="button">âœ“ Know it</button>
-            <button class="btn" id="learnBtn" type="button">â†º Still learning</button>
+            <button class="btn btnPrimary" id="knowBtn" type="button">✓ Know it</button>
+            <button class="btn" id="learnBtn" type="button">↺ Still learning</button>
           </div>
           <div class="hint">Progress: ${i}/${deck.length} - Known: ${known} - Due: ${reviewStats.due} - Learning: ${reviewStats.learning} - Mature: ${reviewStats.mature}</div>
         `;
@@ -495,8 +495,8 @@
           setDeckProgress(deck.length, deck.length);
           body.innerHTML = `
             <div class="locked">
-              <div class="h1">Deck complete ðŸŽ‰</div>
-              <div class="sub">Known: ${known} â€¢ Total reviewed: ${deck.length}</div>
+              <div class="h1">Deck complete 🎉</div>
+              <div class="sub">Known: ${known} • Total reviewed: ${deck.length}</div>
               <div class="actions" style="margin-top:12px">
                 <button class="btn btnPrimary" id="againBtn" type="button">Review again</button>
               </div>
@@ -513,7 +513,7 @@
 
     function renderSpeedRound(state) {
       setModeTab('tabSpeed');
-      setHeader("Speed Round", "10 questions â€¢ 20 seconds each â€¢ speed bonus.");
+      setHeader("Speed Round", "10 questions • 20 seconds each • speed bonus.");
       const body = document.getElementById('panelBody');
       if (!state.exercises.length) return renderLocked("Complete at least 1 lesson to unlock speed rounds.");
       const pool = shuffle(state.exercises.filter(x => (x.type === 'multiple_choice' || x.type === 'translate_to_english'))).slice(0, 10);
@@ -540,11 +540,11 @@
         const q = pool[idx];
         body.innerHTML = `
           <div class="row">
-            <div class="pill"><span>â±</span><b class="timer" id="timer">20</b><span style="color:var(--tm)">s</span></div>
-            <div class="pill"><span>ðŸ</span><b>${idx+1}</b><span style="color:var(--tm)">/10</span></div>
-            <div class="pill"><span>â­</span><b>${score}</b></div>
+            <div class="pill"><span>⏱</span><b class="timer" id="timer">20</b><span style="color:var(--tm)">s</span></div>
+            <div class="pill"><span>🏁</span><b>${idx+1}</b><span style="color:var(--tm)">/10</span></div>
+            <div class="pill"><span>⭐</span><b>${score}</b></div>
           </div>
-          <div class="q">${q.type === 'translate_to_english' ? `<span class="${_isHebrew ? 'hebrew-vocab-card' : ''}" style="font-family:'Times New Roman',Georgia,serif;font-size:22px;${_isHebrew ? 'font-size:28px;direction:rtl' : ''}">${q.question}</span>` : q.question}</div>
+          <div class="q">${q.type === 'translate_to_english'  `<span class="${_isHebrew  'hebrew-vocab-card' : ''}" style="font-family:'Times New Roman',Georgia,serif;font-size:22px;${_isHebrew  'font-size:28px;direction:rtl' : ''}">${q.question}</span>` : q.question}</div>
           <div class="opts" id="opts"></div>
           <div class="hint">Correct earns points + speed bonus. No hearts lost in practice.</div>
         `;
@@ -579,11 +579,11 @@
         setDeckProgress(1,1);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Speed Round Complete âš¡</div>
+            <div class="h1">Speed Round Complete ⚡</div>
             <div class="sub">Score: <b style="color:var(--tw)">${score}</b></div>
             <div class="actions" style="margin-top:12px">
               <button class="btn btnPrimary" id="againBtn" type="button">Play again</button>
-              <button class="btn" id="saveBtn" type="button">Save todayâ€™s score</button>
+              <button class="btn" id="saveBtn" type="button">Save today’s score</button>
             </div>
             <div class="hint">Saving requires sign-in. Top scores show on Leaderboard (Practice section).</div>
           </div>
@@ -602,7 +602,7 @@
               score,
               updatedAt: firebase.firestore.Timestamp.now()
             }, { merge:true });
-            showToast("Saved todayâ€™s score!", "good", "Saved");
+            showToast("Saved today’s score!", "good", "Saved");
           }catch(e){
             console.error(e);
             showToast("Could not save score.", "bad", "Save failed");
@@ -621,9 +621,9 @@
       setHeader("Greek Typer", "Type the English meaning of the displayed Greek word.");
       if (!state.vocab.length) return renderLocked("Complete at least 1 lesson to unlock the typer.");
       if (typeof initSpacedRepetition === 'function') initSpacedRepetition(state.vocab);
-      const reviewStats = typeof getSpacedRepetitionStats === 'function' ? getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
-      const reviewSource = typeof getReviewItems === 'function' ? getReviewItems(state.vocab) : state.vocab;
-      const deck = shuffle(reviewSource.length ? reviewSource : state.vocab);
+      const reviewStats = typeof getSpacedRepetitionStats === 'function'  getSpacedRepetitionStats(state.vocab) : { due: state.vocab.length, learning: 0, mature: 0 };
+      const reviewSource = typeof getReviewItems === 'function'  getReviewItems(state.vocab) : state.vocab;
+      const deck = shuffle(reviewSource.length  reviewSource : state.vocab);
       let i = 0;
       let correct = 0;
       function draw(){
@@ -637,10 +637,10 @@
             </div>
           </div>
           <div class="row">
-            <input class="input" id="answer" placeholder="Type Englishâ€¦" autocomplete="off" />
+            <input class="input" id="answer" placeholder="Type English…" autocomplete="off" />
             <button class="btn btnPrimary" id="checkBtn" type="button">Check</button>
           </div>
-          <div class="hint" id="result">Progress: ${i}/${deck.length} â€¢ Correct: ${correct}</div>
+          <div class="hint" id="result">Progress: ${i}/${deck.length} • Correct: ${correct}</div>
         `;
         const input = document.getElementById('answer');
         input.focus();
@@ -649,8 +649,8 @@
           const want = (v.english || '').trim().toLowerCase();
           const ok = got && (want.includes(got) || got === want);
           const res = document.getElementById('result');
-          if (ok) { correct++; res.textContent = `âœ… Correct â€” ${v.english}`; res.style.color = 'rgba(34,197,94,0.95)'; await awardPracticeXp(state, 2); }
-          else { res.textContent = `âŒ ${v.english}`; res.style.color = 'rgba(239,68,68,0.95)'; }
+          if (ok) { correct++; res.textContent = `✅ Correct — ${v.english}`; res.style.color = 'rgba(34,197,94,0.95)'; await awardPracticeXp(state, 2); }
+          else { res.textContent = `❌ ${v.english}`; res.style.color = 'rgba(239,68,68,0.95)'; }
           setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 800);
         }
         document.getElementById('checkBtn').addEventListener('click', check);
@@ -660,7 +660,7 @@
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Typer complete âœ…</div>
+            <div class="h1">Typer complete ✅</div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Play again</button></div>
           </div>
@@ -673,28 +673,28 @@
     function renderHebrewTyper(state, body) {
       setHeader("Hebrew Typer", "See the English sound, type or select the matching Hebrew letter.");
       const hebrewAlphabet = [
-        { letter:'×', name:'Aleph', sound:'silent (glottal stop)' },
-        { letter:'×‘', name:'Bet', sound:'B (or V without dagesh)' },
-        { letter:'×’', name:'Gimel', sound:'G (like "get")' },
-        { letter:'×“', name:'Dalet', sound:'D' },
-        { letter:'×”', name:'He', sound:'H' },
-        { letter:'×•', name:'Vav', sound:'V / W' },
-        { letter:'×–', name:'Zayin', sound:'Z' },
-        { letter:'×—', name:'Khet', sound:'guttural KH (like "Bach")' },
-        { letter:'×˜', name:'Tet', sound:'T (emphatic)' },
-        { letter:'×™', name:'Yod', sound:'Y (like "yes")' },
-        { letter:'×›', name:'Kaf', sound:'K (or KH without dagesh)' },
-        { letter:'×œ', name:'Lamed', sound:'L' },
-        { letter:'×ž', name:'Mem', sound:'M' },
-        { letter:'× ', name:'Nun', sound:'N' },
-        { letter:'×¡', name:'Samekh', sound:'S' },
-        { letter:'×¢', name:'Ayin', sound:'guttural catch' },
-        { letter:'×¤', name:'Pe', sound:'P (or F without dagesh)' },
-        { letter:'×¦', name:'Tsade', sound:'TS' },
-        { letter:'×§', name:'Qof', sound:'Q (hard K)' },
-        { letter:'×¨', name:'Resh', sound:'R' },
-        { letter:'×©', name:'Shin', sound:'SH (or S with right dot)' },
-        { letter:'×ª', name:'Tav', sound:'T' }
+        { letter:'א', name:'Aleph', sound:'silent (glottal stop)' },
+        { letter:'ב', name:'Bet', sound:'B (or V without dagesh)' },
+        { letter:'ג', name:'Gimel', sound:'G (like "get")' },
+        { letter:'ד', name:'Dalet', sound:'D' },
+        { letter:'ה', name:'He', sound:'H' },
+        { letter:'ו', name:'Vav', sound:'V / W' },
+        { letter:'ז', name:'Zayin', sound:'Z' },
+        { letter:'ח', name:'Khet', sound:'guttural KH (like "Bach")' },
+        { letter:'ט', name:'Tet', sound:'T (emphatic)' },
+        { letter:'י', name:'Yod', sound:'Y (like "yes")' },
+        { letter:'כ', name:'Kaf', sound:'K (or KH without dagesh)' },
+        { letter:'ל', name:'Lamed', sound:'L' },
+        { letter:'מ', name:'Mem', sound:'M' },
+        { letter:'נ', name:'Nun', sound:'N' },
+        { letter:'ס', name:'Samekh', sound:'S' },
+        { letter:'ע', name:'Ayin', sound:'guttural catch' },
+        { letter:'פ', name:'Pe', sound:'P (or F without dagesh)' },
+        { letter:'צ', name:'Tsade', sound:'TS' },
+        { letter:'ק', name:'Qof', sound:'Q (hard K)' },
+        { letter:'ר', name:'Resh', sound:'R' },
+        { letter:'ש', name:'Shin', sound:'SH (or S with right dot)' },
+        { letter:'ת', name:'Tav', sound:'T' }
       ];
       const deck = shuffle(hebrewAlphabet);
       let i = 0;
@@ -710,11 +710,11 @@
             </div>
           </div>
           <div class="row">
-            <input class="input" id="answer" placeholder="Type letter name or paste letterâ€¦" autocomplete="off" />
+            <input class="input" id="answer" placeholder="Type letter name or paste letter…" autocomplete="off" />
             <button class="btn btnPrimary" id="checkBtn" type="button">Check</button>
           </div>
           <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px" id="letterOpts"></div>
-          <div class="hint" id="result">Progress: ${i}/${deck.length} â€¢ Correct: ${correct}</div>
+          <div class="hint" id="result">Progress: ${i}/${deck.length} • Correct: ${correct}</div>
         `;
         const optsContainer = document.getElementById('letterOpts');
         shuffle(hebrewAlphabet).slice(0, 8).forEach(a => {
@@ -727,8 +727,8 @@
           b.addEventListener('click', () => {
             const ok = a.letter === item.letter;
             const res = document.getElementById('result');
-            if (ok) { correct++; res.textContent = `âœ… Correct â€” ${item.letter} (${item.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
-            else { res.textContent = `âŒ That's ${a.letter} (${a.name}) â€” want ${item.letter} (${item.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
+            if (ok) { correct++; res.textContent = `✅ Correct — ${item.letter} (${item.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
+            else { res.textContent = `❌ That's ${a.letter} (${a.name}) — want ${item.letter} (${item.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
             setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 1000);
           });
           optsContainer.appendChild(b);
@@ -744,15 +744,15 @@
         const cur = deck[i];
         const ok = got === cur.letter || got === cur.name.toLowerCase();
         const res = document.getElementById('result');
-        if (ok) { correct++; res.textContent = `âœ… Correct â€” ${cur.letter} (${cur.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
-        else { res.textContent = `âŒ That's "${got}" â€” want ${cur.letter} (${cur.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
+        if (ok) { correct++; res.textContent = `✅ Correct — ${cur.letter} (${cur.name})`; res.style.color = 'rgba(34,197,94,0.95)'; }
+        else { res.textContent = `❌ That's "${got}" — want ${cur.letter} (${cur.name})`; res.style.color = 'rgba(239,68,68,0.95)'; }
         setTimeout(() => { i++; if (i>=deck.length) done(); else draw(); }, 1000);
       };
       function done(){
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Hebrew Typer complete ðŸŽ‰</div>
+            <div class="h1">Hebrew Typer complete 🎉</div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Play again</button></div>
           </div>
@@ -770,11 +770,11 @@
       if (state.lessonsCompleted < 6) return renderLocked("Unlock Lesson 6 (verbs) to access conjugation drills.");
 
       const drills = [
-        { q:"Present Active Indicative â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 3rd plural", options:["Ï€Î¹ÏƒÏ„ÎµÏÎ¿Ï…ÏƒÎ¹","Ï€Î¹ÏƒÏ„ÎµÏÎµÏ„Îµ","Ï€Î¹ÏƒÏ„ÎµÏÎ¿Î¼ÎµÎ½","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹"], a:"Ï€Î¹ÏƒÏ„ÎµÏÎ¿Ï…ÏƒÎ¹" },
-        { q:"Present Active Indicative â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 2nd singular", options:["Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹Ï‚","Ï€Î¹ÏƒÏ„ÎµÏÏ‰","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹","Ï€Î¹ÏƒÏ„ÎµÏÎµÏ„Îµ"], a:"Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹Ï‚" },
-        { q:"Deponent â€” á¼”ÏÏ‡Î¿Î¼Î±Î¹ â€” 3rd singular", options:["á¼”ÏÏ‡ÎµÏ„Î±Î¹","á¼”ÏÏ‡á¿ƒ","á¼”ÏÏ‡Î¿Î½Ï„Î±Î¹","á¼”ÏÏ‡Î¿Î¼Î±Î¹"], a:"á¼”ÏÏ‡ÎµÏ„Î±Î¹" },
-        { q:"First Aorist â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 1st singular", options:["á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±","Ï€Î¹ÏƒÏ„ÎµÏÏƒÏ‰","Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±","Ï€Î¹ÏƒÏ„ÎµÏÎµÎ¹"], a:"á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±" },
-        { q:"Perfect â€” Ï€Î¹ÏƒÏ„ÎµÏÏ‰ â€” 1st singular", options:["Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±","á¼Ï€Î¯ÏƒÏ„ÎµÏ…ÏƒÎ±","Ï€Î¹ÏƒÏ„ÎµÏÏƒÏ‰","Ï€Î¹ÏƒÏ„ÎµÏÏ‰"], a:"Ï€ÎµÏ€Î¯ÏƒÏ„ÎµÏ…ÎºÎ±" },
+        { q:"Present Active Indicative — πιστεύω — 3rd plural", options:["πιστεύουσι","πιστεύετε","πιστεύομεν","πιστεύει"], a:"πιστεύουσι" },
+        { q:"Present Active Indicative — πιστεύω — 2nd singular", options:["πιστεύεις","πιστεύω","πιστεύει","πιστεύετε"], a:"πιστεύεις" },
+        { q:"Deponent — ἔρχομαι — 3rd singular", options:["ἔρχεται","ἔρχῃ","ἔρχονται","ἔρχομαι"], a:"ἔρχεται" },
+        { q:"First Aorist — πιστεύω — 1st singular", options:["ἐπίστευσα","πιστεύσω","πεπίστευκα","πιστεύει"], a:"ἐπίστευσα" },
+        { q:"Perfect — πιστεύω — 1st singular", options:["πεπίστευκα","ἐπίστευσα","πιστεύσω","πιστεύω"], a:"πεπίστευκα" },
       ];
 
       const deck = shuffle(drills).slice(0, 10);
@@ -809,7 +809,7 @@
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Drill complete ðŸ§ </div>
+            <div class="h1">Drill complete 🧠</div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Again</button></div>
           </div>
@@ -822,16 +822,16 @@
     function renderHebrewVerbDrill(state, body) {
       setHeader("Verb Drill", "Match the Hebrew verb form to its description.");
       const drills = [
-        { q:"Qal PERFECT 3ms â€” he wrote", options:["×›Ö¸Ö¼×ªÖ·×‘","×›Ö¸Ö¼×ªÖ°×‘Ö¸×”","×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼","×™Ö´×›Ö°×ªÖ¹Ö¼×‘"], a:"×›Ö¸Ö¼×ªÖ·×‘" },
-        { q:"Qal PERFECT 3fs â€” she wrote", options:["×›Ö¸Ö¼×ªÖ°×‘Ö¸×”","×›Ö¸Ö¼×ªÖ·×‘","×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼","×™Ö´×›Ö°×ªÖ°Ö¼×‘×•Ö¼"], a:"×›Ö¸Ö¼×ªÖ°×‘Ö¸×”" },
-        { q:"Qal PERFECT 2ms â€” you (m.) wrote", options:["×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼","×›Ö¸Ö¼×ªÖ·×‘","×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ°Ö¼","×›Ö¸Ö¼×ªÖ°×‘Ö¸×”"], a:"×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼" },
-        { q:"Qal PERFECT 1cs â€” I wrote", options:["×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ´Ö¼×™","×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼","×›Ö¸Ö¼×ªÖ·×‘","× Ö´×›Ö°×ªÖ¹Ö¼×‘"], a:"×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ´Ö¼×™" },
-        { q:"Qal PERFECT 3mp â€” they (m.) wrote", options:["×›Ö¸Ö¼×ªÖ°×‘×•Ö¼","×›Ö¸Ö¼×ªÖ·×‘","×›Ö¸Ö¼×ªÖ·×‘Ö°×ªÖ¸Ö¼","×ªÖ´Ö¼×›Ö°×ªÖ¹Ö¼×‘"], a:"×›Ö¸Ö¼×ªÖ°×‘×•Ö¼" },
-        { q:"Qal IMPERFECT 3ms â€” he will write", options:["×™Ö´×›Ö°×ªÖ¹Ö¼×‘","×›Ö¸Ö¼×ªÖ·×‘","×›Ö¼×•Ö¹×ªÖµ×‘","×™Ö´×›Ö°×ªÖ°Ö¼×‘×•Ö¼"], a:"×™Ö´×›Ö°×ªÖ¹Ö¼×‘" },
-        { q:"Qal PRESENT PARTICIPLE ms â€” writing (m.)", options:["×›Ö¼×•Ö¹×ªÖµ×‘","×›Ö¼×•Ö¹×ªÖ¶×‘Ö¶×ª","×™Ö´×›Ö°×ªÖ¹Ö¼×‘","×›Ö¸Ö¼×ªÖ·×‘"], a:"×›Ö¼×•Ö¹×ªÖµ×‘" },
-        { q:"Qal PRESENT PARTICIPLE fs â€” writing (f.)", options:["×›Ö¼×•Ö¹×ªÖ¶×‘Ö¶×ª","×›Ö¼×•Ö¹×ªÖµ×‘","×›Ö¸Ö¼×ªÖ°×‘Ö¸×”","×ªÖ´Ö¼×›Ö°×ªÖ¹Ö¼×‘"], a:"×›Ö¼×•Ö¹×ªÖ¶×‘Ö¶×ª" },
-        { q:"Root of ×›Ö¸Ö¼×ªÖ·×‘, ×™Ö´×›Ö°×ªÖ¹Ö¼×‘, ×›Ö¼×•Ö¹×ªÖµ×‘", options:["×›×ª×‘","×›×ª×‘","×›×ª×‘","×›×ª×‘"], a:"×›×ª×‘" },
-        { q:"Qal INFINITIVE CONSTRUCT â€” to write", options:["×›Ö°Ö¼×ªÖ¹×‘","×›Ö¸Ö¼×ªÖ·×‘","×™Ö´×›Ö°×ªÖ¹Ö¼×‘","×›Ö¼×•Ö¹×ªÖµ×‘"], a:"×›Ö°Ö¼×ªÖ¹×‘" },
+        { q:"Qal PERFECT 3ms — he wrote", options:["כָּתַב","כָּתְבָה","כָּתַבְתָּ","יִכְתֹּב"], a:"כָּתַב" },
+        { q:"Qal PERFECT 3fs — she wrote", options:["כָּתְבָה","כָּתַב","כָּתַבְתָּ","יִכְתְּבוּ"], a:"כָּתְבָה" },
+        { q:"Qal PERFECT 2ms — you (m.) wrote", options:["כָּתַבְתָּ","כָּתַב","כָּתַבְתְּ","כָּתְבָה"], a:"כָּתַבְתָּ" },
+        { q:"Qal PERFECT 1cs — I wrote", options:["כָּתַבְתִּי","כָּתַבְתָּ","כָּתַב","נִכְתֹּב"], a:"כָּתַבְתִּי" },
+        { q:"Qal PERFECT 3mp — they (m.) wrote", options:["כָּתְבוּ","כָּתַב","כָּתַבְתָּ","תִּכְתֹּב"], a:"כָּתְבוּ" },
+        { q:"Qal IMPERFECT 3ms — he will write", options:["יִכְתֹּב","כָּתַב","כּוֹתֵב","יִכְתְּבוּ"], a:"יִכְתֹּב" },
+        { q:"Qal PRESENT PARTICIPLE ms — writing (m.)", options:["כּוֹתֵב","כּוֹתֶבֶת","יִכְתֹּב","כָּתַב"], a:"כּוֹתֵב" },
+        { q:"Qal PRESENT PARTICIPLE fs — writing (f.)", options:["כּוֹתֶבֶת","כּוֹתֵב","כָּתְבָה","תִּכְתֹּב"], a:"כּוֹתֶבֶת" },
+        { q:"Root of כָּתַב, יִכְתֹּב, כּוֹתֵב", options:["כתב","כתב","כתב","כתב"], a:"כתב" },
+        { q:"Qal INFINITIVE CONSTRUCT — to write", options:["כְּתֹב","כָּתַב","יִכְתֹּב","כּוֹתֵב"], a:"כְּתֹב" },
       ];
       const deck = shuffle(drills);
       let i = 0;
@@ -867,7 +867,7 @@
         setDeckProgress(deck.length, deck.length);
         body.innerHTML = `
           <div class="locked">
-            <div class="h1">Verb Drill complete ðŸ§ </div>
+            <div class="h1">Verb Drill complete 🧠</div>
             <div class="sub">Correct: ${correct}/${deck.length}</div>
             <div class="actions" style="margin-top:12px"><button class="btn btnPrimary" id="againBtn" type="button">Again</button></div>
           </div>
@@ -886,19 +886,19 @@
 
     async function initPage(user) {
       detectLanguage();
-      const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
-      const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
-      document.title = `Practice â€¢ ${langLabel}`;
+      const lang = window.getActiveLanguage  window.getActiveLanguage() : 'greek';
+      const langLabel = window.getLanguageLabel  window.getLanguageLabel(lang) : (lang === 'hebrew'  'Biblical Hebrew' : 'Biblical Hebrew');
+      document.title = `Practice • ${langLabel}`;
       const brandTitle = document.querySelector('.sbTitle');
       const brandSub = document.querySelector('.sbSub');
       const brandLink = document.querySelector('.sbBrand');
       if (brandTitle) brandTitle.textContent = langLabel;
       if (brandSub) brandSub.textContent = langLabel;
-      if (brandLink) brandLink.href = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
+      if (brandLink) brandLink.href = lang === 'hebrew'  'dashboard-hebrew.htmllang=hebrew' : 'dashboard.html';
       // Dynamic tab labels
-      const typerLabel = _isHebrew ? 'Hebrew Typer' : 'Greek Typer';
-      const conjLabel = _isHebrew ? 'Verb Drill' : 'Conjugation Drill';
-      const subDesc = _isHebrew ? 'Flashcards â€¢ Speed â€¢ Hebrew Typer â€¢ Verb Drill' : 'Flashcards â€¢ Speed â€¢ Typer â€¢ Conjugation';
+      const typerLabel = _isHebrew  'Hebrew Typer' : 'Greek Typer';
+      const conjLabel = _isHebrew  'Verb Drill' : 'Conjugation Drill';
+      const subDesc = _isHebrew  'Flashcards • Speed • Hebrew Typer • Verb Drill' : 'Flashcards • Speed • Typer • Conjugation';
       document.getElementById('tabTyper').textContent = typerLabel;
       document.getElementById('tabConj').textContent = conjLabel;
       document.querySelector('.tbSub').textContent = subDesc;
@@ -913,19 +913,19 @@
       const state = { user, userData:{}, lessonsCompleted:0, vocab:[], exercises:[] };
       if (user) {
         const snap = await db.collection('users').doc(user.uid).get();
-        state.userData = snap.exists ? (snap.data() || {}) : {};
+        state.userData = snap.exists  (snap.data() || {}) : {};
         if (window.syncFromFirebase) {
           try {
             const p = await syncFromFirebase(user.uid);
-            state.lessonsCompleted = Array.isArray(p.completedLessons) ? p.completedLessons.length : 0;
+            state.lessonsCompleted = Array.isArray(p.completedLessons)  p.completedLessons.length : 0;
           } catch(_) {}
         }
         if (!state.lessonsCompleted) {
-          state.lessonsCompleted = Number.isFinite(state.userData.lessonsCompleted) ? state.userData.lessonsCompleted : ((window.getProgress ? (getProgress().completedLessons || []).length : 0));
+          state.lessonsCompleted = Number.isFinite(state.userData.lessonsCompleted)  state.userData.lessonsCompleted : ((window.getProgress  (getProgress().completedLessons || []).length : 0));
         }
         setTopUser(user, state.userData);
       } else {
-        state.lessonsCompleted = window.getProgress ? ((getProgress().completedLessons || []).length) : 0;
+        state.lessonsCompleted = window.getProgress  ((getProgress().completedLessons || []).length) : 0;
         setTopUser(null, { hearts:5, streak:0 });
       }
 

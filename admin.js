@@ -23,9 +23,9 @@
   function showToast(msg, type, title) {
     const el = document.getElementById('admin-error');
     if (!el) return;
-    el.textContent = (title ? '[' + title + '] ' : '') + msg;
+    el.textContent = (title  '[' + title + '] ' : '') + msg;
     el.style.display = 'block';
-    el.className = 'card' + (type === 'bad' ? ' error' : '');
+    el.className = 'card' + (type === 'bad'  ' error' : '');
     clearTimeout(el._t);
     el._t = setTimeout(() => { el.style.display = 'none'; }, 6000);
   }
@@ -88,8 +88,8 @@
     const activeToday = students.filter(s => (s.lastActiveDate || '') === today).length;
     const accVals = students.map(s => Number(s.accuracy || 0)).filter(n => Number.isFinite(n) && n > 0);
     const streakVals = students.map(s => Number(s.streak || 0)).filter(n => Number.isFinite(n));
-    const avgAcc = accVals.length ? (accVals.reduce((a,b)=>a+b,0) / accVals.length) : 0;
-    const avgStreak = streakVals.length ? (streakVals.reduce((a,b)=>a+b,0) / streakVals.length) : 0;
+    const avgAcc = accVals.length  (accVals.reduce((a,b)=>a+b,0) / accVals.length) : 0;
+    const avgStreak = streakVals.length  (streakVals.reduce((a,b)=>a+b,0) / streakVals.length) : 0;
     return {
       total,
       activeToday,
@@ -129,7 +129,7 @@
       currentLesson: Number(data.currentLesson) || 1,
       lessonsCompleted: Number(data.lessonsCompleted) || Number(data.stats && data.stats.totalLessonsCompleted) || 0,
       streak: Number(data.streak) || Number(data.stats && data.stats.streakDays) || 0,
-      hearts: (typeof data.hearts !== 'undefined') ? Number(data.hearts) : 5,
+      hearts: (typeof data.hearts !== 'undefined')  Number(data.hearts) : 5,
       lastActiveDate: data.lastActiveDate || '—',
       lastLanguage: data.lastLanguage || (data.profile && data.profile.lastLanguage) || 'greek',
 
@@ -185,7 +185,7 @@
     if (!host) return;
     const total = Math.max(1, state.students.length);
     const completedCounts = [1,2,3,4,5].map(worldId => {
-      const threshold = worldId === 1 ? 5 : worldId === 2 ? 10 : worldId === 3 ? 15 : worldId === 4 ? 20 : 24;
+      const threshold = worldId === 1  5 : worldId === 2  10 : worldId === 3  15 : worldId === 4  20 : 24;
       const done = state.students.filter(s => Number(s.lessonsCompleted || 0) >= threshold).length;
       return { worldId, done, pct: Math.round((done / total) * 100) };
     });
@@ -207,11 +207,11 @@
     }
     host.innerHTML = items.map(a => {
       const rawWhen = a.createdAt || a.timestamp || null;
-      const when = rawWhen && rawWhen.toDate ? rawWhen.toDate() : (rawWhen ? new Date(rawWhen) : null);
-      const ts = when ? when.toLocaleString() : '';
+      const when = rawWhen && rawWhen.toDate  rawWhen.toDate() : (rawWhen  new Date(rawWhen) : null);
+      const ts = when  when.toLocaleString() : '';
       const t = a.title || a.description || a.type || 'Activity';
-      const xp = (a.awardedXp ?? a.xpEarned) || 0;
-      const right = xp ? `+${xp} XP` : ts;
+      const xp = (a.awardedXp  a.xpEarned) || 0;
+      const right = xp  `+${xp} XP` : ts;
       return `<div class="feed-item"><div><div class="t">${escapeHtml(t)}</div><div class="d">${escapeHtml(ts)}</div></div><div class="d">${escapeHtml(String(right))}</div></div>`;
     }).join('');
   }
@@ -227,7 +227,7 @@
       );
     }
     const { key, dir } = state.sort;
-    const mult = dir === 'desc' ? -1 : 1;
+    const mult = dir === 'desc'  -1 : 1;
     list.sort((a,b) => {
       const av = a[key];
       const bv = b[key];
@@ -240,7 +240,7 @@
   }
 
   function renderStudentsTable() {
-    const tbody = $('students-table')?.querySelector('tbody');
+    const tbody = $('students-table').querySelector('tbody');
     if (!tbody) return;
     const list = getFilteredStudents();
     $('student-count').textContent = `${list.length} student(s)`;
@@ -250,13 +250,13 @@
         <td>
           <div class="student-name-cell">
             ${s.photoURL
-              ? `<img src="${escapeHtml(s.photoURL)}" class="student-thumb" alt="${escapeHtml(s.displayName)}">`
-              : `<div class="student-thumb-placeholder">${escapeHtml(String(s.displayName || '?').charAt(0))}</div>`
+               `<img src="${escapeHtml(s.photoURL)}" class="student-thumb" alt="${escapeHtml(s.displayName)}">`
+              : `<div class="student-thumb-placeholder">${escapeHtml(String(s.displayName || '').charAt(0))}</div>`
             }
             <div>
               <div class="student-display-name">
                 ${escapeHtml(s.displayName)}
-                ${s.isAdmin ? '<span class="admin-label">👑 Admin</span>' : ''}
+                ${s.isAdmin  '<span class="admin-label">👑 Admin</span>' : ''}
               </div>
               <div class="student-username">@${escapeHtml(s.username || '')}</div>
             </div>
@@ -269,7 +269,7 @@
         <td>Lesson ${escapeHtml(String(s.currentLesson || 1))}</td>
         <td>${escapeHtml(String(s.lessonsCompleted || 0))}</td>
         <td>${escapeHtml(String(s.streak || 0))}d 🔥</td>
-        <td>${escapeHtml(String((s.hearts ?? 5)))}\/5 ❤️</td>
+        <td>${escapeHtml(String((s.hearts  5)))}\/5 ❤️</td>
         <td>${escapeHtml(String(s.lastActiveDate || '—'))}</td>
         <td>
           <div class="action-dropdown">
@@ -327,32 +327,32 @@
         }, 250);
         return;
       case 'resetHearts':
-        if (window.confirm(`Reset hearts for ${studentData.displayName} to 5?`)) {
+        if (window.confirm(`Reset hearts for ${studentData.displayName} to 5`)) {
           await resetHearts(studentId);
           renderStudentsTable();
         }
         return;
       case 'flag':
-        if (window.confirm(`Flag ${studentData.displayName} as at-risk?`)) {
+        if (window.confirm(`Flag ${studentData.displayName} as at-risk`)) {
           await flagAtRisk(studentId);
           renderStudentsTable();
         }
         return;
       case 'makeAdmin':
-        if (window.confirm(`Promote ${studentData.displayName} to admin?`)) {
+        if (window.confirm(`Promote ${studentData.displayName} to admin`)) {
           await setAdminStatus(studentId, true);
           renderStudentsTable();
         }
         return;
       case 'removeAdmin':
-        if (window.confirm(`Remove admin privileges from ${studentData.displayName}?`)) {
+        if (window.confirm(`Remove admin privileges from ${studentData.displayName}`)) {
           await setAdminStatus(studentId, false);
           renderStudentsTable();
         }
         return;
       case 'deleteUser':
-        if (window.confirm(`⚠️ PERMANENTLY DELETE ${studentData.displayName} (${studentData.email})? This cannot be undone.`)) {
-          if (window.confirm(`FINAL confirmation: remove ${studentData.displayName} from the app entirely?`)) {
+        if (window.confirm(`⚠️ PERMANENTLY DELETE ${studentData.displayName} (${studentData.email}) This cannot be undone.`)) {
+          if (window.confirm(`FINAL confirmation: remove ${studentData.displayName} from the app entirely`)) {
             await deleteUserComplete(studentId);
           }
         }
@@ -372,10 +372,10 @@
 
     try {
       const doc = await firebase.firestore().collection('users').doc(uid).get();
-      const s = doc.exists ? ({ id: doc.id, ...(doc.data() || {}) }) : null;
+      const s = doc.exists  ({ id: doc.id, ...(doc.data() || {}) }) : null;
       if (!s) throw new Error('Student not found.');
 
-      const joined = s.joinedDate && s.joinedDate.toDate ? s.joinedDate.toDate().toLocaleDateString() : '—';
+      const joined = s.joinedDate && s.joinedDate.toDate  s.joinedDate.toDate().toLocaleDateString() : '—';
       $('drawer-title').textContent = studentLabel(s);
 
       let activity = [];
@@ -391,7 +391,7 @@
         <div class="kv"><div class="k">Current Lesson</div><div class="v">${escapeHtml(String(s.currentLesson || 1))}</div></div>
         <div class="kv"><div class="k">Accuracy</div><div class="v">${escapeHtml(String(Math.round(Number(s.accuracy || 0))))}%</div></div>
         <div class="kv"><div class="k">Streak</div><div class="v">${escapeHtml(String(s.streak || 0))} day(s)</div></div>
-        <div class="kv"><div class="k">Hearts</div><div class="v">${escapeHtml(String(Number.isFinite(s.hearts) ? s.hearts : 5))}</div></div>
+        <div class="kv"><div class="k">Hearts</div><div class="v">${escapeHtml(String(Number.isFinite(s.hearts)  s.hearts : 5))}</div></div>
         <div class="kv"><div class="k">Joined</div><div class="v">${escapeHtml(String(joined))}</div></div>
         <div class="kv"><div class="k">Last Active</div><div class="v">${escapeHtml(String(s.lastActiveDate || '—'))}</div></div>
         <div class="card" style="margin-top:12px">
@@ -400,9 +400,9 @@
             <div class="muted">Last 12</div>
           </div>
           <div class="feed">
-            ${activity.length ? activity.map(a => {
-              const when = a.timestamp && a.timestamp.toDate ? a.timestamp.toDate() : null;
-              return `<div class="feed-item"><div><div class="t">${escapeHtml(a.description || a.type || 'Activity')}</div><div class="d">${escapeHtml(when ? when.toLocaleString() : '')}</div></div><div class="d">${a.xpEarned ? ('+'+escapeHtml(String(a.xpEarned))+' XP') : ''}</div></div>`;
+            ${activity.length  activity.map(a => {
+              const when = a.timestamp && a.timestamp.toDate  a.timestamp.toDate() : null;
+              return `<div class="feed-item"><div><div class="t">${escapeHtml(a.description || a.type || 'Activity')}</div><div class="d">${escapeHtml(when  when.toLocaleString() : '')}</div></div><div class="d">${a.xpEarned  ('+'+escapeHtml(String(a.xpEarned))+' XP') : ''}</div></div>`;
             }).join('') : `<div class="muted">No activity recorded yet.</div>`}
           </div>
         </div>
@@ -465,19 +465,19 @@
   async function setAdminStatus(uid, makeAdmin) {
     try {
       await firebase.firestore().collection('users').doc(uid).set({ isAdmin: makeAdmin }, { merge: true });
-      showToast(`${makeAdmin ? 'Promoted' : 'Demoted'} successfully. Firestore rules updated.`, 'good', 'Admin');
+      showToast(`${makeAdmin  'Promoted' : 'Demoted'} successfully. Firestore rules updated.`, 'good', 'Admin');
       // Update local state
       const student = state.students.find(s => s.id === uid);
       if (student) student.isAdmin = makeAdmin;
     } catch (e) {
-      showToast(`Failed to ${makeAdmin ? 'promote' : 'demote'}: ${e.message}`, 'bad', 'Error');
+      showToast(`Failed to ${makeAdmin  'promote' : 'demote'}: ${e.message}`, 'bad', 'Error');
     }
   }
 
   async function openMessagePrompt(uid) {
     const student = state.students.find(s => s.id === uid);
-    const name = student ? studentLabel(student) : uid;
-    const text = window.prompt(`Message to ${name} (sent as a notification):`, 'Hi! Just checking in — how is your Greek going this week?');
+    const name = student  studentLabel(student) : uid;
+    const text = window.prompt(`Message to ${name} (sent as a notification):`, 'Hi! Just checking in — how is your Greek going this week');
     if (!text || !text.trim()) return;
     try {
       await firebase.firestore().collection('users').doc(uid).collection('notifications').add({
@@ -497,9 +497,9 @@
     const lessonCount = 24;
     const rows = [];
     for (let id = 1; id <= lessonCount; id++) {
-      const world = id <= 5 ? 1 : id <= 10 ? 2 : id <= 15 ? 3 : id <= 20 ? 4 : 5;
-      const title = (window.LESSON_DATA && window.LESSON_DATA[id] && window.LESSON_DATA[id].title) ? window.LESSON_DATA[id].title : `Lesson ${id}`;
-      const completionRate = state.students.length ? Math.round(state.students.filter(s => Number(s.lessonsCompleted || 0) >= id).length / state.students.length * 100) : 0;
+      const world = id <= 5  1 : id <= 10  2 : id <= 15  3 : id <= 20  4 : 5;
+      const title = (window.LESSON_DATA && window.LESSON_DATA[id] && window.LESSON_DATA[id].title)  window.LESSON_DATA[id].title : `Lesson ${id}`;
+      const completionRate = state.students.length  Math.round(state.students.filter(s => Number(s.lessonsCompleted || 0) >= id).length / state.students.length * 100) : 0;
       const avgAcc = Math.round(Number(state.students.reduce((sum, s) => sum + (Number(s.accuracy || 0) || 0), 0)) / Math.max(1, state.students.length));
       rows.push({ id, title, world, completionRate, avgAcc });
     }
@@ -579,9 +579,9 @@
       return;
     }
     host.innerHTML = state.announcements.slice(0, 20).map(a => {
-      const when = a.sentAt && a.sentAt.toDate ? a.sentAt.toDate() : (a.sentAt ? new Date(a.sentAt) : null);
-      const ts = when ? when.toLocaleString() : '';
-      const target = a.target === 'all' ? 'All students' : (a.target === 'group' ? `Group ${a.targetId || ''}` : `User ${a.targetId || ''}`);
+      const when = a.sentAt && a.sentAt.toDate  a.sentAt.toDate() : (a.sentAt  new Date(a.sentAt) : null);
+      const ts = when  when.toLocaleString() : '';
+      const target = a.target === 'all'  'All students' : (a.target === 'group'  `Group ${a.targetId || ''}` : `User ${a.targetId || ''}`);
       return `<div class="feed-item"><div><div class="t">${escapeHtml(a.title || 'Announcement')}</div><div class="d">${escapeHtml(target)} • ${escapeHtml(ts)}</div></div><div class="d"></div></div>`;
     }).join('');
   }
@@ -621,7 +621,7 @@
       const ref = firebase.firestore().collection('users').doc(uid).collection('notifications').doc();
       batch.set(ref, {
         type: 'system',
-        message: title ? `${title}: ${msg}` : msg,
+        message: title  `${title}: ${msg}` : msg,
         read: false,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
@@ -641,7 +641,7 @@
     });
     $('students-table').querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('click', () => {
       const key = th.getAttribute('data-sort');
-      if (state.sort.key === key) state.sort.dir = state.sort.dir === 'asc' ? 'desc' : 'asc';
+      if (state.sort.key === key) state.sort.dir = state.sort.dir === 'asc'  'desc' : 'asc';
       else state.sort = { key, dir: 'asc' };
       renderStudentsTable();
     }));
@@ -684,7 +684,7 @@
           title,
           message: body,
           target,
-          targetId: target === 'all' ? '' : targetId,
+          targetId: target === 'all'  '' : targetId,
           sentBy: state.me.uid,
           sentAt: firebase.firestore.FieldValue.serverTimestamp()
         });
@@ -694,7 +694,7 @@
           await sendAnnouncementToUids(body, state.students.map(s => s.id), title);
         } else if (target === 'group') {
           const group = state.groups.find(g => g.id === targetId);
-          await sendAnnouncementToUids(body, (group?.members || []), title);
+          await sendAnnouncementToUids(body, (group.members || []), title);
         } else {
           await sendAnnouncementToUids(body, [targetId], title);
         }

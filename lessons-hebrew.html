@@ -1,13 +1,13 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Biblical Hebrew">
-  <title>Lessons â€¢ Biblical Hebrew</title>
+  <title>Lessons • Biblical Hebrew</title>
   <script src="progress-manager.js"></script>
   <script src="game-data.js"></script>
   <script src="hebrew-lesson-data.js"></script>
@@ -64,7 +64,7 @@
     body[data-page="rewards"] .nav a[href="rewards-hebrew.html"],
     body[data-page="friends"] .nav a[href="friends-hebrew.html"],
     body[data-page="study-room"] .nav a[href="study-room-hebrew.html"],
-    body[data-page="profile"] .nav a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .nav a[href="profile.htmllang=hebrew"]{
       background:linear-gradient(180deg, rgba(124,92,252,0.18), rgba(124,92,252,0.08));
       border-color:rgba(124,92,252,0.3);
       color:var(--tw);
@@ -212,7 +212,7 @@
     body[data-page="lessons"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="lesson"] .bottomTabs a[href="lessons-hebrew.html"],
     body[data-page="friends"] .bottomTabs a[href="friends-hebrew.html"],
-    body[data-page="profile"] .bottomTabs a[href="profile.html?lang=hebrew"]{
+    body[data-page="profile"] .bottomTabs a[href="profile.htmllang=hebrew"]{
       border-color:rgba(124,92,252,0.35);
       background:rgba(124,92,252,0.10);
       color:var(--tw);
@@ -257,7 +257,7 @@
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard-hebrew.html" aria-label="Biblical Languages home">
-        <div class="sbLogo" aria-hidden="true"><span>××‘</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>אב</span></div>
         <div>
           <div class="sbTitle">Biblical Languages</div>
 
@@ -266,33 +266,33 @@
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard-hebrew.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
-          <a href="practice-hebrew.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
-          <a href="lessons-hebrew.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
-          <a href="quests-hebrew.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
+          <a href="dashboard-hebrew.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
+          <a href="practice-hebrew.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
+          <a href="lessons-hebrew.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
+          <a href="quests-hebrew.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary-hebrew.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard-hebrew.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards-hebrew.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary-hebrew.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard-hebrew.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards-hebrew.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends-hebrew.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
-          <a href="study-room-hebrew.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
+          <a href="friends-hebrew.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
+          <a href="study-room-hebrew.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="profile.html?lang=hebrew"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
+          <a href="profile.htmllang=hebrew"><span class="ic">👤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -304,14 +304,14 @@
           <div class="tbSub" id="pageSub">Pick a world, then follow the path</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span>ðŸ”¥</span><b id="streakVal">â€”</b></div>
-          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span>🔥</span><b id="streakVal">—</b></div>
+          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
+            <div class="avatar" id="avatar"><span>👤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level â€”</div>
+              <div class="l" id="userLevel">Level —</div>
             </div>
           </div>
         </div>
@@ -330,11 +330,11 @@
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard-hebrew.html"><div>ðŸ </div><div>Home</div></a>
-      <a class="tab" href="practice-hebrew.html"><div>ðŸŽ¯</div><div>Practice</div></a>
-      <a class="tab" href="lessons-hebrew.html"><div>ðŸ“š</div><div>Lessons</div></a>
-      <a class="tab" href="friends-hebrew.html"><div>ðŸ‘¥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html?lang=hebrew"><div>ðŸ‘¤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard-hebrew.html"><div>🏠</div><div>Home</div></a>
+      <a class="tab" href="practice-hebrew.html"><div>🎯</div><div>Practice</div></a>
+      <a class="tab" href="lessons-hebrew.html"><div>📚</div><div>Lessons</div></a>
+      <a class="tab" href="friends-hebrew.html"><div>👥</div><div>Friends</div></a>
+      <a class="tab" href="profile.htmllang=hebrew"><div>👤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -379,7 +379,7 @@
       const dot = document.getElementById('toastDot');
       const t = document.getElementById('toastTitle');
       const m = document.getElementById('toastMsg');
-      dot.className = 'dot ' + (type === 'good' ? 'good' : type === 'bad' ? 'bad' : 'info');
+      dot.className = 'dot ' + (type === 'good'  'good' : type === 'bad'  'bad' : 'info');
       t.textContent = title;
       m.textContent = msg;
       el.classList.add('show');
@@ -405,7 +405,7 @@
         level, title: titles[level-1],
         currentThreshold: thresholds[level-1],
         nextThreshold: thresholds[level] || 99999,
-        progress: level >= thresholds.length ? 100 :
+        progress: level >= thresholds.length  100 :
           Math.round((xp - thresholds[level-1]) / (thresholds[level] - thresholds[level-1]) * 100)
       };
     }
@@ -413,11 +413,11 @@
     function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
 
     const WORLDS = [
-      { n:1, icon:"ðŸ›ï¸", title:"The Alphabet Temple", range:[1,5], color:"var(--purple)" },
-      { n:2, icon:"ðŸ“–", title:"First Words & Sentences", range:[6,10], color:"var(--blue)" },
-      { n:3, icon:"ðŸ—ï¸", title:"Grammar Foundations", range:[11,15], color:"var(--green)" },
-      { n:4, icon:"ðŸ“œ", title:"Expanding Grammar", range:[16,20], color:"var(--orange)" },
-      { n:5, icon:"ðŸŒŸ", title:"Advanced Structures", range:[21,24], color:"var(--gold)" }
+      { n:1, icon:"🏛️", title:"The Alphabet Temple", range:[1,5], color:"var(--purple)" },
+      { n:2, icon:"📖", title:"First Words & Sentences", range:[6,10], color:"var(--blue)" },
+      { n:3, icon:"🏗️", title:"Grammar Foundations", range:[11,15], color:"var(--green)" },
+      { n:4, icon:"📜", title:"Expanding Grammar", range:[16,20], color:"var(--orange)" },
+      { n:5, icon:"🌟", title:"Advanced Structures", range:[21,24], color:"var(--gold)" }
     ];
 
     if (window.applyLanguageScope) {
@@ -428,11 +428,11 @@
     }
 
     // Lesson metadata to render map from the active language data set.
-    const LESSON_META = Array.from({length:(window.getLessonMax ? window.getLessonMax() : 24)}, (_,i) => {
+    const LESSON_META = Array.from({length:(window.getLessonMax  window.getLessonMax() : 24)}, (_,i) => {
       const id = i + 1;
-      const world = id<=5?1:id<=10?2:id<=15?3:id<=20?4:5;
-      const lessonDataMap = (window.getLessonDataMap ? window.getLessonDataMap() : window.LESSON_DATA || {});
-      const title = (lessonDataMap && lessonDataMap[id] && lessonDataMap[id].title) ? lessonDataMap[id].title : `Lesson ${id}`;
+      const world = id<=51:id<=102:id<=153:id<=204:5;
+      const lessonDataMap = (window.getLessonDataMap  window.getLessonDataMap() : window.LESSON_DATA || {});
+      const title = (lessonDataMap && lessonDataMap[id] && lessonDataMap[id].title)  lessonDataMap[id].title : `Lesson ${id}`;
       return { id, world, title };
     });
 
@@ -519,7 +519,7 @@
     }
 
     function timeAgo(ts){
-      const ms = ts && typeof ts.toMillis === 'function' ? ts.toMillis() : (typeof ts === 'number' ? ts : Date.now());
+      const ms = ts && typeof ts.toMillis === 'function'  ts.toMillis() : (typeof ts === 'number'  ts : Date.now());
       const s = Math.max(0, Math.floor((Date.now() - ms) / 1000));
       if (s < 10) return 'just now';
       if (s < 60) return `${s}s ago`;
@@ -556,7 +556,7 @@
         panel.setAttribute('aria-hidden','true');
         backdrop.style.display = 'none';
       }
-      function toggle(){ state.open ? close() : open(); }
+      function toggle(){ state.open  close() : open(); }
 
       function render(){
         if (!state.open) return;
@@ -565,7 +565,7 @@
         if (state.friendReqs.length) {
           const wrap = document.createElement('div');
           wrap.className = 'nItem';
-          wrap.innerHTML = `<div class="left"><div class="nTag">ðŸ‘¥ Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
+          wrap.innerHTML = `<div class="left"><div class="nTag">👥 Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
           body.appendChild(wrap);
 
           state.friendReqs.forEach(uid => {
@@ -588,7 +588,7 @@
 
         if (state.notifs.length) {
           state.notifs.forEach(n => {
-            const icon = n.type === 'challenge' ? 'ðŸ†' : (n.type === 'system' ? 'âœ¨' : 'ðŸ””');
+            const icon = n.type === 'challenge'  '🏆' : (n.type === 'system'  '✨' : '🔔');
             const row = document.createElement('div');
             row.className = 'nItem';
             row.innerHTML = `
@@ -598,7 +598,7 @@
                 <div class="meta">${timeAgo(n.timestamp)}</div>
               </div>
               <div class="right">
-                ${n.type === 'challenge' ? `<button class="nBtn primary" data-accept="${n.id}" type="button">Accept</button>` : ''}
+                ${n.type === 'challenge'  `<button class="nBtn primary" data-accept="${n.id}" type="button">Accept</button>` : ''}
                 <button class="nBtn" data-dismiss="${n.id}" type="button">Dismiss</button>
               </div>
             `;
@@ -663,8 +663,8 @@
 
       if (!user || !db) return;
       db.collection('users').doc(user.uid).onSnapshot((snap) => {
-        const data = snap.exists ? (snap.data() || {}) : {};
-        state.friendReqs = Array.isArray(data.friendRequests) ? data.friendRequests : [];
+        const data = snap.exists  (snap.data() || {}) : {};
+        state.friendReqs = Array.isArray(data.friendRequests)  data.friendRequests : [];
         render();
       }, (err)=>{
         console.error(err);
@@ -675,7 +675,7 @@
       col.where('read','==',false).onSnapshot((snap) => {
         const c = snap.size || 0;
         badge.textContent = String(c);
-        badge.style.display = c ? '' : 'none';
+        badge.style.display = c  '' : 'none';
       }, (err)=>{
         console.error(err);
         showLoadError("Could not load lessons. Please check your connection and try again.");
@@ -699,14 +699,14 @@
     }
 
     function setTopUser(user, data) {
-      const xp = Number.isFinite(data?.xp) ? data.xp : 0;
+      const xp = Number.isFinite(data.xp)  data.xp : 0;
       const lvl = calcLevel(xp);
-      document.getElementById('userName').textContent = (data?.displayName || user?.displayName || user?.email || (user?.email || 'User'));
-      document.getElementById('userLevel').textContent = user ? `Level ${lvl.level} â€¢ ${lvl.title}` : 'Level';
-      document.getElementById('streakVal').textContent = String(Number.isFinite(data?.streak) ? data.streak : 0);
-      document.getElementById('heartsVal').textContent = String(Number.isFinite(data?.hearts) ? data.hearts : 5);
+      document.getElementById('userName').textContent = (data.displayName || user.displayName || user.email || (user.email || 'User'));
+      document.getElementById('userLevel').textContent = user  `Level ${lvl.level} • ${lvl.title}` : 'Level';
+      document.getElementById('streakVal').textContent = String(Number.isFinite(data.streak)  data.streak : 0);
+      document.getElementById('heartsVal').textContent = String(Number.isFinite(data.hearts)  data.hearts : 5);
       const av = document.getElementById('avatar');
-      const url = data?.photoURL || user?.photoURL;
+      const url = data.photoURL || user.photoURL;
       if (url) { av.innerHTML=''; const img=document.createElement('img'); img.alt='Avatar'; img.src=url; av.appendChild(img); }
     }
 
@@ -719,34 +719,34 @@
       const completed = state.completedLessons || [];
       const unlockedLessons = state.unlockedLessons || [1];
       const currentLesson = state.currentLesson || 1;
-      const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
-      const langQuery = lang === 'hebrew' ? '&lang=hebrew' : '';
+      const lang = window.getActiveLanguage  window.getActiveLanguage() : 'greek';
+      const langQuery = lang === 'hebrew'  '&lang=hebrew' : '';
 
       // World cards
       WORLDS.forEach(w => {
         const [start,end] = w.range;
-        const totals = (window.getWorldProgressCount ? getWorldProgressCount(w.n) : { done: completed.filter(x => x>=start && x<=end).length, total: (end - start + 1) });
+        const totals = (window.getWorldProgressCount  getWorldProgressCount(w.n) : { done: completed.filter(x => x>=start && x<=end).length, total: (end - start + 1) });
         const done = totals.done;
         const total = totals.total;
-        const statusKey = window.getWorldStatus ? getWorldStatus(w.n) : (done >= total ? 'completed' : 'active');
+        const statusKey = window.getWorldStatus  getWorldStatus(w.n) : (done >= total  'completed' : 'active');
         const worldUnlocked = statusKey !== 'locked';
-        const status = statusKey === 'completed' ? 'COMPLETED' : (statusKey === 'active' ? 'ACTIVE' : 'LOCKED');
+        const status = statusKey === 'completed'  'COMPLETED' : (statusKey === 'active'  'ACTIVE' : 'LOCKED');
 
         const nextLessonInWorld = clamp(Math.max(start, Math.min(end, currentLesson)), start, end);
-        const btnLabel = status === "LOCKED" ? "Locked" : (status === "COMPLETED" ? "Review World" : (status === "ACTIVE" ? "Continue" : "Start World"));
-        const btnHref = status === "LOCKED" ? "#" : `${lang === 'hebrew' ? 'lesson-hebrew.html' : 'lesson-player.html'}?lesson=${encodeURIComponent(nextLessonInWorld)}${langQuery}`;
+        const btnLabel = status === "LOCKED"  "Locked" : (status === "COMPLETED"  "Review World" : (status === "ACTIVE"  "Continue" : "Start World"));
+        const btnHref = status === "LOCKED"  "#" : `${lang === 'hebrew'  'lesson-hebrew.html' : 'lesson-player.html'}lesson=${encodeURIComponent(nextLessonInWorld)}${langQuery}`;
 
         const card = document.createElement('div');
-        card.className = 'worldCard' + (worldUnlocked ? '' : ' locked');
+        card.className = 'worldCard' + (worldUnlocked  '' : ' locked');
         card.innerHTML = `
           <div class="wTop">
             <div>
               <div class="wTitle">${w.icon} World ${w.n}: ${w.title}</div>
-              <div class="wMeta">Lessons ${start}â€“${end} â€¢ ${done}/${total} completed</div>
+              <div class="wMeta">Lessons ${start}–${end} • ${done}/${total} completed</div>
             </div>
             <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
-              <span class="wBadge" style="border-color:${worldUnlocked ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'}">${status}</span>
-              <a class="wBtn" ${status === "LOCKED" ? 'aria-disabled="true"' : ''} href="${btnHref}" style="border-color:${worldUnlocked ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'};background:rgba(255,255,255,0.02)">${btnLabel} â†’</a>
+              <span class="wBadge" style="border-color:${worldUnlocked  'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'}">${status}</span>
+              <a class="wBtn" ${status === "LOCKED"  'aria-disabled="true"' : ''} href="${btnHref}" style="border-color:${worldUnlocked  'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.08)'};background:rgba(255,255,255,0.02)">${btnLabel} →</a>
             </div>
           </div>
           <div class="bar" aria-label="World progress"><div style="background:linear-gradient(90deg, ${w.color}, rgba(255,255,255,0.15));width:${Math.round((done/total)*100)}%"></div></div>
@@ -761,18 +761,18 @@
       });
 
       // Lesson chips
-      const maxLesson = window.getLessonMax ? window.getLessonMax() : 24;
+      const maxLesson = window.getLessonMax  window.getLessonMax() : 24;
       for (let i = 1; i <= maxLesson; i++) {
         const done = completed.includes(i);
         const locked = !unlockedLessons.includes(i);
         const isNext = i === currentLesson && !done;
         const chip = document.createElement('a');
-        chip.className = 'lessonChip' + (locked ? ' locked' : '') + (done ? ' done' : '') + (isNext ? ' next' : '');
-        chip.href = locked ? '#' : `${lang === 'hebrew' ? 'lesson-hebrew.html' : 'lesson-player.html'}?lesson=${encodeURIComponent(i)}${langQuery}`;
+        chip.className = 'lessonChip' + (locked  ' locked' : '') + (done  ' done' : '') + (isNext  ' next' : '');
+        chip.href = locked  '#' : `${lang === 'hebrew'  'lesson-hebrew.html' : 'lesson-player.html'}lesson=${encodeURIComponent(i)}${langQuery}`;
         chip.innerHTML = `
           <div class="lcTop">
             <div class="lcNum">Lesson ${i}</div>
-            <div class="lcStat">${done ? 'âœ…' : locked ? 'ðŸ”’' : 'âž¡ï¸'}</div>
+            <div class="lcStat">${done  '✅' : locked  '🔒' : '➡️'}</div>
           </div>
           <div class="lcTitle">${LESSON_META[i-1].title}</div>
         `;
@@ -782,27 +782,27 @@
     }
 
     async function initPage(user) {
-      const lang = window.getActiveLanguage ? window.getActiveLanguage() : 'greek';
-      const langLabel = window.getLanguageLabel ? window.getLanguageLabel(lang) : (lang === 'hebrew' ? 'Biblical Hebrew' : 'Biblical Hebrew');
-      document.title = `Lessons â€¢ ${langLabel}`;
+      const lang = window.getActiveLanguage  window.getActiveLanguage() : 'greek';
+      const langLabel = window.getLanguageLabel  window.getLanguageLabel(lang) : (lang === 'hebrew'  'Biblical Hebrew' : 'Biblical Hebrew');
+      document.title = `Lessons • ${langLabel}`;
       const brandTitle = document.querySelector('.sbTitle');
       const brandSub = document.querySelector('.sbSub');
       const brandLink = document.querySelector('.sbBrand');
       if (brandTitle) brandTitle.textContent = langLabel;
       if (brandSub) brandSub.textContent = langLabel;
-      if (brandLink) brandLink.href = lang === 'hebrew' ? 'dashboard-hebrew.html?lang=hebrew' : 'dashboard.html';
+      if (brandLink) brandLink.href = lang === 'hebrew'  'dashboard-hebrew.htmllang=hebrew' : 'dashboard.html';
       wireSignOut(user);
       if (user && db) setupNotificationCenter(user);
 
-      let progress = (window.getProgress ? getProgress() : { completedLessons:[], currentLesson:1 });
+      let progress = (window.getProgress  getProgress() : { completedLessons:[], currentLesson:1 });
       if (user && window.syncFromFirebase) {
         try { progress = await syncFromFirebase(user.uid); } catch(_) {}
       }
-      const unlockedLessons = (window.getUnlockedLessons ? getUnlockedLessons() : [1]);
-      const completedLessons = Array.isArray(progress.completedLessons) ? progress.completedLessons.slice() : [];
-      const currentLesson = Number.isFinite(progress.currentLesson) ? progress.currentLesson : (window.getNextLesson ? (getNextLesson() || 1) : 1);
+      const unlockedLessons = (window.getUnlockedLessons  getUnlockedLessons() : [1]);
+      const completedLessons = Array.isArray(progress.completedLessons)  progress.completedLessons.slice() : [];
+      const currentLesson = Number.isFinite(progress.currentLesson)  progress.currentLesson : (window.getNextLesson  (getNextLesson() || 1) : 1);
 
-      if (!user) setTopUser(null, { hearts:5, streak:0, xp: (window.getTotalXP ? getTotalXP() : 0) });
+      if (!user) setTopUser(null, { hearts:5, streak:0, xp: (window.getTotalXP  getTotalXP() : 0) });
       else {
         try{
           const ref = db.collection('users').doc(user.uid);
@@ -811,10 +811,10 @@
             showLoadError("Could not load lessons. Please check your connection and try again.");
             throw err;
           });
-          const data = snap.exists ? (snap.data() || {}) : {};
+          const data = snap.exists  (snap.data() || {}) : {};
           setTopUser(user, data);
         }catch(_){
-          setTopUser(user, { hearts:5, streak:0, xp: (window.getTotalXP ? getTotalXP() : 0) });
+          setTopUser(user, { hearts:5, streak:0, xp: (window.getTotalXP  getTotalXP() : 0) });
         }
       }
 

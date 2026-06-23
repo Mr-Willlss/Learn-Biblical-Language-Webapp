@@ -1,73 +1,35 @@
 (function () {
-  function ensureSharedUiStyles() {
-    if (document.getElementById('kg-shared-ui-styles')) return;
-    const style = document.createElement('style');
-    style.id = 'kg-shared-ui-styles';
-    style.textContent = `
-      /* Mobile header breathing room (student app) */
-      #top-bar{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:10px 12px !important;
-        gap:0 !important;
-        overflow:hidden;
-        min-height:52px;
-        max-height:60px;
-        width:100%;
-        box-sizing:border-box;
-      }
-      #top-bar .tbTitle{
-        font-size:0.95rem !important;
-        font-weight:800;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        max-width:90px;
-        flex-shrink:0;
-      }
-      #top-bar .tbRight{
-        display:flex;
-        align-items:center;
-        gap:6px !important;
-        flex-shrink:0;
-        margin-left:auto;
-      }
-      #top-bar .pill{
-        padding:6px 8px !important;
-        font-size:0.80rem !important;
-        gap:6px !important;
-      }
-      #top-bar .avatar{width:28px !important;height:28px !important;border-radius:50% !important}
-      #top-bar .miniName{display:none !important}
-      @media (min-width: 600px){
-        #top-bar .tbTitle{max-width:160px !important;font-size:1.05rem !important}
-        #top-bar .avatar{width:34px !important;height:34px !important;border-radius:12px !important}
-        #top-bar .miniName{display:flex !important}
-      }
-    `;
-    document.head.appendChild(style);
+  function ensureToastHost() {
+    let host = document.getElementById("app-toast-host");
+    if (host) return host;
+    host = document.createElement("div");
+    host.id = "app-toast-host";
+    host.style.cssText = "position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;pointer-events:none";
+    document.body.appendChild(host);
+    return host;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    ensureSharedUiStyles();
-
-    // Add an Admin Portal link in the student sidebar (admins only).
-    // We keep this lightweight and non-blocking.
-    document.addEventListener('authReady', async (ev) => {
-      const user = ev?.detail || null;
-      if (!user || !window.firebase || !firebase.firestore) return;
-      const nav = document.querySelector('.nav');
-      if (!nav || nav.querySelector('a[href="admin.html"]')) return;
-      try {
-        const snap = await firebase.firestore().collection('users').doc(user.uid).get();
-        const data = snap.exists ? (snap.data() || {}) : {};
-        if (!data.isAdmin) return;
-        const a = document.createElement('a');
-        a.href = 'admin.html';
-        a.innerHTML = '<span class="ic">⚙️</span><span class="tx">Admin Portal</span>';
-        nav.appendChild(a);
-      } catch (_) {}
-    }, { once: true });
-  });
+  if (typeof window.showToast !== "function") {
+    window.showToast = function (message, tone) {
+      const host = ensureToastHost();
+      const toast = document.createElement("div");
+      toast.textContent = String(message || "");
+      toast.style.cssText = [
+        "pointer-events:auto",
+        "margin:8px auto 0",
+        "max-width:560px",
+        "padding:10px 12px",
+        "border-radius:12px",
+        "background:rgba(15,17,23,0.94)",
+        "color:#f8fafc",
+        "border:1px solid rgba(255,255,255,0.16)",
+        "box-shadow:0 14px 34px rgba(0,0,0,0.35)"
+      ].join(";");
+      if (tone === "good") toast.style.borderColor = "rgba(34,197,94,0.45)";
+      if (tone === "bad") toast.style.borderColor = "rgba(239,68,68,0.45)";
+      if (tone === "info") toast.style.borderColor = "rgba(59,130,246,0.45)";
+      host.appendChild(toast);
+      setTimeout(() => toast.remove(), 2600);
+    };
+  }
 })();

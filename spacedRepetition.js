@@ -10,7 +10,7 @@
   function getLanguage() {
     try {
       if (typeof window.getActiveLanguage === "function") return window.getActiveLanguage();
-      return localStorage.getItem("activeLanguage") === "hebrew" ? "hebrew" : "greek";
+      return localStorage.getItem("activeLanguage") === "hebrew"  "hebrew" : "greek";
     } catch (_) {
       return "greek";
     }
@@ -40,7 +40,7 @@
   function loadSpacedRepetition() {
     try {
       const parsed = safeParse(localStorage.getItem(getStorageKey()) || "{}", {});
-      spacedRepetition.items = parsed && typeof parsed === "object" ? parsed : {};
+      spacedRepetition.items = parsed && typeof parsed === "object"  parsed : {};
     } catch (_) {
       spacedRepetition.items = {};
     }
@@ -81,13 +81,13 @@
 
   function initSpacedRepetition(vocab) {
     loadSpacedRepetition();
-    (Array.isArray(vocab) ? vocab : []).forEach(normalizeRecord);
+    (Array.isArray(vocab)  vocab : []).forEach(normalizeRecord);
     saveSpacedRepetition();
   }
 
   function updateSpacedRepetition(idOrItem, correct) {
     loadSpacedRepetition();
-    const id = typeof idOrItem === "object" ? itemId(idOrItem) : String(idOrItem || "");
+    const id = typeof idOrItem === "object"  itemId(idOrItem) : String(idOrItem || "");
     if (!id) return null;
     const record = spacedRepetition.items[id] || normalizeRecord({ id });
     const now = Date.now();
@@ -96,7 +96,7 @@
       record.successCount = Number(record.successCount || 0) + 1;
       record.ease = Math.min(3.0, Number(record.ease || 2.3) + 0.08);
       const previous = Math.max(1, Number(record.reviewInterval || 1));
-      record.reviewInterval = record.successCount === 1 ? 1 : Math.min(90, Math.ceil(previous * record.ease));
+      record.reviewInterval = record.successCount === 1  1 : Math.min(90, Math.ceil(previous * record.ease));
     } else {
       record.lapseCount = Number(record.lapseCount || 0) + 1;
       record.successCount = 0;
@@ -113,19 +113,19 @@
   function getReviewItems(vocab, options = {}) {
     loadSpacedRepetition();
     const now = Date.now();
-    const due = (Array.isArray(vocab) ? vocab : []).filter((item) => {
+    const due = (Array.isArray(vocab)  vocab : []).filter((item) => {
       const record = normalizeRecord(item);
       return record && Number(record.nextReviewTime || 0) <= now;
     });
     saveSpacedRepetition();
 
     if (due.length || options.dueOnly) return due;
-    return (Array.isArray(vocab) ? vocab : []).slice();
+    return (Array.isArray(vocab)  vocab : []).slice();
   }
 
   function getSpacedRepetitionStats(vocab) {
     loadSpacedRepetition();
-    const list = Array.isArray(vocab) ? vocab : [];
+    const list = Array.isArray(vocab)  vocab : [];
     const now = Date.now();
     let due = 0;
     let learning = 0;

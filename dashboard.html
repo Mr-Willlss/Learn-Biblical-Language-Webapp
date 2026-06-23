@@ -1,21 +1,21 @@
 ﻿<!--
-Top 5 research findings applied (2024â€“2025):
+Top 5 research findings applied (2024–2025):
 1) Bento-grid dashboards are most effective when each card is highly scannable (one primary metric + one supportive line), with consistent spacing/radius, and a clear hierarchy (hero card + supporting cards) that stacks cleanly on mobile.
 2) Micro-interactions should communicate state changes (correct/wrong, progress movement, loading) and stay subtle; excessive motion feels gimmicky. Always support reduced-motion preferences.
-3) Streaks are effective habit scaffolds when tied to meaningful learning; â€œone lesson a dayâ€ aligns with distributed practice (spacing) for better long-term retention than cramming.
+3) Streaks are effective habit scaffolds when tied to meaningful learning; “one lesson a day” aligns with distributed practice (spacing) for better long-term retention than cramming.
 4) Social learning works best with lightweight patterns: visible friend presence, simple requests/challenges, and shared sessions (study rooms) rather than heavy community feeds.
-5) Greek alphabet UX commonly focuses on rapid symbolâ†”nameâ†”sound drills, uppercase/lowercase mapping, immediate feedback quizzes, and optional mnemonics/audioâ€”ideal for early-world lessons.
+5) Greek alphabet UX commonly focuses on rapid symbol↔name↔sound drills, uppercase/lowercase mapping, immediate feedback quizzes, and optional mnemonics/audio—ideal for early-world lessons.
 -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#7c5cfc">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Learn Biblical Languages">
-  <title>Dashboard â€¢ Learn Biblical Languages</title>
+  <title>Dashboard • Learn Biblical Languages</title>
   <script src="progress-manager.js"></script>
   <script src="learning-enhancements.js"></script>
   <style>
@@ -327,7 +327,7 @@ Top 5 research findings applied (2024â€“2025):
   <div id="app">
     <aside id="sidebar" aria-label="Sidebar navigation">
       <a class="sbBrand" href="dashboard.html" aria-label="Learn Biblical Languages home">
-        <div class="sbLogo" aria-hidden="true"><span>Î©</span></div>
+        <div class="sbLogo" aria-hidden="true"><span>Ω</span></div>
         <div>
           <div class="sbTitle">Biblical Languages</div>
 
@@ -336,34 +336,34 @@ Top 5 research findings applied (2024â€“2025):
       <div class="sbGroup">
         <h3>Main</h3>
         <nav class="nav">
-          <a href="dashboard.html"><span class="ic">ðŸ </span><span class="tx">Dashboard</span></a>
-          <a href="practice.html"><span class="ic">ðŸŽ¯</span><span class="tx">Practice</span></a>
-          <a href="lessons.html"><span class="ic">ðŸ“š</span><span class="tx">Lessons</span></a>
-          <a href="quests.html"><span class="ic">âš”ï¸</span><span class="tx">Quests</span></a>
+          <a href="dashboard.html"><span class="ic">🏠</span><span class="tx">Dashboard</span></a>
+          <a href="practice.html"><span class="ic">🎯</span><span class="tx">Practice</span></a>
+          <a href="lessons.html"><span class="ic">📚</span><span class="tx">Lessons</span></a>
+          <a href="quests.html"><span class="ic">⚔️</span><span class="tx">Quests</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Learn</h3>
         <nav class="nav">
-          <a href="vocabulary.html"><span class="ic">ðŸ”¤</span><span class="tx">Vocabulary</span></a>
-          <a href="leaderboard.html"><span class="ic">ðŸ†</span><span class="tx">Leaderboard</span></a>
-          <a href="rewards.html"><span class="ic">ðŸŽ</span><span class="tx">Rewards</span></a>
+          <a href="vocabulary.html"><span class="ic">🔤</span><span class="tx">Vocabulary</span></a>
+          <a href="leaderboard.html"><span class="ic">🏆</span><span class="tx">Leaderboard</span></a>
+          <a href="rewards.html"><span class="ic">🎁</span><span class="tx">Rewards</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Social</h3>
         <nav class="nav">
-          <a href="friends.html"><span class="ic">ðŸ‘¥</span><span class="tx">Friends</span></a>
-          <a href="study-room.html"><span class="ic">ðŸ’¬</span><span class="tx">Study Room</span></a>
+          <a href="friends.html"><span class="ic">👥</span><span class="tx">Friends</span></a>
+          <a href="study-room.html"><span class="ic">💬</span><span class="tx">Study Room</span></a>
         </nav>
       </div>
       <div class="sbGroup">
         <h3>Account</h3>
         <nav class="nav">
-          <a href="language-home.html"><span class="ic">ðŸŒ</span><span class="tx">Switch Language</span></a>
-          <a href="profile.html"><span class="ic">ðŸ‘¤</span><span class="tx">Profile</span></a>
-          <a href="profile.html#settings"><span class="ic">âš™ï¸</span><span class="tx">Settings</span></a>
-          <a href="#" id="signOutLink"><span class="ic">ðŸšª</span><span class="tx">Sign Out</span></a>
+          <a href="language-home.html"><span class="ic">🌐</span><span class="tx">Switch Language</span></a>
+          <a href="profile.html"><span class="ic">👤</span><span class="tx">Profile</span></a>
+          <a href="profile.html#settings"><span class="ic">⚙️</span><span class="tx">Settings</span></a>
+          <a href="#" id="signOutLink"><span class="ic">🚪</span><span class="tx">Sign Out</span></a>
         </nav>
       </div>
     </aside>
@@ -375,14 +375,14 @@ Top 5 research findings applied (2024â€“2025):
           <div class="tbSub" id="pageSub">Your Biblical Languages command center</div>
         </div>
         <div class="tbRight">
-          <div class="pill" title="Daily streak"><span class="flame">ðŸ”¥</span><b id="streakVal">â€”</b></div>
-          <div class="pill" title="Hearts"><span>â¤ï¸</span><b id="heartsVal">â€”</b></div>
-          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">ðŸ””</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
+          <div class="pill" title="Daily streak"><span class="flame">🔥</span><b id="streakVal">—</b></div>
+          <div class="pill" title="Hearts"><span>❤️</span><b id="heartsVal">—</b></div>
+          <button class="pill bell" id="bellBtn" title="Notifications" type="button"><span class="bellI">🔔</span><span class="bellBadge" id="bellBadge" style="display:none">0</span></button>
           <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar" id="avatar"><span>ðŸ‘¤</span></div>
+            <div class="avatar" id="avatar"><span>👤</span></div>
             <div class="miniName">
               <div class="n" id="userName">User</div>
-              <div class="l" id="userLevel">Level â€”</div>
+              <div class="l" id="userLevel">Level —</div>
             </div>
           </div>
         </div>
@@ -398,36 +398,36 @@ Top 5 research findings applied (2024â€“2025):
                 <span class="chip skel" style="width:210px;height:30px"></span>
               </div>
             </div>
-            <a class="cta" id="continueBtn" href="lessons.html" aria-label="Continue lesson">Continue â†’</a>
+            <a class="cta" id="continueBtn" href="lessons.html" aria-label="Continue lesson">Continue →</a>
           </div>
         </section>
 
         <section class="bento" aria-label="Today overview">
           <div class="card" style="grid-column:span 2">
-            <div class="k">ðŸ“… Todayâ€™s Goal</div>
+            <div class="k">📅 Today’s Goal</div>
             <div class="v">One lesson a day builds mastery.</div>
             <div class="bar" aria-label="Goal progress"><div id="goalBar"></div></div>
           </div>
           <div class="card" style="grid-column:span 2">
-            <div class="k">ðŸ”¥ Streak</div>
+            <div class="k">🔥 Streak</div>
             <div class="v"><span id="streakText" class="skel" style="display:inline-block;width:160px;height:14px;border-radius:10px"></span></div>
           </div>
           <div class="card" style="grid-column:span 2">
-            <div class="k">â­ XP & Level</div>
+            <div class="k">⭐ XP & Level</div>
             <div class="v"><span id="xpText" class="skel" style="display:inline-block;width:170px;height:14px;border-radius:10px"></span></div>
             <div class="bar" aria-label="Level progress"><div id="xpBar"></div></div>
           </div>
           <div class="card" style="grid-column:span 2">
-            <div class="k">â¤ï¸ Hearts</div>
+            <div class="k">❤️ Hearts</div>
             <div class="v">Lose one per wrong answer in lessons.</div>
             <div class="hearts" id="heartsRow" aria-label="Hearts"></div>
           </div>
           <div class="card" style="grid-column:span 2">
-            <div class="k">ðŸ† Your Rank</div>
+            <div class="k">🏆 Your Rank</div>
             <div class="v" id="rankText" class="skel" style="width:160px;height:14px;border-radius:10px"></div>
           </div>
           <div class="card" style="grid-column:span 2">
-            <div class="k">ðŸ‘¥ Friends Online</div>
+            <div class="k">👥 Friends Online</div>
             <div class="v" id="friendsOnlineText" class="skel" style="width:180px;height:14px;border-radius:10px"></div>
           </div>
         </section>
@@ -456,11 +456,11 @@ Top 5 research findings applied (2024â€“2025):
 
   <div class="bottomTabs" role="navigation" aria-label="Bottom tabs">
     <div class="tabs">
-      <a class="tab" href="dashboard.html"><div>ðŸ </div><div>Home</div></a>
-      <a class="tab" href="practice.html"><div>ðŸŽ¯</div><div>Practice</div></a>
-      <a class="tab" href="lessons.html"><div>ðŸ“š</div><div>Lessons</div></a>
-      <a class="tab" href="friends.html"><div>ðŸ‘¥</div><div>Friends</div></a>
-      <a class="tab" href="profile.html"><div>ðŸ‘¤</div><div>Profile</div></a>
+      <a class="tab" href="dashboard.html"><div>🏠</div><div>Home</div></a>
+      <a class="tab" href="practice.html"><div>🎯</div><div>Practice</div></a>
+      <a class="tab" href="lessons.html"><div>📚</div><div>Lessons</div></a>
+      <a class="tab" href="friends.html"><div>👥</div><div>Friends</div></a>
+      <a class="tab" href="profile.html"><div>👤</div><div>Profile</div></a>
     </div>
   </div>
 
@@ -505,7 +505,7 @@ Top 5 research findings applied (2024â€“2025):
       const dot = document.getElementById('toastDot');
       const t = document.getElementById('toastTitle');
       const m = document.getElementById('toastMsg');
-      dot.className = 'dot ' + (type === 'good' ? 'good' : type === 'bad' ? 'bad' : 'info');
+      dot.className = 'dot ' + (type === 'good'  'good' : type === 'bad'  'bad' : 'info');
       t.textContent = title;
       m.textContent = msg;
       el.classList.add('show');
@@ -531,7 +531,7 @@ Top 5 research findings applied (2024â€“2025):
         level, title: titles[level-1],
         currentThreshold: thresholds[level-1],
         nextThreshold: thresholds[level] || 99999,
-        progress: level >= thresholds.length ? 100 :
+        progress: level >= thresholds.length  100 :
           Math.round((xp - thresholds[level-1]) / (thresholds[level] - thresholds[level-1]) * 100)
       };
     }
@@ -560,8 +560,8 @@ Top 5 research findings applied (2024â€“2025):
       row.innerHTML = '';
       for (let i = 0; i < 5; i++) {
         const h = document.createElement('div');
-        h.className = 'heart ' + (i < count ? 'on' : 'off');
-        h.textContent = 'â¤';
+        h.className = 'heart ' + (i < count  'on' : 'off');
+        h.textContent = '❤';
         row.appendChild(h);
       }
       document.getElementById('heartsVal').textContent = String(count);
@@ -576,16 +576,16 @@ Top 5 research findings applied (2024â€“2025):
       wl.style.height = '';
       ws.style.width = '';
       ws.style.height = '';
-      wl.textContent = `Welcome back, ${name}! ðŸ”¥ ${streak} day streak`;
-      ws.textContent = "Keep going â€” one lesson a day builds mastery.";
+      wl.textContent = `Welcome back, ${name}! 🔥 ${streak} day streak`;
+      ws.textContent = "Keep going — one lesson a day builds mastery.";
       const continueBtn = document.getElementById('continueBtn');
       if (continueBtn) {
-        continueBtn.href = `lesson-player.html?lesson=${encodeURIComponent(lessonNum)}`;
-        continueBtn.textContent = `Continue â†’ ${lessonTitle || ('Lesson ' + lessonNum)}`;
+        continueBtn.href = `lesson-player.htmllesson=${encodeURIComponent(lessonNum)}`;
+        continueBtn.textContent = `Continue → ${lessonTitle || ('Lesson ' + lessonNum)}`;
       }
       const chips = document.querySelectorAll('.meta .chip');
-      const maxLesson = window.getLessonMax ? window.getLessonMax() : 24;
-      if (chips[0]) chips[0].innerHTML = `<b>Lesson ${lessonNum}</b> of ${maxLesson} â€” World <b>${worldNum}</b>`;
+      const maxLesson = window.getLessonMax  window.getLessonMax() : 24;
+      if (chips[0]) chips[0].innerHTML = `<b>Lesson ${lessonNum}</b> of ${maxLesson} — World <b>${worldNum}</b>`;
       if (chips[1]) chips[1].innerHTML = `<b>Next</b>: ${lessonTitle || 'Continue your path'}`;
       chips.forEach(c => c.classList.remove('skel'));
     }
@@ -599,20 +599,20 @@ Top 5 research findings applied (2024â€“2025):
       wl.style.height = '';
       ws.style.width = '';
       ws.style.height = '';
-      wl.textContent = "Welcome! Sign in to track your progress ðŸŽ“";
+      wl.textContent = "Welcome! Sign in to track your progress 🎓";
       ws.textContent = "Browse lessons, then sign in to save XP, streak, and hearts.";
       const chips = document.querySelectorAll('.meta .chip');
-      if (chips[0]) chips[0].innerHTML = `<b>Lesson 1</b> of 24 â€” World <b>1</b>`;
+      if (chips[0]) chips[0].innerHTML = `<b>Lesson 1</b> of 24 — World <b>1</b>`;
       if (chips[1]) chips[1].innerHTML = `<b>Next</b>: Sign in to continue`;
       chips.forEach(c => c.classList.remove('skel'));
     }
 
     const WORLDS = [
-      { n:1, name:"ðŸ›ï¸ The Alphabet Temple", range:"Lessons 1â€“5" },
-      { n:2, name:"ðŸ“– First Words & Sentences", range:"Lessons 6â€“10" },
-      { n:3, name:"ðŸ—ï¸ Grammar Foundations", range:"Lessons 11â€“15" },
-      { n:4, name:"ðŸ“œ Expanding Grammar", range:"Lessons 16â€“20" },
-      { n:5, name:"ðŸŒŸ Advanced Structures", range:"Lessons 21â€“24" }
+      { n:1, name:"🏛️ The Alphabet Temple", range:"Lessons 1–5" },
+      { n:2, name:"📖 First Words & Sentences", range:"Lessons 6–10" },
+      { n:3, name:"🏗️ Grammar Foundations", range:"Lessons 11–15" },
+      { n:4, name:"📜 Expanding Grammar", range:"Lessons 16–20" },
+      { n:5, name:"🌟 Advanced Structures", range:"Lessons 21–24" }
     ];
 
     const firebaseConfig = {
@@ -649,7 +649,7 @@ Top 5 research findings applied (2024â€“2025):
     }
 
     function timeAgo(ts){
-      const ms = ts && typeof ts.toMillis === 'function' ? ts.toMillis() : (typeof ts === 'number' ? ts : Date.now());
+      const ms = ts && typeof ts.toMillis === 'function'  ts.toMillis() : (typeof ts === 'number'  ts : Date.now());
       const s = Math.max(0, Math.floor((Date.now() - ms) / 1000));
       if (s < 10) return 'just now';
       if (s < 60) return `${s}s ago`;
@@ -686,7 +686,7 @@ Top 5 research findings applied (2024â€“2025):
         panel.setAttribute('aria-hidden','true');
         backdrop.style.display = 'none';
       }
-      function toggle(){ state.open ? close() : open(); }
+      function toggle(){ state.open  close() : open(); }
 
       function render(){
         if (!state.open) return;
@@ -695,7 +695,7 @@ Top 5 research findings applied (2024â€“2025):
         if (state.friendReqs.length) {
           const wrap = document.createElement('div');
           wrap.className = 'nItem';
-          wrap.innerHTML = `<div class="left"><div class="nTag">ðŸ‘¥ Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
+          wrap.innerHTML = `<div class="left"><div class="nTag">👥 Friend requests</div><div class="msg">You have ${state.friendReqs.length} pending request(s).</div><div class="meta">Accept or decline below.</div></div>`;
           body.appendChild(wrap);
 
           state.friendReqs.forEach(uid => {
@@ -718,7 +718,7 @@ Top 5 research findings applied (2024â€“2025):
 
         if (state.notifs.length) {
           state.notifs.forEach(n => {
-            const icon = n.type === 'challenge' ? 'ðŸ†' : (n.type === 'system' ? 'âœ¨' : 'ðŸ””');
+            const icon = n.type === 'challenge'  '🏆' : (n.type === 'system'  '✨' : '🔔');
             const row = document.createElement('div');
             row.className = 'nItem';
             row.innerHTML = `
@@ -728,7 +728,7 @@ Top 5 research findings applied (2024â€“2025):
                 <div class="meta">${timeAgo(n.timestamp)}</div>
               </div>
               <div class="right">
-                ${n.type === 'challenge' ? `<button class="nBtn primary" data-accept="${n.id}" type="button">Accept</button>` : ''}
+                ${n.type === 'challenge'  `<button class="nBtn primary" data-accept="${n.id}" type="button">Accept</button>` : ''}
                 <button class="nBtn" data-dismiss="${n.id}" type="button">Dismiss</button>
               </div>
             `;
@@ -796,8 +796,8 @@ Top 5 research findings applied (2024â€“2025):
 
       // Friend requests live on user doc
       db.collection('users').doc(user.uid).onSnapshot((snap) => {
-        const data = snap.exists ? (snap.data() || {}) : {};
-        state.friendReqs = Array.isArray(data.friendRequests) ? data.friendRequests : [];
+        const data = snap.exists  (snap.data() || {}) : {};
+        state.friendReqs = Array.isArray(data.friendRequests)  data.friendRequests : [];
         render();
       }, ()=>{});
 
@@ -805,7 +805,7 @@ Top 5 research findings applied (2024â€“2025):
       col.where('read','==',false).onSnapshot((snap) => {
         const c = snap.size || 0;
         badge.textContent = String(c);
-        badge.style.display = c ? '' : 'none';
+        badge.style.display = c  '' : 'none';
       }, ()=>{});
       col.orderBy('timestamp','desc').limit(30).onSnapshot((snap) => {
         state.notifs = snap.docs.map(d => ({ id:d.id, ...(d.data()||{}) }));
@@ -824,8 +824,8 @@ Top 5 research findings applied (2024â€“2025):
 
     async function regenHeartsIfNeeded(userRef, userData) {
       const now = Date.now();
-      const current = typeof userData.hearts === 'number' ? userData.hearts : 5;
-      const updatedAt = typeof userData.heartsUpdatedAt === 'number' ? userData.heartsUpdatedAt : now;
+      const current = typeof userData.hearts === 'number'  userData.hearts : 5;
+      const updatedAt = typeof userData.heartsUpdatedAt === 'number'  userData.heartsUpdatedAt : now;
       const regenEveryMs = 4 * 60 * 60 * 1000;
       if (current >= 5) return current;
       const gained = Math.floor((now - updatedAt) / regenEveryMs);
@@ -855,7 +855,7 @@ Top 5 research findings applied (2024â€“2025):
         setSignedOutBanner();
         const continueBtn = document.getElementById('continueBtn');
         if (continueBtn) {
-          continueBtn.textContent = 'Sign In to Continue â†’';
+          continueBtn.textContent = 'Sign In to Continue →';
           continueBtn.onclick = (e) => { e.preventDefault(); window.location.href = 'index.html'; };
           continueBtn.href = 'index.html';
         }
@@ -871,15 +871,15 @@ Top 5 research findings applied (2024â€“2025):
         const fr = document.getElementById('friendsOnlineText');
         fr.classList.remove('skel');
         fr.textContent = "Sign in to see friends";
-        activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">Not signed in</div><div class="d">Browse lessons, then sign in to save progress.</div></div><div class="d">â€”</div></div>`;
+        activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">Not signed in</div><div class="d">Browse lessons, then sign in to save progress.</div></div><div class="d">—</div></div>`;
         worldPreview.innerHTML = WORLDS.map(w => `<div class="rowItem"><div><div class="t">${w.name}</div><div class="d">${w.range}</div></div><div class="d">Visible</div></div>`).join('');
         return;
       }
 
       const userRef = db.collection('users').doc(user.uid);
       const snap = await userRef.get();
-      const userData = snap.exists ? (snap.data() || {}) : {};
-      const localProgress = window.syncFromFirebase ? await syncFromFirebase(user.uid) : (window.getProgress ? getProgress() : null);
+      const userData = snap.exists  (snap.data() || {}) : {};
+      const localProgress = window.syncFromFirebase  await syncFromFirebase(user.uid) : (window.getProgress  getProgress() : null);
 
       const today = new Date().toISOString().split('T')[0];
       const yesterday = new Date(Date.now()-86400000).toISOString().split('T')[0];
@@ -889,16 +889,16 @@ Top 5 research findings applied (2024â€“2025):
       }
 
       const hearts = await regenHeartsIfNeeded(userRef, userData);
-      const xp = Number.isFinite(userData.xp) ? userData.xp : 0;
+      const xp = Number.isFinite(userData.xp)  userData.xp : 0;
       const lvl = calcLevel(xp);
-      const streak = Number.isFinite(userData.streak) ? userData.streak : 0;
+      const streak = Number.isFinite(userData.streak)  userData.streak : 0;
       const name = (userData.displayName || user.displayName || user.email || "Scholar").trim();
-      const currentLesson = (localProgress && Number.isFinite(localProgress.currentLesson)) ? localProgress.currentLesson : (Number.isFinite(userData.currentLesson) ? userData.currentLesson : 1);
-      const currentWorld = Number.isFinite(userData.currentWorld) ? userData.currentWorld : Math.max(1, Math.min(5, Math.ceil(currentLesson/5)));
+      const currentLesson = (localProgress && Number.isFinite(localProgress.currentLesson))  localProgress.currentLesson : (Number.isFinite(userData.currentLesson)  userData.currentLesson : 1);
+      const currentWorld = Number.isFinite(userData.currentWorld)  userData.currentWorld : Math.max(1, Math.min(5, Math.ceil(currentLesson/5)));
 
       document.getElementById('streakVal').textContent = String(streak);
       document.getElementById('userName').textContent = name;
-      document.getElementById('userLevel').textContent = `Level ${lvl.level} â€¢ ${lvl.title}`;
+      document.getElementById('userLevel').textContent = `Level ${lvl.level} • ${lvl.title}`;
       const av = document.getElementById('avatar');
       if (userData.photoURL || user.photoURL) {
         av.innerHTML = '';
@@ -913,71 +913,71 @@ Top 5 research findings applied (2024â€“2025):
       // Ensure Continue button behavior always respects auth state.
       const continueBtn = document.getElementById('continueBtn');
       if (continueBtn) {
-        const nextLesson = window.getNextLesson ? getNextLesson() : currentLesson;
-        continueBtn.textContent = `Continue â†’ Lesson ${nextLesson || 1}`;
+        const nextLesson = window.getNextLesson  getNextLesson() : currentLesson;
+        continueBtn.textContent = `Continue → Lesson ${nextLesson || 1}`;
         continueBtn.onclick = (e) => {
           e.preventDefault();
           const u = firebase.auth().currentUser;
           if (!u) { window.location.href = 'index.html'; return; }
-          const nl = window.getNextLesson ? getNextLesson() : (nextLesson || 1);
-          if (nl) window.location.href = `lesson-player.html?lesson=${encodeURIComponent(nl)}`;
+          const nl = window.getNextLesson  getNextLesson() : (nextLesson || 1);
+          if (nl) window.location.href = `lesson-player.htmllesson=${encodeURIComponent(nl)}`;
           else window.location.href = 'lessons.html';
         };
-        continueBtn.href = `lesson-player.html?lesson=${encodeURIComponent(nextLesson || 1)}`;
+        continueBtn.href = `lesson-player.htmllesson=${encodeURIComponent(nextLesson || 1)}`;
       }
       document.getElementById('streakText').classList.remove('skel');
-      document.getElementById('streakText').textContent = streak ? `Youâ€™re on a ${streak}-day streak. Keep it alive today.` : "Start your streak: complete 1 lesson today.";
+      document.getElementById('streakText').textContent = streak  `You’re on a ${streak}-day streak. Keep it alive today.` : "Start your streak: complete 1 lesson today.";
       const xpText = document.getElementById('xpText');
       xpText.classList.remove('skel');
-      xpText.textContent = `${xp} XP â€¢ ${lvl.title} â€¢ ${lvl.progress}% to next level`;
+      xpText.textContent = `${xp} XP • ${lvl.title} • ${lvl.progress}% to next level`;
       xpBar.style.width = lvl.progress + '%';
 
       const doneToday = (userData.lastActiveDate || "") === today;
-      goalBar.style.width = doneToday ? "100%" : "0%";
+      goalBar.style.width = doneToday  "100%" : "0%";
 
       const league = leagueFromXp(xp);
       const rankEl = document.getElementById('rankText');
       rankEl.classList.remove('skel');
-      rankEl.textContent = `${league} League â€¢ Rank: ${userData.rank || lvl.title}`;
+      rankEl.textContent = `${league} League • Rank: ${userData.rank || lvl.title}`;
 
       const friendsEl = document.getElementById('friendsOnlineText');
       friendsEl.classList.remove('skel');
-      const friends = Array.isArray(userData.friends) ? userData.friends : [];
-      if (!friends.length) friendsEl.textContent = "0 online â€¢ Add friends to study together";
-      else friendsEl.textContent = `${friends.length} friends â€¢ Tap Friends to see status`;
+      const friends = Array.isArray(userData.friends)  userData.friends : [];
+      if (!friends.length) friendsEl.textContent = "0 online • Add friends to study together";
+      else friendsEl.textContent = `${friends.length} friends • Tap Friends to see status`;
 
       activityFeed.innerHTML = '';
       db.collection('users').doc(user.uid).collection('activity')
         .orderBy('timestamp','desc').limit(5).get()
         .then(qs => {
           if (qs.empty) {
-            activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">No activity yet</div><div class="d">Complete a lesson or practice to start your feed.</div></div><div class="d">â€”</div></div>`;
+            activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">No activity yet</div><div class="d">Complete a lesson or practice to start your feed.</div></div><div class="d">—</div></div>`;
             return;
           }
           activityFeed.innerHTML = '';
           qs.forEach(doc => {
             const a = doc.data() || {};
-            const when = a.timestamp && a.timestamp.toDate ? a.timestamp.toDate() : null;
-            const label = when ? when.toLocaleString() : '';
+            const when = a.timestamp && a.timestamp.toDate  a.timestamp.toDate() : null;
+            const label = when  when.toLocaleString() : '';
             activityFeed.insertAdjacentHTML('beforeend',
-              `<div class="rowItem"><div><div class="t">${(a.description || a.type || 'Activity')}</div><div class="d">${a.xpEarned ? ('+'+a.xpEarned+' XP') : ''}</div></div><div class="d">${label}</div></div>`
+              `<div class="rowItem"><div><div class="t">${(a.description || a.type || 'Activity')}</div><div class="d">${a.xpEarned  ('+'+a.xpEarned+' XP') : ''}</div></div><div class="d">${label}</div></div>`
             );
           });
         })
         .catch(() => {
-          activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">Could not load activity</div><div class="d">Check your connection.</div></div><div class="d">â€”</div></div>`;
+          activityFeed.innerHTML = `<div class="rowItem"><div><div class="t">Could not load activity</div><div class="d">Check your connection.</div></div><div class="d">—</div></div>`;
         });
 
       worldPreview.innerHTML = '';
-      const completed = localProgress && Array.isArray(localProgress.completedLessons) ? localProgress.completedLessons.length : (Number.isFinite(userData.lessonsCompleted) ? userData.lessonsCompleted : 0);
+      const completed = localProgress && Array.isArray(localProgress.completedLessons)  localProgress.completedLessons.length : (Number.isFinite(userData.lessonsCompleted)  userData.lessonsCompleted : 0);
       WORLDS.forEach(w => {
         const start = (w.n-1)*5+1;
-        const end = w.n === 5 ? 24 : w.n*5;
+        const end = w.n === 5  24 : w.n*5;
         const total = end - start + 1;
         const done = clamp(Math.max(0, completed - (start-1)), 0, total);
-        const status = done >= total ? "Completed" : (currentWorld === w.n ? "Active" : (completed >= (start-1) ? "Unlocked" : "Locked"));
+        const status = done >= total  "Completed" : (currentWorld === w.n  "Active" : (completed >= (start-1)  "Unlocked" : "Locked"));
         worldPreview.insertAdjacentHTML('beforeend',
-          `<div class="rowItem"><div><div class="t">${w.name}</div><div class="d">${done}/${total} lessons â€¢ ${w.range}</div></div><div class="d">${status}</div></div>`
+          `<div class="rowItem"><div><div class="t">${w.name}</div><div class="d">${done}/${total} lessons • ${w.range}</div></div><div class="d">${status}</div></div>`
         );
       });
     }
@@ -988,7 +988,7 @@ Top 5 research findings applied (2024â€“2025):
       const continueBtn = document.getElementById('continueBtn');
       if (continueBtn) {
         continueBtn.addEventListener('click', function(e){
-          const u = (window.firebase && firebase.auth) ? firebase.auth().currentUser : null;
+          const u = (window.firebase && firebase.auth)  firebase.auth().currentUser : null;
           if (!u) {
             e.preventDefault();
             window.location.href = 'index.html';

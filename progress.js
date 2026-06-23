@@ -1,4 +1,4 @@
-// progress.js — shared localStorage progress utilities (no modules)
+// progress.js - shared localStorage progress utilities (no modules)
 (function(){
   const KEY = 'koine_progress';
   const XP_KEY = 'koine_xp';
@@ -10,8 +10,8 @@
 
   function getProgress(){
     const raw = localStorage.getItem(KEY);
-    const obj = raw ? safeJsonParse(raw, {}) : {};
-    return (obj && typeof obj === 'object') ? obj : {};
+    const obj = raw  safeJsonParse(raw, {}) : {};
+    return (obj && typeof obj === 'object')  obj : {};
   }
 
   function saveProgress(progress){
@@ -26,8 +26,8 @@
 
   function markLessonComplete(lessonId, score, xpEarned){
     const id = String(Number(lessonId));
-    const pct = Number.isFinite(score) ? Math.round(score) : 0;
-    const xp = Number.isFinite(xpEarned) ? Math.round(xpEarned) : 0;
+    const pct = Number.isFinite(score)  Math.round(score) : 0;
+    const xp = Number.isFinite(xpEarned)  Math.round(xpEarned) : 0;
     const progress = getProgress();
     progress[id] = {
       completed: pct >= 60,
