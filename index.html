@@ -1,20 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Loading…</title>
-  <script>
-    (function () {
-      var lang = "greek";
-      try {
-        var stored = localStorage.getItem("activeLanguage");
-        if (stored === "hebrew") lang = "hebrew";
-      } catch (_) {}
-      if (new URLSearchParams(location.search).get("lang") === "hebrew") lang = "hebrew";
-      location.replace(lang === "hebrew"  "dashboard-hebrew.html" : "dashboard.html");
-    })();
-  </script>
-</head>
-<body></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="Biblical Languages learning platform for Koine Greek and Biblical Hebrew." />
+    <title>Biblical Languages</title>
+    <script type="module" src="/src/main.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
